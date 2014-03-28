@@ -1,4 +1,9 @@
 <?php
+/*
+ File name: Crime.php
+ File description: crime model
+ Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu
+*/
 include_once('/../exceptions/EFalhaLeituraSerieCrime.php');
 include_once('C:/xampp/htdocs/mds2013/exceptions/ETipoErrado.php');
 
