@@ -1,4 +1,9 @@
 <?php
+/*
+ File name: TempoController.php
+ File description: insert, consult, show some time informations
+ Authors: Lucas Andrade, Eduardo, Sérgio, Lucas, Eliseu
+*/
 include_once('C:/xampp/htdocs/mds2013/persistence/TempoDAO.php');
 include_once('C:/xampp/htdocs/mds2013/model/Tempo.php');
 class TempoController{

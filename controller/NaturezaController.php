@@ -1,4 +1,10 @@
 <?php
+/*
+ File name: NaturezaController.php
+ File description: insert, consult, show and sum some kind informations
+ Authors: Lucas Andrade, Eduardo, Sérgio, Lucas, Eliseu
+*/
+
 include_once('C:/xampp/htdocs/mds2013/persistence/NaturezaDAO.php');
 include_once('C:/xampp/htdocs/mds2013/persistence/CategoriaDAO.php');
 include_once('C:/xampp/htdocs/mds2013/model/Natureza.php');

@@ -1,4 +1,10 @@
 <?php
+/*
+ File name: CrimeController.php
+ File description: insert, consult, show and sum some crime informations
+ Authors: Lucas Andrade, Eduardo, Sérgio, Lucas, Eliseu
+*/
+
 	include_once('C:/xampp/htdocs/mds2013/persistence/CrimeDAO.php');
 	include_once('C:/xampp/htdocs/mds2013/persistence/TempoDAO.php');
 	include_once('C:/xampp/htdocs/mds2013/persistence/NaturezaDAO.php');

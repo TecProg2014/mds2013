@@ -1,4 +1,9 @@
 <?php
+/*
+ File name: CategoriaController.php
+ File description: insert, consult, show and sum some category information
+ Authors: Lucas Andrade, Eduardo, Sérgio, Lucas, Eliseu
+*/
 include_once('C:/xampp/htdocs/mds2013/persistence/CategoriaDAO.php');
 include_once('C:/xampp/htdocs/mds2013/model/Categoria.php');
 include_once('C:/xampp/htdocs/mds2013/exceptions/EErroConsulta.php');
