@@ -2,10 +2,12 @@
 /*
  File name: EFalhaCrimeController.php
  File description: exception for crime controller function
- Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu
+ Authors: Lucas Andrade, Eduardo Augusto, Sï¿½rgio Bezerra, Lucas Carvalho, Eliseu
 */
-class EFalhaCrimeController extends Exception{
 
+class EFalhaCrimeController extends Exception{
+//customizing exception to throw a message when exception is triggered
+    
 	public function __construct(){
 		$this->message = "Problema em alguma funcao de crime controller";
 	}
