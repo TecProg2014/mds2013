@@ -2,9 +2,11 @@
 /*
  File name: EConexaoFalha.php
  File description: exception for database connection
- Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu
+ Authors: Lucas Andrade, Eduardo Augusto, Sï¿½rgio Bezerra, Lucas Carvalho, Eliseu
 */
+
 class EConexaoFalha extends Exception{
+//customizing exception to throw a message when exception is triggered
 
 	public function __construct(){
 		$this->message = "Conexao com o Banco Falhou";
