@@ -1,4 +1,9 @@
 <?php
+/*
+ File name: TempoDAO.php
+ File description: persistence time on database
+ Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu
+*/
 include_once('C:/xampp/htdocs/mds2013/model/Tempo.php');
 include_once('C:/xampp/htdocs/mds2013/persistence/Conexao.php');
 include_once('C:/xampp/htdocs/mds2013/persistence/ConexaoTeste.php');

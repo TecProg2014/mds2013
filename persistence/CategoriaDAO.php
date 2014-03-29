@@ -1,4 +1,9 @@
 <?php
+/*
+ File name: CategoriaDAO.php
+ File description: persistence category on database
+ Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu
+*/
 include_once('C:/xampp/htdocs/mds2013/model/Categoria.php');
 include_once('C:/xampp/htdocs/mds2013/persistence/Conexao.php');
 include_once('C:/xampp/htdocs/mds2013/persistence/ConexaoTeste.php');

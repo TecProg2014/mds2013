@@ -1,4 +1,9 @@
 <?php
+/*
+ File name: ConexaoTeste.php
+ File description: connection test with database
+ Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu
+*/
 require_once('C:/xampp/htdocs/mds2013/libs/adodb/adodb.inc.php');
 require_once('C:/xampp/htdocs/mds2013/exceptions/EConexaoFalha.php');
 class ConexaoTeste{

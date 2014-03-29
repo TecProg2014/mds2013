@@ -1,4 +1,9 @@
 <?php
+/*
+ File name: NaturezaDAO.php
+ File description: persistence kind on database
+ Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu
+*/
 include_once('C:/xampp/htdocs/mds2013/model/Natureza.php');
 include_once('C:/xampp/htdocs/mds2013/model/Categoria.php');
 include_once('C:/xampp/htdocs/mds2013/persistence/Conexao.php');

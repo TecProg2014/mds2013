@@ -1,4 +1,9 @@
 <?php
+/*
+ File name: CrimeDAO.php
+ File description: persistence crime on database
+ Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu
+*/
 include_once('C:/xampp/htdocs/mds2013/model/Crime.php');
 include_once('C:/xampp/htdocs/mds2013/model/Tempo.php');
 include_once('C:/xampp/htdocs/mds2013/model/Natureza.php');
