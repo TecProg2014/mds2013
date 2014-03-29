@@ -1,4 +1,9 @@
 <?php
+/*
+ File name: CategoriaView.php
+ File description: show, consult and sum categories
+ Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu
+*/
 include_once('C:/xampp/htdocs/mds2013/controller/CategoriaController.php');
 include_once('C:/xampp/htdocs/mds2013/exceptions/EErroConsulta.php');
 
