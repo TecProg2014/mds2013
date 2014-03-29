@@ -2,9 +2,11 @@
 /*
  File name: ETipoErrado.php
  File description: exception for type
- Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu
+ Authors: Lucas Andrade, Eduardo Augusto, Sï¿½rgio Bezerra, Lucas Carvalho, Eliseu
 */
+
 class ETipoErrado extends Exception{
+//customizing exception to throw a message when exception is triggered
 
 	public function __construct(){
 		$this->message = "Erro no tipo de variavel";
