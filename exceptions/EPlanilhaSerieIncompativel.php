@@ -2,11 +2,13 @@
 /*
  File name: EPlanilhaSerieIncompativel.php
  File description: exception for series
- Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu
+ Authors: Lucas Andrade, Eduardo Augusto, Sï¿½rgio Bezerra, Lucas Carvalho, Eliseu
 */
+
 class EPlanilhaSerieIncompativel extends Exception{
+//customizing exception to throw a message when exception is triggered
 	
 	public function __construct(){
-		$this->message = "Esta planilha não e de serie historica!";
+		$this->message = "Esta planilha nï¿½o e de serie historica!";
 	}
 }
