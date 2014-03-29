@@ -2,9 +2,11 @@
 /*
  File name: EFalhaLeituraSerieCrime.php
  File description: exception for read crime
- Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu
+ Authors: Lucas Andrade, Eduardo Augusto, Sï¿½rgio Bezerra, Lucas Carvalho, Eliseu
 */
+
 class EFalhaLeituraSerieCrime extends Exception{
+//customizing exception to throw a message when exception is triggered
 	
 	public function __construct(){
 		$this->message = "Falha na leitura de crime da planilha serie historica!";
