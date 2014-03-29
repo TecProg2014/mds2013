@@ -1,4 +1,9 @@
 <?php
+/*
+ File name: CrimeView.php
+ File description: sum crime
+ Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu
+*/
 include_once('C:/xampp/htdocs/mds2013/controller/CrimeController.php');
 class CrimeView{
 	private $crimeCO;

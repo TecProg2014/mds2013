@@ -1,4 +1,9 @@
 <?php
+/*
+ File name: NaturezaView.php
+ File description: show and consult kind
+ Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu
+*/
 include_once('./controller/NaturezaController.php');
 include_once('./views/CategoriaView.php');
 include_once('./views/CrimeView.php');
