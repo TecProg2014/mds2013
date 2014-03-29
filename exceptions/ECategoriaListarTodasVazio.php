@@ -2,9 +2,11 @@
 /*
  File name: ECategoriaListarTodasVazio.php
  File description: exception for list categories
- Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu
+ Authors: Lucas Andrade, Eduardo Augusto, Sï¿½rgio Bezerra, Lucas Carvalho, Eliseu
 */
+
 class ECategoriaListarTodasVazio extends Exception{
+//customizing exception to throw a message when exception is triggered
 
 	public function __construct(){
 		$this->message = "Erro ao listar categorias.";
