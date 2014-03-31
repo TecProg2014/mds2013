@@ -1,4 +1,10 @@
 <?php
+/*
+ File name: TempoControllerTeste
+ File description: tests the class TempoControllerTeste using asserts.
+ Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu.
+*/
+
 require_once('C:/xampp/htdocs/mds2013/controller/TempoController.php');
 require_once('C:/xampp/htdocs/mds2013/model/Tempo.php');
 
