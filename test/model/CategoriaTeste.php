@@ -1,9 +1,13 @@
 <?php
+/*
+ File name: CategoriaTeste.php
+ File description: tests the class Categoria from the package model using asserts.
+ Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu.
+*/
+
 	require_once ('C:/xampp/htdocs/mds2013/model/Categoria.php');
 	
-	/**
-	 * Classe Categoria Teste
-	 **/
+	//classe Categoria Teste
 	class CategoriaTeste extends PHPUnit_Framework_Testcase{
 		
 		/*
