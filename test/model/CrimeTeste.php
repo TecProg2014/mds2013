@@ -1,8 +1,10 @@
 <?php
-	/**
-	 * @author Eliseu
-	 * Classe Crime Teste
-	 **/
+/*
+ File name: CrimeTeste.php
+ File description: tests the class Crime from the package model using asserts.
+ Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu.
+*/
+
 	require_once ('C:/xampp/htdocs/mds2013/model/Crime.php');
 	
 	
