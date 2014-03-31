@@ -1,10 +1,16 @@
 <?php
+/*
+ File name: CategoriaControllerTeste.php
+ File description: tests the class CategoriaController using asserts.
+ Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu.
+*/
+	
+	
 	require_once('C:/xampp/htdocs/mds2013/controller/CategoriaController.php');
 	require_once('C:/xampp/htdocs/mds2013/model/Categoria.php');
 	
-	/**
-	 * Classe CategoriaControllerTeste
-	 **/
+	
+	//classe CategoriaControllerTeste
 	class CategoriaControllerTeste extends PHPUnit_Framework_Testcase{
 		
 		public function testConstruct()
