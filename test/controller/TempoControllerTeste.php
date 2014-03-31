@@ -1,6 +1,6 @@
 <?php
 /*
- File name: TempoControllerTeste
+ File name: TempoControllerTeste.php
  File description: tests the class TempoControllerTeste using asserts.
  Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu.
 */

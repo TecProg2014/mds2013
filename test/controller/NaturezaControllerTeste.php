@@ -1,6 +1,6 @@
 <?php 
 /*
- File name: NaturezaControllerTeste
+ File name: NaturezaControllerTeste.php
  File description: tests the class NaturezaControllerTeste using asserts.
  Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu.
 */

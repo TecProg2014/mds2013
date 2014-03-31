@@ -1,6 +1,6 @@
 	<?php
 /*
- File name: RegiaoAdministrativaControllerTeste
+ File name: RegiaoAdministrativaControllerTeste.php
  File description: tests the class RegiaoAdministrativaControllerTeste using asserts.
  Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu.
 */
