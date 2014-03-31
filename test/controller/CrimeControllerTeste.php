@@ -1,4 +1,10 @@
 <?php
+/*
+ File name: CategoriaControllerTeste.php
+ File description: tests the class CrimeControllerTeste using asserts.
+ Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu.
+*/
+
 require_once('C:/xampp/htdocs/mds2013/controller/CrimeController.php');
 require_once('C:/xampp/htdocs/mds2013/model/Crime.php');
 
