@@ -1,4 +1,9 @@
 <?php
+/*
+ File name: NaturezaTeste.php
+ File description: tests the class Natureza from the package model using asserts.
+ Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu.
+*/
 
 	require_once ('C:/xampp/htdocs/mds2013/model/Natureza.php');
 	class NaturezaTeste extends PHPUnit_Framework_Testcase{
