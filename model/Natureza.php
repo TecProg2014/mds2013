@@ -2,7 +2,7 @@
 /*
  File name: Natureza.php
  File description: kind model
- Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu
+ Authors: Lucas Andrade, Eduardo Augusto, Sï¿½rgio Bezerra, Lucas Carvalho, Eliseu
 */
 include_once('C:/xampp/htdocs/mds2013/exceptions/ETipoErrado.php');
 
@@ -26,6 +26,7 @@ class Natureza{
 		$this->idNatureza = $idNatureza;
 	}
 	public function __getIdNatureza(){
+        //Method to access the instance of idNatureza attribute
 		return $this->idNatureza;
 	}
 	public function __setIdCategoria($idCategoria){
@@ -36,16 +37,18 @@ class Natureza{
 		$this->idCategoria = $idCategoria;
 	}
 	public function __getIdCategoria(){
+        //Method to access the instance of idCategoria attribute
 		return $this->idCategoria;
 	}
 	public function __setNatureza($natureza){
-		
+        //Method to modify the instance of the natureza attribute 
 		if(!is_string($natureza)){
 			throw new ETipoErrado();
 		}
 		$this->natureza = $natureza;
 	}
 	public function __getNatureza(){
+        //Method to access the instance of Natureza attribute
 		return $this->natureza;
 	}
 }
