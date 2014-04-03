@@ -2,8 +2,9 @@
 /*
  File name: CategoriaController.php
  File description: insert, consult, show and sum some category information
- Authors: Lucas Andrade, Eduardo, Sérgio, Lucas, Eliseu
+ Authors: Lucas Andrade, Eduardo, Sï¿½rgio, Lucas, Eliseu
 */
+
 include_once('C:/xampp/htdocs/mds2013/persistence/CategoriaDAO.php');
 include_once('C:/xampp/htdocs/mds2013/model/Categoria.php');
 include_once('C:/xampp/htdocs/mds2013/exceptions/EErroConsulta.php');
@@ -14,37 +15,47 @@ class CategoriaController{
 	public function __construct(){
 		$this->categoriaDAO = new CategoriaDAO();
 	}
+        
 	public function __constructTeste(){
+        //tests instance of categoriaDAO
 		$this->categoriaDAO->__constructTeste();
 	}
+        
 	public function _listarTodas(){
-		$arrayCategoria = $this->categoriaDAO->listarTodas();
+	//lists categorys
+                $arrayCategoria = $this->categoriaDAO->listarTodas();
 		return $arrayCategoria;
 	}
+        
 	public function _listarTodasAlfabicamente(){
+        //lists categorys alphabeticaly
 		return  $this->categoriaDAO->listarTodasAlfabicamente();
 	}
+        
 	public function _consultarPorId($id){
-		
+	//consults category by its id	
 		 if(!is_numeric($id)){
 			throw new EErroConsulta();
 		 }
 		 $categoria = $this->categoriaDAO->consultarPorId($id);
 		 return $categoria;
 	}
+        
 	public function _consultarPorNome($nomeCategoria){
-		
+	//consults category by name	
 		 if(!is_string($nomeCategoria)){
 		 	throw new EErroConsulta();
 		 }
 		 $categoria =  $this->categoriaDAO->consultarPorNome($nomeCategoria);
 		 return $categoria;
 	}
+        
 	public function _inserirCategoria(Categoria $categoria){
-		return $this->categoriaDAO->inserirCategoria($categoria);
+	//inserts categories
+                return $this->categoriaDAO->inserirCategoria($categoria);
 	}
-	public function _inserirCategoriaArrayParseSerie($arrayCategoria){
-		
+        
+	public function _inserirCategoriaArrayParseSerie($arrayCategoria){	
 		if(!is_array($arrayCategoria)){
 			throw new EErroConsulta();
 		}
@@ -57,6 +68,7 @@ class CategoriaController{
 	}
 	
 	public function _somaTotalFurtos(){
+        //all thefts category
 			for($i=2010; $i<2012; $i++){
 				$somaTotalFurtos[] = $this->categoriaDAO->somaTotalFurtos($i);
 			}
@@ -65,6 +77,7 @@ class CategoriaController{
 	}
 
 	public function _somaTotalDignidadeSexual(){
+        //all crimes in sexual dignity category
 		$somaDignidadeSexual;
 		for($i=2001; $i<2012; $i++){
 			$somaDignidadeSexual[] = $this->_somaTotalDignidadeSexual($i);
@@ -74,6 +87,7 @@ class CategoriaController{
 	}
 
 	public function _somaTotalDignidadeSexual2010_2011(){
+        //all crimes in sexual dignity in 2010 and 2011
 		for($i=2010; $i<2012; $i++){
 			$somaTotalDignidadeSexual2010_2011[] = $this->_somaTotalDignidadeSexual($i);
 		}
@@ -82,6 +96,7 @@ class CategoriaController{
 	}
 
 	public function _somaTotalAcaoPolicial(){
+        //all policial actions
 		for($i=2001; $i<2012; $i++){
 			$somaTotalAcaoPolicial[] = $this->_somaTotalAcaoPolicial($i);
 		}
@@ -90,6 +105,7 @@ class CategoriaController{
 	}
 
 	public function _somaTotalAcaoPolicial2010_2011(){
+        //all policial actions in 2010 and 2011
 		for($i=2010; $i<2012; $i++){
 			$somaTotalAcaoPolicial2010_2011[] = $this->_somaTotalAcaoPolicial($i);
 		}
@@ -98,6 +114,7 @@ class CategoriaController{
 	}
 
 	public function _somaGeralCrimeContraPessoa(){
+        //all crimes against person category
 		for($i=2001; $i<2012; $i++){
 			$somaGeralCrimeContraPessoa[] = $this->categoriaDAO->somaGeralCrimeContraPessoa($i);
 		}
@@ -106,6 +123,7 @@ class CategoriaController{
 	}
 
 	public function _somaGeralCrimeContraPessoa2010_2011(){
+        //all crimes against person in 2010 and 2011
 		for($i=2010; $i<2012; $i++){
 			$somaGeralCrimeContraPessoa2010_2011[] = $this->categoriaDAO->somaGeralCrimeContraPessoa($i);
 		}
@@ -114,6 +132,7 @@ class CategoriaController{
 	}
 
 	public function _somaTotalRoubo(){
+        //all robberies categories
 		for($i=2001; $i<2012; $i++){
 			$somaTotalRoubo[] = $this->categoriaDAO->somaTotalRoubo($i);
 		}
@@ -122,6 +141,7 @@ class CategoriaController{
 	}
 
 	public function _somaTotalRoubo2010_2011(){
+        //all robberies in 2010 and 2011
 		for($i=2010; $i<2012; $i++){
 			$somaTotalRoubo2010_2011[] = $this->_somaTotalRoubo($i);
 		}
@@ -130,10 +150,12 @@ class CategoriaController{
 	}
 
 	public function _contarRegistros(){
+        //count records
 		return $this->categoriaDAO->contarRegistros();
 	}
 	
 	public function _listarTotalDeCategoria(){
+        //lists all categories
 		$categorias = $this->categoriaDAO->listarTotalDeCategoria();
 		return "
 		var data = [
