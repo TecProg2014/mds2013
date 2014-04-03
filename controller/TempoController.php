@@ -2,10 +2,11 @@
 /*
  File name: TempoController.php
  File description: insert, consult, show some time informations
- Authors: Lucas Andrade, Eduardo, Sérgio, Lucas, Eliseu
+ Authors: Lucas Andrade, Eduardo, Sï¿½rgio, Lucas, Eliseu
 */
 include_once('C:/xampp/htdocs/mds2013/persistence/TempoDAO.php');
 include_once('C:/xampp/htdocs/mds2013/model/Tempo.php');
+
 class TempoController{
         private $tempoDAO;
         
@@ -14,23 +15,35 @@ class TempoController{
         }
      
         public function _listarTodos(){
+        //lists times
                 return $this->tempoDAO->listarTodos();
         }
+        
         public function _listarTodasEmOrdem(){
+        //lists times in order
                 return $this->tempoDAO->listarTodasEmOrdem();
         }
+        
         public function __constructTeste(){
+        //tests instance of tempoDAO
         	$this->tempoDAO->__constructTeste();
         }
+        
         public function _consultarPorId($id){
+        //consult time by its id
                 return $this->tempoDAO->consultarPorId($id);
         }
+        
         public function _consultarPorIntervalo($intervalo){
+        //consult by time's interval
                 return $this->tempoDAO->consultarPorIntervalo($intervalo);
         }
+        
         public function _inserirTempo(Tempo $tempo){
+        //insert time
                 return $this->tempoDAO->inserirTempo($tempo);
         }
+        
         public function _inserirTempoArrayParse($arrayTempo){
                 for($i=0;$i<count($arrayTempo);$i++){
                         $dadosTempo = new Tempo();
@@ -38,8 +51,10 @@ class TempoController{
                         $this->tempoDAO->inserirTempo($dadosTempo);
                 }
         }
+        
         public function _inserirTempoArrayParseQuadrimestral($arrayTempo){
-        	for($i=0, $arrayAno = $arrayTempo;$i<count($arrayTempo);$i++){
+        //insert times quarterly 
+                for($i=0, $arrayAno = $arrayTempo;$i<count($arrayTempo);$i++){
         		$ano = key($arrayAno);
         		$dadosTempo = new Tempo();
         		$dadosTempo->__setIntervalo($ano);
@@ -50,7 +65,9 @@ class TempoController{
         		next($arrayAno);
         	}
         }
+        
         public function _retornarDadosFormatados(){
+        //returns formatted data
                 $dadosTempo = new Tempo();
                 $arrayDadosTempo = $this->_listarTodos();
                 for($i=0; $i<count($arrayDadosTempo);$i++){
