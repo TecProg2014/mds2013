@@ -2,7 +2,7 @@
 /*
  File name: CrimeController.php
  File description: insert, consult, show and sum some crime informations
- Authors: Lucas Andrade, Eduardo, S�rgio, Lucas, Eliseu
+ Authors: Lucas Andrade, Eduardo, S�rgio, Lucas, Eliseu
 */
 
 	include_once('C:/xampp/htdocs/mds2013/persistence/CrimeDAO.php');
@@ -23,31 +23,47 @@
 		public function __construct(){
 			$this->crimeDAO = new CrimeDAO();
 		}
+                
 		public function __constructTeste(){
+                //tests instance of crimeDAO
 			$this->crimeDAO->__constructTeste();
 		}
+                
 		public function _listarTodos(){
+                //lists crimes
 			return $this->crimeDAO->listarTodos();
 		}
+                
 		public function _consultarPorId($id){
-			return $this->crimeDAO->consultarPorId($id);
+		//consults crime by its id
+                        return $this->crimeDAO->consultarPorId($id);
 		}
+                
 		public function _consultarPorIdNatureza($natureza){
-			return $this->crimeDAO->consultarPorIdNatureza($natureza);
+		//consults crime by id in natures of crime
+                        return $this->crimeDAO->consultarPorIdNatureza($natureza);
 		}
+                
 		public function _consultarPorIdTempo($tempo){
-			return $this->crimeDAO->consultarPorIdNatureza($tempo);
+		//consults crime by id in time of crimes
+                        return $this->crimeDAO->consultarPorIdNatureza($tempo);
 		}
+                
 		public function _inserirCrime(Crime $crime){
-			return $this->crimeDAO->inserirCrime($crime);
+		//inserts crime 
+                        return $this->crimeDAO->inserirCrime($crime);
 		}
+                
 		public function _somaDeCrimePorNatureza($natureza){
-			return $this->crimeDAO->somaDeCrimePorNatureza($natureza);
+		//crimes by nature of crime
+                        return $this->crimeDAO->somaDeCrimePorNatureza($natureza);
 		}
+                
 		public function _somaDeCrimePorNaturezaEmAno($natureza,$ano){
-			return $this->crimeDAO->somaDeCrimePorNaturezaEmAno($natureza,$ano);
+		//crimes by nature of crime in a year
+                        return $this->crimeDAO->somaDeCrimePorNaturezaEmAno($natureza,$ano);
 		}
-
+                
 		//Implementação de consultas para apresentacao na view | Apenas utilização de consultas já prontas
 		/**
 		 * @author Eduardo Augusto
@@ -55,7 +71,8 @@
 		 * @copyright RadarCriminal 2013
 		 **/
 		public function _somaDeCrimePorAno($ano){
-			return $this->crimeDAO->somaDeCrimePorAno($ano);
+		//crimes in a year
+                    return $this->crimeDAO->somaDeCrimePorAno($ano);
 		}
 
 		/*public function _somaTotalTentativasHomicidio($ano){
@@ -73,6 +90,7 @@
 		 * @copyright RadarCriminal 2013
 		 **/
 		public function _somaCrimeTodosAnos(){
+                //all crimes 
 			for($i=2001; $i<2012; $i++){
 				$somaTodosAnos[] = $this->_somaDeCrimePorAno($i);
 			}
@@ -82,7 +100,7 @@
 		}
 
 		public function _inserirCrimeArrayParseSerieHistorica($arrayCrime){
-			for($i=0,$arrayKey = $arrayCrime,$inicio = 0;$i<count($arrayCrime);$i++){
+                        for($i=0,$arrayKey = $arrayCrime,$inicio = 0;$i<count($arrayCrime);$i++){
 				$natureza = key($arrayKey);
 				$dadosNatureza = new Natureza();
 				$naturezaDAO = new NaturezaDAO();
@@ -179,6 +197,7 @@
 		 * @copyright RadarCriminal 2013
 		 **/
 		public function _retornarDadosDeSomaFormatoNovo(){
+                //return formatted data 
 			$tempoDAO = new TempoDAO();
 			$dadosTempo = new Tempo();
 			$arrayDadosTempo = $tempoDAO->listarTodos();
@@ -195,7 +214,7 @@
 			
 			for($i=0;$i<count($dadosCrime); $i++){
 				/**
-				 * La�o que escreve os dados do grafico de ocorrencias por ano.
+				 * La�o que escreve os dados do grafico de ocorrencias por ano.
 				 * a string ("\"bar\"") define a barra cheia do grafico e 
 				 * a string ("\"bar simple\"") define a barra pontilhada.
 				 * A condicional 'if($i%2==0)' garante que as barras pontilhadas e cheias sejam intercaladas.
@@ -226,7 +245,8 @@
 		 **/
 
 		public function _somaHomicidios2010_2011(){
-			for($i=2010; $i<2012; $i++){
+		//all homicides in 2010 and 2011
+                        for($i=2010; $i<2012; $i++){
 				$somaHomicidios2010_2011[] = $this->crimeDAO->somaTotalHomicidios($i);
 			}
 
@@ -235,6 +255,7 @@
 		}
 		
 		public function _somaCrime2010_2011(){
+                //all crimes in 2010 and 2011
 			for($i=2010;$i<2012;$i++){
 				$somaCrime2010_2011[] = $this->_somaDeCrimePorAno($i);
 			}
@@ -243,6 +264,7 @@
 		}
 		
 		public function _somaTotalHomicidios(){
+                //all homicides in history
 			for($i=2001; $i<2012; $i++){
 				$somaTotalHomicidios[] = $this->crimeDAO->somaTotalHomicidios($i);
 			}
@@ -252,7 +274,8 @@
 		}
 
 		public function _somaLesaoCorporal(){
-			for($i=2001; $i<2012; $i++){
+		//all bodily injury
+                        for($i=2001; $i<2012; $i++){
 				$somaLesaoCorporal[] = $this->crimeDAO->somaLesaoCorporal($i);
 			}
 			$retornoSomaLesaoCorporal = array_sum($somaLesaoCorporal);
@@ -260,6 +283,7 @@
 		}
 
 		public function _somaLesaoCorporal2010_2011(){
+                //all bodily injury in 2010 and 2011
 			for($i=2010; $i<2012; $i++){
 				$somaLesaoCorporal2010_2011[] = $this->_somaLesaoCorporal($i);
 			}
@@ -267,9 +291,9 @@
 			return $retornoLesaoCorporal2010_2011;
 		}
 
-
 		public function _somaTotalTentativasHomicidio(){
-			for($j=2001; $j<2012; $j++){
+                //all homicide trys
+                    for($j=2001; $j<2012; $j++){
 				$somaTotalTentativasHomicidio[] = $this->_somaTotalTentativasHomicidio($j);
 			}
 			$retornoSomaTotalTentativasHomicidio = array_sum($somaTotalTentativasHomicidio);
@@ -277,6 +301,7 @@
 		}
 
 		public function _somaTotalTentativasHomicidio2010_2011(){
+                //all homicide trys in 2010 and 2011
 			for($i=2010; $i<2012; $i++){
 				$somaTotalTentativasHomicidio2010_2011[] = $this->crimeDAO->somaTotalTentativasHomicidio($i);
 			}
@@ -285,7 +310,8 @@
 		}
 
 		public function _somarGeral(){
-			return $this->crimeDAO->somarGeral();
+		
+                        return $this->crimeDAO->somarGeral();
 		}
 
 
