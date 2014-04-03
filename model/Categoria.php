@@ -2,7 +2,7 @@
 /*
  File name: Categoria.php
  File description: category model
- Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu
+ Authors: Lucas Andrade, Eduardo Augusto, Sï¿½rgio Bezerra, Lucas Carvalho, Eliseu
 */
 include_once('C:/xampp/htdocs/mds2013/exceptions/ETipoErrado.php');
 
@@ -18,9 +18,11 @@ class Categoria{
 		$this->idCategoria = $idCategoria;
 	}
 	public function __getIdCategoria(){
+         //Method to access the instance of idCategoria attribute
 		return $this->idCategoria;
 	}
 	public function __setNomeCategoria($nomeCategoria){
+        //Method to modify the instance of nomeCategoria attribute
 		
 		if(!is_string($nomeCategoria)){
 			throw new ETipoErrado();
@@ -28,6 +30,7 @@ class Categoria{
 		$this->nomeCategoria = $nomeCategoria;
 	}
 	public function __getNomeCategoria(){
+        //Method to access the instance of nomeCategoria attribute
 		return $this->nomeCategoria;
 	}
 	public function __constructOverload($idCategoria,$nomeCategoria){
