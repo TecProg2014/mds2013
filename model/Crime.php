@@ -2,7 +2,7 @@
 /*
  File name: Crime.php
  File description: crime model
- Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu
+ Authors: Lucas Andrade, Eduardo Augusto, Sï¿½rgio Bezerra, Lucas Carvalho, Eliseu
 */
 include_once('/../exceptions/EFalhaLeituraSerieCrime.php');
 include_once('C:/xampp/htdocs/mds2013/exceptions/ETipoErrado.php');
@@ -24,6 +24,7 @@ class Crime{
 		$this->idCrime = $idCrime;
 	}
 	public function __getIdCrime(){
+        //Method to access the instance of crime attribute
 		return $this->idCrime;
 	}
 	public function __setQuantidade($quantidade){
@@ -31,6 +32,7 @@ class Crime{
 		$this->quantidade = $quantidade;
 	}
 	public function __getQuantidade(){
+        //Method to access the instance of quantidade attribute
 		return $this->quantidade;
 	}
 	public function __setIdTempo($idTempo){
@@ -38,6 +40,7 @@ class Crime{
 		$this->idTempo = $idTempo;
 	}
 	public function __getIdTempo(){
+        //Method to access the instance of tempo attribute
 		return $this->idTempo;
 	}
 	public function __setIdNatureza($idNatureza){
@@ -45,12 +48,14 @@ class Crime{
 		$this->idNatureza = $idNatureza;
 	}
 	public function __getIdNatureza(){
+        //Method to access the instance of idNatureza attribute
 		return $this->idNatureza;
 	}
 	public function __setIdRegiaoAdministrativa($idRA){
 		$this->idRA = $idRA;
 	}
 	public function __getIdRegiaoAdministrativa(){
+        //Method to access the instance of IdRegiaoAdministrativa attribute
 		return $this->idRA;
 	}
 	public function __construct(){
