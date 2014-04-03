@@ -6,7 +6,7 @@
 */
 
 class EFalhaLeituraSerieCrime extends Exception{
-//customizing exception to throw a message when exception is triggered
+//customizing exception to throw a message when exception of fail in reading serie crime is triggered
 	
 	public function __construct(){
 		$this->message = "Falha na leitura de crime da planilha serie historica!";

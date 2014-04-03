@@ -6,7 +6,7 @@
 */
 
 class ENaturezaListarTodasAlfabeticamenteVazio extends Exception{
-//customizing exception to throw a message when exception is triggered
+//customizing exception to throw a message when exception of empty alphabetical nature is triggered
 
 	public function __construct(){
 		$this->message = "Ocorreu um problema ao tentar organizar natureza alfabeticamente.";

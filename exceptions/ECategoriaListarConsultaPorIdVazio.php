@@ -6,7 +6,7 @@
 */
 
 class ECategoriaListarConsultaPorIdVazio extends Exception{
-//customizing exception to throw a message when exception is triggered
+//customizing exception to throw a message when exception 'list category by empty id' is triggered
 
 	public function __construct(){
 		$this->message = "ID nao encontrado.";
