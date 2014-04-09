@@ -2,7 +2,6 @@
 /*
  File name: Tempo.php
  File description: time model
- Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu
 */
 include_once('C:/xampp/htdocs/mds2013/exceptions/ETipoErrado.php');
 class Tempo{
