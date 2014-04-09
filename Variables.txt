@@ -1,0 +1,16 @@
+Pacote: Controller
+Classe: TempoController.php
+Variáveis:
+	tempoDAO=
+	id= id para consulta
+	intervalo= intervalo para consulta
+	tempo= inserir tempo
+	arrayTempo= inserir array tempo
+	i= contador para inserirTempoArrayParse
+	dadosTempo= recebe nova instância de tempo
+	arrayAno= variável para interromper loop
+	ano= recebe chave de (arrayAno)
+	arrayDadosTempo= array para dados do tempo em meses
+	j= contador do for
+	dados= recebe dadosTempo com intervalo
+***************** 
