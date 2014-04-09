@@ -2,7 +2,6 @@
 /*
  File name: TempoTeste.php
  File description: tests the class Tempo from the package model using asserts.
- Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu.
 */	
 
 	require_once ('C:/xampp/htdocs/mds2013/model/Tempo.php');

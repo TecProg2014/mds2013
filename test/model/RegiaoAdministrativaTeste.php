@@ -2,7 +2,6 @@
 /*
  File name: RegiaoAdministrativaTeste.php
  File description: tests the class RegiaoAdministrativa from the package model using asserts.
- Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu.
 */
 	require_once ('C:/xampp/htdocs/mds2013/model/RegiaoAdministrativa.php');
 	
