@@ -2,7 +2,6 @@
 /*
  File name: CategoriaControllerTeste.php
  File description: tests the class CategoriaController using asserts.
- Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu.
 */
 	
 	

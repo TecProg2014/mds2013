@@ -2,7 +2,6 @@
 /*
  File name: NaturezaControllerTeste.php
  File description: tests the class NaturezaControllerTeste using asserts.
- Authors: Lucas Andrade, Eduardo Augusto, Sérgio Bezerra, Lucas Carvalho, Eliseu.
 */
 
 require_once('C:/xampp/htdocs/mds2013/controller/NaturezaController.php');
