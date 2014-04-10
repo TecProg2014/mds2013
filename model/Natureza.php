@@ -3,7 +3,6 @@
 /*
   File name: Natureza.php
   File description: kind model
-  Authors: Lucas Andrade, Eduardo Augusto, S�rgio Bezerra, Lucas Carvalho, Eliseu
  */
 
 include_once('C:/xampp/htdocs/mds2013/exceptions/ETipoErrado.php');

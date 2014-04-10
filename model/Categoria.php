@@ -3,7 +3,6 @@
 /*
   File name: Categoria.php
   File description: category model
-  Authors: Lucas Andrade, Eduardo Augusto, S�rgio Bezerra, Lucas Carvalho, Eliseu
  */
 
 include_once('C:/xampp/htdocs/mds2013/exceptions/ETipoErrado.php');

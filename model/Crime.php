@@ -3,7 +3,6 @@
 /*
   File name: Crime.php
   File description: crime model
-  Authors: Lucas Andrade, Eduardo Augusto, S�rgio Bezerra, Lucas Carvalho, Eliseu
  */
 
 include_once('/../exceptions/EFalhaLeituraSerieCrime.php');
