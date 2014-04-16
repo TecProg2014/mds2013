@@ -78,4 +78,5 @@ class RegiaoAdministrativaController {
             $this->raDAO->inserirRA($dadosRegiao);
         }
     }
+
 }

@@ -1,4 +1,4 @@
-function paginaTipo(){
-	
-	document.location.href='?pag=duranteJogo&idA=".$timeA."&idB=".$timeB."'
+function paginaTipo() {
+
+    document.location.href = '?pag=duranteJogo&idA=".$timeA."&idB=".$timeB."'
 }
