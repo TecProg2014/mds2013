@@ -3,7 +3,6 @@
 /*
   File name: CrimeController.php
   File description: insert, consult, show and sum some crime informations
-  Authors: Lucas Andrade, Eduardo, S�rgio, Lucas, Eliseu
  */
 
 include_once('C:/xampp/htdocs/mds2013/persistence/CrimeDAO.php');

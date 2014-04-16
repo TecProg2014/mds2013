@@ -3,7 +3,6 @@
 /*
   File name: CategoriaController.php
   File description: insert, consult, show and sum some category information
-  Authors: Lucas Andrade, Eduardo, S�rgio, Lucas, Eliseu
  */
 
 include_once('C:/xampp/htdocs/mds2013/persistence/CategoriaDAO.php');
