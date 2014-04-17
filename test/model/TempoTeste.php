@@ -1,48 +1,48 @@
 <?php
 
 /*
-  File name: TempoTeste.php
-  File description: tests the class Tempo from the package model using asserts.
+  File name: timeTeste.php
+  File description: tests the class time from the package model using asserts.
  */
 
-require_once ('C:/xampp/htdocs/mds2013/model/Tempo.php');
+require_once ('C:/xampp/htdocs/mds2013/model/time.php');
 
-class TempoTeste extends PHPUnit_Framework_Testcase {
+class timeTeste extends PHPUnit_Framework_Testcase {
 
     public function setUp() {
-        $this->tempo = new Tempo();
+        $this->time = new time();
     }
 
-    public function testSetIdTempo() {
-        $this->tempo->__setIdTempo(1);
-        $this->assertEquals(1, $this->tempo->__getIdTempo());
+    public function testSetIdtime() {
+        $this->time->__setIdtime(1);
+        $this->assertEquals(1, $this->time->__getIdtime());
     }
 
-    public function testExceptionIdTempo() {
+    public function testExceptionIdtime() {
         $this->setExpectedException('ETipoErrado');
-        $this->tempo->__setIdTempo('erro');
+        $this->time->__setIdtime('erro');
     }
 
     public function testSetIntervalo() {
-        $this->tempo->__setIntervalo(1);
-        $this->assertEquals(1, $this->tempo->__getIntervalo());
+        $this->time->__setIntervalo(1);
+        $this->assertEquals(1, $this->time->__getIntervalo());
     }
 
     public function testExceptionIntervalo() {
         $this->setExpectedException('ETipoErrado');
-        $this->tempo->__setIntervalo("erro");
+        $this->time->__setIntervalo("erro");
     }
 
     public function testSetMes() {
-        $this->tempo->__setMes('teste');
-        $this->assertEquals('teste', $this->tempo->__getMes());
+        $this->time->__setMes('teste');
+        $this->assertEquals('teste', $this->time->__getMes());
     }
 
     public function testConstructOverLoad() {
-        $this->tempo->__constructOverload(1, '2001', 'janeiro');
-        $this->assertEquals(1, $this->tempo->__getIdTempo());
-        $this->assertEquals('2001', $this->tempo->__getIntervalo());
-        $this->assertEquals('janeiro', $this->tempo->__getMes());
+        $this->time->__constructOverload(1, '2001', 'janeiro');
+        $this->assertEquals(1, $this->time->__getIdtime());
+        $this->assertEquals('2001', $this->time->__getIntervalo());
+        $this->assertEquals('janeiro', $this->time->__getMes());
     }
 
 }

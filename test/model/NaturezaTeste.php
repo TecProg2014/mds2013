@@ -1,71 +1,71 @@
 <?php
 
 /*
-  File name: NaturezaTeste.php
-  File description: tests the class Natureza from the package model using asserts.
+  File name: kindTeste.php
+  File description: tests the class kind from the package model using asserts.
  */
 
-require_once ('C:/xampp/htdocs/mds2013/model/Natureza.php');
+require_once ('C:/xampp/htdocs/mds2013/model/kind.php');
 
-class NaturezaTeste extends PHPUnit_Framework_Testcase {
+class kindTeste extends PHPUnit_Framework_Testcase {
 
     public function setUp() {
-        $this->natureza = new Natureza();
+        $this->kind = new kind();
     }
 
-    public function testeIdNatureza() {
-        $natureza = new Natureza();
-        $this->assertInstanceOf('Natureza', $natureza);
-        $this->assertObjectHasAttribute('idNatureza', $natureza);
-        $natureza->__setIdNatureza(12);
-        $this->assertEquals(12, $natureza->__getIdNatureza());
+    public function testeIdkind() {
+        $kind = new kind();
+        $this->assertInstanceOf('kind', $kind);
+        $this->assertObjectHasAttribute('idkind', $kind);
+        $kind->__setIdkind(12);
+        $this->assertEquals(12, $kind->__getIdkind());
     }
 
-    public function testExceptionSetIdNatureza() {
-        $natureza = new Natureza();
-        $this->assertInstanceOf('Natureza', $natureza);
-        $this->assertObjectHasAttribute('idNatureza', $natureza);
+    public function testExceptionSetIdkind() {
+        $kind = new kind();
+        $this->assertInstanceOf('kind', $kind);
+        $this->assertObjectHasAttribute('idkind', $kind);
         $this->setExpectedException('ETipoErrado');
-        $natureza->__setIdNatureza("erro");
+        $kind->__setIdkind("erro");
     }
 
-    public function testeNatureza() {
-        $natureza = new Natureza();
-        $this->assertInstanceOf('Natureza', $natureza);
-        $this->assertObjectHasAttribute('idNatureza', $natureza);
-        $natureza->__setNatureza("teste");
-        $this->assertEquals("teste", $natureza->__getNatureza());
+    public function testekind() {
+        $kind = new kind();
+        $this->assertInstanceOf('kind', $kind);
+        $this->assertObjectHasAttribute('idkind', $kind);
+        $kind->__setkind("teste");
+        $this->assertEquals("teste", $kind->__getkind());
     }
 
-    public function testExceptionSetNatureza() {
-        $natureza = new Natureza();
-        $this->assertInstanceOf('Natureza', $natureza);
-        $this->assertObjectHasAttribute('idNatureza', $natureza);
+    public function testExceptionSetkind() {
+        $kind = new kind();
+        $this->assertInstanceOf('kind', $kind);
+        $this->assertObjectHasAttribute('idkind', $kind);
         $this->setExpectedException('ETipoErrado');
-        $natureza->__setNatureza(10);
+        $kind->__setkind(10);
     }
 
     public function testExceptionSetIdCategoria() {
-        $natureza = new Natureza();
-        $this->assertInstanceOf('Natureza', $natureza);
-        $this->assertObjectHasAttribute('idNatureza', $natureza);
+        $kind = new kind();
+        $this->assertInstanceOf('kind', $kind);
+        $this->assertObjectHasAttribute('idkind', $kind);
         $this->setExpectedException('ETipoErrado');
-        $natureza->__setIdCategoria("erro");
+        $kind->__setIdCategoria("erro");
     }
 
     public function testeIdCategoria() {
-        $natureza = new Natureza();
-        $this->assertInstanceOf('Natureza', $natureza);
-        $this->assertObjectHasAttribute('idNatureza', $natureza);
-        $natureza->__setIdCategoria(10);
-        $this->assertEquals(10, $natureza->__getIdCategoria());
+        $kind = new kind();
+        $this->assertInstanceOf('kind', $kind);
+        $this->assertObjectHasAttribute('idkind', $kind);
+        $kind->__setIdCategoria(10);
+        $this->assertEquals(10, $kind->__getIdCategoria());
     }
 
     public function testeConstructOverLoad() {
-        $this->natureza->__constructOverload(1, "natureza", 2);
-        $this->assertEquals(1, $this->natureza->__getIdNatureza());
-        $this->assertEquals("natureza", $this->natureza->__getNatureza());
-        $this->assertEquals(2, $this->natureza->__getIdCategoria());
+        $this->kind->__constructOverload(1, "kind", 2);
+        $this->assertEquals(1, $this->kind->__getIdkind());
+        $this->assertEquals("kind", $this->kind->__getkind());
+        $this->assertEquals(2, $this->kind->__getIdCategoria());
     }
 
 }

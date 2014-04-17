@@ -1,56 +1,56 @@
 <?php
 
 /*
-  File name: CategoriaTeste.php
-  File description: tests the class Categoria from the package model using asserts.
+  File name: categoryTeste.php
+  File description: tests the class category from the package model using asserts.
  */
 
-require_once ('C:/xampp/htdocs/mds2013/model/Categoria.php');
+require_once ('C:/xampp/htdocs/mds2013/model/category.php');
 
-class CategoriaTeste extends PHPUnit_Framework_Testcase {
+class categoryTeste extends PHPUnit_Framework_Testcase {
     /*
      * @Before
      */
 
     public function setUp() {
-        $this->categoria = new Categoria();
+        $this->category = new category();
     }
 
-    public function testSetIdCategoria() {
-        $this->assertInstanceOf('Categoria', $this->categoria);
-        $this->assertObjectHasAttribute('idCategoria', $this->categoria);
-        $this->categoria->__setIdCategoria(10);
-        $this->assertEquals(10, $this->categoria->__getIdCategoria());
+    public function testSetIdcategory() {
+        $this->assertInstanceOf('category', $this->category);
+        $this->assertObjectHasAttribute('idcategory', $this->category);
+        $this->category->__setIdcategory(10);
+        $this->assertEquals(10, $this->category->__getIdcategory());
     }
 
-    public function testExceptionSetIdCategoria() {
-        $this->assertInstanceOf('Categoria', $this->categoria);
-        $this->assertObjectHasAttribute('idCategoria', $this->categoria);
+    public function testExceptionSetIdcategory() {
+        $this->assertInstanceOf('category', $this->category);
+        $this->assertObjectHasAttribute('idcategory', $this->category);
         $this->setExpectedException('ETipoErrado');
-        $this->categoria->__setIdCategoria('errado');
+        $this->category->__setIdcategory('errado');
     }
 
-    public function testSetNomeCategoria() {
-        $this->assertInstanceOf('Categoria', $this->categoria);
-        $this->assertObjectHasAttribute('idCategoria', $this->categoria);
-        $this->categoria->__setNomeCategoria("NomeCategoria");
-        $this->assertEquals("NomeCategoria", $this->categoria->__getNomeCategoria());
+    public function testSetNomecategory() {
+        $this->assertInstanceOf('category', $this->category);
+        $this->assertObjectHasAttribute('idcategory', $this->category);
+        $this->category->__setNomecategory("Nomecategory");
+        $this->assertEquals("Nomecategory", $this->category->__getNomecategory());
     }
 
-    public function testExceptionSetNomeCategoria() {
-        $this->assertInstanceOf('Categoria', $this->categoria);
-        $this->assertObjectHasAttribute('idCategoria', $this->categoria);
+    public function testExceptionSetNomecategory() {
+        $this->assertInstanceOf('category', $this->category);
+        $this->assertObjectHasAttribute('idcategory', $this->category);
         $this->setExpectedException('ETipoErrado');
-        $this->categoria->__setNomeCategoria(13);
+        $this->category->__setNomecategory(13);
     }
 
     public function testConstructOverLoad() {
-        $this->assertInstanceOf('Categoria', $this->categoria);
-        $this->assertObjectHasAttribute('idCategoria', $this->categoria);
-        $this->categoria->__constructOverload(2, "nomeCategoria");
-        $this->assertEquals(2, $this->categoria->__getIdCategoria());
-        $this->assertEquals("nomeCategoria", $this->categoria->__getNomeCategoria());
-        $this->assertInstanceOf('Categoria', $this->categoria);
+        $this->assertInstanceOf('category', $this->category);
+        $this->assertObjectHasAttribute('idcategory', $this->category);
+        $this->category->__constructOverload(2, "nomecategory");
+        $this->assertEquals(2, $this->category->__getIdcategory());
+        $this->assertEquals("nomecategory", $this->category->__getNomecategory());
+        $this->assertInstanceOf('category', $this->category);
     }
 
 }
