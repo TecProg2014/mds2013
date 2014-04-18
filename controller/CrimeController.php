@@ -39,14 +39,14 @@ class CrimeController {
         return $this->crimeDAO->consultarPorId($id);
     }
 
-    public function _consultarPorIdNatureza($natureza) {
+    public function _consultarPorIdkindCrime($kindCrime) {
         //consults crime by id in natures of crime
-        return $this->crimeDAO->consultarPorIdNatureza($natureza);
+        return $this->crimeDAO->consultarPorIdkindCrime($kindCrime);
     }
 
-    public function _consultarPorIdTempo($tempo) {
+    public function _consultarPorIdtime($time) {
         //consults crime by id in time of crimes
-        return $this->crimeDAO->consultarPorIdNatureza($tempo);
+        return $this->crimeDAO->consultarPorIdkindCrime($time);
     }
 
     public function _inserirCrime(Crime $crime) {
@@ -54,14 +54,14 @@ class CrimeController {
         return $this->crimeDAO->inserirCrime($crime);
     }
 
-    public function _somaDeCrimePorNatureza($natureza) {
+    public function _somaDeCrimePorkindCrime($kindCrime) {
         //crimes by nature of crime
-        return $this->crimeDAO->somaDeCrimePorNatureza($natureza);
+        return $this->crimeDAO->somaDeCrimePorkindCrime($kindCrime);
     }
 
-    public function _somaDeCrimePorNaturezaEmAno($natureza, $ano) {
+    public function _somaDeCrimePorkindCrimeEmyear($kindCrime, $year) {
         //crimes by nature of crime in a year
-        return $this->crimeDAO->somaDeCrimePorNaturezaEmAno($natureza, $ano);
+        return $this->crimeDAO->somaDeCrimePorkindCrimeEmyear($kindCrime, $year);
     }
 
     //Implementação de consultas para apresentacao na view | Apenas utilização de consultas já prontas
@@ -70,53 +70,53 @@ class CrimeController {
      * @author Sergio Silva
      * @copyright RadarCriminal 2013
      * */
-    public function _somaDeCrimePorAno($ano) {
+    public function _somaDeCrimePorAno($year) {
         //crimes in a year
-        return $this->crimeDAO->somaDeCrimePorAno($ano);
+        return $this->crimeDAO->somaDeCrimePorAno($year);
     }
 
-    /* public function _somaTotalTentativasHomicidio($ano){
-      return $this->crimeDAO->somaTotalTentativasHomicidio($ano);
+    /* public function _somaTotalTentativasHomicidio($year){
+      return $this->crimeDAO->somaTotalTentativasHomicidio($year);
       } */
 
-    /* public function _somaLesaoCorporal2010_2011($ano){
-      return $this->crimeDAO->somaLesaoCorporal2010_2011($ano);
+    /* public function _somaLesaoCorporal2010_2011($year){
+      return $this->crimeDAO->somaLesaoCorporal2010_2011($year);
       } */
 
     /**
-     * Elaboracao de metodo para somatorio de todos os anos
+     * Elaboracao de metodo para somatorio de todos os years
      * @author Sergio Bezerra da Silva
      * @author Lucas Andrade Ribeiro
      * @copyright RadarCriminal 2013
      * */
-    public function _somaCrimeTodosAnos() {
+    public function _somaCrimeTodosyears() {
         //all crimes 
         for ($i = 2001; $i < 2012; $i++) {
-            $somaTodosAnos[] = $this->_somaDeCrimePorAno($i);
+            $somaTodosyears[] = $this->_somaDeCrimePorAno($i);
         }
 
-        $retornoSomaTodosAnos = array_sum($somaTodosAnos);
-        return $retornoSomaTodosAnos;
+        $retornoSomaTodosyears = array_sum($somaTodosyears);
+        return $retornoSomaTodosyears;
     }
 
     public function _inserirCrimeArrayParseSerieHistorica($arrayCrime) {
         for ($i = 0, $arrayKey = $arrayCrime, $inicio = 0; $i < count($arrayCrime); $i++) {
-            $natureza = key($arrayKey);
-            $dadosNatureza = new Natureza();
-            $naturezaDAO = new NaturezaDAO();
-            $dadosNatureza = $naturezaDAO->consultarPorNome($natureza);
-            $arrayTempo = $arrayCrime[$natureza];
-            for ($j = 0; $j < count(array_keys($arrayCrime[$natureza])); $j++) {
-                $tempo = key($arrayTempo);
-                $dadosTempo = new Tempo();
-                $tempoDAO = new TempoDAO();
-                $dadosTempo = $tempoDAO->consultarPorIntervalo($tempo);
+            $kindCrime = key($arrayKey);
+            $dadoskindCrime = new kindCrime();
+            $kindCrimeDAO = new kindCrimeDAO();
+            $dadoskindCrime = $kindCrimeDAO->consultarPorNome($kindCrime);
+            $arraytime = $arrayCrime[$kindCrime];
+            for ($j = 0; $j < count(array_keys($arrayCrime[$kindCrime])); $j++) {
+                $time = key($arraytime);
+                $dataTime = new Tempo();
+                $tempoDAO = new tempoDAO();
+                $dataTime = $tempoDAO->consultarPorIntervalo($time);
                 $dadosCrime = new Crime();
-                $dadosCrime->__setIdNatureza($dadosNatureza->__getIdNatureza());
-                $dadosCrime->__setIdTempo($dadosTempo->__getIdTempo());
-                $dadosCrime->__setQuantidade($arrayCrime[$natureza][$tempo]);
+                $dadosCrime->__setIdkindCrime($dadoskindCrime->__getIdkindCrime());
+                $dadosCrime->__setIdtime($dataTime->__getIdtime());
+                $dadosCrime->__setQuantidade($arrayCrime[$kindCrime][$time]);
                 $this->_inserirCrime($dadosCrime);
-                next($arrayTempo);
+                next($arraytime);
             }
             next($arrayKey);
         }
@@ -125,22 +125,22 @@ class CrimeController {
 
     public function _inserirCrimeArrayParseQuadrimestral($arrayCrime) {
         for ($i = 0, $arrayKey = $arrayCrime, $inicio = 0; $i < count($arrayCrime); $i++) {
-            $natureza = key($arrayKey);
-            $dadosNatureza = new Natureza();
-            $naturezaDAO = new NaturezaDAO();
-            $dadosNatureza = $naturezaDAO->consultarPorNome($natureza);
-            $arrayTempo = $arrayCrime[$natureza];
-            for ($j = 0; $j < count(array_keys($arrayCrime[$natureza])); $j++) {
-                $tempo = key($arrayTempo);
-                $dadosTempo = new Tempo();
-                $tempoDAO = new TempoDAO();
-                $dadosTempo = $tempoDAO->consultarPorMes($tempo);
+            $kindCrime = key($arrayKey);
+            $dadoskindCrime = new kindCrime();
+            $kindCrimeDAO = new kindCrimeDAO();
+            $dadoskindCrime = $kindCrimeDAO->consultarPorNome($kindCrime);
+            $arraytime = $arrayCrime[$kindCrime];
+            for ($j = 0; $j < count(array_keys($arrayCrime[$kindCrime])); $j++) {
+                $time = key($arraytime);
+                $dataTime = new Tempo();
+                $tempoDAO = new tempoDAO();
+                $dataTime = $tempoDAO->consultarPorMes($time);
                 $dadosCrime = new Crime();
-                $dadosCrime->__setIdNatureza($dadosNatureza->__getIdNatureza());
-                $dadosCrime->__setIdTempo($dadosTempo->__getIdTempo());
-                $dadosCrime->__setQuantidade($arrayCrime[$natureza][$tempo]);
+                $dadosCrime->__setIdkindCrime($dadoskindCrime->__getIdkindCrime());
+                $dadosCrime->__setIdtime($dataTime->__getIdtime());
+                $dadosCrime->__setQuantidade($arrayCrime[$kindCrime][$time]);
                 $this->inserirCrime($dadosCrime);
-                next($arrayTempo);
+                next($arraytime);
             }
             next($arrayKey);
         }
@@ -148,29 +148,29 @@ class CrimeController {
 
     public function _inserirCrimeArrayParseRA($arrayCrime) {
         for ($i = 0, $arrayKey = $arrayCrime, $inicio = 0; $i < count($arrayCrime); $i++) {
-            $natureza = key($arrayKey);
-            $dadosNatureza = new Natureza();
-            $naturezaDAO = new NaturezaDAO();
-            $dadosNatureza = $naturezaDAO->consultarPorNome($natureza);
-            $arrayRegiao = $arrayCrime[$natureza];
-            for ($j = 0; $j < count(array_keys($arrayCrime[$natureza])); $j++) {
+            $kindCrime = key($arrayKey);
+            $dadoskindCrime = new kindCrime();
+            $kindCrimeDAO = new kindCrimeDAO();
+            $dadoskindCrime = $kindCrimeDAO->consultarPorNome($kindCrime);
+            $arrayRegiao = $arrayCrime[$kindCrime];
+            for ($j = 0; $j < count(array_keys($arrayCrime[$kindCrime])); $j++) {
                 $regiao = key($arrayRegiao);
                 $dadosRegiao = new RegiaoAdministrativa();
                 $regiaoDAO = new RegiaoAdministrativaDAO();
                 $dadosRegiao = $regiaoDAO->consultarPorNome($regiao);
-                $arrayTempo = $arrayCrime[$natureza][$regiao];
-                for ($x = 0; $x < count(array_keys($arrayCrime[$natureza][$regiao])); $x++) {
-                    $tempo = key($arrayTempo);
-                    $dadosTempo = new Tempo();
-                    $tempoDAO = new TempoDAO();
-                    $dadosTempo = $tempoDAO->consultarPorIntervalo($tempo);
+                $arraytime = $arrayCrime[$kindCrime][$regiao];
+                for ($x = 0; $x < count(array_keys($arrayCrime[$kindCrime][$regiao])); $x++) {
+                    $time = key($arraytime);
+                    $dataTime = new Tempo();
+                    $tempoDAO = new tempoDAO();
+                    $dataTime = $tempoDAO->consultarPorIntervalo($time);
                     $dadosCrime = new Crime();
-                    $dadosCrime->__setIdNatureza($dadosNatureza->__getIdNatureza());
+                    $dadosCrime->__setIdkindCrime($dadoskindCrime->__getIdkindCrime());
                     $dadosCrime->__setIdRegiaoAdministrativa($dadosRegiao->__getIdRegiaoAdministrativa());
-                    $dadosCrime->__setIdTempo($dadosTempo->__getIdTempo());
-                    $dadosCrime->__setQuantidade($arrayCrime[$natureza][$regiao][$tempo]);
+                    $dadosCrime->__setIdtime($dataTime->__getIdtime());
+                    $dadosCrime->__setQuantidade($arrayCrime[$kindCrime][$regiao][$time]);
                     $this->crimeDAO->inserirCrime($dadosCrime);
-                    next($arrayTempo);
+                    next($arraytime);
                 }
 
                 next($arrayRegiao);
@@ -182,7 +182,7 @@ class CrimeController {
     //Metodo que retorna os dados para o grafico de pizza da pagina inicial
     /* public function _retornarSomaTotalCategoria(){
       $categoriaDAO = new categoriaDAO();
-      $tempoDAO = new TempoDAO();
+      $tempoDAO = new tempoDAO();
       $arrayNomesCategorias = $categoriaDAO->listarTodas();
       for($i=0; $i<count($arrayNomesCategorias);$i++){
       $nomeCategoria[$i] = $arrayNomesCategorias[$i]->__getNomeCategoria();
@@ -200,12 +200,12 @@ class CrimeController {
      * */
     public function _retornarDadosDeSomaFormatoNovo() {
         //return formatted data 
-        $tempoDAO = new TempoDAO();
-        $dadosTempo = new Tempo();
-        $arrayDadosTempo = $tempoDAO->listarTodos();
-        for ($i = 0; $i < count($arrayDadosTempo); $i++) {
-            $dadosTempo = $arrayDadosTempo[$i];
-            $dados[$i] = $dadosTempo->__getIntervalo();
+        $tempoDAO = new tempoDAO();
+        $dataTime = new Tempo();
+        $arraydataTime = $tempoDAO->listarTodos();
+        for ($i = 0; $i < count($arraydataTime); $i++) {
+            $dataTime = $arraydataTime[$i];
+            $dados[$i] = $dataTime->__getIntervalo();
         }
         for ($i = 0; $i < count($dados); $i++) {
             $dadosCrime[$i] = $this->_somaDeCrimePorAno($dados[$i]);
@@ -216,7 +216,7 @@ class CrimeController {
 
         for ($i = 0; $i < count($dadosCrime); $i++) {
             /**
-             * La�o que escreve os dados do grafico de ocorrencias por ano.
+             * La�o que escreve os dados do grafico de ocorrencias por year.
              * a string ("\"bar\"") define a barra cheia do grafico e 
              * a string ("\"bar simple\"") define a barra pontilhada.
              * A condicional 'if($i%2==0)' garante que as barras pontilhadas e cheias sejam intercaladas.
@@ -240,7 +240,7 @@ class CrimeController {
         return $dadosCrimeFormatado[0];
     }
 
-    //Metodo de somar todos homicícios por ano
+    //Metodo de somar todos homicícios por year
     /**
      * @author Lucas Andrade Ribeiro
      * @author Sergio Silva
