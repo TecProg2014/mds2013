@@ -38,32 +38,32 @@ class CategoriaController {
         if (!is_numeric($id)) {
             throw new EErroConsulta();
         }
-        $categoria = $this->categoriaDAO->consultarPorId($id);
-        return $categoria;
+        $category = $this->categoriaDAO->consultarPorId($id);
+        return $category;
     }
 
-    public function _consultarPorNome($nomeCategoria) {
+    public function _consultarPorNome($categoryName) {
         //consults category by name	
-        if (!is_string($nomeCategoria)) {
+        if (!is_string($categoryName)) {
             throw new EErroConsulta();
         }
-        $categoria = $this->categoriaDAO->consultarPorNome($nomeCategoria);
-        return $categoria;
+        $category = $this->categoriaDAO->consultarPorNome($categoryName);
+        return $category;
     }
 
-    public function _inserirCategoria(Categoria $categoria) {
+    public function _inserirCategoria(Categoria $category) {
         //inserts categories
-        return $this->categoriaDAO->inserirCategoria($categoria);
+        return $this->categoriaDAO->inserirCategoria($category);
     }
 
-    public function _inserirCategoriaArrayParseSerie($arrayCategoria) {
-        if (!is_array($arrayCategoria)) {
+    public function _inserirCategoriaArrayParseSerie($arraycategory) {
+        if (!is_array($arraycategory)) {
             throw new EErroConsulta();
         }
-        $dadosCategoria = new Categoria();
-        for ($i = 0; $i < count($arrayCategoria); $i++) {
-            $dadosCategoria->__setNomeCategoria($arrayCategoria[$i]);
-            $retorno = $this->categoriaDAO->inserirCategoria($dadosCategoria);
+        $dateCategory = new Categoria();
+        for ($i = 0; $i < count($arraycategory); $i++) {
+            $dateCategory->__setcategoryName($arraycategory[$i]);
+            $retorno = $this->categoriaDAO->inserirCategoria($dateCategory);
         }
         return $retorno;
     }
@@ -157,14 +157,14 @@ class CategoriaController {
 
     public function _listarTotalDeCategoria() {
         //lists all categories
-        $categorias = $this->categoriaDAO->listarTotalDeCategoria();
+        $categories = $this->categoriaDAO->listarTotalDeCategoria();
         return "
 		var data = [
-		{ label: \"" . $categorias["nome"][0] . "\",  data: " . $categorias["quantidade"][0] . "},
-		{ label: \"" . $categorias["nome"][1] . "\",  data: " . $categorias["quantidade"][1] . "},
-		{ label: \"" . $categorias["nome"][2] . "\",  data: " . $categorias["quantidade"][2] . "},
-		{ label: \"" . $categorias["nome"][3] . "\",  data: " . $categorias["quantidade"][3] . "},
-		{ label: \"" . $categorias["nome"][4] . "\",  data: " . $categorias["quantidade"][4] . "}
+		{ label: \"" . $categories["nome"][0] . "\",  data: " . $categories["quantidade"][0] . "},
+		{ label: \"" . $categories["nome"][1] . "\",  data: " . $categories["quantidade"][1] . "},
+		{ label: \"" . $categories["nome"][2] . "\",  data: " . $categories["quantidade"][2] . "},
+		{ label: \"" . $categories["nome"][3] . "\",  data: " . $categories["quantidade"][3] . "},
+		{ label: \"" . $categories["nome"][4] . "\",  data: " . $categories["quantidade"][4] . "}
 		];";
     }
 
