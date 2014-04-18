@@ -1,7 +1,7 @@
 <?php
 
-$pagina = isset($_GET['pag']) ? $_GET['pag'] : null;
-switch ($pagina) {
+$kind_of_page = isset($_GET['pag']) ? $_GET['pag'] : null;
+switch ($kind_of_page) {
     case 'ano':
         include('C:/xampp/htdocs/mds2013/view/year.php');
         break;
