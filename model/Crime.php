@@ -11,7 +11,7 @@ include_once('C:/xampp/htdocs/mds2013/exceptions/ETipoErrado.php');
 class Crime {
 
     private $idCrime;
-    private $quantidade;
+    private $crimesQuantity;
     private $idTempo;
     private $idNatureza;
     private $idRA;
@@ -30,14 +30,14 @@ class Crime {
         return $this->idCrime;
     }
 
-    public function __setQuantidade($quantidade) {
+    public function __setcrimesQuantity($crimesQuantity) {
 
-        $this->quantidade = $quantidade;
+        $this->crimesQuantity = $crimesQuantity;
     }
 
-    public function __getQuantidade() {
-        //Method to access the instance of quantidade attribute
-        return $this->quantidade;
+    public function __getcrimesQuantity() {
+        //Method to access the instance of crimesQuantity attribute
+        return $this->crimesQuantity;
     }
 
     public function __setIdTempo($idTempo) {
@@ -73,11 +73,11 @@ class Crime {
         
     }
 
-    public function __constructOverload($idCrime, $idTempo, $idNatureza, $quantidade) {
+    public function __constructOverload($idCrime, $idTempo, $idNatureza, $crimesQuantity) {
         $this->idCrime = $idCrime;
         $this->idTempo = $idTempo;
         $this->idNatureza = $idNatureza;
-        $this->quantidade = $quantidade;
+        $this->crimesQuantity = $crimesQuantity;
     }
 
 }
