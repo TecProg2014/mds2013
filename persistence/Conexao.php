@@ -10,24 +10,24 @@ require_once('C:/xampp/htdocs/mds2013/exceptions/EConexaoFalha.php');
 
 class Conexao {
 
-    public $banco;
-    private $tipo_banco;
-    private $servidor;
-    private $usuario;
-    private $senha;
-    private $db;
+    public  $database;
+    private $database_kind;
+    private $database_server;
+    private $database_user;
+    private $database_password;
+    private $database_name;
 
     public function __construct() {
 
-        $this->tipo_banco = "mysql";
-        $this->servidor = "localhost";
-        $this->usuario = "root";
-        $this->senha = "";
-        $this->db = "radar_criminal";
-        $this->banco = NewADOConnection($this->tipo_banco);
-        $this->banco->dialect = 3;
-        $this->banco->debug = false;
-        $this->banco->Connect($this->servidor, $this->usuario, $this->senha, $this->db);
+        $this->database_kind = "mysql";
+        $this->database_server = "localhost";
+        $this->database_user = "root";
+        $this->database_password = "";
+        $this->database_name = "radar_criminal";
+        $this->database = NewADOConnection($this->database_kind);
+        $this->database->dialect = 3;
+        $this->database->debug = false;
+        $this->database->Connect($this->database_server, $this->database_user, $this->database_password, $this->database_name);
     }
 
 }
