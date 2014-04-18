@@ -3,9 +3,9 @@
 include_once('C:/xampp/htdocs/mds2013/views/CrimeView.php');
 include_once('C:/xampp/htdocs/mds2013/views/TempoView.php');
 include_once('C:/xampp/htdocs/mds2013/views/NaturezaView.php');
-$crimeVW = new CrimeView();
+$crimeView = new CrimeView();
 $categoriaVW = new CategoriaView();
-$tempoVW = new TempoView();
+$timeView = new TempoView();
 $naturezaVW = new NaturezaView();
 ?>
 <!-- start: Content -->
@@ -19,7 +19,7 @@ $naturezaVW = new NaturezaView();
             <div class="boxchart-overlay radarGrey">
                 <div class="boxchart">5,6,7,2,0,4,2,4,8,2,3,3,2</div>
             </div>
-            <span class="title">Ocorrências</span> <span class="value"><?php echo number_format($crimeVW->_somarGeral(), 0, ',', '.') ?>
+            <span class="title">Ocorrências</span> <span class="value"><?php echo number_format($crimeView->_somarGeral(), 0, ',', '.') ?>
             </span>
         </div>
 
@@ -28,7 +28,7 @@ $naturezaVW = new NaturezaView();
             <div class="boxchart-overlay red">
                 <div class="boxchart">1,2,6,4,0,8,2,4,5,3,1,7,5</div>
             </div>
-            <span class="title">Homicídios</span> <span class="value"> <?php echo number_format($crimeVW->_somaTotalHomicidios(), 0, ',', '.') ?>
+            <span class="title">Homicídios</span> <span class="value"> <?php echo number_format($crimeView->_somaTotalHomicidios(), 0, ',', '.') ?>
             </span>
         </div>
 
@@ -56,7 +56,7 @@ $naturezaVW = new NaturezaView();
             <div class="box-content">
                 <div class="main-chart">
                     <!--Impressão de gráfico em barras-->
-                    <?php echo $crimeVW->retornarDadosCrimeSomadoFormatoNovo() ?>
+                    <?php echo $crimeView->retornarDadosCrimeSomadoFormatoNovo() ?>
                 </div>
             </div>
         </div>

@@ -2,8 +2,8 @@
 <?php
 include_once('./views/CrimeView.php');
 include_once('./views/TempoView.php');
-$crimeVW = new CrimeView();
-$tempoVW = new TempoView();
+$crimeView = new CrimeView();
+$timeView = new TempoView();
 ?>
 <!-- start: Content -->
 <div id="content" class="span10">
