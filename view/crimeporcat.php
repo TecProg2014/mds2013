@@ -5,15 +5,15 @@ include_once('./views/NaturezaView.php');
 include_once('./views/CategoriaView.php');
 $crimeView = new CrimeView();
 $timeView = new TempoView();
-$naturezaVW = new NaturezaView();
-$categoriaVW = new CategoriaView();
-$idCategoria = isset($_GET['id']) ? $_GET['id'] : null;
+$kindView = new NaturezaView();
+$categoryView = new CategoriaView();
+$idCategory = isset($_GET['id']) ? $_GET['id'] : null;
 ?>
 <!-- start: Content -->
 <div id="content" class="span10">
 
     <?php
-    $tr = $naturezaVW->aposBarraLateral($idCategoria);
+    $tr = $kindView->aposBarraLateral($idCategory);
     for ($i = 0; $i < count($tr); $i++) {
         echo utf8_encode($tr[$i]);
     }
