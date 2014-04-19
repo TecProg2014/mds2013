@@ -1,11 +1,11 @@
 <?php
 include ('C:/xampp/htdocs/mds2013/views/RegiaoAdministrativaView.php');
 include ('C:/xampp/htdocs/mds2013/views/CategoriaView.php');
-$RAVW = new RegiaoAdministrativaView();
-$categoriaVW = new CategoriaView();
+$AdministrativeRegionView = new RegiaoAdministrativaView();
+$categoryView = new CategoriaView();
 
-$contRA = $RAVW->contarRegistrosRA();
-$contCategoria = $categoriaVW->contarRegistros();
+$countAdministrativeRegion = $AdministrativeRegionView->contarRegistrosRA();
+$contCategoria = $categoryView->contarRegistros();
 ?>
 <!-- start: Header -->
 
@@ -26,16 +26,16 @@ $contCategoria = $categoriaVW->contarRegistros();
 
                             <?php
                             //echo "<li><a class=\"submenu\" href=\"crimeporcat.php\"><i class=\"icon-inbox\"></i><span class=\"hidden-tablet\">aa</span></a></li>";
-                            echo utf8_encode($categoriaVW->listarTodasAlfabicamente());
+                            echo utf8_encode($categoryView->listarTodasAlfabicamente());
                             ?>
                         </ul>
                     </li>
                     <li>
-                        <a class="dropmenu" href="#" alt="Região Administrativa" title="Região Administrativa"><i class="icon-move"></i><span class="hidden-tablet"> Cidades <span class="label"><?php echo $contRA; ?></span></a>
+                        <a class="dropmenu" href="#" alt="Região Administrativa" title="Região Administrativa"><i class="icon-move"></i><span class="hidden-tablet"> Cidades <span class="label"><?php echo $countAdministrativeRegion; ?></span></a>
                         <ul>
                                 <!--<span class="label"></span> -->
                             <?php
-                            echo utf8_encode($RAVW->listarTodasAlfabeticamente());
+                            echo utf8_encode($AdministrativeRegionView->listarTodasAlfabeticamente());
                             ?>
                         </ul>
                     </li>
