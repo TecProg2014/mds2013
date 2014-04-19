@@ -71,29 +71,29 @@ class CategoriaController {
     public function _somaTotalFurtos() {
         //all thefts category
         for ($i = 2010; $i < 2012; $i++) {
-            $somaTotalFurtos[] = $this->categoriaDAO->somaTotalFurtos($i);
+            $sumTotalThefts[] = $this->categoriaDAO->somaTotalFurtos($i);
         }
-        $retornoSomaTotalFurtos = array_sum($somaTotalFurtos);
-        return $retornoSomaTotalFurtos;
+        $returnSumTotalThefts = array_sum($sumTotalThefts);
+        return $returnSumTotalThefts;
     }
 
     public function _somaTotalDignidadeSexual() {
         //all crimes in sexual dignity category
-        $somaDignidadeSexual;
+        $sumSexualDignity;
         for ($i = 2001; $i < 2012; $i++) {
-            $somaDignidadeSexual[] = $this->_somaTotalDignidadeSexual($i);
+            $sumSexualDignity[] = $this->_somaTotalDignidadeSexual($i);
         }
-        $retornoSomaTotalDignidadeSexual = array_sum($somaDignidadeSexual);
+        $retornoSomaTotalDignidadeSexual = array_sum($sumSexualDignity);
         return $retornoSomaTotalDignidadeSexual;
     }
 
     public function _somaTotalDignidadeSexual2010_2011() {
         //all crimes in sexual dignity in 2010 and 2011
         for ($i = 2010; $i < 2012; $i++) {
-            $somaTotalDignidadeSexual2010_2011[] = $this->_somaTotalDignidadeSexual($i);
+            $sumTotalSexualDignity2010_2011[] = $this->_somaTotalDignidadeSexual($i);
         }
-        $retornoSomaTotalDignidadeSexual2010_2011 = array_sum($somaTotalDignidadeSexual2010_2011);
-        return $retornoSomaTotalDignidadeSexual2010_2011;
+        $returnSumTotalSexualDignity2010_2011 = array_sum($sumTotalSexualDignity2010_2011);
+        return $returnSumTotalSexualDignity2010_2011;
     }
 
     public function _somaTotalAcaoPolicial() {
@@ -135,19 +135,19 @@ class CategoriaController {
     public function _somaTotalRoubo() {
         //all robberies categories
         for ($i = 2001; $i < 2012; $i++) {
-            $somaTotalRoubo[] = $this->categoriaDAO->somaTotalRoubo($i);
+            $sumTotalStealing[] = $this->categoriaDAO->somaTotalRoubo($i);
         }
-        $retornoSomaTotalRoubo = array_sum($somaTotalRoubo);
+        $retornoSomaTotalRoubo = array_sum($sumTotalStealing);
         return $retornoSomaTotalRoubo;
     }
 
     public function _somaTotalRoubo2010_2011() {
         //all robberies in 2010 and 2011
         for ($i = 2010; $i < 2012; $i++) {
-            $somaTotalRoubo2010_2011[] = $this->_somaTotalRoubo($i);
+            $sumTotalStealing2010_2011[] = $this->_sumTotalStealing($i);
         }
-        $retornoSomaTotalRoubo2010_2011 = array_sum($somaTotalRoubo2010_2011);
-        return $retornoSomaTotalRoubo2010_2011;
+        $retornosumTotalStealing2010_2011 = array_sum($sumTotalStealing2010_2011);
+        return $retornosumTotalStealing2010_2011;
     }
 
     public function _contarRegistros() {
