@@ -16,11 +16,11 @@ class RegiaoAdministrativaView {
     }
 
     public function listarTodasAlfabeticamente() {
-        $nomeRA = $this->raCO->_listarTodasAlfabeticamente();
-        for ($i = 0, $retornoRA = ""; $i < count($nomeRA); $i++) {
-            $retornoRA = $retornoRA . "<li><a class=\"submenu\" href=\"?pag=u\"><i class=\"icon-map-marker\"></i><span class=\"hidden-tablet\">" . $nomeRA[$i] . "</span></a></li>";
+        $administrativeRegionName = $this->raCO->_listarTodasAlfabeticamente();
+        for ($i = 0, $returnAdministrativeRegion = ""; $i < count($administrativeRegionName); $i++) {
+            $returnAdministrativeRegion = $returnAdministrativeRegion . "<li><a class=\"submenu\" href=\"?pag=u\"><i class=\"icon-map-marker\"></i><span class=\"hidden-tablet\">" . $administrativeRegionName[$i] . "</span></a></li>";
         }
-        return $retornoRA;
+        return $returnAdministrativeRegion;
     }
 
     public function contarRegistrosRA() {
