@@ -11,67 +11,67 @@ include_once('C:/xampp/htdocs/mds2013/persistence/ConexaoTeste.php');
 
 class RegiaoAdministrativaDAO {
 
-    private $conexao;
+    private $conexion;
 
     public function __construct() {
-        $this->conexao = new Conexao();
+        $this->conexion = new Conexao();
     }
 
     public function __constructTeste() {
-        $this->conexao = new ConexaoTeste();
+        $this->conexion = new ConexaoTeste();
     }
 
     public function listarTodas() {
         $sql = "SELECT * FROM regiao_administrativa";
-        $resultado = $this->conexao->banco->Execute($sql);
-        while ($registro = $resultado->FetchNextObject()) {
-            $dadosRA = new RegiaoAdministrativa();
-            $dadosRA->__constructOverload($registro->ID_REGIAO_ADMINISTRATIVA, $registro->NOME);
-            $retornaRAs[] = $dadosRA;
+        $database_conexion_result = $this->conexion->banco->Execute($sql);
+        while ($register = $database_conexion_result->FetchNextObject()) {
+            $administrative_region_data = new RegiaoAdministrativa();
+            $administrative_region_data->__constructOverload($register->ID_REGIAO_ADMINISTRATIVA, $register->NOME);
+            $array_of_administrative_regions[] = $administrative_region_data;
         }
-        return $retornaRAs;
+        return $array_of_administrative_regions;
     }
 
     public function listarTodasAlfabeticamente() {
         $sql = "SELECT * FROM regiao_administrativa ORDER BY nome ASC";
-        $resultado = $this->conexao->banco->Execute($sql);
-        while ($registro = $resultado->FetchNextObject()) {
-            $dadosRA = new RegiaoAdministrativa();
-            $dadosRA->__constructOverload($registro->ID_REGIAO_ADMINISTRATIVA, $registro->NOME);
-            $retornaRAs[] = $dadosRA;
+        $database_conexion_result = $this->conexion->banco->Execute($sql);
+        while ($register = $database_conexion_result->FetchNextObject()) {
+            $administrative_region_data = new RegiaoAdministrativa();
+            $administrative_region_data->__constructOverload($register->ID_REGIAO_ADMINISTRATIVA, $register->NOME);
+            $array_of_administrative_regions[] = $administrative_region_data;
         }
-        return $retornaRAs;
+        return $array_of_administrative_regions;
     }
 
     public function consultarPorId($id) {
         $sql = "SELECT * FROM regiao_administrativa WHERE id_regiao_administrativa ='" . $id . "'";
-        $resultado = $this->conexao->banco->Execute($sql);
-        $registro = $resultado->FetchNextObject();
-        $dadosRA = new RegiaoAdministrativa();
-        $dadosRA->__constructOverload($registro->ID_REGIAO_ADMINISTRATIVA, $registro->NOME);
-        return $dadosRA;
+        $database_conexion_result = $this->conexion->banco->Execute($sql);
+        $register = $database_conexion_result->FetchNextObject();
+        $administrative_region_data = new RegiaoAdministrativa();
+        $administrative_region_data->__constructOverload($register->ID_REGIAO_ADMINISTRATIVA, $register->NOME);
+        return $administrative_region_data;
     }
 
     public function consultarPorNome($nome) {
         $sql = "SELECT * FROM regiao_administrativa WHERE nome = '" . $nome . "'";
-        $resultado = $this->conexao->banco->Execute($sql);
-        $registro = $resultado->FetchNextObject();
-        $dadosRA = new RegiaoAdministrativa();
-        $dadosRA->__constructOverload($registro->ID_REGIAO_ADMINISTRATIVA, $registro->NOME);
-        return $dadosRA;
+        $database_conexion_result = $this->conexion->banco->Execute($sql);
+        $register = $database_conexion_result->FetchNextObject();
+        $administrative_region_data = new RegiaoAdministrativa();
+        $administrative_region_data->__constructOverload($register->ID_REGIAO_ADMINISTRATIVA, $register->NOME);
+        return $administrative_region_data;
     }
 
     public function contarRegistrosRA() {
         $sql = "SELECT COUNT(id_regiao_administrativa)AS total FROM regiao_administrativa";
-        $resultado = $this->conexao->banco->Execute($sql);
-        $registro = $resultado->FetchNextObject();
-        return $registro->TOTAL;
+        $database_conexion_result = $this->conexion->banco->Execute($sql);
+        $register = $database_conexion_result->FetchNextObject();
+        return $register->TOTAL;
     }
 
     public function inserirRA(RegiaoAdministrativa $RA) {
         $sql = "INSERT INTO regiao_administrativa (nome) values ('{$RA->__getNomeRegiao()}')";
-        $resultado = $this->conexao->banco->Execute($sql);
-        return $resultado;
+        $database_conexion_result = $this->conexion->banco->Execute($sql);
+        return $database_conexion_result;
     }
 
 }
