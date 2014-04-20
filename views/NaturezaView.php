@@ -21,6 +21,7 @@ class NaturezaView {
 
     public function listarTodasAlfabicamente() {
         $todasNaturezas = $this->naturezaCO->_listarTodasAlfabicamente();
+        
         for ($i = 0, $retornoTipos = ""; $i < count($todasNaturezas); $i++) {
             $dadosCrime = $this->crimeCO->_somaDeCrimePorNatureza($todasNaturezas[$i]->__getNatureza());
             $retornoTipos = $retornoTipos . "<h3>" . $todasNaturezas[$i]->__getNatureza() . "</h3>
@@ -50,6 +51,7 @@ class NaturezaView {
         $dadosDeNatureza = $this->naturezaCO->_retornarDadosDeNaturezaFormatado($natureza);
         $dadosCrimeFormatado = "";
         $retornoFormatado = "";
+        
         for ($i = 0; $i < count($dadosDeNatureza['title']); $i++) {
             /**
              * Laço que escreve os dados do grafico de ocorrencias por ano.
@@ -62,9 +64,12 @@ class NaturezaView {
              */
             if ($i % 2 == 0) {
                 $varbar = "\"bar\"";
+                
             } else {
                 $varbar = "\"bar simple\"";
+                
             }
+            
             $dadosCrimeFormatado[$i] = "
 				<div class=" . $varbar . " title=\"" . $dadosDeNatureza['title'][$i] . " Ocorrencias\">
 					<div class=\"title\">" . $dadosDeNatureza['tempo'][$i] . "</div>
@@ -82,6 +87,7 @@ class NaturezaView {
         $arrayCategorias = $categoriaVW->listarTodasAlfabeticamentePuro();
         $auxCategoria = $arrayCategorias[$idCategoria];
         $arrayNaturezas = $this->consultarPorIdCategoria($auxCategoria->__getIdCategoria());
+        
         for ($i = 0; $i < count($arrayNaturezas); $i++) {
             $naturezaAtual = $arrayNaturezas[$i];
             $auxBarra[] = "
