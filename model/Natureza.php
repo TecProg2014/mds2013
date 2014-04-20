@@ -24,9 +24,15 @@ class Natureza {
     }
 
     public function __setIdNatureza($idNatureza) {
+        
         if (!is_numeric($idNatureza)) {
             throw new ETipoErrado();
+            
+        }else {
+            //nothing to do - skip to the next step function
+            
         }
+        
         $this->idNatureza = $idNatureza;
     }
 
@@ -39,7 +45,12 @@ class Natureza {
 
         if (!is_numeric($idCategoria)) {
             throw new ETipoErrado();
+            
+        }else {
+            //nothing to do - skip to the next step function
+            
         }
+        
         $this->idCategoria = $idCategoria;
     }
 
@@ -52,7 +63,12 @@ class Natureza {
         //Method to modify the instance of the natureza attribute 
         if (!is_string($natureza)) {
             throw new ETipoErrado();
+        
+        }else {
+            //nothing to do - skip to the next step function
+            
         }
+        
         $this->natureza = $natureza;
     }
 
