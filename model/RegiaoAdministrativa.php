@@ -9,17 +9,17 @@ include_once('C:/xampp/htdocs/mds2013/exceptions/ETipoErrado.php');
 
 class RegiaoAdministrativa {
 
-    private $idRegiaoAdministrativa;
-    private $nomeRegiao;
+    private $idAdministrativeRegion;
+    private $regionName;
 
     public function __construct() {
         
     }
 
-    public function __constructOverLoad($idRA, $nomeRegiao) {
+    public function __constructOverLoad($idAR, $nomeRegiao) {
 
-        $this->idRegiaoAdministrativa = $idRA;
-        $this->nomeRegiao = $nomeRegiao;
+        $this->idAdministrativeRegion = $idAR;
+        $this->regionName = $nomeRegiao;
     }
 
     public function __setIdRegiaoAdministrativa($idRegiaoAdministrativa) {
@@ -27,12 +27,12 @@ class RegiaoAdministrativa {
         if (!is_numeric($idRegiaoAdministrativa)) {
             throw new ETipoErrado();
         }
-        $this->idRegiaoAdministrativa = $idRegiaoAdministrativa;
+        $this->idAdministrativeRegion = $idRegiaoAdministrativa;
     }
 
     public function __getIdRegiaoAdministrativa() {
         //Method to access the instance of regiaoAdministrativa attribute
-        return $this->idRegiaoAdministrativa;
+        return $this->idAdministrativeRegion;
     }
 
     public function __setNomeRegiao($nomeRegiao) {
@@ -41,12 +41,12 @@ class RegiaoAdministrativa {
         if (!is_string($nomeRegiao)) {
             throw new ETipoErrado();
         }
-        $this->nomeRegiao = $nomeRegiao;
+        $this->regionName = $nomeRegiao;
     }
 
     public function __getNomeRegiao() {
         //Method to access the instance of time attribute
-        return $this->nomeRegiao;
+        return $this->regionName;
     }
 
 }
