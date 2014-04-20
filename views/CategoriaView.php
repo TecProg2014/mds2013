@@ -10,94 +10,94 @@ include_once('C:/xampp/htdocs/mds2013/exceptions/EErroConsulta.php');
 
 class CategoriaView {
 
-    private $categoriaCO;
+    private $category_controller;
 
     public function __construct() {
-        $this->categoriaCO = new CategoriaController();
+        $this->category_controller = new CategoriaController();
     }
 
     public function listarTodas() {
-        $arrayCategoria = $this->categoriaCO->_listarTodas();
-        if (!is_array($arrayCategoria)) {
+        $array_of_categories = $this->category_controller->_listarTodas();
+        if (!is_array($array_of_categories)) {
             throw new EErroConsulta();
         }
-        return $arrayCategoria;
+        return $array_of_categories;
     }
 
     public function listarTodasAlfabicamente() {
-        $arrayCategoria = $this->categoriaCO->_listarTodasAlfabicamente();
-        for ($i = 0, $retornoCategoria = ""; $i < count($arrayCategoria); $i++) {
-            $auxCategoria = $arrayCategoria[$i];
-            $nomeCategoria = $auxCategoria->__getNomeCategoria();
-            $idCategoria = $auxCategoria->__getIdCategoria();
-            $retornoCategoria = $retornoCategoria . "<li><a class=\"submenu\" href=\"?pag=cCat&id=$i\"><i class=\"icon-inbox\"></i><span class=\"hidden-tablet\">$nomeCategoria</span></a></li>";
+        $array_of_categories = $this->category_controller->_listarTodasAlfabicamente();
+        for ($i = 0, $categories_return = ""; $i < count($array_of_categories); $i++) {
+            $category_auxiliar_variable = $array_of_categories[$i];
+            $category_name = $category_auxiliar_variable->__getNomeCategoria();
+            $id_category = $category_auxiliar_variable->__getIdCategoria();
+            $categories_return = $categories_return . "<li><a class=\"submenu\" href=\"?pag=cCat&id=$i\"><i class=\"icon-inbox\"></i><span class=\"hidden-tablet\">$category_name</span></a></li>";
         }
-        return $retornoCategoria;
+        return $categories_return;
     }
 
     public function listarTodasAlfabeticamentePuro() {
-        $arrayCategoria = $this->categoriaCO->_listarTodasAlfabicamente();
-        return $arrayCategoria;
+        $array_of_categories = $this->category_controller->_listarTodasAlfabicamente();
+        return $array_of_categories;
     }
 
     public function consultarPorId($id) {
-        $categoria = $this->categoriaCO->_consultarPorId($id);
-        if (get_class($categoria) != 'Categoria') {
+        $category = $this->category_controller->_consultarPorId($id);
+        if (get_class($category) != 'Categoria') {
             throw new EErroConsulta();
         }
-        return $categoria;
+        return $category;
     }
 
-    public function _consultarPorNome($nomeCategoria) {
-        $categoria = $this->categoriaCO->_consultarPorNome($nomeCategoria);
-        if (get_class($categoria) != 'Categoria') {
+    public function _consultarPorNome($category_name) {
+        $category = $this->category_controller->_consultarPorNome($category_name);
+        if (get_class($category) != 'Categoria') {
             throw new EErroConsulta();
         }
-        return $categoria;
+        return $category;
     }
 
     public function contarRegistros() {
-        return $this->categoriaCO->_contarRegistros();
+        return $this->category_controller->_contarRegistros();
     }
 
     public function _somaTotalDignidadeSexual() {
-        return $this->categoriaCO->_somaTotalDignidadeSexual();
+        return $this->category_controller->_somaTotalDignidadeSexual();
     }
 
     public function _somaTotalDignidadeSexual2010_2011() {
-        return $this->categoriaCO->_somaTotalDignidadeSexual2010_2011();
+        return $this->category_controller->_somaTotalDignidadeSexual2010_2011();
     }
 
     public function _somaTotalAcaoPolicial() {
-        return $this->categoriaCO->_somaTotalAcaoPolicial();
+        return $this->category_controller->_somaTotalAcaoPolicial();
     }
 
     public function _somaTotalAcaoPolicial2010_2011() {
-        return $this->categoriaCO->_somaTotalAcaoPolicial2010_2011();
+        return $this->category_controller->_somaTotalAcaoPolicial2010_2011();
     }
 
     public function _somaGeralCrimeContraPessoa() {
-        return $this->categoriaCO->_somaGeralCrimeContraPessoa();
+        return $this->category_controller->_somaGeralCrimeContraPessoa();
     }
 
     public function _somaGeralCrimeContraPessoa2010_2011() {
-        return $this->categoriaCO->_somaGeralCrimeContraPessoa2010_2011();
+        return $this->category_controller->_somaGeralCrimeContraPessoa2010_2011();
     }
 
     public function _somaTotalRoubo() {
-        return $this->categoriaCO->_somaTotalRoubo();
+        return $this->category_controller->_somaTotalRoubo();
     }
 
     public function _somaTotalRoubo2010_2011() {
-        return $this->categoriaCO->_somaTotalRoubo2010_2011();
+        return $this->category_controller->_somaTotalRoubo2010_2011();
     }
 
     public function _somaTotalFurtos() {
-        return $this->categoriaCO->_somaTotalFurtos();
+        return $this->category_controller->_somaTotalFurtos();
     }
 
     public function _listarTotalDeCategoria() {
-        return $this->categoriaCO->_listarTotalDeCategoria();
+        return $this->category_controller->_listarTotalDeCategoria();
     }
 
 }
