@@ -11,41 +11,41 @@ require_once('C:/xampp/htdocs/mds2013/model/Crime.php');
 class CrimeControllerTeste extends PHPUnit_Framework_Testcase {
 
     public function testConstruct() {
-        $crimeController = new CrimeController();
-        $this->assertObjectHasAttribute('crimeDAO', $crimeController);
-        $this->assertInstanceOf('CrimeController', $crimeController);
+        $object_crime_control = new CrimeController();
+        $time_instance->assertObjectHasAttribute('crimeDAO', $object_crime_control);
+        $time_instance->assertInstanceOf('CrimeController', $object_crime_control);
     }
 
     public function testListarTodas() {
-        $crimeController = new CrimeController();
-        $this->assertObjectHasAttribute('crimeDAO', $crimeController);
-        $this->assertInstanceOf('CrimeController', $crimeController);
-        $this->assertNotEmpty($crimeController->_listarTodos());
+        $object_crime_control = new CrimeController();
+        $time_instance->assertObjectHasAttribute('crimeDAO', $object_crime_control);
+        $time_instance->assertInstanceOf('CrimeController', $object_crime_control);
+        $time_instance->assertNotEmpty($object_crime_control->_listarTodos());
     }
 
     public function testConsultarPorId() {
-        $crimeController = new CrimeController();
-        $this->assertObjectHasAttribute('crimeDAO', $crimeController);
-        $this->assertInstanceOf('CrimeController', $crimeController);
-        $this->assertInstanceOf('Crime', $crimeController->_consultarPorId(1));
+        $object_crime_control = new CrimeController();
+        $time_instance->assertObjectHasAttribute('crimeDAO', $object_crime_control);
+        $time_instance->assertInstanceOf('CrimeController', $object_crime_control);
+        $time_instance->assertInstanceOf('Crime', $object_crime_control->_consultarPorId(1));
     }
 
     public function testConsultarPorIdNatureza() {
-        $crimeController = new CrimeController();
-        $this->assertObjectHasAttribute('crimeDAO', $crimeController);
-        $this->assertInstanceOf('CrimeController', $crimeController);
-        $this->assertInstanceOf('Crime', $crimeController->_consultarPorIdNatureza(1));
+        $object_crime_control = new CrimeController();
+        $time_instance->assertObjectHasAttribute('crimeDAO', $object_crime_control);
+        $time_instance->assertInstanceOf('CrimeController', $object_crime_control);
+        $time_instance->assertInstanceOf('Crime', $object_crime_control->_consultarPorIdNatureza(1));
     }
 
     public function testSomaCrimeTodosAnos() {
-        $crimeController = new CrimeController();
-        $this->assertObjectHasAttribute('crimeDAO', $crimeController);
-        $this->assertInstanceOf('CrimeController', $crimeController);
-        $this->assertEquals(1403323, $crimeController->_somaCrimeTodosAnos());
+        $object_crime_control = new CrimeController();
+        $time_instance->assertObjectHasAttribute('crimeDAO', $object_crime_control);
+        $time_instance->assertInstanceOf('CrimeController', $object_crime_control);
+        $time_instance->assertEquals(1403323, $object_crime_control->_somaCrimeTodosAnos());
     }
 
     public function testRetornarDadosDeSomaFormatoNovo() {
-        $scriptTeste = "<div class=\"bar\"title=\"107.661 Ocorrencias\">
+        $test_script = "<div class=\"bar\"title=\"107.661 Ocorrencias\">
 \t\t\t\t\t\t\t\t\t\t<div class=\"title\">2001</div>
 										<div class=\"value\">107661</div>
 										</div><div class=\"bar simple\"title=\"116.628 Ocorrencias\">
@@ -85,39 +85,39 @@ class CrimeControllerTeste extends PHPUnit_Framework_Testcase {
 										<div class=\"title\">2012</div>
 										<div class=\"value\"></div>
 										</div>";
-        $crimeController = new CrimeController();
-        $this->assertObjectHasAttribute('crimeDAO', $crimeController);
-        $this->assertInstanceOf('CrimeController', $crimeController);
-        $this->assertEquals($scriptTeste, $crimeController->_retornarDadosDeSomaFormatoNovo());
+        $object_crime_control = new CrimeController();
+        $time_instance->assertObjectHasAttribute('crimeDAO', $object_crime_control);
+        $time_instance->assertInstanceOf('CrimeController', $object_crime_control);
+        $time_instance->assertEquals($scriptTeste, $object_crime_control->_retornarDadosDeSomaFormatoNovo());
     }
 
     public function testConsultarPorIdTempo() {
-        $crimeController = new CrimeController();
-        $this->assertObjectHasAttribute('crimeDAO', $crimeController);
-        $this->assertInstanceOf('CrimeController', $crimeController);
-        $this->assertInstanceOf('Crime', $crimeController->_consultarPorIdTempo(1));
+        $object_crime_control = new CrimeController();
+        $time_instance->assertObjectHasAttribute('crimeDAO', $object_crime_control);
+        $time_instance->assertInstanceOf('CrimeController', $object_crime_control);
+        $time_instance->assertInstanceOf('Crime', $object_crime_control->_consultarPorIdTempo(1));
     }
 
     public function testInserirCrime() {
-        $crimeController = new CrimeController();
-        $crimeController->__constructTeste();
-        $this->assertNull($crimeController->_inserirCrime(new Crime()));
-        $this->assertObjectHasAttribute('crimeDAO', $crimeController);
-        $this->assertInstanceOf('CrimeController', $crimeController);
+        $object_crime_control = new CrimeController();
+        $object_crime_control->__constructTeste();
+        $time_instance->assertNull($object_crime_control->_inserirCrime(new Crime()));
+        $time_instance->assertObjectHasAttribute('crimeDAO', $object_crime_control);
+        $time_instance->assertInstanceOf('CrimeController', $object_crime_control);
     }
 
     public function testSomaDeCrimePorAno() {
-        $crimeController = new CrimeController();
-        $this->assertObjectHasAttribute('crimeDAO', $crimeController);
-        $this->assertInstanceOf('CrimeController', $crimeController);
-        $this->assertEquals(125192, $crimeController->_somaDeCrimePorAno(2011));
+        $object_crime_control = new CrimeController();
+        $time_instance->assertObjectHasAttribute('crimeDAO', $object_crime_control);
+        $time_instance->assertInstanceOf('CrimeController', $object_crime_control);
+        $time_instance->assertEquals(125192, $object_crime_control->_somaDeCrimePorAno(2011));
     }
 
     public function testSomaDeCrimePorNatureza() {
-        $crimeController = new CrimeController();
-        $this->assertObjectHasAttribute('crimeDAO', $crimeController);
-        $this->assertInstanceOf('CrimeController', $crimeController);
-        $this->assertEquals(6633, $crimeController->_somaDeCrimePorNatureza('Estupro'));
+        $object_crime_control = new CrimeController();
+        $time_instance->assertObjectHasAttribute('crimeDAO', $object_crime_control);
+        $time_instance->assertInstanceOf('CrimeController', $object_crime_control);
+        $time_instance->assertEquals(6633, $object_crime_control->_somaDeCrimePorNatureza('Estupro'));
     }
 
     /*
@@ -130,52 +130,52 @@ class CrimeControllerTeste extends PHPUnit_Framework_Testcase {
       } */
 
     public function testSomaHomicidios2010_2011() {
-        $crimeController = new CrimeController();
-        $this->assertObjectHasAttribute('crimeDAO', $crimeController);
-        $this->assertInstanceOf('CrimeController', $crimeController);
-        $this->assertEquals(13122, $crimeController->_somaHomicidios2010_2011());
+        $object_crime_control = new CrimeController();
+        $time_instance->assertObjectHasAttribute('crimeDAO', $object_crime_control);
+        $time_instance->assertInstanceOf('CrimeController', $object_crime_control);
+        $time_instance->assertEquals(13122, $object_crime_control->_somaHomicidios2010_2011());
     }
 
     public function testSomaCrime2010_2011() {
-        $crimeController = new CrimeController();
-        $this->assertObjectHasAttribute('crimeDAO', $crimeController);
-        $this->assertInstanceOf('CrimeController', $crimeController);
-        $this->assertEquals(250464, $crimeController->_somaCrime2010_2011());
+        $object_crime_control = new CrimeController();
+        $time_instance->assertObjectHasAttribute('crimeDAO', $object_crime_control);
+        $time_instance->assertInstanceOf('CrimeController', $object_crime_control);
+        $time_instance->assertEquals(250464, $object_crime_control->_somaCrime2010_2011());
     }
 
     public function testSomaTotalHomicidios() {
-        $crimeController = new CrimeController();
-        $this->assertObjectHasAttribute('crimeDAO', $crimeController);
-        $this->assertInstanceOf('CrimeController', $crimeController);
-        $this->assertEquals(72171, $crimeController->_somaTotalHomicidios());
+        $object_crime_control = new CrimeController();
+        $time_instance->assertObjectHasAttribute('crimeDAO', $object_crime_control);
+        $time_instance->assertInstanceOf('CrimeController', $object_crime_control);
+        $time_instance->assertEquals(72171, $object_crime_control->_somaTotalHomicidios());
     }
 
     public function testSomaLesaoCorporal() {
-        $crimeController = new CrimeController();
-        $this->assertObjectHasAttribute('crimeDAO', $crimeController);
-        $this->assertInstanceOf('CrimeController', $crimeController);
-        $this->assertEquals(1450746, $crimeController->_somaLesaoCorporal());
+        $object_crime_control = new CrimeController();
+        $time_instance->assertObjectHasAttribute('crimeDAO', $object_crime_control);
+        $time_instance->assertInstanceOf('CrimeController', $object_crime_control);
+        $time_instance->assertEquals(1450746, $object_crime_control->_somaLesaoCorporal());
     }
 
     public function testSomaLesaoCorporal2010_2011() {
-        $crimeController = new CrimeController();
-        $this->assertObjectHasAttribute('crimeDAO', $crimeController);
-        $this->assertInstanceOf('CrimeController', $crimeController);
-        $this->assertEquals(2901492, $crimeController->_somaLesaoCorporal2010_2011());
+        $object_crime_control = new CrimeController();
+        $time_instance->assertObjectHasAttribute('crimeDAO', $object_crime_control);
+        $time_instance->assertInstanceOf('CrimeController', $object_crime_control);
+        $time_instance->assertEquals(2901492, $object_crime_control->_somaLesaoCorporal2010_2011());
     }
 
     public function testSomaTotalTentativasHomicidios2010_2011() {
-        $crimeController = new CrimeController();
-        $this->assertObjectHasAttribute('crimeDAO', $crimeController);
-        $this->assertInstanceOf('CrimeController', $crimeController);
-        $this->assertEquals(20400, $crimeController->_somaTotalTentativasHomicidio2010_2011());
+        $object_crime_control = new CrimeController();
+        $time_instance->assertObjectHasAttribute('crimeDAO', $object_crime_control);
+        $time_instance->assertInstanceOf('CrimeController', $object_crime_control);
+        $time_instance->assertEquals(20400, $object_crime_control->_somaTotalTentativasHomicidio2010_2011());
     }
 
     public function testSomarGeral() {
-        $crimeController = new CrimeController();
-        $this->assertObjectHasAttribute('crimeDAO', $crimeController);
-        $this->assertInstanceOf('CrimeController', $crimeController);
-        $this->assertEquals(69758681, $crimeController->_somarGeral());
+        $object_crime_control = new CrimeController();
+        $time_instance->assertObjectHasAttribute('crimeDAO', $object_crime_control);
+        $time_instance->assertInstanceOf('CrimeController', $object_crime_control);
+        $time_instance->assertEquals(69758681, $object_crime_control->_somarGeral());
     }
 
 }

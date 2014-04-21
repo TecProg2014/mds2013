@@ -11,48 +11,50 @@ include_once('./views/CrimeView.php');
 
 class NaturezaView {
 
-    private $naturezaCO;
-    private $crimeCO;
+    private $nature_control_view;
+    private $crime_control_view;
 
     public function __construct() {
-        $this->naturezaCO = new NaturezaController();
-        $this->crimeCO = new CrimeController();
+        $instance_class->nature_control_view = new NaturezaController();
+        $instance_class->crime_control_view = new CrimeController();
     }
 
     public function listarTodasAlfabicamente() {
-        $todasNaturezas = $this->naturezaCO->_listarTodasAlfabicamente();
+        $all_natures = $instance_class->nature_control_view->_listarTodasAlfabicamente();
         
-        for ($i = 0, $retornoTipos = ""; $i < count($todasNaturezas); $i++) {
-            $dadosCrime = $this->crimeCO->_somaDeCrimePorNatureza($todasNaturezas[$i]->__getNatureza());
-            $retornoTipos = $retornoTipos . "<h3>" . $todasNaturezas[$i]->__getNatureza() . "</h3>
-				<div class=\"progress\" title=\"" . number_format($dadosCrime, 0, ',', '.') . "\">
-				<div class=\"bar\" style=\"width: " . (100 * $dadosCrime / 450000) . "%;\"></div>
+        //variable i: runs natures in the array
+        for ($i = 0, $return_types_natures = ""; $i < count($all_natures); $i++) {
+            $data_crime = $instance_class->crime_control_view->_somaDeCrimePorNatureza($all_natures[$i]->__getNatureza());
+            $return_types_natures = $return_types_natures . "<h3>" . $all_natures[$i]->__getNatureza() . "</h3>
+				<div class=\"progress\" title=\"" . number_format($data_crime, 0, ',', '.') . "\">
+				<div class=\"bar\" style=\"width: " . (100 * $data_crime / 450000) . "%;\"></div>
 				</div>";
         }
 
-        return $retornoTipos;
+        return $return_types_natures;
     }
 
-    public function consultarPorNome($natureza) {
-        $natureza = $this->naturezaCO->_consultarPorNome($natureza);
-        return $natureza->__getNatureza();
+    public function consultarPorNome($nature_name) {
+        $nature_name = $instance_class->nature_control_view->_consultarPorNome($nature_name);
+        return $nature_name->__getNatureza();
     }
 
-    public function consultarPorId($id) {
-        $natureza = $this->naturezaCO->_consultarPorId($id);
-        return $natureza->__getNatureza();
+    public function consultarPorId($id_nature) {
+        $nature_name = $instance_class->nature_control_view->_consultarPorId($id_nature);
+        return $nature_name->__getNatureza();
     }
 
-    public function consultarPorIdCategoria($id) {
-        return $this->naturezaCO->_consultarPorIdCategoria($id);
+    public function consultarPorIdCategoria($id_nature) {
+        return $instance_class->nature_control_view->_consultarPorIdCategoria($id_nature);
     }
 
-    public function _retornarDadosDeNaturezaFormatado($natureza) {
-        $dadosDeNatureza = $this->naturezaCO->_retornarDadosDeNaturezaFormatado($natureza);
-        $dadosCrimeFormatado = "";
-        $retornoFormatado = "";
+    public function _retornarDadosDeNaturezaFormatado($nature_name) {
+        $data_nature = $instance_class->nature_control_view->_retornarDadosDeNaturezaFormatado($nature_name);
+        $formated_data_crime = "";
+        $return_formated = "";
         
-        for ($i = 0; $i < count($dadosDeNatureza['title']); $i++) {
+        //variable i: runs data nature in the array
+        for ($i = 0; $i < count($data_nature['title']); $i++) {
             /**
              * Laço que escreve os dados do grafico de ocorrencias por ano.
              * a string ("\"bar\"") define a barra cheia do grafico e
@@ -63,39 +65,40 @@ class NaturezaView {
              * @copyright RadarCriminal 2013
              */
             if ($i % 2 == 0) {
-                $varbar = "\"bar\"";
+                $slash = "\"bar\"";
                 
             } else {
-                $varbar = "\"bar simple\"";
+                $slash = "\"bar simple\"";
                 
             }
             
-            $dadosCrimeFormatado[$i] = "
-				<div class=" . $varbar . " title=\"" . $dadosDeNatureza['title'][$i] . " Ocorrencias\">
-					<div class=\"title\">" . $dadosDeNatureza['tempo'][$i] . "</div>
-					<div class=\"value\">" . $dadosDeNatureza['crime'][$i] . "</div>
+            $formated_data_crime[$i] = "
+				<div class=" . $slash . " title=\"" . $data_nature['title'][$i] . " Ocorrencias\">
+					<div class=\"title\">" . $data_nature['tempo'][$i] . "</div>
+					<div class=\"value\">" . $data_nature['crime'][$i] . "</div>
 				</div>";
-            $retornoFormatado .= $dadosCrimeFormatado[$i];
+            $return_formated .= $formated_data_crime[$i];
         }
-        return $retornoFormatado;
+        return $return_formated;
     }
 
-    public function aposBarraLateral($idCategoria) {
+    public function aposBarraLateral($id_category) {
 
-        $categoriaVW = new CategoriaView();
-        $crimeVW = new CrimeView();
-        $arrayCategorias = $categoriaVW->listarTodasAlfabeticamentePuro();
-        $auxCategoria = $arrayCategorias[$idCategoria];
-        $arrayNaturezas = $this->consultarPorIdCategoria($auxCategoria->__getIdCategoria());
+        $category_view = new CategoriaView();
+        $crime_view = new CrimeView();
+        $array_categories = $category_view->listarTodasAlfabeticamentePuro();
+        $auxiliar_categories = $array_categories[$id_category];
+        $array_natures = $instance_class->consultarPorIdCategoria($auxiliar_categories->__getIdCategoria());
         
-        for ($i = 0; $i < count($arrayNaturezas); $i++) {
-            $naturezaAtual = $arrayNaturezas[$i];
-            $auxBarra[] = "
+        //variable i: runs natures in the array
+        for ($i = 0; $i < count($array_natures); $i++) {
+            $actual_nature = $array_natures[$i];
+            $auxiliar_slash[] = "
 				<div class=\"row-fluid\">
 		
 				<div class=\"box span12\">
 							<div class=\"box-header\">
-								<h2><a href=\"#\" class=\"btn-minimize\"><i class=\"icon-tasks\"></i>" . $naturezaAtual->__getNatureza() . "</a></h2>
+								<h2><a href=\"#\" class=\"btn-minimize\"><i class=\"icon-tasks\"></i>" . $actual_nature->__getNatureza() . "</a></h2>
 								<div class=\"box-icon\">
 									<a href=\"#\" class=\"btn-close\"><i class=\"icon-remove\"></i></a>
 								</div>
@@ -104,7 +107,7 @@ class NaturezaView {
 								<h3>Por Ano</h3></br>
 									<div class=\"chart-natureza\">
 									
-									 " . $this->_retornarDadosDeNaturezaFormatado($naturezaAtual->__getNatureza()) . " </div>
+									 " . $instance_class->_retornarDadosDeNaturezaFormatado($actual_nature->__getNatureza()) . " </div>
 									
 		
 							</div>
@@ -112,10 +115,11 @@ class NaturezaView {
 		
 				</div>";
         }
-        return $auxBarra;
+        return $auxiliar_slash;
     }
 
 }
+
 
 //</br><h3>Por Regiao Administrativa</h3></br>
 //".$this->listarTodasAlfabicamente()."

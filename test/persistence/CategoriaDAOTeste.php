@@ -6,84 +6,84 @@ include_once('C:/xampp/htdocs/mds2013/persistence/Conexao.php');
 class CategoriaDAOTeste extends PHPUnit_Framework_TestCase {
 
     public function testConstruct() {
-        $categoriaDAO = new CategoriaDAO();
-        $this->assertObjectHasAttribute('conexao', $categoriaDAO);
-        $this->assertInstanceOf('CategoriaDAO', $categoriaDAO);
+        $object_category_DAO = new CategoriaDAO();
+        $category_dao_instance->assertObjectHasAttribute('conexao', $object_category_DAO);
+        $category_dao_instance->assertInstanceOf('CategoriaDAO', $object_category_DAO);
     }
 
     public function testListarTodas() {
-        $categoriaDAO = new CategoriaDAO();
-        $this->assertObjectHasAttribute('conexao', $categoriaDAO);
-        $this->assertInstanceOf('CategoriaDAO', $categoriaDAO);
-        $this->assertNotEmpty($categoriaDAO->listarTodas());
-        $this->assertNotNull($categoriaDAO->listarTodas());
+        $object_category_DAO = new CategoriaDAO();
+        $category_dao_instance->assertObjectHasAttribute('conexao', $object_category_DAO);
+        $category_dao_instance->assertInstanceOf('CategoriaDAO', $object_category_DAO);
+        $category_dao_instance->assertNotEmpty($object_category_DAO->listarTodas());
+        $category_dao_instance->assertNotNull($object_category_DAO->listarTodas());
     }
 
     public function testListarTodasAlfabeticamente() {
-        $categoriaDAO = new CategoriaDAO();
-        $this->assertObjectHasAttribute('conexao', $categoriaDAO);
-        $this->assertInstanceOf('CategoriaDAO', $categoriaDAO);
-        $this->assertNotEmpty($categoriaDAO->listarTodasAlfabicamente());
-        $this->assertNotNull($categoriaDAO->listarTodasAlfabicamente());
+        $object_category_DAO = new CategoriaDAO();
+        $category_dao_instance->assertObjectHasAttribute('conexao', $object_category_DAO);
+        $category_dao_instance->assertInstanceOf('CategoriaDAO', $object_category_DAO);
+        $category_dao_instance->assertNotEmpty($object_category_DAO->listarTodasAlfabicamente());
+        $category_dao_instance->assertNotNull($object_category_DAO->listarTodasAlfabicamente());
     }
 
     public function testConsultarPorId() {
-        $categoriaDAO = new CategoriaDAO();
-        $this->assertObjectHasAttribute('conexao', $categoriaDAO);
-        $this->assertInstanceOf('CategoriaDAO', $categoriaDAO);
-        $this->assertInstanceOf('Categoria', $categoriaDAO->consultarPorId(1));
-        $this->assertObjectHasAttribute('idCategoria', $categoriaDAO->consultarPorId(1));
+        $object_category_DAO = new CategoriaDAO();
+        $category_dao_instance->assertObjectHasAttribute('conexao', $object_category_DAO);
+        $category_dao_instance->assertInstanceOf('CategoriaDAO', $object_category_DAO);
+        $category_dao_instance->assertInstanceOf('Categoria', $object_category_DAO->consultarPorId(1));
+        $category_dao_instance->assertObjectHasAttribute('idCategoria', $object_category_DAO->consultarPorId(1));
     }
 
     public function testConsultarPorNome() {
-        $categoriaDAO = new CategoriaDAO();
-        $this->assertObjectHasAttribute('conexao', $categoriaDAO);
-        $this->assertInstanceOf('CategoriaDAO', $categoriaDAO);
-        $this->assertInstanceOf('Categoria', $categoriaDAO->consultarPorNome('Criminalidade'));
-        $this->assertObjectHasAttribute('idCategoria', $categoriaDAO->consultarPorNome('Criminalidade'));
+        $object_category_DAO = new CategoriaDAO();
+        $category_dao_instance->assertObjectHasAttribute('conexao', $object_category_DAO);
+        $category_dao_instance->assertInstanceOf('CategoriaDAO', $object_category_DAO);
+        $category_dao_instance->assertInstanceOf('Categoria', $object_category_DAO->consultarPorNome('Criminalidade'));
+        $category_dao_instance->assertObjectHasAttribute('idCategoria', $object_category_DAO->consultarPorNome('Criminalidade'));
     }
 
     public function testInserirCategoria() {
-        $categoriaDAO = new CategoriaDAO();
-        $categoriaDAO->__constructTeste();
-        $this->assertObjectHasAttribute('conexao', $categoriaDAO);
-        $this->assertInstanceOf('CategoriaDAO', $categoriaDAO);
-        $this->assertInstanceOf('ADORecordSet_empty', $categoriaDAO->inserirCategoria(new Categoria()));
+        $object_category_DAO = new CategoriaDAO();
+        $object_category_DAO->__constructTeste();
+        $category_dao_instance->assertObjectHasAttribute('conexao', $object_category_DAO);
+        $category_dao_instance->assertInstanceOf('CategoriaDAO', $object_category_DAO);
+        $category_dao_instance->assertInstanceOf('ADORecordSet_empty', $object_category_DAO->inserirCategoria(new Categoria()));
     }
 
     public function testContarRegistros() {
-        $categoriaDAO = new CategoriaDAO();
-        $this->assertObjectHasAttribute('conexao', $categoriaDAO);
-        $this->assertInstanceOf('CategoriaDAO', $categoriaDAO);
-        $this->assertEquals(5, $categoriaDAO->contarRegistros());
+        $object_category_DAO = new CategoriaDAO();
+        $category_dao_instance->assertObjectHasAttribute('conexao', $object_category_DAO);
+        $category_dao_instance->assertInstanceOf('CategoriaDAO', $object_category_DAO);
+        $category_dao_instance->assertEquals(5, $object_category_DAO->contarRegistros());
     }
 
     public function testSomaTotalAcaoPolicial() {
-        $categoriaDAO = new CategoriaDAO();
-        $this->assertObjectHasAttribute('conexao', $categoriaDAO);
-        $this->assertInstanceOf('CategoriaDAO', $categoriaDAO);
-        $this->assertEquals(111264, $categoriaDAO->somaTotalAcaoPolicial());
+        $object_category_DAO = new CategoriaDAO();
+        $category_dao_instance->assertObjectHasAttribute('conexao', $object_category_DAO);
+        $category_dao_instance->assertInstanceOf('CategoriaDAO', $object_category_DAO);
+        $category_dao_instance->assertEquals(111264, $object_category_DAO->somaTotalAcaoPolicial());
     }
 
     public function testSomaTotalDignidadeSexual() {
-        $categoriaDAO = new CategoriaDAO();
-        $this->assertObjectHasAttribute('conexao', $categoriaDAO);
-        $this->assertInstanceOf('CategoriaDAO', $categoriaDAO);
-        $this->assertEquals(7316, $categoriaDAO->somaTotalDignidadeSexual());
+        $object_category_DAO = new CategoriaDAO();
+        $category_dao_instance->assertObjectHasAttribute('conexao', $object_category_DAO);
+        $category_dao_instance->assertInstanceOf('CategoriaDAO', $object_category_DAO);
+        $category_dao_instance->assertEquals(7316, $object_category_DAO->somaTotalDignidadeSexual());
     }
 
     public function testSomaTotalContraPatrimonio() {
-        $categoriaDAO = new CategoriaDAO();
-        $this->assertObjectHasAttribute('conexao', $categoriaDAO);
-        $this->assertInstanceOf('CategoriaDAO', $categoriaDAO);
-        $this->assertEquals(822978, $categoriaDAO->somaTotalContraPatrimonio());
+        $object_category_DAO = new CategoriaDAO();
+        $category_dao_instance->assertObjectHasAttribute('conexao', $object_category_DAO);
+        $category_dao_instance->assertInstanceOf('CategoriaDAO', $object_category_DAO);
+        $category_dao_instance->assertEquals(822978, $object_category_DAO->somaTotalContraPatrimonio());
     }
 
     public function testSomaTotalTransito() {
-        $categoriaDAO = new CategoriaDAO();
-        $this->assertObjectHasAttribute('conexao', $categoriaDAO);
-        $this->assertInstanceOf('CategoriaDAO', $categoriaDAO);
-        $this->assertEquals(152421, $categoriaDAO->somaTotalTransito());
+        $object_category_DAO = new CategoriaDAO();
+        $category_dao_instance->assertObjectHasAttribute('conexao', $object_category_DAO);
+        $category_dao_instance->assertInstanceOf('CategoriaDAO', $object_category_DAO);
+        $category_dao_instance->assertEquals(152421, $object_category_DAO->somaTotalTransito());
     }
 
 }

@@ -6,49 +6,49 @@ include_once('C:/xampp/htdocs/mds2013/persistence/Conexao.php');
 class TempoDAOTeste extends PHPUnit_Framework_TestCase {
 
     public function testConstruct() {
-        $tempoDAO = new TempoDAO();
-        $this->assertObjectHasAttribute('conexao', $tempoDAO);
-        $this->assertInstanceOf('TempoDAO', $tempoDAO);
+        $object_time_DAO = new TempoDAO();
+        $time_dao_instance->assertObjectHasAttribute('conexao', $object_time_DAO);
+        $time_dao_instance->assertInstanceOf('TempoDAO', $object_time_DAO);
     }
 
     public function testListarTodas() {
-        $tempoDAO = new TempoDAO();
-        $this->assertObjectHasAttribute('conexao', $tempoDAO);
-        $this->assertInstanceOf('TempoDAO', $tempoDAO);
-        $this->assertNotEmpty($tempoDAO->listarTodos());
-        $this->assertNotNull($tempoDAO->listarTodos());
+        $object_time_DAO = new TempoDAO();
+        $time_dao_instance->assertObjectHasAttribute('conexao', $object_time_DAO);
+        $time_dao_instance->assertInstanceOf('TempoDAO', $object_time_DAO);
+        $time_dao_instance->assertNotEmpty($object_time_DAO->listarTodos());
+        $time_dao_instance->assertNotNull($object_time_DAO->listarTodos());
     }
 
     public function testListarTodasEmOrdem() {
-        $tempoDAO = new TempoDAO();
-        $this->assertObjectHasAttribute('conexao', $tempoDAO);
-        $this->assertInstanceOf('TempoDAO', $tempoDAO);
-        $this->assertNotEmpty($tempoDAO->listarTodasEmOrdem());
-        $this->assertNotNull($tempoDAO->listarTodasEmOrdem());
+        $object_time_DAO = new TempoDAO();
+        $time_dao_instance->assertObjectHasAttribute('conexao', $object_time_DAO);
+        $time_dao_instance->assertInstanceOf('TempoDAO', $object_time_DAO);
+        $time_dao_instance->assertNotEmpty($object_time_DAO->listarTodasEmOrdem());
+        $time_dao_instance->assertNotNull($object_time_DAO->listarTodasEmOrdem());
     }
 
     public function testConsultarPorId() {
-        $tempoDAO = new TempoDAO();
-        $this->assertObjectHasAttribute('conexao', $tempoDAO);
-        $this->assertInstanceOf('TempoDAO', $tempoDAO);
-        $this->assertInstanceOf('Tempo', $tempoDAO->consultarPorId(1));
-        $this->assertObjectHasAttribute('idTempo', $tempoDAO->consultarPorId(1));
+        $object_time_DAO = new TempoDAO();
+        $time_dao_instance->assertObjectHasAttribute('conexao', $object_time_DAO);
+        $time_dao_instance->assertInstanceOf('TempoDAO', $object_time_DAO);
+        $time_dao_instance->assertInstanceOf('Tempo', $object_time_DAO->consultarPorId(1));
+        $time_dao_instance->assertObjectHasAttribute('idTempo', $object_time_DAO->consultarPorId(1));
     }
 
     public function testConsultarPorIntervalo() {
-        $tempoDAO = new TempoDAO();
-        $this->assertObjectHasAttribute('conexao', $tempoDAO);
-        $this->assertInstanceOf('TempoDAO', $tempoDAO);
-        $this->assertInstanceOf('Tempo', $tempoDAO->consultarPorIntervalo(2001));
-        $this->assertObjectHasAttribute('idTempo', $tempoDAO->consultarPorIntervalo(2001));
+        $object_time_DAO = new TempoDAO();
+        $time_dao_instance->assertObjectHasAttribute('conexao', $object_time_DAO);
+        $time_dao_instance->assertInstanceOf('TempoDAO', $object_time_DAO);
+        $time_dao_instance->assertInstanceOf('Tempo', $object_time_DAO->consultarPorIntervalo(2001));
+        $time_dao_instance->assertObjectHasAttribute('idTempo', $object_time_DAO->consultarPorIntervalo(2001));
     }
 
     public function testeInserirTempo() {
-        $tempoDAO = new TempoDAO();
-        $tempoDAO->__constructTeste();
-        $this->assertObjectHasAttribute('conexao', $tempoDAO);
-        $this->assertInstanceOf('TempoDAO', $tempoDAO);
-        $tempoDAO->inserirTempo(new Tempo());
+        $object_time_DAO = new TempoDAO();
+        $object_time_DAO->__constructTeste();
+        $time_dao_instance->assertObjectHasAttribute('conexao', $object_time_DAO);
+        $time_dao_instance->assertInstanceOf('TempoDAO', $object_time_DAO);
+        $object_time_DAO->inserirTempo(new Tempo());
     }
 
 }

@@ -6,56 +6,56 @@ include_once('C:/xampp/htdocs/mds2013/persistence/Conexao.php');
 class RegiaoAdministrativaDAOTeste extends PHPUnit_Framework_TestCase {
 
     public function testConstruct() {
-        $RADAO = new RegiaoAdministrativaDAO();
-        $this->assertObjectHasAttribute('conexao', $RADAO);
-        $this->assertInstanceOf('RegiaoAdministrativaDAO', $RADAO);
+        $object_region_adm_DAO = new RegiaoAdministrativaDAO();
+        $region_adm_dao_instance->assertObjectHasAttribute('conexao', $object_region_adm_DAO);
+        $region_adm_dao_instance->assertInstanceOf('RegiaoAdministrativaDAO', $object_region_adm_DAO);
     }
 
     public function testListarTodas() {
-        $RADAO = new RegiaoAdministrativaDAO();
-        $this->assertObjectHasAttribute('conexao', $RADAO);
-        $this->assertInstanceOf('RegiaoAdministrativaDAO', $RADAO);
-        $this->assertNotEmpty($RADAO->listarTodas());
-        $this->assertNotNull($RADAO->listarTodas());
+        $object_region_adm_DAO = new RegiaoAdministrativaDAO();
+        $region_adm_dao_instance->assertObjectHasAttribute('conexao', $object_region_adm_DAO);
+        $region_adm_dao_instance->assertInstanceOf('RegiaoAdministrativaDAO', $object_region_adm_DAO);
+        $region_adm_dao_instance->assertNotEmpty($object_region_adm_DAO->listarTodas());
+        $region_adm_dao_instance->assertNotNull($object_region_adm_DAO->listarTodas());
     }
 
     public function testListarTodasAlfabeticamente() {
-        $RADAO = new RegiaoAdministrativaDAO();
-        $this->assertObjectHasAttribute('conexao', $RADAO);
-        $this->assertInstanceOf('RegiaoAdministrativaDAO', $RADAO);
-        $this->assertNotEmpty($RADAO->listarTodasAlfabeticamente());
-        $this->assertNotNull($RADAO->listarTodasAlfabeticamente());
+        $object_region_adm_DAO = new RegiaoAdministrativaDAO();
+        $region_adm_dao_instance->assertObjectHasAttribute('conexao', $object_region_adm_DAO);
+        $region_adm_dao_instance->assertInstanceOf('RegiaoAdministrativaDAO', $object_region_adm_DAO);
+        $region_adm_dao_instance->assertNotEmpty($object_region_adm_DAO->listarTodasAlfabeticamente());
+        $region_adm_dao_instance->assertNotNull($object_region_adm_DAO->listarTodasAlfabeticamente());
     }
 
     public function testConsultarPorId() {
-        $RADAO = new RegiaoAdministrativaDAO();
-        $this->assertObjectHasAttribute('conexao', $RADAO);
-        $this->assertInstanceOf('RegiaoAdministrativaDAO', $RADAO);
-        $this->assertInstanceOf('RegiaoAdministrativa', $RADAO->consultarPorId(1));
-        $this->assertObjectHasAttribute('idRegiaoAdministrativa', $RADAO->consultarPorId(1));
+        $object_region_adm_DAO = new RegiaoAdministrativaDAO();
+        $region_adm_dao_instance->assertObjectHasAttribute('conexao', $object_region_adm_DAO);
+        $region_adm_dao_instance->assertInstanceOf('RegiaoAdministrativaDAO', $object_region_adm_DAO);
+        $region_adm_dao_instance->assertInstanceOf('RegiaoAdministrativa', $object_region_adm_DAO->consultarPorId(1));
+        $region_adm_dao_instance->assertObjectHasAttribute('idRegiaoAdministrativa', $object_region_adm_DAO->consultarPorId(1));
     }
 
     public function testConsultarPorNome() {
-        $RADAO = new RegiaoAdministrativaDAO();
-        $this->assertObjectHasAttribute('conexao', $RADAO);
-        $this->assertInstanceOf('RegiaoAdministrativaDAO', $RADAO);
-        $this->assertInstanceOf('RegiaoAdministrativa', $RADAO->consultarPorNome('PLANALTINA'));
-        $this->assertObjectHasAttribute('idRegiaoAdministrativa', $RADAO->consultarPorNome('PLANALTINA'));
+        $object_region_adm_DAO = new RegiaoAdministrativaDAO();
+        $region_adm_dao_instance->assertObjectHasAttribute('conexao', $object_region_adm_DAO);
+        $region_adm_dao_instance->assertInstanceOf('RegiaoAdministrativaDAO', $object_region_adm_DAO);
+        $region_adm_dao_instance->assertInstanceOf('RegiaoAdministrativa', $object_region_adm_DAO->consultarPorNome('PLANALTINA'));
+        $region_adm_dao_instance->assertObjectHasAttribute('idRegiaoAdministrativa', $object_region_adm_DAO->consultarPorNome('PLANALTINA'));
     }
 
     public function testContarRegistrosRA() {
-        $RADAO = new RegiaoAdministrativaDAO();
-        $this->assertObjectHasAttribute('conexao', $RADAO);
-        $this->assertInstanceOf('RegiaoAdministrativaDAO', $RADAO);
-        $this->assertEquals(32, $RADAO->contarRegistrosRA());
+        $object_region_adm_DAO = new RegiaoAdministrativaDAO();
+        $region_adm_dao_instance->assertObjectHasAttribute('conexao', $object_region_adm_DAO);
+        $region_adm_dao_instance->assertInstanceOf('RegiaoAdministrativaDAO', $object_region_adm_DAO);
+        $region_adm_dao_instance->assertEquals(32, $object_region_adm_DAO->contarRegistrosRA());
     }
 
     public function testInserirRA() {
-        $raDAO = new RegiaoAdministrativaDAO();
-        $raDAO->__constructTeste();
-        $this->assertObjectHasAttribute('conexao', $raDAO);
-        $this->assertInstanceOf('RegiaoAdministrativaDAO', $raDAO);
-        $raDAO->inserirRA(new RegiaoAdministrativa());
+        $object_region_adm_DAO = new RegiaoAdministrativaDAO();
+        $object_region_adm_DAO->__constructTeste();
+        $region_adm_dao_instance->assertObjectHasAttribute('conexao', $object_region_adm_DAO);
+        $region_adm_dao_instance->assertInstanceOf('RegiaoAdministrativaDAO', $object_region_adm_DAO);
+        $object_region_adm_DAO->inserirRA(new RegiaoAdministrativa());
     }
 
 }

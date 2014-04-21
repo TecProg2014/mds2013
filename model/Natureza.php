@@ -9,23 +9,23 @@ include_once('C:/xampp/htdocs/mds2013/exceptions/ETipoErrado.php');
 
 class Natureza {
 
-    private $idNatureza;
-    private $natureza;
-    private $idCategoria;
+    private $id_nature;
+    private $nature_name;
+    private $id_category;
 
     public function __construct() {
         
     }
 
-    public function __constructOverload($idNatureza, $nomeNatureza, $idCategoriaNatureza) {
-        $this->idNatureza = $idNatureza;
-        $this->natureza = $nomeNatureza;
-        $this->idCategoria = $idCategoriaNatureza;
+    public function __constructOverload($id_nature, $nature_name, $id_category) {
+        $nature_instance->id_nature = $id_nature;
+        $nature_instance->nature_name = $nature_name;
+        $nature_instance->id_category = $id_category;
     }
 
-    public function __setIdNatureza($idNatureza) {
+    public function __setIdNatureza($id_nature) {
         
-        if (!is_numeric($idNatureza)) {
+        if (!is_numeric($id_nature)) {
             throw new ETipoErrado();
             
         }else {
@@ -33,17 +33,17 @@ class Natureza {
             
         }
         
-        $this->idNatureza = $idNatureza;
+        $nature_instance->id_nature = $id_nature;
     }
 
     public function __getIdNatureza() {
         //Method to access the instance of idNatureza attribute
-        return $this->idNatureza;
+        return $nature_instance->id_nature;
     }
 
-    public function __setIdCategoria($idCategoria) {
+    public function __setIdCategoria($id_category) {
 
-        if (!is_numeric($idCategoria)) {
+        if (!is_numeric($id_category)) {
             throw new ETipoErrado();
             
         }else {
@@ -51,17 +51,17 @@ class Natureza {
             
         }
         
-        $this->idCategoria = $idCategoria;
+        $nature_instance->id_category = $id_category;
     }
 
     public function __getIdCategoria() {
         //Method to access the instance of idCategoria attribute
-        return $this->idCategoria;
+        return $nature_instance->id_category;
     }
 
-    public function __setNatureza($natureza) {
+    public function __setNatureza($nature_name) {
         //Method to modify the instance of the natureza attribute 
-        if (!is_string($natureza)) {
+        if (!is_string($nature_name)) {
             throw new ETipoErrado();
         
         }else {
@@ -69,12 +69,12 @@ class Natureza {
             
         }
         
-        $this->natureza = $natureza;
+        $nature_instance->nature_name = $nature_name;
     }
 
     public function __getNatureza() {
         //Method to access the instance of Natureza attribute
-        return $this->natureza;
+        return $nature_instance->nature_name;
     }
 
 }

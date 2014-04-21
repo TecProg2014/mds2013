@@ -6,73 +6,73 @@ include_once('C:/xampp/htdocs/mds2013/persistence/Conexao.php');
 class CrimeDAOTeste extends PHPUnit_Framework_TestCase {
 
     function testConstruct() {
-        $crimeDAO = new CrimeDAO();
-        $this->assertObjectHasAttribute('conexao', $crimeDAO);
-        $this->assertInstanceOf('CrimeDAO', $crimeDAO);
+        $object_crime_DAO = new CrimeDAO();
+        $crime_dao_instance->assertObjectHasAttribute('conexao', $object_crime_DAO);
+        $crime_dao_instance->assertInstanceOf('CrimeDAO', $object_crime_DAO);
     }
 
     public function testListarTodas() {
-        $crimeDAO = new CrimeDAO();
-        $this->assertObjectHasAttribute('conexao', $crimeDAO);
-        $this->assertInstanceOf('CrimeDAO', $crimeDAO);
-        $this->assertNotEmpty($crimeDAO->listarTodos());
-        $this->assertNotNull($crimeDAO->listarTodos());
+        $object_crime_DAO = new CrimeDAO();
+        $crime_dao_instance->assertObjectHasAttribute('conexao', $object_crime_DAO);
+        $crime_dao_instance->assertInstanceOf('CrimeDAO', $object_crime_DAO);
+        $crime_dao_instance->assertNotEmpty($object_crime_DAO->listarTodos());
+        $crime_dao_instance->assertNotNull($object_crime_DAO->listarTodos());
     }
 
     public function testConsultarPorId() {
-        $crimeDAO = new CrimeDAO();
-        $this->assertObjectHasAttribute('conexao', $crimeDAO);
-        $this->assertInstanceOf('CrimeDAO', $crimeDAO);
-        $this->assertInstanceOf('Crime', $crimeDAO->consultarPorId(1));
-        $this->assertObjectHasAttribute('idCrime', $crimeDAO->consultarPorId(1));
+        $object_crime_DAO = new CrimeDAO();
+        $crime_dao_instance->assertObjectHasAttribute('conexao', $object_crime_DAO);
+        $crime_dao_instance->assertInstanceOf('CrimeDAO', $object_crime_DAO);
+        $crime_dao_instance->assertInstanceOf('Crime', $object_crime_DAO->consultarPorId(1));
+        $crime_dao_instance->assertObjectHasAttribute('idCrime', $object_crime_DAO->consultarPorId(1));
     }
 
     public function testConsultarPorIdNatureza() {
-        $crimeDAO = new CrimeDAO();
-        $this->assertObjectHasAttribute('conexao', $crimeDAO);
-        $this->assertInstanceOf('CrimeDAO', $crimeDAO);
-        $this->assertInstanceOf('Crime', $crimeDAO->consultarPorIdNatureza(1));
-        $this->assertObjectHasAttribute('idCrime', $crimeDAO->consultarPorIdNatureza(1));
+        $object_crime_DAO = new CrimeDAO();
+        $crime_dao_instance->assertObjectHasAttribute('conexao', $object_crime_DAO);
+        $crime_dao_instance->assertInstanceOf('CrimeDAO', $object_crime_DAO);
+        $crime_dao_instance->assertInstanceOf('Crime', $object_crime_DAO->consultarPorIdNatureza(1));
+        $crime_dao_instance->assertObjectHasAttribute('idCrime', $object_crime_DAO->consultarPorIdNatureza(1));
     }
 
     public function testConsultarPorIdTempo() {
-        $crimeDAO = new CrimeDAO();
-        $this->assertObjectHasAttribute('conexao', $crimeDAO);
-        $this->assertInstanceOf('CrimeDAO', $crimeDAO);
-        $this->assertInstanceOf('Crime', $crimeDAO->consultarPorIdTempo(1));
-        $this->assertObjectHasAttribute('idCrime', $crimeDAO->consultarPorIdTempo(1));
+        $object_crime_DAO = new CrimeDAO();
+        $crime_dao_instance->assertObjectHasAttribute('conexao', $object_crime_DAO);
+        $crime_dao_instance->assertInstanceOf('CrimeDAO', $object_crime_DAO);
+        $crime_dao_instance->assertInstanceOf('Crime', $object_crime_DAO->consultarPorIdTempo(1));
+        $crime_dao_instance->assertObjectHasAttribute('idCrime', $object_crime_DAO->consultarPorIdTempo(1));
     }
 
     public function testSomaDeCrimePorAno() {
-        $crimeDAO = new CrimeDAO();
-        $this->assertObjectHasAttribute('conexao', $crimeDAO);
-        $this->assertInstanceOf('CrimeDAO', $crimeDAO);
-        $this->assertNotNull($crimeDAO->somaDeCrimePorAno(2001));
-        $this->assertEquals(107661, $crimeDAO->somaDeCrimePorAno(2001));
+        $object_crime_DAO = new CrimeDAO();
+        $crime_dao_instance->assertObjectHasAttribute('conexao', $object_crime_DAO);
+        $crime_dao_instance->assertInstanceOf('CrimeDAO', $object_crime_DAO);
+        $crime_dao_instance->assertNotNull($object_crime_DAO->somaDeCrimePorAno(2001));
+        $crime_dao_instance->assertEquals(107661, $object_crime_DAO->somaDeCrimePorAno(2001));
     }
 
     public function testSomaDeCrimePorNatureza() {
-        $crimeDAO = new CrimeDAO();
-        $this->assertObjectHasAttribute('conexao', $crimeDAO);
-        $this->assertInstanceOf('CrimeDAO', $crimeDAO);
-        $this->assertNotNull($crimeDAO->somaDeCrimePorNatureza('Estupro'));
-        $this->assertEquals(6633, $crimeDAO->somaDeCrimePorNatureza('Estupro'));
+        $object_crime_DAO = new CrimeDAO();
+        $crime_dao_instance->assertObjectHasAttribute('conexao', $object_crime_DAO);
+        $crime_dao_instance->assertInstanceOf('CrimeDAO', $object_crime_DAO);
+        $crime_dao_instance->assertNotNull($object_crime_DAO->somaDeCrimePorNatureza('Estupro'));
+        $crime_dao_instance->assertEquals(6633, $object_crime_DAO->somaDeCrimePorNatureza('Estupro'));
     }
 
     public function testSomaDeCrimePorNaturezaEmAno() {
-        $crimeDAO = new CrimeDAO();
-        $this->assertObjectHasAttribute('conexao', $crimeDAO);
-        $this->assertInstanceOf('CrimeDAO', $crimeDAO);
-        $this->assertNotNull($crimeDAO->somaDeCrimePorNaturezaEmAno('Estupro', 2001));
-        $this->assertEquals(740, $crimeDAO->somaDeCrimePorNaturezaEmAno('Estupro', 2001));
+        $object_crime_DAO = new CrimeDAO();
+        $crime_dao_instance->assertObjectHasAttribute('conexao', $object_crime_DAO);
+        $crime_dao_instance->assertInstanceOf('CrimeDAO', $object_crime_DAO);
+        $crime_dao_instance->assertNotNull($object_crime_DAO->somaDeCrimePorNaturezaEmAno('Estupro', 2001));
+        $crime_dao_instance->assertEquals(740, $object_crime_DAO->somaDeCrimePorNaturezaEmAno('Estupro', 2001));
     }
 
     public function testeInserirCrime() {
-        $crimeDAO = new CrimeDAO();
-        $crimeDAO->__constructTeste();
-        $this->assertObjectHasAttribute('conexao', $crimeDAO);
-        $this->assertInstanceOf('CrimeDAO', $crimeDAO);
-        $crimeDAO->inserirCrime(new Crime());
+        $object_crime_DAO = new CrimeDAO();
+        $object_crime_DAO->__constructTeste();
+        $crime_dao_instance->assertObjectHasAttribute('conexao', $object_crime_DAO);
+        $crime_dao_instance->assertInstanceOf('CrimeDAO', $object_crime_DAO);
+        $object_crime_DAO->inserirCrime(new Crime());
     }
 
 }

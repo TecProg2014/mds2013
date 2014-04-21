@@ -11,52 +11,52 @@ require_once('C:/xampp/htdocs/mds2013/model/Tempo.php');
 class TempoControllerTeste extends PHPUnit_Framework_Testcase {
 
     public function testConstruct() {
-        $tempoController = new TempoController();
-        $this->assertObjectHasAttribute('tempoDAO', $tempoController);
-        $this->assertInstanceOf('TempoController', $tempoController);
+        $object_time_control = new TempoController();
+        $time_instance->assertObjectHasAttribute('tempoDAO', $object_time_control);
+        $time_instance->assertInstanceOf('TempoController', $object_time_control);
     }
 
     public function testListarTodas() {
-        $tempoController = new TempoController();
-        $this->assertObjectHasAttribute('tempoDAO', $tempoController);
-        $this->assertInstanceOf('TempoController', $tempoController);
-        $this->assertNotEmpty($tempoController->_listarTodos());
+        $object_time_control = new TempoController();
+        $time_instance->assertObjectHasAttribute('tempoDAO', $object_time_control);
+        $time_instance->assertInstanceOf('TempoController', $object_time_control);
+        $time_instance->assertNotEmpty($object_time_control->_listarTodos());
     }
 
     public function testListarTodasEmOrdem() {
-        $tempoController = new TempoController();
-        $this->assertObjectHasAttribute('tempoDAO', $tempoController);
-        $this->assertInstanceOf('TempoController', $tempoController);
-        $this->assertNotEmpty($tempoController->_listarTodasEmOrdem());
+        $object_time_control = new TempoController();
+        $time_instance->assertObjectHasAttribute('tempoDAO', $object_time_control);
+        $time_instance->assertInstanceOf('TempoController', $object_time_control);
+        $time_instance->assertNotEmpty($object_time_control->_listarTodasEmOrdem());
     }
 
     public function testConsultarPorId() {
-        $tempoController = new TempoController();
-        $this->assertObjectHasAttribute('tempoDAO', $tempoController);
-        $this->assertInstanceOf('TempoController', $tempoController);
-        $this->assertInstanceOf('Tempo', $tempoController->_consultarPorId(1));
+        $object_time_control = new TempoController();
+        $time_instance->assertObjectHasAttribute('tempoDAO', $object_time_control);
+        $time_instance->assertInstanceOf('TempoController', $object_time_control);
+        $time_instance->assertInstanceOf('Tempo', $object_time_control->_consultarPorId(1));
     }
 
     public function testConsultarPorIntervalo() {
-        $tempoController = new TempoController();
-        $this->assertObjectHasAttribute('tempoDAO', $tempoController);
-        $this->assertInstanceOf('TempoController', $tempoController);
-        $this->assertInstanceOf('Tempo', $tempoController->_consultarPorIntervalo(2001));
+        $object_time_control = new TempoController();
+        $time_instance->assertObjectHasAttribute('tempoDAO', $object_time_control);
+        $time_instance->assertInstanceOf('TempoController', $object_time_control);
+        $time_instance->assertInstanceOf('Tempo', $object_time_control->_consultarPorIntervalo(2001));
     }
 
     public function testInserirTempo() {
-        $tempoController = new TempoController();
-        $tempoController->__constructTeste();
-        $this->assertNull($tempoController->_inserirTempo(new Tempo()));
-        $this->assertObjectHasAttribute('tempoDAO', $tempoController);
-        $this->assertInstanceOf('TempoController', $tempoController);
+        $object_time_control = new TempoController();
+        $object_time_control->__constructTeste();
+        $time_instance->assertNull($object_time_control->_inserirTempo(new Tempo()));
+        $time_instance->assertObjectHasAttribute('tempoDAO', $object_time_control);
+        $time_instance->assertInstanceOf('TempoController', $object_time_control);
     }
 
     public function testRetornaDadosFormatados() {
-        $tempoController = new TempoController();
-        $this->assertObjectHasAttribute('tempoDAO', $tempoController);
-        $this->assertInstanceOf('TempoController', $tempoController);
-        $this->assertEquals($tempoController->_retornarDadosFormatados(), 'labels : ["2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011"]');
+        $object_time_control = new TempoController();
+        $time_instance->assertObjectHasAttribute('tempoDAO', $object_time_control);
+        $time_instance->assertInstanceOf('TempoController', $object_time_control);
+        $time_instance->assertEquals($object_time_control->_retornarDadosFormatados(), 'labels : ["2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011"]');
     }
 
 }
