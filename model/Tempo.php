@@ -9,55 +9,55 @@ include_once('C:/xampp/htdocs/mds2013/exceptions/ETipoErrado.php');
 
 class Tempo {
 
-    private $idTempo;
-    private $intervalo;
-    private $mes;
+    private $timeId;
+    private $interval;
+    private $month;
 
-    public function __setIdTempo($idTempo) {
+    public function __settimeId($timeId) {
         //Method to modify the instance of the time attribute 	
-        if (!is_numeric($idTempo)) {
+        if (!is_numeric($timeId)) {
             throw new ETipoErrado();
         }
-        $this->idTempo = $idTempo;
+        $this->timeId = $timeId;
     }
 
-    public function __getIdTempo() {
+    public function __gettimeId() {
         //Method to access the instance of time attribute
-        return $this->idTempo;
+        return $this->timeId;
     }
 
-    public function __setIntervalo($intervalo) {
+    public function __setinterval($interval) {
         //Method to modify the instance of the interval attribute 	
-        if (!is_numeric($intervalo)) {
+        if (!is_numeric($interval)) {
             throw new ETipoErrado();
         }
-        $this->intervalo = $intervalo;
+        $this->interval = $interval;
     }
 
-    public function __getIntervalo() {
+    public function __getinterval() {
         //Method to access the instance of interval attribute
-        return $this->intervalo;
+        return $this->interval;
     }
 
-    public function __setMes($mes) {
+    public function __setmonth($month) {
         //Method to modify the instance of the month attribute 
-        $this->mes = $mes;
+        $this->month = $month;
     }
 
-    public function __getMes() {
+    public function __getmonth() {
         //Method to access the instance of month attribute
-        return $this->mes;
+        return $this->month;
     }
 
     public function __construct() {
         //Default constructor method of class	
     }
 
-    public function __constructOverload($idTempo, $intervalo, $mes) {
+    public function __constructOverload($timeId, $interval, $month) {
         //Constructor method of class	
-        $this->idTempo = $idTempo;
-        $this->intervalo = $intervalo;
-        $this->mes = $mes;
+        $this->timeId = $timeId;
+        $this->interval = $interval;
+        $this->month = $month;
     }
 
 }
