@@ -4,9 +4,9 @@ include_once('C:/xampp/htdocs/mds2013/views/CrimeView.php');
 include_once('C:/xampp/htdocs/mds2013/views/TempoView.php');
 include_once('C:/xampp/htdocs/mds2013/views/NaturezaView.php');
 $crimeView = new CrimeView();
-$categoriaVW = new CategoriaView();
+$categoryView = new CategoriaView();
 $timeView = new TempoView();
-$naturezaVW = new NaturezaView();
+$kindView = new NaturezaView();
 ?>
 <!-- start: Content -->
 <div id="content" class="span10">
@@ -35,14 +35,14 @@ $naturezaVW = new NaturezaView();
         <div class="span3 smallstat box mobileHalf noMargin" onTablet="span6"
              onDesktop="span3">
             <i class="icon-search radarLightYellow"></i> <span class="title">Roubo</span> <span
-                class="value"><?php echo number_format($categoriaVW->_somaTotalRoubo(), 0, ',', '.') ?>
+                class="value"><?php echo number_format($categoryView->_somaTotalRoubo(), 0, ',', '.') ?>
             </span>
         </div>
 
         <div class="span3 smallstat mobileHalf box" onTablet="span6"
              onDesktop="span3">
             <i class="icon-certificate radarYellow"></i> <span class="title">Furto</span>
-            <span class="value"><?php echo number_format($categoriaVW->_somaTotalFurtos(), 0, ',', '.') ?>
+            <span class="value"><?php echo number_format($categoryView->_somaTotalFurtos(), 0, ',', '.') ?>
             </span>
         </div>
 
@@ -89,42 +89,11 @@ $naturezaVW = new NaturezaView();
                 </div>
             </div>
             <div class="box-content" style="display:none;">
-                <?php echo utf8_encode($naturezaVW->listarTodasAlfabicamente()); ?>
+                <?php echo utf8_encode($kindView->listarTodasAlfabicamente()); ?>
             </div>
         </div><!--/span-->
 
     </div>
-
-    <!--<div class="row-fluid">
-
-            <div class="box span12">
-                                    <div class="box-header">
-                                            <h2><i class="icon-tasks"></i>Crimes por R.A.</h2>
-                                            <div class="box-icon">
-                                                    <a href="#" class="btn-setting"><i class="icon-wrench"></i></a>
-                                                    <a href="#" class="btn-minimize"><i class="icon-chevron-up"></i></a>
-                                                    <a href="#" class="btn-close"><i class="icon-remove"></i></a>
-                                            </div>
-                                    </div>
-                                    <div class="box-content">
-                                            <h3>Taguatinga</h3>
-                                                    <div class="progress" title="70%">
-                                                            <div class="bar" style="width: 70%;"></div>
-                                                    </div>
-                                                    <div class="progress progress-success" style="margin-bottom: 9px;" title="40%">
-                                                            <div class="bar" style="width: 40%"></div>
-                                                    </div>
-                                            <h3>Guara</h3>
-                                                    <div class="progress" title="60%">
-                                                            <div class="bar" style="width: 60%;"></div>
-                                                    </div>
-                                                    <div class="progress progress-success" style="margin-bottom: 9px;" title="80%">
-                                                            <div class="bar" style="width: 80%"></div>
-                                                    </div>
-                                    </div>
-            </div>
-
-    </div> -->
 
 </div>
 <!-- end: Content -->
