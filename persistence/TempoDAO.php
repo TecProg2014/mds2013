@@ -22,7 +22,7 @@ class TempoDAO {
 
     public function listarTodos() {
         $sql = "SELECT * FROM tempo";
-        $result = $this->connection->banco->Execute($sql);
+        $result = $this->connection->database->Execute($sql);
         while ($registry = $result->FetchNextObject()) {
             $dataTime = new Tempo();
             $dataTime->__constructOverload($registry->ID_TEMPO, $registry->ANO, $registry->MES);
@@ -33,7 +33,7 @@ class TempoDAO {
 
     public function listarTodasEmOrdem() {
         $sql = "SELECT * FROM tempo ORDER BY ano ASC ";
-        $result = $this->connection->banco->Execute($sql);
+        $result = $this->connection->database->Execute($sql);
         while ($registry = $result->FetchNextObject()) {
             $dataTime = new Tempo();
             $dataTime->__constructOverload($registry->ID_TEMPO, $registry->ANO, $registry->MES);
@@ -44,7 +44,7 @@ class TempoDAO {
 
     public function consultarPorId($id) {
         $sql = "SELECT * FROM tempo WHERE id_tempo = '" . $id . "'";
-        $result = $this->connection->banco->Execute($sql);
+        $result = $this->connection->database->Execute($sql);
         $registry = $result->FetchNextObject();
         $dataTime = new Tempo();
         $dataTime->__constructOverload($registry->ID_TEMPO, $registry->ANO, $registry->MES);
@@ -53,7 +53,7 @@ class TempoDAO {
 
     public function consultarPorIntervalo($intervalo) {
         $sql = "SELECT * FROM tempo WHERE ano = '" . $intervalo . "'";
-        $result = $this->connection->banco->Execute($sql);
+        $result = $this->connection->database->Execute($sql);
         $registry = $result->FetchNextObject();
         $dataTime = new Tempo();
         $dataTime->__constructOverload($registry->ID_TEMPO, $registry->ANO, $registry->MES);
@@ -62,7 +62,7 @@ class TempoDAO {
 
     public function inserirTempo(Tempo $tempo) {
         $sql = "INSERT INTO tempo (ano) VALUES ('{$tempo->__getIntervalo()}')";
-        $this->connection->banco->Execute($sql);
+        $this->connection->database->Execute($sql);
     }
 
 }

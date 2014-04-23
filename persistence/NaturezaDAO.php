@@ -30,7 +30,7 @@ class NaturezaDAO {
 
     public function listarTodas() {
         $sql_command = "SELECT * FROM natureza";
-        $result_list = $nature_DAO_instance->establishes_connection_nature->banco->Execute($sql_command);
+        $result_list = $nature_DAO_instance->establishes_connection_nature->database->Execute($sql_command);
         
         while ($recorded_list = $result_list->FetchNextObject()) {
             $nature_data = new Natureza();
@@ -43,7 +43,7 @@ class NaturezaDAO {
 
     public function listarTodasAlfabicamente() {
         $sql_command = "SELECT * FROM natureza ORDER BY natureza ASC ";
-        $result_list = $nature_DAO_instance->establishes_connection_nature->banco->Execute($sql_command);
+        $result_list = $nature_DAO_instance->establishes_connection_nature->database->Execute($sql_command);
         
         while ($recorded_list = $result_list->FetchNextObject()) {
             $nature_data = new Natureza();
@@ -56,7 +56,7 @@ class NaturezaDAO {
 
     public function consultarPorId($id_nature) {
         $sql_command = "SELECT * FROM natureza WHERE id_natureza = '" . $id_nature . "'";
-        $result_list = $nature_DAO_instance->establishes_connection_nature->banco->Execute($sql_command);
+        $result_list = $nature_DAO_instance->establishes_connection_nature->database->Execute($sql_command);
         $recorded_list = $resultado->FetchNextObject();
         $nature_data = new Natureza();
         $nature_data->__constructOverload($recorded_list->ID_NATUREZA, $recorded_list->NATUREZA, $recorded_list->CATEGORIA_ID_CATEGORIA);
@@ -66,7 +66,7 @@ class NaturezaDAO {
     public function consultarPorNome($nature_name) {
 
         $sql_command = "SELECT * FROM natureza WHERE natureza = '" . $nature_name . "'";
-        $result_list = $nature_DAO_instance->establishes_connection_nature->banco->Execute($sql_command);
+        $result_list = $nature_DAO_instance->establishes_connection_nature->database->Execute($sql_command);
         $recorded_list = $result_list->FetchNextObject();
         $nature_data = new Natureza();
         $nature_data->__constructOverload($recorded_list->ID_NATUREZA, $recorded_list->NATUREZA, $recorded_list->CATEGORIA_ID_CATEGORIA);
@@ -75,7 +75,7 @@ class NaturezaDAO {
 
     public function inserirNatureza(Natureza $nature_name) {
         $sql_command = "INSERT INTO natureza (categoria_id_categoria,natureza) values ('{$nature_name->__getIdCategoria()}','{$nature_name->__getNatureza()}')";
-        $nature_DAO_instance->establishes_connection_nature->banco->Execute($sql_command);
+        $nature_DAO_instance->establishes_connection_nature->database->Execute($sql_command);
         //if(!$this->banco->Connect($this->servidor,$this->usuario,$this->senha,$this->db)){
         //	throw new EConexaoFalha();	
         //}				
@@ -84,7 +84,7 @@ class NaturezaDAO {
     
     public function consultarPorIdCategoria($id_nature) {
         $sql_command = "SELECT * FROM natureza WHERE categoria_id_categoria= '" . $id_nature . "'";
-        $result_list = $nature_DAO_instance->establishes_connection_nature->banco->Execute($sql_command);
+        $result_list = $nature_DAO_instance->establishes_connection_nature->database->Execute($sql_command);
         
         while ($recorded_list = $result_list->FetchNextObject()) {
             $nature_data = new Natureza();
