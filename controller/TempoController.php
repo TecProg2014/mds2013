@@ -5,76 +5,76 @@
   File description: insert, consult, show some time information
  */
 
-include_once('C:/xampp/htdocs/mds2013/persistence/TempoDAO.php');
+include_once('C:/xampp/htdocs/mds2013/persistence/tempoDAO.php');
 include_once('C:/xampp/htdocs/mds2013/model/Tempo.php');
 
 class TempoController {
 
-    private $tempoDAO;
+    private $timeDAO;
 
     public function __construct() {
-        $this->tempoDAO = new TempoDAO();
+        $this->timeDAO = new tempoDAO();
     }
 
     public function _listarTodos() {
         //lists times
-        return $this->tempoDAO->listarTodos();
+        return $this->timeDAO->listarTodos();
     }
 
     public function _listarTodasEmOrdem() {
         //lists times in order
-        return $this->tempoDAO->listarTodasEmOrdem();
+        return $this->timeDAO->listarTodasEmOrdem();
     }
 
     public function __constructTeste() {
-        //tests instance of tempoDAO
-        $this->tempoDAO->__constructTeste();
+        //tests instance of timeDAO
+        $this->timeDAO->__constructTeste();
     }
 
     public function _consultarPorId($id) {
         //consult time by its id
-        return $this->tempoDAO->consultarPorId($id);
+        return $this->timeDAO->consultarPorId($id);
     }
 
-    public function _consultarPorIntervalo($intervalo) {
+    public function _consultarPorinterval($interval) {
         //consult by time's interval
-        return $this->tempoDAO->consultarPorIntervalo($intervalo);
+        return $this->timeDAO->consultarPorinterval($interval);
     }
 
-    public function _inserirTempo(Tempo $tempo) {
+    public function _inserirTempo(Tempo $time) {
         //insert time
-        return $this->tempoDAO->inserirTempo($tempo);
+        return $this->timeDAO->inserirTempo($time);
     }
 
-    public function _inserirTempoArrayParse($arrayTempo) {
-        for ($i = 0; $i < count($arrayTempo); $i++) {
-            $dadosTempo = new Tempo();
-            $dadosTempo->__setIntervalo($arrayTempo[$i]);
-            $this->tempoDAO->inserirTempo($dadosTempo);
+    public function _inserirTempoArrayParse($arrayTime) {
+        for ($i = 0; $i < count($arrayTime); $i++) {
+            $dataTime = new Tempo();
+            $dataTime->__setinterval($arrayTime[$i]);
+            $this->timeDAO->inserirTempo($dataTime);
         }
     }
 
-    public function _inserirTempoArrayParseQuadrimestral($arrayTempo) {
+    public function _inserirTempoArrayParseQuadrimestral($arrayTime) {
         //insert times quarterly 
-        for ($i = 0, $arrayAno = $arrayTempo; $i < count($arrayTempo); $i++) {
-            $ano = key($arrayAno);
-            $dadosTempo = new Tempo();
-            $dadosTempo->__setIntervalo($ano);
-            for ($j = 0; $j < count($arrayTempo[$ano]); $j++) {
-                $dadosTempo->__setMes($arrayDadosTempo[$ano][$j]);
-                $this->tempoDAO->inserirTempo($dadosTempo);
+        for ($i = 0, $arrayYear = $arrayTime; $i < count($arrayTime); $i++) {
+            $year = key($arrayYear);
+            $dataTime = new Tempo();
+            $dataTime->__setinterval($year);
+            for ($j = 0; $j < count($arrayTime[$year]); $j++) {
+                $dataTime->__setMes($year[$year][$j]);
+                $this->timeDAO->inserirTempo($dataTime);
             }
-            next($arrayAno);
+            next($arrayYear);
         }
     }
 
     public function _retornarDadosFormatados() {
         //returns formatted data
-        $dadosTempo = new Tempo();
-        $arrayDadosTempo = $this->_listarTodos();
-        for ($i = 0; $i < count($arrayDadosTempo); $i++) {
-            $dadosTempo = $arrayDadosTempo[$i];
-            $dados[$i] = $dadosTempo->__getIntervalo();
+        $dataTime = new Tempo();
+        $year = $this->_listarTodos();
+        for ($i = 0; $i < count($year); $i++) {
+            $dataTime = $year[$i];
+            $dados[$i] = $dataTime->__getinterval();
         }
         return "labels : [\"$dados[0]\",\"$dados[1]\",\"$dados[2]\",\"$dados[3]\",\"$dados[4]\",\"$dados[5]\",\"$dados[6]\",\"$dados[7]\",\"$dados[8]\",\"$dados[9]\",\"$dados[10]\"]";
     }
