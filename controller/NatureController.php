@@ -23,19 +23,19 @@ class NatureController {
 
     public function __constructTeste() {
         //tests instance of naturezaDAO
-        $natureInstance->natureConnectionDatabase->__constructTeste();
+        $natureInstance->natureConnectionDatabase->__constructTest();
     }
 
     public function _listarTodas() {
         //lists all
-        $resultSearchNature = $natureInstance->natureConnectionDatabase->listarTodas();
+        $resultSearchNature = $natureInstance->natureConnectionDatabase->listAllAdministrativeRegion();
 
         return $resultSearchNature;
     }
 
     public function _listarTodasAlfabicamente() {
         //lists all alphabeticaly
-        $resultSearchNature = $natureInstance->natureConnectionDatabase->listarTodasAlfabicamente();
+        $resultSearchNature = $natureInstance->natureConnectionDatabase->listAllCategoriesAlphabetically();
         return $resultSearchNature;
     }
 
@@ -49,13 +49,13 @@ class NatureController {
             //nothing to do - skip to the next step function
             
         }
-        $nature = $natureInstance->natureConnectionDatabase->consultarPorId($idNature);
+        $nature = $natureInstance->natureConnectionDatabase->consultAdministrativeRegionById($idNature);
         return $nature;
     }
 
     public function _consultarPorNome($natureName) {
         //consults by name
-        $natureName = $natureInstance->natureConnectionDatabase->consultarPorNome($natureName);
+        $natureName = $natureInstance->natureConnectionDatabase->consultAdministrativeRegionByName($natureName);
         return $natureName;
     }
 
@@ -83,14 +83,14 @@ class NatureController {
         for ($i = 0, $arrayKey = $arrayNatures, $beginCount = 0; $i < count($arrayNatures); $i++) {
             $keyArrayKey = key($arrayKey);
             $categoryConnectionDatabase = new CategoriaDAO();
-            $categoryData = new Categoria();
+            $categoryData = new Category();
             $categoryData = $categoryConnectionDatabase->consultarPorNome($keyArrayKey);
         
              //variable j: runs natures contained in the array to find he key array
             for ($j = $beginCount; $j < (count($arrayNatures[$keyArrayKey]) + $beginCount); $j++) {
                 $natureData = new Natureza();
                 $natureData->__setNatureza($arrayNatures[$keyArrayKey][$j]);
-                $natureData->__setIdCategoria($categoryData->__getIdCategoria());
+                $natureData->__setIdCategory($categoryData->__getIdCategory());
                 $natureInstance->natureConnectionDatabase->inserirNatureza($natureData);
             }
             
