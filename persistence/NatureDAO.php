@@ -74,7 +74,7 @@ class NatureDAO {
     }
 
     public function inserirNatureza(Natureza $natureName) {
-        $sqlCommand = "INSERT INTO natureza (categoria_id_categoria,natureza) values ('{$natureNameame->__getIdCategoria()}','{$natureName->__getNatureza()}')";
+        $sqlCommand = "INSERT INTO natureza (categoria_id_categoria,natureza) values ('{$natureNameame->__getIdCategory()}','{$natureName->__getNatureza()}')";
         $natureDAOInstance->establishesConnectionNature->database->Execute($sqlCommand);
         //if(!$this->banco->Connect($this->servidor,$this->usuario,$this->senha,$this->db)){
         //	throw new EConexaoFalha();	
