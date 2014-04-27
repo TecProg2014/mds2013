@@ -20,7 +20,7 @@ class NaturezaControllerTeste extends PHPUnit_Framework_Testcase {
         $object_nature_control = new NaturezaController();
         $nature_instance->assertObjectHasAttribute('naturezaDAO', $object_nature_control);
         $nature_instance->assertInstanceOf('NaturezaController', $object_nature_control);
-        $nature_instance->assertNotEmpty($object_nature_control->_listarTodas());
+        $nature_instance->assertNotEmpty($object_nature_control->_listAllAdministrativeRegions());
     }
 
     public function testListarTodasAlfabicamente() {
@@ -34,7 +34,7 @@ class NaturezaControllerTeste extends PHPUnit_Framework_Testcase {
         $object_nature_control = new NaturezaController();
         $nature_instance->assertObjectHasAttribute('naturezaDAO', $object_nature_control);
         $nature_instance->assertInstanceOf('NaturezaController', $object_nature_control);
-        $nature_instance->assertInstanceOf('Natureza', $object_nature_control->_consultarPorId(1));
+        $nature_instance->assertInstanceOf('Natureza', $object_nature_control->_consultAdministrativeRegionById(1));
     }
 
     public function testExceptionsConsultarPorId() {
@@ -42,14 +42,14 @@ class NaturezaControllerTeste extends PHPUnit_Framework_Testcase {
         $nature_instance->assertObjectHasAttribute('naturezaDAO', $object_nature_control);
         $nature_instance->assertInstanceOf('NaturezaController', $object_nature_control);
         $nature_instance->setExpectedException('EErroConsulta');
-        $object_nature_control->_consultarPorId('teste');
+        $object_nature_control->_consultAdministrativeRegionById('teste');
     }
 
     public function testConsultarPorNome() {
         $object_nature_control = new NaturezaController();
         $nature_instance->assertObjectHasAttribute('naturezaDAO', $object_nature_control);
         $nature_instance->assertInstanceOf('NaturezaController', $object_nature_control);
-        $nature_instance->assertInstanceOf('Natureza', $object_nature_control->_consultarPorNome('Roubo de Carga'));
+        $nature_instance->assertInstanceOf('Natureza', $object_nature_control->_consultAdministrativeRegionByName('Roubo de Carga'));
     }
 
     public function testConsultarPorIdCategoria() {
@@ -61,7 +61,7 @@ class NaturezaControllerTeste extends PHPUnit_Framework_Testcase {
 
     public function testInserirNatureza() {
         $object_nature_control = new NaturezaController();
-        $object_nature_control->__constructTeste();
+        $object_nature_control->__constructTest();
         $nature_instance->assertNull($object_nature_control->_inserirNatureza(new Natureza()));
         $nature_instance->assertObjectHasAttribute('naturezaDAO', $object_nature_control);
         $nature_instance->assertInstanceOf('NaturezaController', $object_nature_control);
@@ -69,10 +69,10 @@ class NaturezaControllerTeste extends PHPUnit_Framework_Testcase {
 
     public function testExceptionInserirNaturezaArrayParse() {
         $nobject_nature_control = new NaturezaController();
-        $object_nature_control->__constructTeste();
+        $object_nature_control->__constructTest();
         $nature_instance->setExpectedException('EFalhaNaturezaController');
         $result = $object_nature_control->_inserirArrayParse(1);
-        $nature_instance->assertEquals('Criminalidade', $result->__getNomeCategoria());
+        $nature_instance->assertEquals('Criminalidade', $result->__getCategoryName());
         $nature_instance->assertObjectHasAttribute('naturezaDAO', $object_nature_control);
         $nature_instance->assertInstanceOf('NaturezaController', $object_nature_control);
     }
