@@ -61,8 +61,8 @@ class CrimeTeste extends PHPUnit_Framework_Testcase {
     public function testeIdRA() {
         $this->assertInstanceOf('Crime', $this->crime);
         $this->assertObjectHasAttribute('idCrime', $this->crime);
-        $this->crime->__setIdRegiaoAdministrativa(1);
-        $this->assertEquals(1, $this->crime->__getIdRegiaoAdministrativa());
+        $this->crime->__setIdAdministrativeRegion(1);
+        $this->assertEquals(1, $this->crime->__getIdAdministrativeRegion());
     }
 
 }
