@@ -22,29 +22,29 @@ class CategoriaDAO {
         $this->conexion = new Conexao();
     }
 
-    public function __constructTeste() {
+    public function __constructTest() {
         $this->conexion = new ConexaoTeste();
     }
 
-    public function listarTodas() {
+    public function listAllCategories() {
         $sql = "SELECT * FROM categoria";
         $database_conexion_result = $this->conexion->banco->Execute($sql);
         while ($register = $database_conexion_result->FetchNextObject()) {
-            $category_data = new Categoria();
+            $category_data = new Category();
             $category_data->__constructOverload($register->ID_CATEGORIA, $register->NOME_CATEGORIA);
             $array_of_categories[] = $category_data;
         }
         return $array_of_categories;
     }
 
-    public function listarTodasAlfabicamente() {
+    public function listAllCategoriesAlphabetically() {
         $sql = "SELECT * FROM categoria ORDER BY nome_categoria ASC";
         $database_conexion_result = $this->conexion->banco->Execute($sql);
         //if($resultado->RecordCount()== 0){
         //	throw new ECategoriaListarTodasAlfabeticamenteVazio();
         //}
         while ($register = $database_conexion_result->FetchNextObject()) {
-            $category_data = new Categoria();
+            $category_data = new Category();
             $category_data->__constructOverload($register->ID_CATEGORIA, $register->NOME_CATEGORIA);
             $array_of_categories[] = $category_data;
         }
@@ -58,7 +58,7 @@ class CategoriaDAO {
         //throw new ECategoriaListarConsultaPorIdVazio();
         //}
         $register = $database_conexion_result->FetchNextObject();
-        $category_data = new Categoria();
+        $category_data = new Category();
         $category_data->__constructOverload($register->ID_CATEGORIA, $register->NOME_CATEGORIA);
         return $category_data;
     }
@@ -70,13 +70,13 @@ class CategoriaDAO {
         //if($resultado->RecordCount()== 0){
         //throw new ECategoriaConsultarPorNomeVazio();
         //}
-        $category_data = new Categoria();
+        $category_data = new Category();
         $category_data->__constructOverload($register->ID_CATEGORIA, $register->NOME_CATEGORIA);
         return $category_data;
     }
 
-    public function inserirCategoria(Categoria $categoria) {
-        $sql = "INSERT INTO categoria (nome_categoria) values ('{$categoria->__getNomeCategoria()}')";
+    public function inserirCategoria(Category $categoria) {
+        $sql = "INSERT INTO categoria (nome_categoria) values ('{$categoria->__getCategoryName()}')";
         $database_conexion_result = $this->conexion->banco->Execute($sql);
         return $database_conexion_result;
         //if(!$this->banco->Connect($this->servidor,$this->usuario,$this->senha,$this->db)){
