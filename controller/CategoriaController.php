@@ -105,7 +105,7 @@ class CategoriaController {
         return $retornoSomaTotalAcaoPolicial;
     }
 
-    public function _somaTotalAcaoPolicial2010_2011() {
+    public function _sumOfPoliceActions2010_2011() {
         //all policial actions in 2010 and 2011
         for ($i = 2010; $i < 2012; $i++) {
             $somaTotalAcaoPolicial2010_2011[] = $this->_somaTotalAcaoPolicial($i);
