@@ -19,18 +19,18 @@ class CategoriaController {
 
     public function __constructTeste() {
         //tests instance of categoriaDAO
-        $this->categoriaDAO->__constructTeste();
+        $this->categoriaDAO->__constructTest();
     }
 
     public function _listarTodas() {
         //lists categorys
-        $arrayCategoria = $this->categoriaDAO->listarTodas();
+        $arrayCategoria = $this->categoriaDAO->listAllCategories();
         return $arrayCategoria;
     }
 
     public function _listarTodasAlfabicamente() {
         //lists categorys alphabeticaly
-        return $this->categoriaDAO->listarTodasAlfabicamente();
+        return $this->categoriaDAO->listAllCategoriesAlphabetically();
     }
 
     public function _consultarPorId($id) {
@@ -51,7 +51,7 @@ class CategoriaController {
         return $category;
     }
 
-    public function _inserirCategoria(Categoria $category) {
+    public function _inserirCategoria(Category $category) {
         //inserts categories
         return $this->categoriaDAO->inserirCategoria($category);
     }
@@ -60,7 +60,7 @@ class CategoriaController {
         if (!is_array($arraycategory)) {
             throw new EErroConsulta();
         }
-        $dateCategory = new Categoria();
+        $dateCategory = new Category();
         for ($i = 0; $i < count($arraycategory); $i++) {
             $dateCategory->__setcategoryName($arraycategory[$i]);
             $retorno = $this->categoriaDAO->inserirCategoria($dateCategory);
