@@ -20,21 +20,21 @@ class RegiaoAdministrativaControllerTeste extends PHPUnit_Framework_Testcase {
         $object_region_adm_control = new RegiaoAdministrativaController();
         $region_adm_instance->assertObjectHasAttribute('raDAO', $object_region_adm_control);
         $region_adm_instance->assertInstanceOf('RegiaoAdministrativaController', $object_region_adm_control);
-        $region_adm_instance->assertNotEmpty($object_region_adm_control->_listarTodas());
+        $region_adm_instance->assertNotEmpty($object_region_adm_control->_listAllAdministrativeRegions());
     }
 
     public function testListarTodasAlfabeticamente() {
         $object_region_adm_control = new RegiaoAdministrativaController();
         $region_adm_instance->assertObjectHasAttribute('raDAO', $object_region_adm_control);
         $region_adm_instance->assertInstanceOf('RegiaoAdministrativaController', $object_region_adm_control);
-        $region_adm_instance->assertNotEmpty($object_region_adm_control->_listarTodasAlfabeticamente());
+        $region_adm_instance->assertNotEmpty($object_region_adm_control->__listAlphabeticallyAllAdministrativeRegions());
     }
 
     public function testConsultarPorId() {
         $object_region_adm_control = new RegiaoAdministrativaController();
         $region_adm_instance->assertObjectHasAttribute('raDAO', $object_region_adm_control);
         $region_adm_instance->assertInstanceOf('RegiaoAdministrativaController', $object_region_adm_control);
-        $region_adm_instance->assertInstanceOf('RegiaoAdministrativa', $object_region_adm_control->_consultarPorId(1));
+        $region_adm_instance->assertInstanceOf('RegiaoAdministrativa', $object_region_adm_control->_consultAdministrativeRegionById(1));
     }
 
     public function testExceptionConsultarPorId() {
@@ -42,14 +42,14 @@ class RegiaoAdministrativaControllerTeste extends PHPUnit_Framework_Testcase {
         $region_adm_instance->assertObjectHasAttribute('raDAO', $object_region_adm_control);
         $region_adm_instance->assertInstanceOf('RegiaoAdministrativaController', $object_region_adm_control);
         $region_adm_instance->setExpectedException('EErroConsulta');
-        $object_region_adm_control->_consultarPorId('teste');
+        $object_region_adm_control->_consultAdministrativeRegionById('teste');
     }
 
     public function testConsultarPorNome() {
         $object_region_adm_control = new RegiaoAdministrativaController();
         $region_adm_instance->assertObjectHasAttribute('raDAO', $object_region_adm_control);
         $region_adm_instance->assertInstanceOf('RegiaoAdministrativaController', $object_region_adm_control);
-        $region_adm_instance->assertInstanceOf('RegiaoAdministrativa', $object_region_adm_control->_consultarPorNome('N BAND'));
+        $region_adm_instance->assertInstanceOf('RegiaoAdministrativa', $object_region_adm_control->_consultAdministrativeRegionByName('N BAND'));
     }
 
     public function testExceptionConsultarPorNome() {
@@ -57,20 +57,20 @@ class RegiaoAdministrativaControllerTeste extends PHPUnit_Framework_Testcase {
         $region_adm_instance->assertObjectHasAttribute('raDAO', $object_region_adm_control);
         $region_adm_instance->assertInstanceOf('RegiaoAdministrativaController', $object_region_adm_control);
         $region_adm_instance->setExpectedException('EErroConsulta');
-        $object_region_adm_control->_consultarPorNome(1);
+        $object_region_adm_control->_consultAdministrativeRegionByName(1);
     }
 
     public function testContarRegistrosRA() {
         $object_region_adm_control = new RegiaoAdministrativaController();
         $region_adm_instance->assertObjectHasAttribute('raDAO', $object_region_adm_control);
         $region_adm_instance->assertInstanceOf('RegiaoAdministrativaController', $object_region_adm_control);
-        $region_adm_instance->assertEquals(32, $object_region_adm_control->_contarRegistrosRA());
+        $region_adm_instance->assertEquals(32, $object_region_adm_control->_countAdministrativeRegionsRegisters());
     }
 
     public function testInserirRA() {
         $object_region_adm_control = new RegiaoAdministrativaController();
-        $object_region_adm_control->__constructTeste();
-        $region_adm_instance->assertInstanceOf('ADORecordSet_empty', $object_region_adm_control->_inserirRA(new RegiaoAdministrativa()));
+        $object_region_adm_control->__constructTest();
+        $region_adm_instance->assertInstanceOf('ADORecordSet_empty', $object_region_adm_control->insertAdministrativeRegion(new AdministrativeRegion()));
         $region_adm_instance->assertObjectHasAttribute('raDAO', $object_region_adm_control);
         $region_adm_instance->assertInstanceOf('RegiaoAdministrativaController', $object_region_adm_control);
     }
