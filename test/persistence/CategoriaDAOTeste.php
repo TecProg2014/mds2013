@@ -15,16 +15,16 @@ class CategoriaDAOTeste extends PHPUnit_Framework_TestCase {
         $object_category_DAO = new CategoriaDAO();
         $category_dao_instance->assertObjectHasAttribute('conexao', $object_category_DAO);
         $category_dao_instance->assertInstanceOf('CategoriaDAO', $object_category_DAO);
-        $category_dao_instance->assertNotEmpty($object_category_DAO->listarTodas());
-        $category_dao_instance->assertNotNull($object_category_DAO->listarTodas());
+        $category_dao_instance->assertNotEmpty($object_category_DAO->listAllCategories());
+        $category_dao_instance->assertNotNull($object_category_DAO->listAllCategories());
     }
 
     public function testListarTodasAlfabeticamente() {
         $object_category_DAO = new CategoriaDAO();
         $category_dao_instance->assertObjectHasAttribute('conexao', $object_category_DAO);
         $category_dao_instance->assertInstanceOf('CategoriaDAO', $object_category_DAO);
-        $category_dao_instance->assertNotEmpty($object_category_DAO->listarTodasAlfabicamente());
-        $category_dao_instance->assertNotNull($object_category_DAO->listarTodasAlfabicamente());
+        $category_dao_instance->assertNotEmpty($object_category_DAO->listAllCategoriesAlphabetically());
+        $category_dao_instance->assertNotNull($object_category_DAO->listAllCategoriesAlphabetically());
     }
 
     public function testConsultarPorId() {
@@ -45,10 +45,10 @@ class CategoriaDAOTeste extends PHPUnit_Framework_TestCase {
 
     public function testInserirCategoria() {
         $object_category_DAO = new CategoriaDAO();
-        $object_category_DAO->__constructTeste();
+        $object_category_DAO->__constructTest();
         $category_dao_instance->assertObjectHasAttribute('conexao', $object_category_DAO);
         $category_dao_instance->assertInstanceOf('CategoriaDAO', $object_category_DAO);
-        $category_dao_instance->assertInstanceOf('ADORecordSet_empty', $object_category_DAO->inserirCategoria(new Categoria()));
+        $category_dao_instance->assertInstanceOf('ADORecordSet_empty', $object_category_DAO->inserirCategoria(new Category()));
     }
 
     public function testContarRegistros() {
