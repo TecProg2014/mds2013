@@ -7,7 +7,7 @@
 
 include_once('C:/xampp/htdocs/mds2013/exceptions/ETipoErrado.php');
 
-class RegiaoAdministrativa {
+class AdministrativeRegion {
 
     private $idAdministrativeRegion;
     private $regionName;
@@ -22,29 +22,29 @@ class RegiaoAdministrativa {
         $this->regionName = $nomeRegiao;
     }
 
-    public function __setIdRegiaoAdministrativa($idRegiaoAdministrativa) {
+    public function __setIdAdministrativeRegion($idAministrativeRegion) {
         //Method to modify the instance of the regiaoAdministrativa attribute 
-        if (!is_numeric($idRegiaoAdministrativa)) {
+        if (!is_numeric($idAministrativeRegion)) {
             throw new ETipoErrado();
         }
-        $this->idAdministrativeRegion = $idRegiaoAdministrativa;
+        $this->idAdministrativeRegion = $idAministrativeRegion;
     }
 
-    public function __getIdRegiaoAdministrativa() {
+    public function __getIdAdministrativeRegion() {
         //Method to access the instance of regiaoAdministrativa attribute
         return $this->idAdministrativeRegion;
     }
 
-    public function __setNomeRegiao($nomeRegiao) {
+    public function __setRegionName($regionName) {
         //Method to modify the instance of the nomeRegiao attribute 
 
-        if (!is_string($nomeRegiao)) {
+        if (!is_string($regionName)) {
             throw new ETipoErrado();
         }
-        $this->regionName = $nomeRegiao;
+        $this->regionName = $regionName;
     }
 
-    public function __getNomeRegiao() {
+    public function __getRegionName() {
         //Method to access the instance of time attribute
         return $this->regionName;
     }
