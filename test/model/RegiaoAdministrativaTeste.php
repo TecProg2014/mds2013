@@ -18,7 +18,7 @@ class administrativeRegionTeste extends PHPUnit_Framework_Testcase {
     public function testeConstructOverLoad() {
         $this->administrativeRegion->__constructOverLoad(1, 'teste');
         $this->assertEquals(1, $this->administrativeRegion->__getIdadministrativeRegion());
-        $this->assertEquals('teste', $this->administrativeRegion->__getNomeRegiao());
+        $this->assertEquals('teste', $this->administrativeRegion->__getRegionName());
     }
 
     public function testSetIdRegiaoAdministriva() {
@@ -32,13 +32,13 @@ class administrativeRegionTeste extends PHPUnit_Framework_Testcase {
     }
 
     public function testSetNomeadministrativeRegion() {
-        $this->administrativeRegion->__setNomeRegiao("Regiao Administrativa");
-        $this->assertEquals("Regiao Administrativa", $this->administrativeRegion->__getNomeRegiao());
+        $this->administrativeRegion->__setRegionName("Regiao Administrativa");
+        $this->assertEquals("Regiao Administrativa", $this->administrativeRegion->__getRegionName());
     }
 
     public function testExceptionSetNomeadministrativeRegion() {
         $this->setExpectedException('ETipoErrado');
-        $this->administrativeRegion->__setNomeRegiao(0);
+        $this->administrativeRegion->__setRegionName(0);
     }
 
 }
