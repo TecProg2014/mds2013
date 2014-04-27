@@ -17,65 +17,65 @@ class RegiaoAdministrativaController {
         $this->administrativeRegionDAO = new RegiaoAdministrativaDAO();
     }
 
-    public function _listarTodas() {
+    public function _listAllAdministrativeRegions() {
         //lists administrative regions
-        $arrayOfAdministrativeRegions = $this->administrativeRegionDAO->listarTodas();
+        $arrayOfAdministrativeRegions = $this->administrativeRegionDAO->listAllAdministrativeRegion();
         return $arrayOfAdministrativeRegions;
     }
 
-    public function __constructTeste() {
+    public function __constructTest() {
         //tests instance raDAO
-        $this->administrativeRegionDAO->__constructTeste();
+        $this->administrativeRegionDAO->__constructTest();
     }
 
-    public function _listarTodasAlfabeticamente() {
+    public function __listAlphabeticallyAllAdministrativeRegions() {
         //lists administrative regions alphabetically
 
-        $arrayRA = $this->administrativeRegionDAO->listarTodasAlfabeticamente();
+        $arrayOfAdministrativeRegions = $this->administrativeRegionDAO->listAlphabeticallyAllAdministrativeRegions();
 
         //loop for order administrative regions alphabetically
-        for ($i = 0; $i < (count($arrayRA)); $i++) {
-            $nomeRA[] = $arrayRA[$i]->__getNomeRegiao();
+        for ($i = 0; $i < (count($arrayOfAdministrativeRegions)); $i++) {
+            $AdministrativeRegionName[] = $arrayOfAdministrativeRegions[$i]->__getRegionName();
         }
-        return $nomeRA;
+        return $AdministrativeRegionName;
     }
 
-    public function _consultarPorId($id) {
+    public function _consultAdministrativeRegionById($id) {
         //consults administrative region by its id
 
         if (!is_numeric($id)) {
             throw new EErroConsulta();
         }
 
-        $RA = $this->administrativeRegionDAO->consultarPorId($id);
-        return $RA;
+        $AdministrativeRegion = $this->administrativeRegionDAO->consultAdministrativeRegionById($id);
+        return $AdministrativeRegion;
     }
 
-    public function _consultarPorNome($nome) {
+    public function _consultAdministrativeRegionByName($AdministrativeRegionName) {
         //consults administrative regions by their names
 
-        if (!is_string($nome)) {
+        if (!is_string($AdministrativeRegionName)) {
             throw new EErroConsulta();
         }
-        $RA = $this->administrativeRegionDAO->consultarPorNome($nome);
-        return $RA;
+        $AR = $this->administrativeRegionDAO->consultAdministrativeRegionByName($AdministrativeRegionName);
+        return $AR;
     }
 
-    public function _contarRegistrosRA() {
+    public function _countAdministrativeRegionsRegisters() {
         //counts administrative regions' records
-        return $this->administrativeRegionDAO->contarRegistrosRA();
+        return $this->administrativeRegionDAO->_countAdministrativeRegionsRegisters();
     }
 
-    public function _inserirRA(RegiaoAdministrativa $RA) {
+    public function insertAdministrativeRegion(AdministrativeRegion $RA) {
         //inserts administrative regions
-        return $this->administrativeRegionDAO->inserirRA($RA);
+        return $this->administrativeRegionDAO->insertAdministrativeRegion($RA);
     }
 
-    public function _inserirRegiaoArrayParseRA($arrayRA) {
-        for ($i = 0; $i < count($arrayRA); $i++) {
-            $dadosRegiao = new RegiaoAdministrativa();
-            $dadosRegiao->__setNomeRegiao($arrayRA[$i]);
-            $this->administrativeRegionDAO->inserirRA($dadosRegiao);
+    public function _insertAdministrativeRegionArrayParse($arrayOfAdministrativeRegions) {
+        for ($i = 0; $i < count($arrayOfAdministrativeRegions); $i++) {
+            $regionData = new AdministrativeRegion();
+            $regionData->__setRegionName($arrayOfAdministrativeRegions[$i]);
+            $this->administrativeRegionDAO->insertAdministrativeRegion($regionData);
         }
     }
 
