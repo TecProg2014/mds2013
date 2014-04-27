@@ -65,7 +65,7 @@ class CategoriaControllerTeste extends PHPUnit_Framework_Testcase {
         $object_category_control->__constructTeste();
         $category_instance->assertObjectHasAttribute('categoriaDAO', $object_category_control);
         $category_instance->assertInstanceOf('CategoriaController', $object_category_control);
-        $category_instance->assertInstanceOf('ADORecordSet_empty', $object_category_control->_inserirCategoria(new Categoria()));
+        $category_instance->assertInstanceOf('ADORecordSet_empty', $object_category_control->_inserirCategoria(new Category()));
     }
 
     public function testInserirCategoriaArrayParse() {
