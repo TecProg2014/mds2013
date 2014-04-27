@@ -104,7 +104,7 @@ class CrimeController {
             $kindCrime = key($arrayKey);
             $dadoskindCrime = new kindCrime();
             $kindCrimeDAO = new kindCrimeDAO();
-            $dadoskindCrime = $kindCrimeDAO->consultarPorNome($kindCrime);
+            $dadoskindCrime = $kindCrimeDAO->consultAdministrativeRegionByName($kindCrime);
             $arraytime = $arrayCrime[$kindCrime];
             for ($j = 0; $j < count(array_keys($arrayCrime[$kindCrime])); $j++) {
                 $time = key($arraytime);
@@ -128,7 +128,7 @@ class CrimeController {
             $kindCrime = key($arrayKey);
             $dadoskindCrime = new kindCrime();
             $kindCrimeDAO = new kindCrimeDAO();
-            $dadoskindCrime = $kindCrimeDAO->consultarPorNome($kindCrime);
+            $dadoskindCrime = $kindCrimeDAO->consultAdministrativeRegionByName($kindCrime);
             $arraytime = $arrayCrime[$kindCrime];
             for ($j = 0; $j < count(array_keys($arrayCrime[$kindCrime])); $j++) {
                 $time = key($arraytime);
@@ -151,13 +151,13 @@ class CrimeController {
             $kindCrime = key($arrayKey);
             $dadoskindCrime = new kindCrime();
             $kindCrimeDAO = new kindCrimeDAO();
-            $dadoskindCrime = $kindCrimeDAO->consultarPorNome($kindCrime);
+            $dadoskindCrime = $kindCrimeDAO->consultAdministrativeRegionByName($kindCrime);
             $arrayRegiao = $arrayCrime[$kindCrime];
             for ($j = 0; $j < count(array_keys($arrayCrime[$kindCrime])); $j++) {
                 $regiao = key($arrayRegiao);
-                $dadosRegiao = new RegiaoAdministrativa();
+                $dadosRegiao = new AdministrativeRegion();
                 $regiaoDAO = new RegiaoAdministrativaDAO();
-                $dadosRegiao = $regiaoDAO->consultarPorNome($regiao);
+                $dadosRegiao = $regiaoDAO->consultAdministrativeRegionByName($regiao);
                 $arraytime = $arrayCrime[$kindCrime][$regiao];
                 for ($x = 0; $x < count(array_keys($arrayCrime[$kindCrime][$regiao])); $x++) {
                     $time = key($arraytime);
@@ -166,7 +166,7 @@ class CrimeController {
                     $dataTime = $tempoDAO->consultarPorIntervalo($time);
                     $dadosCrime = new Crime();
                     $dadosCrime->__setIdkindCrime($dadoskindCrime->__getIdkindCrime());
-                    $dadosCrime->__setIdRegiaoAdministrativa($dadosRegiao->__getIdRegiaoAdministrativa());
+                    $dadosCrime->__setIdRegiaoAdministrativa($dadosRegiao->__getIdAdministrativeRegion());
                     $dadosCrime->__setIdtime($dataTime->__getIdtime());
                     $dadosCrime->__setQuantidade($arrayCrime[$kindCrime][$regiao][$time]);
                     $this->crimeDAO->inserirCrime($dadosCrime);
