@@ -50,22 +50,22 @@ class kindTeste extends PHPUnit_Framework_Testcase {
         $this->assertInstanceOf('kind', $kind);
         $this->assertObjectHasAttribute('idkind', $kind);
         $this->setExpectedException('ETipoErrado');
-        $kind->__setIdCategoria("erro");
+        $kind->__setIdCategory("erro");
     }
 
     public function testeIdCategoria() {
         $kind = new kind();
         $this->assertInstanceOf('kind', $kind);
         $this->assertObjectHasAttribute('idkind', $kind);
-        $kind->__setIdCategoria(10);
-        $this->assertEquals(10, $kind->__getIdCategoria());
+        $kind->__setIdCategory(10);
+        $this->assertEquals(10, $kind->__getIdCategory());
     }
 
     public function testeConstructOverLoad() {
         $this->kind->__constructOverload(1, "kind", 2);
         $this->assertEquals(1, $this->kind->__getIdkind());
         $this->assertEquals("kind", $this->kind->__getkind());
-        $this->assertEquals(2, $this->kind->__getIdCategoria());
+        $this->assertEquals(2, $this->kind->__getIdCategory());
     }
 
 }
