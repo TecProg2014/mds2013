@@ -16,7 +16,7 @@ class RegiaoAdministrativaView {
     }
 
     public function listarTodasAlfabeticamente() {
-        $administrativeRegionName = $this->raCO->_listarTodasAlfabeticamente();
+        $administrativeRegionName = $this->raCO->__listAlphabeticallyAllAdministrativeRegions();
         for ($i = 0, $returnAdministrativeRegion = ""; $i < count($administrativeRegionName); $i++) {
             $returnAdministrativeRegion = $returnAdministrativeRegion . "<li><a class=\"submenu\" href=\"?pag=u\"><i class=\"icon-map-marker\"></i><span class=\"hidden-tablet\">" . $administrativeRegionName[$i] . "</span></a></li>";
         }
@@ -24,7 +24,7 @@ class RegiaoAdministrativaView {
     }
 
     public function contarRegistrosRA() {
-        return $this->raCO->_contarRegistrosRA();
+        return $this->raCO->_countAdministrativeRegionsRegisters();
     }
 
 }
