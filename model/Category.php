@@ -7,41 +7,41 @@
 
 include_once('C:/xampp/htdocs/mds2013/exceptions/ETipoErrado.php');
 
-class Categoria {
+class Category {
 
     private $id_category;
     private $category_name;
 
-    public function __setIdCategoria($idCategoria) {
+    public function __setIdCategory($idCategory) {
 
-        if (!is_numeric($idCategoria)) {
+        if (!is_numeric($idCategory)) {
             throw new ETipoErrado();
         }
-        $this->id_category = $idCategoria;
+        $this->id_category = $idCategory;
     }
 
-    public function __getIdCategoria() {
+    public function __getIdCategory() {
         //Method to access the instance of id_category attribute
         return $this->id_category;
     }
 
-    public function __setNomeCategoria($category_name) {
+    public function __setCategoryName($categoryName) {
         //Method to modify the instance of category_name attribute
 
-        if (!is_string($category_name)) {
+        if (!is_string($categoryName)) {
             throw new ETipoErrado();
         }
-        $this->category_name = $category_name;
+        $this->category_name = $categoryName;
     }
 
-    public function __getNomeCategoria() {
+    public function __getCategoryName() {
         //Method to access the instance of category_name attribute
         return $this->category_name;
     }
 
-    public function __constructOverload($id_category, $category_name) {
+    public function __constructOverload($idCategory, $category_name) {
 
-        $this->id_category = $id_category;
+        $this->id_category = $idCategory;
         $this->category_name = $category_name;
     }
 
