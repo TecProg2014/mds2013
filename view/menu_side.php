@@ -5,7 +5,7 @@ $AdministrativeRegionView = new RegiaoAdministrativaView();
 $categoryView = new CategoriaView();
 
 $countAdministrativeRegion = $AdministrativeRegionView->contarRegistrosRA();
-$contCategoria = $categoryView->contarRegistros();
+$contCategoria = $categoryView->countCategoryRegisters();
 ?>
 <!-- start: Header -->
 
@@ -26,7 +26,7 @@ $contCategoria = $categoryView->contarRegistros();
 
                             <?php
                             //echo "<li><a class=\"submenu\" href=\"crimeporcat.php\"><i class=\"icon-inbox\"></i><span class=\"hidden-tablet\">aa</span></a></li>";
-                            echo utf8_encode($categoryView->listarTodasAlfabicamente());
+                            echo utf8_encode($categoryView->listAllAlphabetically());
                             ?>
                         </ul>
                     </li>

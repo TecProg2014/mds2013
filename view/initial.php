@@ -35,14 +35,14 @@ $kindView = new NaturezaView();
         <div class="span3 smallstat box mobileHalf noMargin" onTablet="span6"
              onDesktop="span3">
             <i class="icon-search radarLightYellow"></i> <span class="title">Roubo</span> <span
-                class="value"><?php echo number_format($categoryView->_somaTotalRoubo(), 0, ',', '.') ?>
+                class="value"><?php echo number_format($categoryView->_sumOfSteals(), 0, ',', '.') ?>
             </span>
         </div>
 
         <div class="span3 smallstat mobileHalf box" onTablet="span6"
              onDesktop="span3">
             <i class="icon-certificate radarYellow"></i> <span class="title">Furto</span>
-            <span class="value"><?php echo number_format($categoryView->_somaTotalFurtos(), 0, ',', '.') ?>
+            <span class="value"><?php echo number_format($categoryView->_sumOfThefts(), 0, ',', '.') ?>
             </span>
         </div>
 

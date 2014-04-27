@@ -86,7 +86,7 @@ class NaturezaView {
 
         $category_view = new CategoriaView();
         $crime_view = new CrimeView();
-        $array_categories = $category_view->listarTodasAlfabeticamentePuro();
+        $array_categories = $category_view->listAllAlphabeticallyPure();
         $auxiliar_categories = $array_categories[$id_category];
         $array_natures = $instance_class->consultarPorIdCategoria($auxiliar_categories->__getIdCategory());
         
