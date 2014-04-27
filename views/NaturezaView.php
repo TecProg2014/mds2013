@@ -35,12 +35,12 @@ class NaturezaView {
     }
 
     public function consultarPorNome($nature_name) {
-        $nature_name = $instance_class->nature_control_view->_consultarPorNome($nature_name);
+        $nature_name = $instance_class->nature_control_view->_consultAdministrativeRegionByName($nature_name);
         return $nature_name->__getNatureza();
     }
 
     public function consultarPorId($id_nature) {
-        $nature_name = $instance_class->nature_control_view->_consultarPorId($id_nature);
+        $nature_name = $instance_class->nature_control_view->_consultAdministrativeRegionById($id_nature);
         return $nature_name->__getNatureza();
     }
 
@@ -88,7 +88,7 @@ class NaturezaView {
         $crime_view = new CrimeView();
         $array_categories = $category_view->listarTodasAlfabeticamentePuro();
         $auxiliar_categories = $array_categories[$id_category];
-        $array_natures = $instance_class->consultarPorIdCategoria($auxiliar_categories->__getIdCategoria());
+        $array_natures = $instance_class->consultarPorIdCategoria($auxiliar_categories->__getIdCategory());
         
         //variable i: runs natures in the array
         for ($i = 0; $i < count($array_natures); $i++) {
