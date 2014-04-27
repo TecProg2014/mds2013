@@ -28,8 +28,8 @@ class CategoriaView {
         $array_of_categories = $this->category_controller->_listarTodasAlfabicamente();
         for ($i = 0, $categories_return = ""; $i < count($array_of_categories); $i++) {
             $category_auxiliar_variable = $array_of_categories[$i];
-            $category_name = $category_auxiliar_variable->__getNomeCategoria();
-            $id_category = $category_auxiliar_variable->__getIdCategoria();
+            $category_name = $category_auxiliar_variable->__getCategoryName();
+            $id_category = $category_auxiliar_variable->__getIdCategory();
             $categories_return = $categories_return . "<li><a class=\"submenu\" href=\"?pag=cCat&id=$i\"><i class=\"icon-inbox\"></i><span class=\"hidden-tablet\">$category_name</span></a></li>";
         }
         return $categories_return;
