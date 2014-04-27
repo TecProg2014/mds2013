@@ -84,7 +84,7 @@ class NatureController {
             $keyArrayKey = key($arrayKey);
             $categoryConnectionDatabase = new CategoriaDAO();
             $categoryData = new Category();
-            $categoryData = $categoryConnectionDatabase->consultarPorNome($keyArrayKey);
+            $categoryData = $categoryConnectionDatabase->consultCategoryByName($keyArrayKey);
         
              //variable j: runs natures contained in the array to find he key array
             for ($j = $beginCount; $j < (count($arrayNatures[$keyArrayKey]) + $beginCount); $j++) {
