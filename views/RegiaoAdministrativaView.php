@@ -3,8 +3,8 @@
 /*
   File name: RegiaoAdministrativaView.php
   File description: show administrative region
-  Authors: Lucas Andrade, Eduardo Augusto, S�rgio Bezerra, Lucas Carvalho, Eliseu
  */
+ 
 include_once('C:/xampp/htdocs/mds2013/controller/RegiaoAdministrativaController.php');
 
 class RegiaoAdministrativaView {
