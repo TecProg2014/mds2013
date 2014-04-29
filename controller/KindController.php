@@ -5,10 +5,10 @@
   File description: insert, consult, show and sum some kind informations
  */
 
-include_once('C:/xampp/htdocs/mds2013/persistence/NatureDAO.php');
-include_once('C:/xampp/htdocs/mds2013/persistence/CategoriaDAO.php');
-include_once('C:/xampp/htdocs/mds2013/model/Nature.php');
-include_once('C:/xampp/htdocs/mds2013/model/Categoria.php');
+include_once('C:/xampp/htdocs/mds2013/persistence/KindDAO.php');
+include_once('C:/xampp/htdocs/mds2013/persistence/CategoryDAO.php');
+include_once('C:/xampp/htdocs/mds2013/model/Kind.php');
+include_once('C:/xampp/htdocs/mds2013/model/Category.php');
 include_once('C:/xampp/htdocs/mds2013/controller/CrimeController.php');
 include_once('C:/xampp/htdocs/mds2013/exceptions/EErroConsulta.php');
 include_once('C:/xampp/htdocs/mds2013/exceptions/EFalhaNaturezaController.php');

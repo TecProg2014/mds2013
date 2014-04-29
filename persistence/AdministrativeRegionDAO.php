@@ -5,8 +5,8 @@
   File description: persistence administrative region on database
   Authors: Lucas Andrade, Eduardo Augusto, S�rgio Bezerra, Lucas Carvalho, Eliseu
  */
-include_once('C:/xampp/htdocs/mds2013/model/RegiaoAdministrativa.php');
-include_once('C:/xampp/htdocs/mds2013/persistence/Conexao.php');
+include_once('C:/xampp/htdocs/mds2013/model/AdministrativeRegion.php');
+include_once('C:/xampp/htdocs/mds2013/persistence/Conexion.php');
 include_once('C:/xampp/htdocs/mds2013/persistence/ConexaoTeste.php');
 
 class RegiaoAdministrativaDAO {

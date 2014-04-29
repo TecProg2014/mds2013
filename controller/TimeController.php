@@ -5,8 +5,8 @@
   File description: insert, consult, show some time information
  */
 
-include_once('C:/xampp/htdocs/mds2013/persistence/tempoDAO.php');
-include_once('C:/xampp/htdocs/mds2013/model/Tempo.php');
+include_once('C:/xampp/htdocs/mds2013/persistence/TimeDAO.php');
+include_once('C:/xampp/htdocs/mds2013/model/Time.php');
 
 class TempoController {
 

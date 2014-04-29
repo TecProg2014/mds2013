@@ -5,8 +5,8 @@
   File description: insert, consult, show and sum some category information
  */
 
-include_once('C:/xampp/htdocs/mds2013/persistence/CategoriaDAO.php');
-include_once('C:/xampp/htdocs/mds2013/model/Categoria.php');
+include_once('C:/xampp/htdocs/mds2013/persistence/CategoryDAO.php');
+include_once('C:/xampp/htdocs/mds2013/model/Category.php');
 include_once('C:/xampp/htdocs/mds2013/exceptions/EErroConsulta.php');
 
 class CategoriaController {

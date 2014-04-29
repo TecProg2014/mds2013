@@ -6,15 +6,15 @@
  */
 
 include_once('C:/xampp/htdocs/mds2013/persistence/CrimeDAO.php');
-include_once('C:/xampp/htdocs/mds2013/persistence/TempoDAO.php');
-include_once('C:/xampp/htdocs/mds2013/persistence/NaturezaDAO.php');
-include_once('C:/xampp/htdocs/mds2013/persistence/CategoriaDAO.php');
-include_once('C:/xampp/htdocs/mds2013/persistence/RegiaoAdministrativaDAO.php');
+include_once('C:/xampp/htdocs/mds2013/persistence/TimeDAO.php');
+include_once('C:/xampp/htdocs/mds2013/persistence/KindDAO.php');
+include_once('C:/xampp/htdocs/mds2013/persistence/CategoryDAO.php');
+include_once('C:/xampp/htdocs/mds2013/persistence/AdministrativeRegionDAO.php');
 include_once('C:/xampp/htdocs/mds2013/model/Crime.php');
-include_once('C:/xampp/htdocs/mds2013/model/Tempo.php');
-include_once('C:/xampp/htdocs/mds2013/model/Natureza.php');
-include_once('C:/xampp/htdocs/mds2013/model/Categoria.php');
-include_once('C:/xampp/htdocs/mds2013/model/RegiaoAdministrativa.php');
+include_once('C:/xampp/htdocs/mds2013/model/Time.php');
+include_once('C:/xampp/htdocs/mds2013/model/Kind.php');
+include_once('C:/xampp/htdocs/mds2013/model/Category.php');
+include_once('C:/xampp/htdocs/mds2013/model/AdministrativeRegion.php');
 
 class CrimeController {
 

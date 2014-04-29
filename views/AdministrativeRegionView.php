@@ -5,7 +5,7 @@
   File description: show administrative region
  */
  
-include_once('C:/xampp/htdocs/mds2013/controller/RegiaoAdministrativaController.php');
+include_once('C:/xampp/htdocs/mds2013/controller/AdministrativeRegionController.php');
 
 class RegiaoAdministrativaView {
 

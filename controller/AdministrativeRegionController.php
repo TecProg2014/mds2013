@@ -5,9 +5,9 @@
   File description: insert, consult, show and sum some administrative region informations
  */
 
-include_once('C:/xampp/htdocs/mds2013/persistence/RegiaoAdministrativaDAO.php');
+include_once('C:/xampp/htdocs/mds2013/persistence/AdministrativeRegionDAO.php');
 include_once('C:/xampp/htdocs/mds2013/exceptions/EErroConsulta.php');
-include_once('C:/xampp/htdocs/mds2013/model/RegiaoAdministrativa.php');
+include_once('C:/xampp/htdocs/mds2013/model/AdministrativeRegion.php');
 
 class RegiaoAdministrativaController {
 
