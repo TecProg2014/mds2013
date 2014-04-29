@@ -6,12 +6,12 @@
   Authors: Lucas Andrade, Eduardo Augusto, S�rgio Bezerra, Lucas Carvalho, Eliseu
  */
 include_once('C:/xampp/htdocs/mds2013/model/Crime.php');
-include_once('C:/xampp/htdocs/mds2013/model/Tempo.php');
-include_once('C:/xampp/htdocs/mds2013/model/Natureza.php');
-include_once('C:/xampp/htdocs/mds2013/persistence/Conexao.php');
-include_once('C:/xampp/htdocs/mds2013/persistence/ConexaoTeste.php');
-include_once('C:/xampp/htdocs/mds2013/persistence/NaturezaDAO.php');
-include_once('C:/xampp/htdocs/mds2013/persistence/TempoDAO.php');
+include_once('C:/xampp/htdocs/mds2013/model/Time.php');
+include_once('C:/xampp/htdocs/mds2013/model/Kind.php');
+include_once('C:/xampp/htdocs/mds2013/persistence/Connection.php');
+include_once('C:/xampp/htdocs/mds2013/persistence/TestConnection.php');
+include_once('C:/xampp/htdocs/mds2013/persistence/KindDAO.php');
+include_once('C:/xampp/htdocs/mds2013/persistence/TimeDAO.php');
 
 class CrimeDAO {
 

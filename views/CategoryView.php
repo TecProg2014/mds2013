@@ -5,7 +5,7 @@
   File description: show, consult and sum categories
   Authors: Lucas Andrade, Eduardo Augusto, S�rgio Bezerra, Lucas Carvalho, Eliseu
  */
-include_once('C:/xampp/htdocs/mds2013/controller/CategoriaController.php');
+include_once('C:/xampp/htdocs/mds2013/controller/CategoryController.php');
 include_once('C:/xampp/htdocs/mds2013/exceptions/EErroConsulta.php');
 
 class CategoriaView {

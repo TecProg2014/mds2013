@@ -4,9 +4,9 @@
   File name: TempoDAO.php
   File description: persistence time on database
  */
-include_once('C:/xampp/htdocs/mds2013/model/Tempo.php');
-include_once('C:/xampp/htdocs/mds2013/persistence/Conexao.php');
-include_once('C:/xampp/htdocs/mds2013/persistence/ConexaoTeste.php');
+include_once('C:/xampp/htdocs/mds2013/model/Time.php');
+include_once('C:/xampp/htdocs/mds2013/persistence/Connection.php');
+include_once('C:/xampp/htdocs/mds2013/persistence/TestConnection.php');
 
 class TempoDAO {
 

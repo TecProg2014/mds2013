@@ -5,8 +5,8 @@
   File description: show and consult kind
   Authors: Lucas Andrade, Eduardo Augusto, S�rgio Bezerra, Lucas Carvalho, Eliseu
  */
-include_once('./controller/NaturezaController.php');
-include_once('./views/CategoriaView.php');
+include_once('./controller/KindController.php');
+include_once('./views/CategoryView.php');
 include_once('./views/CrimeView.php');
 
 class NaturezaView {

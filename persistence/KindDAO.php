@@ -5,11 +5,11 @@
   File description: persistence kind on database
   Authors: Lucas Andrade, Eduardo Augusto, S�rgio Bezerra, Lucas Carvalho, Eliseu
  */
-include_once('C:/xampp/htdocs/mds2013/model/Nature.php');
-include_once('C:/xampp/htdocs/mds2013/model/Categoria.php');
-include_once('C:/xampp/htdocs/mds2013/persistence/Conexao.php');
-include_once('C:/xampp/htdocs/mds2013/persistence/ConexaoTeste.php');
-include_once('C:/xampp/htdocs/mds2013/persistence/CategoriaDAO.php');
+include_once('C:/xampp/htdocs/mds2013/model/Kind.php');
+include_once('C:/xampp/htdocs/mds2013/model/Category.php');
+include_once('C:/xampp/htdocs/mds2013/persistence/Connection.php');
+include_once('C:/xampp/htdocs/mds2013/persistence/TestConnection.php');
+include_once('C:/xampp/htdocs/mds2013/persistence/CategoryDAO.php');
 include_once('C:/xampp/htdocs/mds2013/exceptions/ENaturezaListarTodosVazio.php');
 include_once('C:/xampp/htdocs/mds2013/exceptions/ENaturezaListarTodasAlfabeticamenteVazio.php');
 include_once('C:/xampp/htdocs/mds2013/exceptions/ENaturezaConsultarPorIdVazio.php');
