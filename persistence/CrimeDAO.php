@@ -18,7 +18,7 @@ class CrimeDAO {
     private $conexao;
 
     public function __construct() {
-        $this->conexao = new Conexao();
+        $this->conexao = new Connection();
     }
 
     public function __constructTeste() {
@@ -27,54 +27,54 @@ class CrimeDAO {
 
     public function listarTodos() {
         $sql = "SELECT * FROM crime";
-        $resultado = $this->conexao->banco->Execute($sql);
-        while ($registro = $resultado->FetchNextObject()) {
+        $result = $this->conexao->banco->Execute($sql);
+        while ($register = $result->FetchNextObject()) {
             $dadosCrime = new Crime();
-            $dadosCrime->__constructOverload($registro->ID_CRIME, $registro->TEMPO_ID_TEMPO, $registro->NATUREZA_ID_NATUREZA, $registro->QUANTIDADE);
-            $retornaCrimes[] = $dadosCrime;
+            $dataCrime->__constructOverload($register->ID_CRIME, $register->TEMPO_ID_TEMPO, $register->NATUREZA_ID_NATUREZA, $register->QUANTIDADE);
+            $retornaCrimes[] = $dataCrime;
         }
         return $retornaCrimes;
     }
 
     public function consultarPorId($id) {
         $sql = "SELECT * FROM crime WHERE id_crime = '" . $id . "'";
-        $resultado = $this->conexao->banco->Execute($sql);
-        $registro = $resultado->FetchNextObject();
-        $dadosCrime = new Crime();
-        $dadosCrime->__constructOverload($registro->ID_CRIME, $registro->TEMPO_ID_TEMPO, $registro->NATUREZA_ID_NATUREZA, $registro->QUANTIDADE);
-        return $dadosCrime;
+        $result = $this->conexao->banco->Execute($sql);
+        $register = $result->FetchNextObject();
+        $dataCrime = new Crime();
+        $dataCrime->__constructOverload($register->ID_CRIME, $register->TEMPO_ID_TEMPO, $register->NATUREZA_ID_NATUREZA, $register->QUANTIDADE);
+        return $dataCrime;
     }
 
     public function consultarPorIdNatureza($id) {
         $sql = "SELECT * FROM crime WHERE natureza_id_natureza = '" . $id . "'";
-        $resultado = $this->conexao->banco->Execute($sql);
-        $registro = $resultado->FetchNextObject();
-        $dadosCrime = new Crime();
-        $dadosCrime->__constructOverload($registro->ID_CRIME, $registro->TEMPO_ID_TEMPO, $registro->NATUREZA_ID_NATUREZA, $registro->QUANTIDADE);
-        return $dadosCrime;
+        $result = $this->conexao->banco->Execute($sql);
+        $register = $result->FetchNextObject();
+        $dataCrime = new Crime();
+        $dataCrime->__constructOverload($register->ID_CRIME, $register->TEMPO_ID_TEMPO, $register->NATUREZA_ID_NATUREZA, $register->QUANTIDADE);
+        return $dataCrime;
     }
 
     public function consultarPorIdTempo($id) {
         $sql = "SELECT * FROM crime WHERE tempo_id_tempo = '" . $id . "'";
-        $resultado = $this->conexao->banco->Execute($sql);
-        $registro = $resultado->FetchNextObject();
-        $dadosCrime = new Crime();
-        $dadosCrime->__constructOverload($registro->ID_CRIME, $registro->TEMPO_ID_TEMPO, $registro->NATUREZA_ID_NATUREZA, $registro->QUANTIDADE);
-        return $dadosCrime;
+        $result = $this->conexao->banco->Execute($sql);
+        $register = $result->FetchNextObject();
+        $dataCrime = new Crime();
+        $dataCrime->__constructOverload($register->ID_CRIME, $register->TEMPO_ID_TEMPO, $register->NATUREZA_ID_NATUREZA, $register->QUANTIDADE);
+        return $dataCrime;
     }
 
     public function somaDeCrimePorAno($ano) {
         $sql = "SELECT SUM(c.quantidade) as total FROM crime c, tempo t WHERE t.ano = '" . $ano . "' AND c.tempo_id_tempo = t.id_tempo AND c.id_crime BETWEEN 1 AND 341";
-        $resultado = $this->conexao->banco->Execute($sql);
-        $registro = $resultado->FetchNextObject();
-        return $registro->TOTAL;
+        $result = $this->conexao->banco->Execute($sql);
+        $register = $result->FetchNextObject();
+        return $register->TOTAL;
     }
 
     public function somaDeCrimePorNatureza($natureza) {
         $sql = "SELECT Sum(c.quantidade) as total FROM crime c, natureza n WHERE c.natureza_id_natureza = n.id_natureza AND n.natureza = '" . $natureza . "' AND c.id_crime BETWEEN 1 AND 341";
-        $resultado = $this->conexao->banco->Execute($sql);
-        $registro = $resultado->FetchNextObject();
-        return $registro->TOTAL;
+        $result = $this->conexao->banco->Execute($sql);
+        $register = $result->FetchNextObject();
+        return $register->TOTAL;
     }
 
     //Metodo de somar todos homicícios por ano
@@ -85,16 +85,16 @@ class CrimeDAO {
      * */
     public function somaTotalHomicidios() {
         $sql = "SELECT SUM(c.quantidade) AS total FROM crime c, natureza n WHERE c.natureza_id_natureza = n.id_natureza AND n.id_natureza = 1";
-        $resultado = $this->conexao->banco->Execute($sql);
-        $registro = $resultado->FetchNextObject();
-        return $registro->TOTAL;
+        $result = $this->conexao->banco->Execute($sql);
+        $register = $result->FetchNextObject();
+        return $register->TOTAL;
     }
 
     public function somaDeCrimePorNaturezaEmAno($natureza, $ano) {
         $sql = "SELECT SUM(c.quantidade) AS total FROM crime c, natureza n,tempo t WHERE c.natureza_id_natureza = n.id_natureza AND c.tempo_id_tempo = t.id_tempo AND t.ano = " . $ano . " AND n.natureza = '" . $natureza . "'";
-        $resultado = $this->conexao->banco->Execute($sql);
-        $registro = $resultado->FetchNextObject();
-        return $registro->TOTAL;
+        $result = $this->conexao->banco->Execute($sql);
+        $register = $result->FetchNextObject();
+        return $register->TOTAL;
     }
 
     //Metodo de somar todos homicícios por ano
@@ -105,23 +105,23 @@ class CrimeDAO {
      * */
     public function somaLesaoCorporal() {
         $sql = "SELECT SUM(c.quantidade) AS total FROM crime c, natureza n WHERE c.natureza_id_natureza = n.id_natureza AND n.id_natureza = 3";
-        $resultado = $this->conexao->banco->Execute($sql);
-        $registro = $resultado->FetchNextObject();
-        return $registro->TOTAL;
+        $result = $this->conexao->banco->Execute($sql);
+        $register = $result->FetchNextObject();
+        return $register->TOTAL;
     }
 
     public function somaTotalTentativasHomicidio() {
         $sql = "SELECT SUM(c.quantidade) AS total FROM crime c, natureza n WHERE c.natureza_id_natureza = n.id_natureza AND n.id_natureza = 2";
-        $resultado = $this->conexao->banco->Execute($sql);
-        $registro = $resultado->FetchNextObject();
-        return $registro->TOTAL;
+        $result = $this->conexao->banco->Execute($sql);
+        $register = $result->FetchNextObject();
+        return $register->TOTAL;
     }
 
     public function somarGeral() {
         $sql = "SELECT SUM(total) as total FROM totalgeralcrimes ";
-        $resultado = $this->conexao->banco->Execute($sql);
-        $registro = $resultado->FetchNextObject();
-        return $registro->TOTAL;
+        $result = $this->conexao->banco->Execute($sql);
+        $register = $result->FetchNextObject();
+        return $register->TOTAL;
     }
 
     //INICIO DOS MÉTODOS DE INSERÇÃO
