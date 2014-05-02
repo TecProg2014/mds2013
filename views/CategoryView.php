@@ -8,7 +8,7 @@
 include_once('C:/xampp/htdocs/mds2013/controller/CategoryController.php');
 include_once('C:/xampp/htdocs/mds2013/exceptions/EErroConsulta.php');
 
-class CategoriaView {
+class CategoryView {
 
     private $category_controller;
 

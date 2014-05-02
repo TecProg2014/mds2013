@@ -6,7 +6,7 @@
  */
 include_once('C:/xampp/htdocs/mds2013/controller/TimeController.php');
 
-class TempoView {
+class TimeView {
 
     private $timeCO;
 

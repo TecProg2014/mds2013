@@ -7,7 +7,7 @@
  
 include_once('C:/xampp/htdocs/mds2013/controller/AdministrativeRegionController.php');
 
-class RegiaoAdministrativaView {
+class AdministrativeRegionView {
 
     private $raCO;
 
