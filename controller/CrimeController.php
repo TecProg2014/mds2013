@@ -11,7 +11,7 @@ include_once('C:/xampp/htdocs/mds2013/persistence/KindDAO.php');
 include_once('C:/xampp/htdocs/mds2013/persistence/CategoryDAO.php');
 include_once('C:/xampp/htdocs/mds2013/persistence/AdministrativeRegionDAO.php');
 include_once('C:/xampp/htdocs/mds2013/model/Crime.php');
-include_once('C:/xampp/htdocs/mds2013/model/Timee.php');
+include_once('C:/xampp/htdocs/mds2013/model/TimeModel.php');
 include_once('C:/xampp/htdocs/mds2013/model/Kind.php');
 include_once('C:/xampp/htdocs/mds2013/model/Category.php');
 include_once('C:/xampp/htdocs/mds2013/model/AdministrativeRegion.php');

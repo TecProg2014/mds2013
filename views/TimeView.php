@@ -3,7 +3,6 @@
 /*
   File name: TempoView.php
   File description: return time
-  Authors: Lucas Andrade, Eduardo Augusto, S�rgio Bezerra, Lucas Carvalho, Eliseu
  */
 include_once('C:/xampp/htdocs/mds2013/controller/TimeController.php');
 

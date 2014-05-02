@@ -6,7 +6,7 @@
   Authors: Lucas Andrade, Eduardo Augusto, S�rgio Bezerra, Lucas Carvalho, Eliseu
  */
 include_once('C:/xampp/htdocs/mds2013/model/Crime.php');
-include_once('C:/xampp/htdocs/mds2013/model/Time.php');
+include_once('C:/xampp/htdocs/mds2013/model/TimeModel.php');
 include_once('C:/xampp/htdocs/mds2013/model/Kind.php');
 include_once('C:/xampp/htdocs/mds2013/persistence/Connection.php');
 include_once('C:/xampp/htdocs/mds2013/persistence/TestConnection.php');

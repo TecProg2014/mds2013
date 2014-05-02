@@ -1,10 +1,10 @@
 <?php
 
 require_once ('C:/xampp/htdocs/mds2013/util/Parse.php');
-include_once ('C:/xampp/htdocs/mds2013/controller/categoryControllerntroller.php');
-include_once ('C:/xampp/htdocs/mds2013/controller/crimeControllerntroller.php');
-include_once ('C:/xampp/htdocs/mds2013/controller/kindControlntroller.php');
-include_once ('C:/xampp/htdocs/mds2013/controller/timeControlntroller.php');
+include_once ('C:/xampp/htdocs/mds2013/controller/CategoryController.php');
+include_once ('C:/xampp/htdocs/mds2013/controller/CrimeController.php');
+include_once ('C:/xampp/htdocs/mds2013/controller/KindController.php');
+include_once ('C:/xampp/htdocs/mds2013/controller/TimeController.php');
 
 class RunParse {
 

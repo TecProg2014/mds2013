@@ -3,7 +3,6 @@
 /*
   File name: NaturezaView.php
   File description: show and consult kind
-  Authors: Lucas Andrade, Eduardo Augusto, S�rgio Bezerra, Lucas Carvalho, Eliseu
  */
 include_once('./controller/KindController.php');
 include_once('./views/CategoryView.php');

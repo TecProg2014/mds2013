@@ -1,8 +1,8 @@
 <?php
 include_once('./views/CrimeView.php');
-include_once('./views/TempoView.php');
-include_once('./views/NaturezaView.php');
-include_once('./views/CategoriaView.php');
+include_once('./views/TimeView.php');
+include_once('./views/KindView.php');
+include_once('./views/CategoryView.php');
 $crimeView = new CrimeView();
 $timeView = new TempoView();
 $kindView = new NaturezaView();

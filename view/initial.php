@@ -1,8 +1,8 @@
 
 <?php
 include_once('C:/xampp/htdocs/mds2013/views/CrimeView.php');
-include_once('C:/xampp/htdocs/mds2013/views/TempoView.php');
-include_once('C:/xampp/htdocs/mds2013/views/NaturezaView.php');
+include_once('C:/xampp/htdocs/mds2013/views/TimeView.php');
+include_once('C:/xampp/htdocs/mds2013/views/KindView.php');
 $crimeView = new CrimeView();
 $categoryView = new CategoriaView();
 $timeView = new TempoView();

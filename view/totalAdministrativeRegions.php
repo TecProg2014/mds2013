@@ -1,7 +1,7 @@
 
 <?php
 include_once('./views/CrimeView.php');
-include_once('./views/TempoView.php');
+include_once('./views/TimeView.php');
 $crimeView = new CrimeView();
 $timeView = new TempoView();
 ?>
