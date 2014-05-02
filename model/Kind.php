@@ -7,7 +7,7 @@
 
 include_once('C:/xampp/htdocs/mds2013/exceptions/ETipoErrado.php');
 
-class Nature {
+class Kind {
 
     private $idNature;
     private $natureName;

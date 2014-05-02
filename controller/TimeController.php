@@ -6,7 +6,7 @@
  */
 
 include_once('C:/xampp/htdocs/mds2013/persistence/TimeDAO.php');
-include_once('C:/xampp/htdocs/mds2013/model/Time.php');
+include_once('C:/xampp/htdocs/mds2013/model/Timee.php');
 
 class TimeController {
 

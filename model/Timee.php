@@ -1,13 +1,13 @@
 <?php
 
 /*
-  File name: Tempo.php
+  File name: Timee.php
   File description: time model
  */
 
 include_once('C:/xampp/htdocs/mds2013/exceptions/ETipoErrado.php');
 
-class Tempo {
+class Timee {
 
     private $timeId;
     private $interval;
