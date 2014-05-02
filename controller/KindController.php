@@ -1,7 +1,7 @@
 <?php
 
 /*
-  File name: NaturezaController.php
+  File name: KindController.php
   File description: insert, consult, show and sum some kind informations
  */
 
@@ -13,7 +13,7 @@ include_once('C:/xampp/htdocs/mds2013/controller/CrimeController.php');
 include_once('C:/xampp/htdocs/mds2013/exceptions/EErroConsulta.php');
 include_once('C:/xampp/htdocs/mds2013/exceptions/EFalhaNaturezaController.php');
 
-class NatureController {
+class KindController {
 
     private $natureConnectionDatabase;
 
