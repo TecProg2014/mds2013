@@ -135,11 +135,11 @@ class CrimeController {
                 $dataTime = new Tempo();
                 $tempoDAO = new tempoDAO();
                 $dataTime = $tempoDAO->consultarPorMes($time);
-                $dadosCrime = new Crime();
-                $dadosCrime->__setIdkindCrime($dadoskindCrime->__getIdkindCrime());
-                $dadosCrime->__setIdtime($dataTime->__getIdtime());
-                $dadosCrime->__setQuantidade($arrayCrime[$kindCrime][$time]);
-                $this->inserirCrime($dadosCrime);
+                $dataCrime = new Crime();
+                $dataCrime->__setIdkindCrime($dadoskindCrime->__getIdkindCrime());
+                $dataCrime->__setIdtime($dataTime->__getIdtime());
+                $dataCrime->__setQuantidade($arrayCrime[$kindCrime][$time]);
+                $this->inserirCrime($dataCrime);
                 next($arraytime);
             }
             next($arrayKey);
@@ -164,12 +164,12 @@ class CrimeController {
                     $dataTime = new Tempo();
                     $tempoDAO = new tempoDAO();
                     $dataTime = $tempoDAO->consultarPorIntervalo($time);
-                    $dadosCrime = new Crime();
-                    $dadosCrime->__setIdkindCrime($dadoskindCrime->__getIdkindCrime());
-                    $dadosCrime->__setIdRegiaoAdministrativa($dadosRegiao->__getIdAdministrativeRegion());
-                    $dadosCrime->__setIdtime($dataTime->__getIdtime());
-                    $dadosCrime->__setQuantidade($arrayCrime[$kindCrime][$regiao][$time]);
-                    $this->crimeDAO->inserirCrime($dadosCrime);
+                    $dataCrime = new Crime();
+                    $dataCrime->__setIdkindCrime($dadoskindCrime->__getIdkindCrime());
+                    $dataCrime->__setIdRegiaoAdministrativa($dadosRegiao->__getIdAdministrativeRegion());
+                    $dataCrime->__setIdtime($dataTime->__getIdtime());
+                    $dataCrime->__setQuantidade($arrayCrime[$kindCrime][$regiao][$time]);
+                    $this->crimeDAO->inserirCrime($dataCrime);
                     next($arraytime);
                 }
 
@@ -208,13 +208,13 @@ class CrimeController {
             $dados[$i] = $dataTime->__getIntervalo();
         }
         for ($i = 0; $i < count($dados); $i++) {
-            $dadosCrime[$i] = $this->_somaDeCrimePorAno($dados[$i]);
-            $dadosCrimeTitle[$i] = number_format($dadosCrime[$i], 0, ',', '.');
+            $dataCrime[$i] = $this->_somaDeCrimePorAno($dados[$i]);
+            $dataCrimeTitle[$i] = number_format($dataCrime[$i], 0, ',', '.');
         }
 
 
 
-        for ($i = 0; $i < count($dadosCrime); $i++) {
+        for ($i = 0; $i < count($dataCrime); $i++) {
             /**
              * La�o que escreve os dados do grafico de ocorrencias por year.
              * a string ("\"bar\"") define a barra cheia do grafico e 
@@ -229,15 +229,15 @@ class CrimeController {
             } else {
                 $varbar = "\"bar simple\"";
             }
-            $dadosCrimeFormatado[] = "<div class=" . $varbar . "title=\"" . $dadosCrimeTitle[$i] . " Ocorrencias\">
+            $dataCrimeFormatado[] = "<div class=" . $varbar . "title=\"" . $dataCrimeTitle[$i] . " Ocorrencias\">
 										<div class=\"title\">" . $dados[$i] . "</div>
-										<div class=\"value\">" . $dadosCrime[$i] . "</div>
+										<div class=\"value\">" . $dataCrime[$i] . "</div>
 										</div>";
             if ($i != 0)
-                $dadosCrimeFormatado[0] = $dadosCrimeFormatado[0] . $dadosCrimeFormatado[$i];
+                $dataCrimeFormatado[0] = $dataCrimeFormatado[0] . $dataCrimeFormatado[$i];
         }
 
-        return $dadosCrimeFormatado[0];
+        return $dataCrimeFormatado[0];
     }
 
     //Metodo de somar todos homicícios por year
