@@ -7,7 +7,7 @@
 
 include_once('C:/xampp/htdocs/mds2013/exceptions/ETipoErrado.php');
 
-class AdministrativeRegion {
+class AdministrativeRegion{
 
     private $idAdministrativeRegion;
     private $regionName;

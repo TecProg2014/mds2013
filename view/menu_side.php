@@ -1,7 +1,7 @@
 <?php
 include ('C:/xampp/htdocs/mds2013/views/AdministrativeRegionView.php');
 include ('C:/xampp/htdocs/mds2013/views/CategoryView.php');
-$AdministrativeRegionView = new RegiaoAdministrativaView();
+$AdministrativeRegionView = new AdministrativeRegionView();
 $categoryView = new CategoriaView();
 
 $countAdministrativeRegion = $AdministrativeRegionView->contarRegistrosRA();

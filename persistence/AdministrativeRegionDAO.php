@@ -14,11 +14,11 @@ class RegiaoAdministrativaDAO {
     private $conexion;
 
     public function __construct() {
-        $this->conexion = new Conexao();
+        $this->conexion = new Connection();
     }
 
     public function __constructTest() {
-        $this->conexion = new ConexaoTeste();
+        $this->conexion = new TestConnection();
     }
 
     public function listAllAdministrativeRegion() {

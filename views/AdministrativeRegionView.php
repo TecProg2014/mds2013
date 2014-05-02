@@ -12,7 +12,7 @@ class AdministrativeRegionView {
     private $raCO;
 
     public function __construct() {
-        $this->raCO = new RegiaoAdministrativaController();
+        $this->raCO = new AdministrativeRegionController();
     }
 
     public function listarTodasAlfabeticamente() {

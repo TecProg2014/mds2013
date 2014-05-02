@@ -9,12 +9,12 @@ include_once('C:/xampp/htdocs/mds2013/persistence/AdministrativeRegionDAO.php');
 include_once('C:/xampp/htdocs/mds2013/exceptions/EErroConsulta.php');
 include_once('C:/xampp/htdocs/mds2013/model/AdministrativeRegion.php');
 
-class AdministrativeRegion {
+class AdministrativeRegionController {
 
     private $administrativeRegionDAO;
 
     public function __construct() {
-        $this->administrativeRegionDAO = new RegiaoAdministrativaDAO();
+        $this->administrativeRegionDAO = new AdministrativeRegionDAO();
     }
 
     public function _listAllAdministrativeRegions() {
