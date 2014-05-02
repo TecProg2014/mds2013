@@ -12,7 +12,7 @@ class Crime {
 
     private $idCrime;
     private $crimesQuantity;
-    private $idTempo;
+    private $idTime;
     private $idKind;
     private $idAdministrativeRegion;
     private $exceptionCrime;
@@ -40,14 +40,14 @@ class Crime {
         return $this->crimesQuantity;
     }
 
-    public function __setIdTempo($idTempo) {
+    public function __setidTime($idTime) {
 
-        $this->idTempo = $idTempo;
+        $this->idTime = $idTime;
     }
 
-    public function __getIdTempo() {
+    public function __getidTime() {
         //Method to access the instance of tempo attribute
-        return $this->idTempo;
+        return $this->idTime;
     }
 
     public function __setidKind($idKind) {
@@ -73,9 +73,9 @@ class Crime {
         
     }
 
-    public function __constructOverload($idCrime, $idTempo, $idKind, $crimesQuantity) {
+    public function __constructOverload($idCrime, $idTime, $idKind, $crimesQuantity) {
         $this->idCrime = $idCrime;
-        $this->idTempo = $idTempo;
+        $this->idTime = $idTime;
         $this->idKind = $idKind;
         $this->crimesQuantity = $crimesQuantity;
     }
