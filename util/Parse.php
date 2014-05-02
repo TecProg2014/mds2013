@@ -10,10 +10,10 @@ require_once ('C:/xampp/htdocs/mds2013/libs/excel_reader2.php');
 
 class Parse {
 
-    private $natureza;
-    private $tempo;
+    private $kind;
+    private $time;
     private $crime;
-    private $categoria;
+    private $category;
     private $dados;
     private $total;
     private $regiao;
@@ -39,15 +39,15 @@ class Parse {
         for ($i = 0, $auxCategoria = 0; $i < $numeroLinhas; $i++) {
 
             if ($i == 2) {
-                $this->categoria[$auxCategoria] = $this->dados->val($i, 1, 0);
+                $this->category[$auxCategoria] = $this->dados->val($i, 1, 0);
                 $auxCategoria++;
             }
             if ($i == 33) {
-                $this->categoria[$auxCategoria] = $this->dados->val($i, 1, 0);
+                $this->category[$auxCategoria] = $this->dados->val($i, 1, 0);
                 $auxCategoria++;
             }
             if ($i == 38) {
-                $this->categoria[$auxCategoria] = $this->dados->val($i, 1, 0);
+                $this->category[$auxCategoria] = $this->dados->val($i, 1, 0);
             }
         }
         //loop que pega natureza do crime
@@ -57,17 +57,17 @@ class Parse {
             } else {
                 if ($i > 32) {
                     if ($i < 37) {
-                        $this->natureza[$this->__getCategoria()[1]][$auxNatureza] = $this->dados->val($i, 'B', 0);
+                        $this->kind[$this->__getCategoria()[1]][$auxNatureza] = $this->dados->val($i, 'B', 0);
                     } else {
-                        $this->natureza[$this->__getCategoria()[2]][$auxNatureza] = $this->dados->val($i, 'B', 0);
+                        $this->kind[$this->__getCategoria()[2]][$auxNatureza] = $this->dados->val($i, 'B', 0);
                     }
                 } else {
                     if ($i < 32) {
-                        $this->natureza[$this->__getCategoria()[0]][$auxNatureza] = $this->dados->val($i, 'C', 0);
+                        $this->kind[$this->__getCategoria()[0]][$auxNatureza] = $this->dados->val($i, 'C', 0);
                     } else if ($i > 32 && $i < 37) {
-                        $this->natureza[$this->__getCategoria()[1]][$auxNatureza] = $this->dados->val($i, 'C', 0);
+                        $this->kind[$this->__getCategoria()[1]][$auxNatureza] = $this->dados->val($i, 'C', 0);
                     } else {
-                        $this->natureza[$this->__getCategoria()[2]][$auxNatureza] = $this->dados->val($i, 'C', 0);
+                        $this->kind[$this->__getCategoria()[2]][$auxNatureza] = $this->dados->val($i, 'C', 0);
                     }
                 }
                 $auxNatureza++;
@@ -81,7 +81,7 @@ class Parse {
             if (($i == 1) || ($i == 2) || ($i == 3)) {
                 continue;
             } else {
-                $this->tempo[$auxTempo] = $this->dados->val(1, $i, 0);
+                $this->time[$auxTempo] = $this->dados->val(1, $i, 0);
                 $auxTempo++;
             }
         }
@@ -124,7 +124,7 @@ class Parse {
          */
         for ($i = 0, $auxCategoria = 0; $i < 45; $i++) {
             if (($i == 8) || ($i == 12) || ($i == 34) || ($i == 38) || ($i == 43)) {
-                $this->categoria[$auxCategoria] = $this->dados->val($i, 'A', 1);
+                $this->category[$auxCategoria] = $this->dados->val($i, 'A', 1);
                 $auxCategoria++;
             } else {
                 continue;
@@ -139,19 +139,19 @@ class Parse {
         for ($i = 0, $auxNatureza = 0; $i < 45; $i++) {
             // Val Ã© o valor da cÃ©lula que esta sendo armazenado na nova tabela val(linha, coluna, sheet)
             if ($i > 7 && $i < 11) {
-                $this->natureza[$this->__getCategoria()[0]][$auxNatureza] = $this->dados->val($i, 'B', 1);
+                $this->kind[$this->__getCategoria()[0]][$auxNatureza] = $this->dados->val($i, 'B', 1);
                 $auxNatureza++;
             } else if (($i > 11 && $i < 26) || ($i > 26 && $i < 32)) {
-                $this->natureza[$this->__getCategoria()[1]][$auxNatureza] = $this->dados->val($i, 'B', 1);
+                $this->kind[$this->__getCategoria()[1]][$auxNatureza] = $this->dados->val($i, 'B', 1);
                 $auxNatureza++;
             } else if ($i > 33 && $i < 36) {
-                $this->natureza[$this->__getCategoria()[2]][$auxNatureza] = $this->dados->val($i, 'B', 1);
+                $this->kind[$this->__getCategoria()[2]][$auxNatureza] = $this->dados->val($i, 'B', 1);
                 $auxNatureza++;
             } else if ($i > 37 && $i < 42) {
-                $this->natureza[$this->__getCategoria()[3]][$auxNatureza] = $this->dados->val($i, 'B', 1);
+                $this->kind[$this->__getCategoria()[3]][$auxNatureza] = $this->dados->val($i, 'B', 1);
                 $auxNatureza++;
             } else if ($i > 42 && $i < 45) {
-                $this->natureza[$this->__getCategoria()[4]][$auxNatureza] = $this->dados->val($i, 'B', 1);
+                $this->kind[$this->__getCategoria()[4]][$auxNatureza] = $this->dados->val($i, 'B', 1);
                 $auxNatureza++;
             } else {
                 continue;
@@ -164,7 +164,7 @@ class Parse {
          * @author Lucas Carvalho
          */
         for ($i = 6, $auxTempo = 0; $i < 8; $i++) {
-            $this->tempo[$auxTempo] = $this->dados->val(7, $i, 1);
+            $this->time[$auxTempo] = $this->dados->val(7, $i, 1);
             $auxTempo++;
         }
 
@@ -345,25 +345,25 @@ class Parse {
         for ($i = 8, $auxNatureza = 0; $i < $numeroLinhas; $i++) {
             // Val Ã© o valor da cÃ©lula que esta sendo armazenado na nova tabela val(linha, coluna, sheet)
             if ($i > 7 && $i < 11) {
-                $this->natureza[$this->__getCategoria()[0]][$auxNatureza] = $this->dados->val($i, 'B', 2);
+                $this->kind[$this->__getCategoria()[0]][$auxNatureza] = $this->dados->val($i, 'B', 2);
                 $auxNatureza++;
             } else if (($i > 11 && $i < 26) || ($i > 26 && $i < 31)) {
-                $this->natureza[$this->__getCategoria()[1]][$auxNatureza] = $this->dados->val($i, 'B', 2);
+                $this->kind[$this->__getCategoria()[1]][$auxNatureza] = $this->dados->val($i, 'B', 2);
                 $auxNatureza++;
             } else if ($i == 34) {
-                $this->natureza[$this->__getCategoria()[2]][$auxNatureza] = $this->dados->val($i, 'B', 2);
+                $this->kind[$this->__getCategoria()[2]][$auxNatureza] = $this->dados->val($i, 'B', 2);
                 $auxNatureza++;
             } else if ($i == 35) {
-                $this->natureza[$this->__getCategoria()[3]][$auxNatureza] = $this->dados->val($i, 'B', 2);
+                $this->kind[$this->__getCategoria()[3]][$auxNatureza] = $this->dados->val($i, 'B', 2);
                 $auxNatureza++;
             } else if ($i == 36) {
-                $this->natureza[$this->__getCategoria()[4]][$auxNatureza] = $this->dados->val($i, 'B', 2);
+                $this->kind[$this->__getCategoria()[4]][$auxNatureza] = $this->dados->val($i, 'B', 2);
                 $auxNatureza++;
             } else if ($i == 37) {
-                $this->natureza[$this->__getCategoria()[5]][$auxNatureza] = $this->dados->val($i, 'B', 2);
+                $this->kind[$this->__getCategoria()[5]][$auxNatureza] = $this->dados->val($i, 'B', 2);
                 $auxNatureza++;
             } else if ($i > 38 && $i < 41) {
-                $this->natureza[$this->__getCategoria()[6]][$auxNatureza] = $this->dados->val($i, 'B', 2);
+                $this->kind[$this->__getCategoria()[6]][$auxNatureza] = $this->dados->val($i, 'B', 2);
                 $auxNatureza++;
             } else {
                 continue;
@@ -376,7 +376,7 @@ class Parse {
          */
         for ($i = 6, $auxTempo = 0; $i < $numeroColunas; $i++) {
             if (($i % 2) == 0) {
-                $this->tempo[2013][$auxTempo] = $this->dados->val(6, $i, 2);
+                $this->time[2013][$auxTempo] = $this->dados->val(6, $i, 2);
                 $auxTempo++;
             }
         }
@@ -416,19 +416,19 @@ class Parse {
     }
 
     public function __setNatureza($natureza) {
-        $this->natureza = $natureza;
+        $this->kind = $natureza;
     }
 
     public function __getNatureza() {
-        return $this->natureza;
+        return $this->kind;
     }
 
-    public function __setTempo($tempo) {
-        $this->tempo = $tempo;
+    public function __setTempo($time) {
+        $this->time = $time
     }
 
     public function __getTempo() {
-        return $this->tempo;
+        return $this->time;
     }
 
     public function __setCrime($crime) {
@@ -439,12 +439,12 @@ class Parse {
         return $this->crime;
     }
 
-    public function __setCategoria($categoria) {
-        $this->categoria = $categoria;
+    public function __setCategoria($category) {
+        $this->ccategory= $category;
     }
 
     public function __getCategoria() {
-        return $this->categoria;
+        return $this->category;
     }
 
     public function __setRegiao($regiao) {
