@@ -3,53 +3,52 @@
 /*
   File name: CategoriaView.php
   File description: show, consult and sum categories
-  Authors: Lucas Andrade, Eduardo Augusto, S�rgio Bezerra, Lucas Carvalho, Eliseu
  */
 include_once('C:/xampp/htdocs/mds2013/controller/CategoryController.php');
 include_once('C:/xampp/htdocs/mds2013/exceptions/EErroConsulta.php');
 
 class CategoryView {
 
-    private $category_controller;
+    private $categoryController;
 
-    public function __construct() {
-        $this->category_controller = new CategoriaController();
+    public function construct() {
+        $this->categoryController = new CategoryController();
     }
 
     public function listAllCategories() {
-        $arrayOfCategories = $this->category_controller->_listarTodas();
+        $arrayOfCategories = $this->categoryController-> listAllCategories();
         if (!is_array($arrayOfCategories)) {
             throw new EErroConsulta();
         }
         return $arrayOfCategories;
     }
 
-    public function listAllAlphabetically() {
-        $arrayOfCategories = $this->category_controller->_listarTodasAlfabicamente();
+    public function listAllCategoriesAlphabetically() {
+        $arrayOfCategories = $this->categoryController->listAllCategoriesAlphabetically();
         for ($i = 0, $categories_return = ""; $i < count($arrayOfCategories); $i++) {
             $category_auxiliar_variable = $arrayOfCategories[$i];
-            $category_name = $category_auxiliar_variable->__getCategoryName();
-            $id_category = $category_auxiliar_variable->__getIdCategory();
+            $category_name = $category_auxiliar_variable-> getCategoryName();
+            $id_category = $category_auxiliar_variable-> getIdCategory();
             $categories_return = $categories_return . "<li><a class=\"submenu\" href=\"?pag=cCat&id=$i\"><i class=\"icon-inbox\"></i><span class=\"hidden-tablet\">$category_name</span></a></li>";
         }
         return $categories_return;
     }
 
     public function listAllAlphabeticallyPure() {
-        $arrayOfCategories = $this->category_controller->_listarTodasAlfabicamente();
+        $arrayOfCategories = $this->categoryController->listAllCategoriesAlphabetically();
         return $arrayOfCategories;
     }
 
     public function consultCategoryById($id) {
-        $category = $this->category_controller->_consultarPorId($id);
+        $category = $this->categoryController-> consultCategoryById($id);
         if (get_class($category) != 'Categoria') {
             throw new EErroConsulta();
         }
         return $category;
     }
 
-    public function _consultByName($category_name) {
-        $category = $this->category_controller->_consultarPorNome($category_name);
+    public function consultByName($categoryName) {
+        $category = $this->categoryController-> consultByName($categoryName);
         if (get_class($category) != 'Categoria') {
             throw new EErroConsulta();
         }
@@ -57,47 +56,47 @@ class CategoryView {
     }
 
     public function countCategoryRegisters() {
-        return $this->category_controller->_contarRegistros();
+        return $this->categoryController-> countCategoryRegisters();
     }
 
-    public function _sumTotalSexualDignity() {
-        return $this->category_controller->_somaTotalDignidadeSexual();
+    public function sumTotalSexualDignity() {
+        return $this->categoryController->sumTotalSexualDignity();
     }
 
-    public function _sumTotalSexualDignity2010_2011() {
-        return $this->category_controller->_somaTotalDignidadeSexual2010_2011();
+    public function sumTotalSexualDignity2010_2011() {
+        return $this->categoryController->sumTotalSexualDignity2010_2011();
     }
 
-    public function _sumOfPoliceActions() {
-        return $this->category_controller->_somaTotalAcaoPolicial();
+    public function sumTotalOfPoliceActions() {
+        return $this->categoryController->sumTotalOfPoliceActions();
     }
 
-    public function _sumOfPoliceActions2010_2011() {
-        return $this->category_controller->_sumOfPoliceActions2010_2011();
+    public function sumOfPoliceActions2010_2011() {
+        return $this->categoryController->sumOfPoliceActions2010_2011();
     }
 
-    public function _sumOfCrimesAgainstPerson() {
-        return $this->category_controller->_somaGeralCrimeContraPessoa();
+    public function sumTotalOfCrimesAgainstPerson() {
+        return $this->categoryController->sumTotalOfCrimesAgainstPerson();
     }
 
-    public function _sumOfCrimesAgainstPerson2010_2011() {
-        return $this->category_controller->_somaGeralCrimeContraPessoa2010_2011();
+    public function sumTotalOfCrimesAgainstPerson2010_2011() {
+        return $this->categoryController->sumTotalOfCrimesAgainstPerson2010_2011();
     }
 
-    public function _sumOfSteals() {
-        return $this->category_controller->_somaTotalRoubo();
+    public function sumTotalOfSteals() {
+        return $this->categoryController->sumTotalOfSteals();
     }
 
-    public function _sumOfSteals2010_2011() {
-        return $this->category_controller->_somaTotalRoubo2010_2011();
+    public function sumTotalOfSteals2010_2011() {
+        return $this->categoryController->sumTotalOfSteals2010_2011();
     }
 
-    public function _sumOfThefts() {
-        return $this->category_controller->_somaTotalFurtos();
+    public function sumTotalThefts() {
+        return $this->categoryController->sumTotalThefts();
     }
 
-    public function _listTotalOfCategories() {
-        return $this->category_controller->_listarTotalDeCategoria();
+    public function listTotalOfCategories() {
+        return $this->categoryController->listTotalOfCategories();
     }
 
 }

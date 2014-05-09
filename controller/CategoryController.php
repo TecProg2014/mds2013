@@ -42,7 +42,7 @@ class CategoryController {
         return $category;
     }
 
-    public function consultarPorNome($categoryName) {
+    public function consultByName($categoryName) {
         //consults category by name	
         if (!is_string($categoryName)) {
             throw new EErroConsulta();

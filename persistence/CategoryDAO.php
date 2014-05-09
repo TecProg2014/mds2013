@@ -3,7 +3,6 @@
 /*
   File name: CategoriaDAO.php
   File description: persistence category on database
-  Authors: Lucas Andrade, Eduardo Augusto, S�rgio Bezerra, Lucas Carvalho, Eliseu
  */
 include_once('C:/xampp/htdocs/mds2013/model/Category.php');
 include_once('C:/xampp/htdocs/mds2013/persistence/Connection.php');
@@ -16,22 +15,22 @@ include_once('C:/xampp/htdocs/mds2013/exceptions/EConexaoFalha.php');
 
 class CategoriaDAO {
 
-    private $conexion;
+    private $connection;
 
     public function __construct() {
-        $this->conexion = new Conexao();
+        $this->connection = new Conexao();
     }
 
-    public function __constructTest() {
-        $this->conexion = new ConexaoTeste();
+    public function constructTest() {
+        $this->connection = new TestConnection();
     }
 
     public function listAllCategories() {
         $sql = "SELECT * FROM categoria";
-        $databaseConexionResult = $this->conexion->banco->Execute($sql);
-        while ($register = $databaseConexionResult->FetchNextObject()) {
+        $databaseconnectionResult = $this->connection->database->Execute($sql);
+        while ($register = $databaseconnectionResult->FetchNextObject()) {
             $categoryData = new Category();
-            $categoryData->__constructOverload($register->ID_CATEGORIA, $register->NOME_CATEGORIA);
+            $categoryData-> constructOverload($register->ID_CATEGORIA, $register->NOME_CATEGORIA);
             $arrayOfCategories[] = $categoryData;
         }
         return $arrayOfCategories;
@@ -39,13 +38,13 @@ class CategoriaDAO {
 
     public function listAllCategoriesAlphabetically() {
         $sql = "SELECT * FROM categoria ORDER BY nome_categoria ASC";
-        $databaseConexionResult = $this->conexion->banco->Execute($sql);
+        $databaseconnectionResult = $this->connection->database->Execute($sql);
         //if($resultado->RecordCount()== 0){
         //	throw new ECategoriaListarTodasAlfabeticamenteVazio();
         //}
-        while ($register = $databaseConexionResult->FetchNextObject()) {
+        while ($register = $databaseconnectionResult->FetchNextObject()) {
             $categoryData = new Category();
-            $categoryData->__constructOverload($register->ID_CATEGORIA, $register->NOME_CATEGORIA);
+            $categoryData->constructOverload($register->ID_CATEGORIA, $register->NOME_CATEGORIA);
             $arrayOfCategories[] = $categoryData;
         }
         return $arrayOfCategories;
@@ -53,88 +52,75 @@ class CategoriaDAO {
 
     public function consultCategoryById($id) {
         $sql = "SELECT * FROM categoria WHERE id_categoria = '" . $id . "'";
-        $databaseConexionResult = $this->conexion->banco->Execute($sql);
-        $register = $databaseConexionResult->FetchNextObject();
+        $databaseconnectionResult = $this->connection->database->Execute($sql);
+        $register = $databaseconnectionResult->FetchNextObject();
         $categoryData = new Category();
-        $categoryData->__constructOverload($register->ID_CATEGORIA, $register->NOME_CATEGORIA);
+        $categoryData->constructOverload($register->ID_CATEGORIA, $register->NOME_CATEGORIA);
         return $categoryData;
     }
 
     public function consultCategoryByName($categoryName) {
         $sql = "SELECT * FROM categoria WHERE nome_categoria = '" . $categoryName . "'";
-        $databaseConexionResult = $this->conexion->banco->Execute($sql);
-        $register = $databaseConexionResult->FetchNextObject();
-        //if($resultado->RecordCount()== 0){
-        //throw new ECategoriaConsultarPorNomeVazio();
-        //}
+        $databaseconnectionResult = $this->connection->database->Execute($sql);
+        $register = $databaseconnectionResult->FetchNextObject();
         $categoryData = new Category();
-        $categoryData->__constructOverload($register->ID_CATEGORIA, $register->NOME_CATEGORIA);
+        $categoryData-> constructOverload($register->ID_CATEGORIA, $register->NOME_CATEGORIA);
         return $categoryData;
     }
 
     public function insertCategory(Category $category) {
         $sql = "INSERT INTO categoria (nome_categoria) values ('{$category->__getCategoryName()}')";
-        $databaseConexionResult = $this->conexion->banco->Execute($sql);
-        return $databaseConexionResult;
-        //if(!$this->banco->Connect($this->servidor,$this->usuario,$this->senha,$this->db)){
-        //	throw new EConexaoFalha();	
-        //}
+        $databaseconnectionResult = $this->connection->database->Execute($sql);
+        return $databaseconnectionResult;
     }
 
-    //Somatórios de Categorias
-    /**
-     * @author Sergio Silva
-     * @author Eliseu Egewarth
-     * @author Eduardo Augusto
-     * @copyright RadarCriminal 2013
-     * */
     public function sumOfCrimesAgainstPerson() {
         $sql = "SELECT SUM( c.quantidade ) AS total FROM crime c, natureza n WHERE c.natureza_id_natureza = n.id_natureza BETWEEN 1 AND 3";
-        $databaseConexionResult  = $this->conexion->banco->Execute($sql);
-        $register = $databaseConexionResult ->FetchNextObject();
+        $databaseconnectionResult  = $this->connection->database->Execute($sql);
+        $register = $databaseconnectionResult ->FetchNextObject();
         return $register->TOTAL;
     }
 
-    public function sumOfPoliceActions() {
+    public function sumTotalOfPoliceActions() {
         $sql = "SELECT SUM(c.quantidade) AS total FROM crime c, natureza n WHERE c.natureza_id_natureza = n.id_natureza AND n.id_natureza BETWEEN 26 AND 29";
-        $databaseConexionResult  = $this->conexion->banco->Execute($sql);
-        $register = $databaseConexionResult ->FetchNextObject();
+        $databaseconnectionResult  = $this->connection->database->Execute($sql);
+        $register = $databaseconnectionResult ->FetchNextObject();
         return $register->TOTAL;
     }
 
-    public function sumOfCrimeSexualDignity() {
+    public function sumTotalSexualDignity() {
         $sql = "SELECT SUM(c.quantidade) AS total FROM crime c, natureza n WHERE c.natureza_id_natureza = n.id_natureza AND n.id_natureza BETWEEN 24 AND 25";
-        $databaseConexionResult  = $this->conexion->banco->Execute($sql);
-        $register = $databaseConexionResult ->FetchNextObject();
+        $databaseconnectionResult  = $this->connection->database->Execute($sql);
+        $register = $databaseconnectionResult ->FetchNextObject();
         return $register->TOTAL;
     }
 
     public function sumOfSteals() {
         $sql = "SELECT SUM(c.quantidade) AS total FROM crime c, natureza n WHERE c.natureza_id_natureza = n.id_natureza BETWEEN 6 AND 18";
-        $databaseConexionResult  = $this->conexion->banco->Execute($sql);
-        $register = $databaseConexionResult->FetchNextObject();
+        $databaseconnectionResult  = $this->connection->database->Execute($sql);
+        $register = $databaseconnectionResult->FetchNextObject();
         return $register->TOTAL;
     }
 
-    public function sumOfThefts() {
+    public function sumTotalThefts() {
         $sql = "SELECT SUM(c.quantidade) AS total FROM crime c, natureza n WHERE c.natureza_id_natureza = n.id_natureza AND n.id_natureza BETWEEN 19 AND 23";
-        $databaseConexionResult  = $this->conexion->banco->Execute($sql);
-        $register = $databaseConexionResult ->FetchNextObject();
+        $databaseconnectionResult  = $this->connection->database->Execute($sql);
+        $register = $databaseconnectionResult ->FetchNextObject();
         return $register->TOTAL;
     }
 
     public function sumOfCrimesAgainstProperty() {
         $sql = "SELECT SUM(total) as total FROM totalcrimecontrapatrimonio";
-        $databaseConexionResult  = $this->conexion->banco->Execute($sql);
-        $register = $databaseConexionResult ->FetchNextObject();
+        $databaseconnectionResult  = $this->connection->database->Execute($sql);
+        $register = $databaseconnectionResult ->FetchNextObject();
         return $register->TOTAL;
     }
 
     public function listTotalOfCategories() {
         $sql = "SELECT * FROM totalgeralcategoria";
-        $databaseConexionResult  = $this->conexion->banco->Execute($sql);
+        $databaseconnectionResult  = $this->connection->database->Execute($sql);
         $i = 0;
-        while ($register = $databaseConexionResult ->FetchNextObject()) {
+        while ($register = $databaseconnectionResult ->FetchNextObject()) {
             $categoryTotal["nome"][$i] = $register->NOME_CATEGORIA;
             $categoryTotal["quantidade"][$i] = $register->TOTAL;
             $i++;
@@ -144,15 +130,15 @@ class CategoriaDAO {
 
     public function sumTotalTransit() {
         $sql = "SELECT SUM(c.quantidade) AS total FROM crime c, natureza n WHERE c.natureza_id_natureza = n.id_natureza AND n.id_natureza BETWEEN 29 AND 30";
-        $databaseConexionResult  = $this->conexion->banco->Execute($sql);
-        $register = $databaseConexionResult ->FetchNextObject();
+        $databaseconnectionResult  = $this->connection->database->Execute($sql);
+        $register = $databaseconnectionResult ->FetchNextObject();
         return $register->TOTAL;
     }
 
     public function countCategoryRegisters() {
         $sql = "SELECT COUNT(id_categoria)AS total FROM categoria";
-        $databaseConexionResult  = $this->conexion->banco->Execute($sql);
-        $register = $databaseConexionResult ->FetchNextObject();
+        $databaseconnectionResult  = $this->connection->database->Execute($sql);
+        $register = $databaseconnectionResult ->FetchNextObject();
         return $register->TOTAL;
     }
 
