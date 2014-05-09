@@ -114,48 +114,48 @@ class CategoryController {
         return $returnSumOfPoliceActions2010_2011;
     }
 
-    public function _somaGeralCrimeContraPessoa() {
+    public function sumTotalOfCrimesAgainstPerson() {
         //all crimes against person category
         for ($i = 2001; $i < 2012; $i++) {
-            $somaGeralCrimeContraPessoa[] = $this->categoryDAO->sumOfCrimesAgainstPerson($i);
+            $sumTotalOfCrimesAgainstPerson[] = $this->categoryDAO->sumTotalOfCrimesAgainstPerson($i);
         }
-        $retornoSomaGeralCrimeContraPessoa = array_sum($somaGeralCrimeContraPessoa);
-        return $retornoSomaGeralCrimeContraPessoa;
+        $returnSumTotalOfCrimesAgainstPerson = array_sum($sumTotalOfCrimesAgainstPerson);
+        return $returnSumTotalOfCrimesAgainstPerson;
     }
 
-    public function _somaGeralCrimeContraPessoa2010_2011() {
+    public function sumTotalOfCrimesAgainstPerson2010_2011() {
         //all crimes against person in 2010 and 2011
         for ($i = 2010; $i < 2012; $i++) {
-            $somaGeralCrimeContraPessoa2010_2011[] = $this->categoryDAO->sumOfCrimesAgainstPerson($i);
+            $sumTotalOfCrimesAgainstPerson2010_2011[] = $this->categoryDAO->sumOfCrimesAgainstPerson($i);
         }
-        $retornoSomaGeralCrimeContraPessoa2010_2011 = array_sum($somaGeralCrimeContraPessoa2010_2011);
-        return $retornoSomaGeralCrimeContraPessoa2010_2011;
+        $returnSumTotalOfCrimesAgainstPerson2010_2011 = array_sum($sumTotalOfCrimesAgainstPerson2010_2011);
+        return $returnSumTotalOfCrimesAgainstPerson2010_2011;
     }
 
-    public function _somaTotalRoubo() {
+    public function sumTotalOfSteals() {
         //all robberies categories
         for ($i = 2001; $i < 2012; $i++) {
-            $sumTotalStealing[] = $this->categoryDAO->sumOfSteals($i);
+            $sumTotalOfSteals[] = $this->categoryDAO->sumTotalOfSteals($i);
         }
-        $retornoSomaTotalRoubo = array_sum($sumTotalStealing);
-        return $retornoSomaTotalRoubo;
+        $returnosumTotalOfSteals = array_sum($sumTotalOfSteals);
+        return $returnSumTotalOfSteals;
     }
 
-    public function _somaTotalRoubo2010_2011() {
+    public function sumTotalOfSteals2010_2011() {
         //all robberies in 2010 and 2011
         for ($i = 2010; $i < 2012; $i++) {
-            $sumTotalStealing2010_2011[] = $this->_sumTotalStealing($i);
+            $sumTotalOfSteals2010_2011[] = $this->sumTotalOfSteals($i);
         }
-        $retornosumTotalStealing2010_2011 = array_sum($sumTotalStealing2010_2011);
-        return $retornosumTotalStealing2010_2011;
+        $returnoSumTotalStealing2010_2011 = array_sum($sumTotalOfSteals2010_2011);
+        return $returnoSumTotalOfSteals2010_2011;
     }
 
-    public function _contarRegistros() {
+    public function countCategoryRegisters() {
         //count records
         return $this->categoryDAO->countCategoryRegisters();
     }
 
-    public function _listarTotalDeCategoria() {
+    public function listTotalOfCategories() {
         //lists all categories
         $categories = $this->categoryDAO->listTotalOfCategories();
         return "
