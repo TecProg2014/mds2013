@@ -11,20 +11,20 @@ class AdministrativeRegionView {
 
     private $raCO;
 
-    public function __construct() {
+    public function construct() {
         $this->raCO = new AdministrativeRegionController();
     }
 
-    public function listarTodasAlfabeticamente() {
-        $administrativeRegionName = $this->raCO->__listAlphabeticallyAllAdministrativeRegions();
+    public function listAllAdministrativeRegionsAlphabetically() {
+        $administrativeRegionName = $this->raCO-> listAlphabeticallyAllAdministrativeRegions();
         for ($i = 0, $returnAdministrativeRegion = ""; $i < count($administrativeRegionName); $i++) {
             $returnAdministrativeRegion = $returnAdministrativeRegion . "<li><a class=\"submenu\" href=\"?pag=u\"><i class=\"icon-map-marker\"></i><span class=\"hidden-tablet\">" . $administrativeRegionName[$i] . "</span></a></li>";
         }
         return $returnAdministrativeRegion;
     }
 
-    public function contarRegistrosRA() {
-        return $this->raCO->_countAdministrativeRegionsRegisters();
+    public function countAdministrativeRegionsRegisters() {
+        return $this->raCO-> countAdministrativeRegionsRegisters();
     }
 
 }

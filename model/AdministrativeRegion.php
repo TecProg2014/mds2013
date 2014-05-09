@@ -12,17 +12,17 @@ class AdministrativeRegion{
     private $idAdministrativeRegion;
     private $regionName;
 
-    public function __construct() {
+    public function construct() {
         
     }
 
-    public function __constructOverLoad($idAR, $nomeRegiao) {
+    public function constructOverLoad($idAR, $nomeRegiao) {
 
         $this->idAdministrativeRegion = $idAR;
         $this->regionName = $nomeRegiao;
     }
 
-    public function __setIdAdministrativeRegion($idAministrativeRegion) {
+    public function setIdAdministrativeRegion($idAministrativeRegion) {
         //Method to modify the instance of the regiaoAdministrativa attribute 
         if (!is_numeric($idAministrativeRegion)) {
             throw new ETipoErrado();
@@ -30,12 +30,12 @@ class AdministrativeRegion{
         $this->idAdministrativeRegion = $idAministrativeRegion;
     }
 
-    public function __getIdAdministrativeRegion() {
+    public function getIdAdministrativeRegion() {
         //Method to access the instance of regiaoAdministrativa attribute
         return $this->idAdministrativeRegion;
     }
 
-    public function __setRegionName($regionName) {
+    public function setRegionName($regionName) {
         //Method to modify the instance of the nomeRegiao attribute 
 
         if (!is_string($regionName)) {
@@ -44,7 +44,7 @@ class AdministrativeRegion{
         $this->regionName = $regionName;
     }
 
-    public function __getRegionName() {
+    public function getRegionName() {
         //Method to access the instance of time attribute
         return $this->regionName;
     }

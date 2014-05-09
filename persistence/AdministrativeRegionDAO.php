@@ -13,11 +13,11 @@ class RegiaoAdministrativaDAO {
 
     private $conexion;
 
-    public function __construct() {
+    public function construct() {
         $this->conexion = new Connection();
     }
 
-    public function __constructTest() {
+    public function constructTest() {
         $this->conexion = new TestConnection();
     }
 
@@ -26,7 +26,7 @@ class RegiaoAdministrativaDAO {
         $database_conexion_result = $this->conexion->banco->Execute($sql);
         while ($register = $database_conexion_result->FetchNextObject()) {
             $administrative_region_data = new AdministrativeRegion();
-            $administrative_region_data->__constructOverload($register->ID_REGIAO_ADMINISTRATIVA, $register->NOME);
+            $administrative_region_data-> constructOverload($register->ID_REGIAO_ADMINISTRATIVA, $register->NOME);
             $array_of_administrative_regions[] = $administrative_region_data;
         }
         return $array_of_administrative_regions;
@@ -37,7 +37,7 @@ class RegiaoAdministrativaDAO {
         $database_conexion_result = $this->conexion->banco->Execute($sql);
         while ($register = $database_conexion_result->FetchNextObject()) {
             $administrative_region_data = new AdministrativeRegion();
-            $administrative_region_data->__constructOverload($register->ID_REGIAO_ADMINISTRATIVA, $register->NOME);
+            $administrative_region_data-> constructOverload($register->ID_REGIAO_ADMINISTRATIVA, $register->NOME);
             $array_of_administrative_regions[] = $administrative_region_data;
         }
         return $array_of_administrative_regions;
@@ -48,7 +48,7 @@ class RegiaoAdministrativaDAO {
         $database_conexion_result = $this->conexion->banco->Execute($sql);
         $register = $database_conexion_result->FetchNextObject();
         $administrative_region_data = new AdministrativeRegion();
-        $administrative_region_data->__constructOverload($register->ID_REGIAO_ADMINISTRATIVA, $register->NOME);
+        $administrative_region_data-> constructOverload($register->ID_REGIAO_ADMINISTRATIVA, $register->NOME);
         return $administrative_region_data;
     }
 
@@ -69,7 +69,7 @@ class RegiaoAdministrativaDAO {
     }
 
     public function insertAdministrativeRegion(AdministrativeRegion $RA) {
-        $sql = "INSERT INTO regiao_administrativa (nome) values ('{$RA->__getRegionName()}')";
+        $sql = "INSERT INTO regiao_administrativa (nome) values ('{$RA-> getRegionName()}')";
         $database_conexion_result = $this->conexion->banco->Execute($sql);
         return $database_conexion_result;
     }

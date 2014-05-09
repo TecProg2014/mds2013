@@ -17,7 +17,7 @@ class AdministrativeRegionController {
         $this->administrativeRegionDAO = new AdministrativeRegionDAO();
     }
 
-    public function _listAllAdministrativeRegions() {
+    public function listAllAdministrativeRegions() {
         //lists administrative regions
         $arrayOfAdministrativeRegions = $this->administrativeRegionDAO->listAllAdministrativeRegion();
         return $arrayOfAdministrativeRegions;
@@ -28,10 +28,10 @@ class AdministrativeRegionController {
         $this->administrativeRegionDAO->__constructTest();
     }
 
-    public function __listAlphabeticallyAllAdministrativeRegions() {
+    public function listAllAdministrativeRegionsAlphabetically() {
         //lists administrative regions alphabetically
 
-        $arrayOfAdministrativeRegions = $this->administrativeRegionDAO->listAlphabeticallyAllAdministrativeRegions();
+        $arrayOfAdministrativeRegions = $this->administrativeRegionDAO->listAllAdministrativeRegionsAlphabetically();
 
         //loop for order administrative regions alphabetically
         for ($i = 0; $i < (count($arrayOfAdministrativeRegions)); $i++) {
@@ -40,7 +40,7 @@ class AdministrativeRegionController {
         return $AdministrativeRegionName;
     }
 
-    public function _consultAdministrativeRegionById($id) {
+    public function consultAdministrativeRegionById($id) {
         //consults administrative region by its id
 
         if (!is_numeric($id)) {
@@ -51,7 +51,7 @@ class AdministrativeRegionController {
         return $AdministrativeRegion;
     }
 
-    public function _consultAdministrativeRegionByName($AdministrativeRegionName) {
+    public function consultAdministrativeRegionByName($AdministrativeRegionName) {
         //consults administrative regions by their names
 
         if (!is_string($AdministrativeRegionName)) {
@@ -61,9 +61,9 @@ class AdministrativeRegionController {
         return $AR;
     }
 
-    public function _countAdministrativeRegionsRegisters() {
+    public function countAdministrativeRegionsRegisters() {
         //counts administrative regions' records
-        return $this->administrativeRegionDAO->_countAdministrativeRegionsRegisters();
+        return $this->administrativeRegionDAO-> countAdministrativeRegionsRegisters();
     }
 
     public function insertAdministrativeRegion(AdministrativeRegion $RA) {
@@ -71,10 +71,10 @@ class AdministrativeRegionController {
         return $this->administrativeRegionDAO->insertAdministrativeRegion($RA);
     }
 
-    public function _insertAdministrativeRegionArrayParse($arrayOfAdministrativeRegions) {
+    public function insertAdministrativeRegionArrayParse($arrayOfAdministrativeRegions) {
         for ($i = 0; $i < count($arrayOfAdministrativeRegions); $i++) {
             $regionData = new AdministrativeRegion();
-            $regionData->__setRegionName($arrayOfAdministrativeRegions[$i]);
+            $regionData-> setRegionName($arrayOfAdministrativeRegions[$i]);
             $this->administrativeRegionDAO->insertAdministrativeRegion($regionData);
         }
     }

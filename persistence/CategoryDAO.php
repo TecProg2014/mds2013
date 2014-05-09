@@ -54,9 +54,6 @@ class CategoriaDAO {
     public function consultCategoryById($id) {
         $sql = "SELECT * FROM categoria WHERE id_categoria = '" . $id . "'";
         $databaseConexionResult = $this->conexion->banco->Execute($sql);
-        //if($resultado->RecordCount()== 0){
-        //throw new ECategoriaListarConsultaPorIdVazio();
-        //}
         $register = $databaseConexionResult->FetchNextObject();
         $categoryData = new Category();
         $categoryData->__constructOverload($register->ID_CATEGORIA, $register->NOME_CATEGORIA);
