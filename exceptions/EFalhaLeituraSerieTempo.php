@@ -3,7 +3,6 @@
 /*
   File name: EFalhaLeituraSerieTempo.php
   File description: exception for read time
-  Authors: Lucas Andrade, Eduardo Augusto, S�rgio Bezerra, Lucas Carvalho, Eliseu
  */
 
 class EFalhaLeituraSerieTempo extends Exception {

@@ -3,7 +3,6 @@
 /*
   File name: EFalhaLeituraSerieNatureza.php
   File description: exception for read kind
-  Authors: Lucas Andrade, Eduardo Augusto, S�rgio Bezerra, Lucas Carvalho, Eliseu
  */
 
 class EFalhaLeituraSerieNatureza extends Exception {

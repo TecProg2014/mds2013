@@ -3,7 +3,6 @@
 /*
   File name: EErroConsulta.php
   File description: exception for consult
-  Authors: Lucas Andrade, Eduardo Augusto, S�rgio Bezerra, Lucas Carvalho, Eliseu
  */
 
 class EErroConsulta extends Exception {

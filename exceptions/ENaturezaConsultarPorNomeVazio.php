@@ -3,7 +3,6 @@
 /*
   File name: ENaturezaConsultarPorNomeVazio.php
   File description: exception for description of kind
-  Authors: Lucas Andrade, Eduardo Augusto, S�rgio Bezerra, Lucas Carvalho, Eliseu
  */
 
 class ENaturezaConsultarPorNomeVazio extends Exception {
