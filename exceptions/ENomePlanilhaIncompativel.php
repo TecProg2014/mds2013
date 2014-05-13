@@ -3,7 +3,6 @@
 /*
   File name: ENomePlanilhaIncompativel.php
   File description: exception for parse
-  Authors: Lucas Andrade, Eduardo Augusto, S�rgio Bezerra, Lucas Carvalho, Eliseu
  */
 
 class ENomePlanilhaIncompativel extends Exception {

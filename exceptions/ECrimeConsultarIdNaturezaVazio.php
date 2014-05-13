@@ -3,7 +3,6 @@
 /*
   File name: ECrimeConsultarIdNaturezaVazio.php
   File description: exception for consult crime id
-  Authors: Lucas Andrade, Eduardo Augusto, S�rgio Bezerra, Lucas Carvalho, Eliseu
  */
 
 class ECrimeConsultarIdNaturezaVazio extends Exception {

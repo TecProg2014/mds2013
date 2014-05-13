@@ -3,7 +3,6 @@
 /*
   File name: EcrimeListarTodosVazio.php
   File description: exception for list crime
-  Authors: Lucas Andrade, Eduardo Augusto, S�rgio Bezerra, Lucas Carvalho, Eliseu
  */
 
 class EcrimeListarTodosVazio extends Exception {
