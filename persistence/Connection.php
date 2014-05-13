@@ -3,7 +3,6 @@
 /*
   File name: Conexao.php
   File description: connection on database
-  Authors: Lucas Andrade, Eduardo Augusto, S�rgio Bezerra, Lucas Carvalho, Eliseu
  */
 require_once('C:/xampp/htdocs/mds2013/libs/adodb/adodb.inc.php');
 require_once('C:/xampp/htdocs/mds2013/exceptions/EConexaoFalha.php');

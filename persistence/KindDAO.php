@@ -3,7 +3,6 @@
 /*
   File name: NaturezaDAO.php
   File description: persistence kind on database
-  Authors: Lucas Andrade, Eduardo Augusto, S�rgio Bezerra, Lucas Carvalho, Eliseu
  */
 include_once('C:/xampp/htdocs/mds2013/model/Kind.php');
 include_once('C:/xampp/htdocs/mds2013/model/Category.php');
