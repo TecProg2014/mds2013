@@ -3,7 +3,6 @@
 /*
   File name: ECategoriaConsultaPorNomeVazio.php
   File description: exception for consult category by name
-  Authors: Lucas Andrade, Eduardo Augusto, S�rgio Bezerra, Lucas Carvalho, Eliseu
  */
 
 class ECategoriaConsultarPorNomeVazio extends Exception {

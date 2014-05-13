@@ -3,7 +3,6 @@
 /*
   File name: ECategoriaListarTodasAfabelicamenteVazio.php
   File description: exception for list categories alphabetical
-  Authors: Lucas Andrade, Eduardo Augusto, S�rgio Bezerra, Lucas Carvalho, Eliseu
  */
 
 class ECategoriaListarTodasAlfabeticamenteVazio extends Exception {
