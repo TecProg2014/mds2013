@@ -17,8 +17,8 @@ class CategoriaDAO {
 
     private $connection;
 
-    public function __construct() {
-        $this->connection = new Conexao();
+    public function construct() {
+        $this->connection = new Connection();
     }
 
     public function constructTest() {

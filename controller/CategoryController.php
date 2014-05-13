@@ -62,7 +62,7 @@ class CategoryController {
         }
         $dateCategory = new Category();
         for ($i = 0; $i < count($arrayCategory); $i++) {
-            $dateCategory->__setcategoryName($arraycategory[$i]);
+            $dateCategory->setcategoryName($arraycategory[$i]);
             $retorno = $this->categoryDAO->insertCategory($dateCategory);
         }
         return $retorno;
