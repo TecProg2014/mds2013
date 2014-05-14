@@ -9,23 +9,23 @@ include_once('C:/xampp/htdocs/mds2013/exceptions/ETipoErrado.php');
 
 class Kind {
 
-    private $idNature;
-    private $natureName;
+    private $idKindCrime;
+    private $kindCrimeName;
     private $idCategory;
 
     public function __construct() {
         
     }
 
-    public function __constructOverload($idNature, $natureName, $idCategory) {
-        $nature_instance->idNature = $idNature;
-        $nature_instance->natureName = $natureName;
-        $nature_instance->idCategory = $idCategory;
+    public function __constructOverload($idKindCrime, $kindCrimeName, $idCategory) {
+        $kindCrimeInstance->idKindCrime = $idKindCrime;
+        $kindCrimeInstance->kindCrimeName = $kindCrimeName;
+        $kindCrimeInstance->idCategory = $idCategory;
     }
 
-    public function __setIdNature($idNature) {
+    public function __setIdNature($idKindCrime) {
         
-        if (!is_numeric($idNature)) {
+        if (!is_numeric($idKindCrime)) {
             throw new ETipoErrado();
             
         }else {
@@ -33,12 +33,12 @@ class Kind {
             
         }
         
-        $nature_instance->idNature = $idNature;
+        $kindCrimeInstance->idKindCrime = $idKindCrime;
     }
 
     public function __getIdNature() {
         //Method to access the instance of idNatureza attribute
-        return $natureInstance->idNature;
+        return $kindCrimeInstance->idKindCrime;
     }
 
     public function __setIdCategory($idCategory) {
@@ -51,17 +51,17 @@ class Kind {
             
         }
         
-        $natureInstance->idCategory = $idCategory;
+        $kindCrimeInstance->idCategory = $idCategory;
     }
 
     public function __getIdCategory() {
         //Method to access the instance of idCategoria attribute
-        return $natureInstance->idCategory;
+        return $kindCrimeInstance->idCategory;
     }
 
-    public function __setNatureName($natureName) {
+    public function __setNatureName($kindCrimeName) {
         //Method to modify the instance of the natureza attribute 
-        if (!is_string($natureName)) {
+        if (!is_string($kindCrimeName)) {
             throw new ETipoErrado();
         
         }else {
@@ -69,12 +69,12 @@ class Kind {
             
         }
         
-        $natureInstance->natureName = $natureName;
+        $kindCrimeInstance->kindCrimeName = $kindCrimeName;
     }
 
     public function __getNatureName() {
         //Method to access the instance of Natureza attribute
-        return $natureInstance->natureName;
+        return $kindCrimeInstance->kindCrimeName;
     }
 
 }

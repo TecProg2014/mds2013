@@ -15,83 +15,83 @@ include_once('C:/xampp/htdocs/mds2013/exceptions/ENaturezaConsultarPorIdVazio.ph
 include_once('C:/xampp/htdocs/mds2013/exceptions/ENaturezaConsultarPorNomeVazio.php');
 include_once('C:/xampp/htdocs/mds2013/exceptions/EConexaoFalha.php');
 
-class NatureDAO {
+class KindDAO {
 
-    private $establishesConnectionNature;
+    private $establishesConnectionKindCrime;
 
     public function __construct() {
-        $natureDAOInstance->establishesConnectionNature = new Conexao();
+        $kindCrimeDAOInstance->establishesConnectionKindCrime = new Conexao();
     }
 
     public function __constructTeste() {
-        $natureDAOInstance->establishesConnectionNature = new ConexaoTeste();
+        $kindCrimeDAOInstance->establishesConnectionKindCrime = new ConexaoTeste();
     }
 
     public function listarTodas() {
         $sqlCommand = "SELECT * FROM natureza";
-        $resultList = $natureDAOInstance->establishesConnectionNature->database->Execute($sqlCommand);
+        $resultList = $kindCrimeDAOInstance->establishesConnectionKindCrime->database->Execute($sqlCommand);
         
         while ($recordedList = $resultList->FetchNextObject()) {
-            $natureData = new Natureza();
-            $natureData->__constructOverload($recordedList->ID_NATUREZA, $recordedList->NATUREZA, $recordedList->CATEGORIA_ID_CATEGORIA);
-            $arrayReturListNatures[] = $natureData;
+            $kindCrimeData = new Kind();
+            $kindCrimeData->__constructOverload($recordedList->ID_NATUREZA, $recordedList->NATUREZA, $recordedList->CATEGORIA_ID_CATEGORIA);
+            $arrayReturListKindCrime[] = $kindCrimeData;
         }
         
-        return $arrayReturListNatures;
+        return $arrayReturListKindCrime;
     }
 
     public function listarTodasAlfabicamente() {
         $sqlCommand = "SELECT * FROM natureza ORDER BY natureza ASC ";
-        $resultList = $natureDAOInstance->establishesConnectionNature->database->Execute($sqlCommand);
+        $resultList = $kindCrimeDAOInstance->establishesConnectionKindCrime->database->Execute($sqlCommand);
         
         while ($recordedList = $resultList->FetchNextObject()) {
-            $natureData = new Natureza();
-            $natureData->__constructOverload($recordedList->ID_NATUREZA, $recordedList->NATUREZA, $recordedList->CATEGORIA_ID_CATEGORIA);
-            $arrayReturnListNatures[] = $natureData;
+            $kindCrimeData = new Kind();
+            $kindCrimeData->__constructOverload($recordedList->ID_NATUREZA, $recordedList->NATUREZA, $recordedList->CATEGORIA_ID_CATEGORIA);
+            $arrayReturnListKindCrime[] = $kindCrimeData;
         }
         
-        return $arrayReturnListNatures;
+        return $arrayReturnListKindCrime;
     }
 
-    public function consultarPorId($id_nature) {
-        $sqlCommand = "SELECT * FROM natureza WHERE id_natureza = '" . $id_nature . "'";
-        $resultList = $natureDAOInstance->establishesConnectionNature->database->Execute($sqlCommand);
+    public function consultarPorId($idKindCrimeDao) {
+        $sqlCommand = "SELECT * FROM natureza WHERE id_natureza = '" . $idKindCrimeDao . "'";
+        $resultList = $kindCrimeDAOInstance->establishesConnectionKindCrime->database->Execute($sqlCommand);
         $recordedList = $resultList->FetchNextObject();
-        $natureData = new Natureza();
-        $natureData->__constructOverload($recordedList->ID_NATUREZA, $recordedList->NATUREZA, $recordedList->CATEGORIA_ID_CATEGORIA);
-        return $natureData;
+        $kindCrimeData = new Kind();
+        $kindCrimeData->__constructOverload($recordedList->ID_NATUREZA, $recordedList->NATUREZA, $recordedList->CATEGORIA_ID_CATEGORIA);
+        return $kindCrimeData;
     }
 
-    public function consultarPorNome($natureName) {
+    public function consultarPorNome($kindCrimeName) {
 
-        $sqlCommand = "SELECT * FROM natureza WHERE natureza = '" . $natureName . "'";
-        $resultList = $nature_DAO_instance->establishesConnectionNature->database->Execute($sqlCommand);
+        $sqlCommand = "SELECT * FROM natureza WHERE natureza = '" . $kindCrimeName . "'";
+        $resultList = $kindCrimeDAOInstance->establishesConnectionKindCrime->database->Execute($sqlCommand);
         $recordedList = $resultList->FetchNextObject();
-        $natureData = new Natureza();
-        $natureData->__constructOverload($recordedList->ID_NATUREZA, $recordedList->NATUREZA, $recordedList->CATEGORIA_ID_CATEGORIA);
-        return $natureData;
+        $kindCrimeData = new Kind();
+        $kindCrimeData->__constructOverload($recordedList->ID_NATUREZA, $recordedList->NATUREZA, $recordedList->CATEGORIA_ID_CATEGORIA);
+        return $kindCrimeData;
     }
 
-    public function inserirNatureza(Natureza $natureName) {
-        $sqlCommand = "INSERT INTO natureza (categoria_id_categoria,natureza) values ('{$natureNameame->__getIdCategory()}','{$natureName->__getNatureza()}')";
-        $natureDAOInstance->establishesConnectionNature->database->Execute($sqlCommand);
+    public function inserirNatureza(Kind $kindCrimeName) {
+        $sqlCommand = "INSERT INTO natureza (categoria_id_categoria,natureza) values ('{$kindCrimeName->__getIdCategory()}','{$kindCrimeName->__getNatureza()}')";
+        $kindCrimeDAOInstance->establishesConnectionKindCrime->database->Execute($sqlCommand);
         //if(!$this->banco->Connect($this->servidor,$this->usuario,$this->senha,$this->db)){
         //	throw new EConexaoFalha();	
         //}				
     }
 
     
-    public function consultarPorIdCategoria($idNature) {
-        $sqlCommand = "SELECT * FROM natureza WHERE categoria_id_categoria= '" . $idNature . "'";
-        $resultList = $natureDAOInstance->establishesConnectionNature->database->Execute($sqlCommand);
+    public function consultarPorIdCategoria($idKindCrimeDao) {
+        $sqlCommand = "SELECT * FROM natureza WHERE categoria_id_categoria= '" . $idKindCrimeDao . "'";
+        $resultList = $kindCrimeDAOInstance->establishesConnectionKindCrime->database->Execute($sqlCommand);
         
         while ($recordedList = $resultList->FetchNextObject()) {
-            $natureData = new Natureza();
-            $natureData->__constructOverload($recordedList->ID_NATUREZA, $recordedList->NATUREZA, $recordedList->CATEGORIA_ID_CATEGORIA);
-            $arrayReturnListNatures[] = $natureData;
+            $kindCrimeData = new Kind();
+            $kindCrimeData->__constructOverload($recordedList->ID_NATUREZA, $recordedList->NATUREZA, $recordedList->CATEGORIA_ID_CATEGORIA);
+            $arrayReturnListKindCrime[] = $kindCrimeData;
         }
         
-        return $arrayReturnListNatures;
+        return $arrayReturnListKindCrime;
     }
 
 }
