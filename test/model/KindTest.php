@@ -5,9 +5,9 @@
   File description: tests the class kind from the package model using asserts.
  */
 
-require_once ('C:/xampp/htdocs/mds2013/model/kind.php');
+require_once ('C:/xampp/htdocs/mds2013/model/Kind.php');
 
-class kindTeste extends PHPUnit_Framework_Testcase {
+class KindTeste extends PHPUnit_Framework_Testcase {
 
     public function setUp() {
         $this->kind = new kind();

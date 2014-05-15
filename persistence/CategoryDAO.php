@@ -13,7 +13,7 @@ include_once('C:/xampp/htdocs/mds2013/exceptions/ECategoriaListarConsultaPorIdVa
 include_once('C:/xampp/htdocs/mds2013/exceptions/ECategoriaConsultarPorNomeVazio.php');
 include_once('C:/xampp/htdocs/mds2013/exceptions/EConexaoFalha.php');
 
-class CategoriaDAO {
+class CategoryDAO {
 
     private $connection;
 

@@ -8,7 +8,7 @@ include_once('C:/xampp/htdocs/mds2013/model/AdministrativeRegion.php');
 include_once('C:/xampp/htdocs/mds2013/persistence/Connection.php');
 include_once('C:/xampp/htdocs/mds2013/persistence/TestConnection.php');
 
-class RegiaoAdministrativaDAO {
+class AdministrativeRegionDAO {
 
     private $conexion;
 

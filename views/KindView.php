@@ -10,50 +10,50 @@ include_once('./views/CrimeView.php');
 
 class KindView {
 
-    private $nature_control_view;
-    private $crime_control_view;
+    private $kindCrimeControlView;
+    private $crimeControlView;
 
     public function __construct() {
-        $instance_class->nature_control_view = new NaturezaController();
-        $instance_class->crime_control_view = new CrimeController();
+        $instanceClass->kindCrimeControlView = new KindController();
+        $instanceClass->crimeControlView = new CrimeController();
     }
 
     public function listarTodasAlfabicamente() {
-        $all_natures = $instance_class->nature_control_view->_listarTodasAlfabicamente();
+        $allKindCrime = $instanceClass->kindCrimeControlView->_listarTodasAlfabicamente();
         
         //variable i: runs natures in the array
-        for ($i = 0, $return_types_natures = ""; $i < count($all_natures); $i++) {
-            $data_crime = $instance_class->crime_control_view->_somaDeCrimePorNatureza($all_natures[$i]->__getNatureza());
-            $return_types_natures = $return_types_natures . "<h3>" . $all_natures[$i]->__getNatureza() . "</h3>
-				<div class=\"progress\" title=\"" . number_format($data_crime, 0, ',', '.') . "\">
-				<div class=\"bar\" style=\"width: " . (100 * $data_crime / 450000) . "%;\"></div>
+        for ($i = 0, $returnTypesKindCrime = ""; $i < count($allKindCrime); $i++) {
+            $dataCrime = $instanceClass->crimeControlView->_somaDeCrimePorNatureza($allKindCrime[$i]->__getNatureza());
+            $returnTypesKindCrime = $returnTypesKindCrime . "<h3>" . $allKindCrime[$i]->__getNatureza() . "</h3>
+				<div class=\"progress\" title=\"" . number_format($dataCrime, 0, ',', '.') . "\">
+				<div class=\"bar\" style=\"width: " . (100 * $dataCrime / 450000) . "%;\"></div>
 				</div>";
         }
 
-        return $return_types_natures;
+        return $returnTypesKindCrime;
     }
 
-    public function consultarPorNome($nature_name) {
-        $nature_name = $instance_class->nature_control_view->_consultAdministrativeRegionByName($nature_name);
-        return $nature_name->__getNatureza();
+    public function consultarPorNome($kindCrimeName) {
+        $kindCrimeName = $instanceClass->kindCrimeControlView->_consultAdministrativeRegionByName($kindCrimeName);
+        return $kindCrimeName->__getNatureza();
     }
 
-    public function consultarPorId($id_nature) {
-        $nature_name = $instance_class->nature_control_view->_consultAdministrativeRegionById($id_nature);
-        return $nature_name->__getNatureza();
+    public function consultarPorId($idKindCrime) {
+        $kindCrimeName = $instanceClass->kindCrimeControlView->_consultAdministrativeRegionById($idKindCrime);
+        return $kindCrimeName->__getNatureza();
     }
 
-    public function consultarPorIdCategoria($id_nature) {
-        return $instance_class->nature_control_view->_consultarPorIdCategoria($id_nature);
+    public function consultarPorIdCategoria($idKindCrime) {
+        return $instanceClass->kindCrimeControlView->_consultarPorIdCategoria($idKindCrime);
     }
 
-    public function _retornarDadosDeNaturezaFormatado($nature_name) {
-        $data_nature = $instance_class->nature_control_view->_retornarDadosDeNaturezaFormatado($nature_name);
-        $formated_data_crime = "";
-        $return_formated = "";
+    public function _retornarDadosDeNaturezaFormatado($kindCrimeName) {
+        $dataKindCrime = $instanceClass->kindCrimeControlView->_retornarDadosDeNaturezaFormatado($kindCrimeName);
+        $formatedDataCrime = "";
+        $returnFormated = "";
         
         //variable i: runs data nature in the array
-        for ($i = 0; $i < count($data_nature['title']); $i++) {
+        for ($i = 0; $i < count($dataKindCrime['title']); $i++) {
             /**
              * Laço que escreve os dados do grafico de ocorrencias por ano.
              * a string ("\"bar\"") define a barra cheia do grafico e
@@ -71,33 +71,33 @@ class KindView {
                 
             }
             
-            $formated_data_crime[$i] = "
-				<div class=" . $slash . " title=\"" . $data_nature['title'][$i] . " Ocorrencias\">
-					<div class=\"title\">" . $data_nature['tempo'][$i] . "</div>
-					<div class=\"value\">" . $data_nature['crime'][$i] . "</div>
+            $formatedDataCrime[$i] = "
+				<div class=" . $slash . " title=\"" . $dataKindCrime['title'][$i] . " Ocorrencias\">
+					<div class=\"title\">" . $dataKindCrime['tempo'][$i] . "</div>
+					<div class=\"value\">" . $dataKindCrime['crime'][$i] . "</div>
 				</div>";
-            $return_formated .= $formated_data_crime[$i];
+            $returnFormated .= $formatedDataCrime[$i];
         }
-        return $return_formated;
+        return $returnFormated;
     }
 
-    public function aposBarraLateral($id_category) {
+    public function aposBarraLateral($idCategory) {
 
-        $category_view = new CategoriaView();
-        $crime_view = new CrimeView();
-        $array_categories = $category_view->listAllAlphabeticallyPure();
-        $auxiliar_categories = $array_categories[$id_category];
-        $array_natures = $instance_class->consultarPorIdCategoria($auxiliar_categories->__getIdCategory());
+        $categoryView = new CategoriaView();
+        $crimeView = new CrimeView();
+        $arrayCategories = $categoryView->listAllAlphabeticallyPure();
+        $auxiliarCategories = $arrayCategories[$idCategory];
+        $arrayKindCrime = $instanceClass->consultarPorIdCategoria($auxiliarCategories->__getIdCategory());
         
         //variable i: runs natures in the array
-        for ($i = 0; $i < count($array_natures); $i++) {
-            $actual_nature = $array_natures[$i];
-            $auxiliar_slash[] = "
+        for ($i = 0; $i < count($arrayKindCrime); $i++) {
+            $actualKindCrime = $arrayKindCrime[$i];
+            $auxiliarSlash[] = "
 				<div class=\"row-fluid\">
 		
 				<div class=\"box span12\">
 							<div class=\"box-header\">
-								<h2><a href=\"#\" class=\"btn-minimize\"><i class=\"icon-tasks\"></i>" . $actual_nature->__getNatureza() . "</a></h2>
+								<h2><a href=\"#\" class=\"btn-minimize\"><i class=\"icon-tasks\"></i>" . $actualKindCrime->__getNatureza() . "</a></h2>
 								<div class=\"box-icon\">
 									<a href=\"#\" class=\"btn-close\"><i class=\"icon-remove\"></i></a>
 								</div>
@@ -106,7 +106,7 @@ class KindView {
 								<h3>Por Ano</h3></br>
 									<div class=\"chart-natureza\">
 									
-									 " . $instance_class->_retornarDadosDeNaturezaFormatado($actual_nature->__getNatureza()) . " </div>
+									 " . $instanceClass->_retornarDadosDeNaturezaFormatado($actualKindCrime->__getNatureza()) . " </div>
 									
 		
 							</div>
@@ -114,7 +114,8 @@ class KindView {
 		
 				</div>";
         }
-        return $auxiliar_slash;
+        
+        return $auxiliarSlash;
     }
 
 }

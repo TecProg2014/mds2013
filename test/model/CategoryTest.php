@@ -5,9 +5,9 @@
   File description: tests the class category from the package model using asserts.
  */
 
-require_once ('C:/xampp/htdocs/mds2013/model/category.php');
+require_once ('C:/xampp/htdocs/mds2013/model/Category.php');
 
-class categoryTeste extends PHPUnit_Framework_Testcase {
+class CategoryTest extends PHPUnit_Framework_Testcase {
     /*
      * @Before
      */

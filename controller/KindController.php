@@ -82,7 +82,7 @@ class KindController {
         //variable i: runs natures contained in the array
         for ($i = 0, $arrayKey = $arrayKindCrime, $beginCount = 0; $i < count($arrayKindCrime); $i++) {
             $keyArrayKey = key($arrayKey);
-            $categoryConnectionDatabase = new CategoriaDAO();
+            $categoryConnectionDatabase = new CategoryDAO();
             $categoryData = new Category();
             $categoryData = $categoryConnectionDatabase->consultCategoryByName($keyArrayKey);
         
@@ -104,7 +104,7 @@ class KindController {
 
     public function _retornarDadosDeNaturezaFormatado($kindCrimeName) {
         //returns formatted data
-        $timeConnectionDatabase = new TempoDAO();
+        $timeConnectionDatabase = new TimeDAO();
         $objectCrimeController = new CrimeController();
         $arrayDataTime = $timeConnectionDatabase->listarTodos();
         $data;

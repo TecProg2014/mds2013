@@ -5,9 +5,9 @@
   File description: tests the class administrativeRegion from the package model using asserts.
  */
 
-require_once ('C:/xampp/htdocs/mds2013/model/administrativeRegion.php');
+require_once ('C:/xampp/htdocs/mds2013/model/AdministrativeRegion.php');
 
-class administrativeRegionTeste extends PHPUnit_Framework_Testcase {
+class AdministrativeRegionTest extends PHPUnit_Framework_Testcase {
 
     private $administrativeRegion;
 

@@ -109,7 +109,7 @@ class CrimeController {
             for ($j = 0; $j < count(array_keys($arrayCrime[$kindCrime])); $j++) {
                 $time = key($arraytime);
                 $dataTime = new Tempo();
-                $tempoDAO = new tempoDAO();
+                $tempoDAO = new TimeDAO();
                 $dataTime = $tempoDAO->consultarPorIntervalo($time);
                 $dadosCrime = new Crime();
                 $dadosCrime->__setIdkindCrime($dadoskindCrime->__getIdkindCrime());
@@ -133,7 +133,7 @@ class CrimeController {
             for ($j = 0; $j < count(array_keys($arrayCrime[$kindCrime])); $j++) {
                 $time = key($arraytime);
                 $dataTime = new Tempo();
-                $tempoDAO = new tempoDAO();
+                $tempoDAO = new TimeDAO();
                 $dataTime = $tempoDAO->consultarPorMes($time);
                 $dataCrime = new Crime();
                 $dataCrime->__setIdkindCrime($dadoskindCrime->__getIdkindCrime());
@@ -156,13 +156,13 @@ class CrimeController {
             for ($j = 0; $j < count(array_keys($arrayCrime[$kindCrime])); $j++) {
                 $regiao = key($arrayRegiao);
                 $dadosRegiao = new AdministrativeRegion();
-                $regiaoDAO = new RegiaoAdministrativaDAO();
+                $regiaoDAO = new AdministrativeRegionDAO();
                 $dadosRegiao = $regiaoDAO->consultAdministrativeRegionByName($regiao);
                 $arraytime = $arrayCrime[$kindCrime][$regiao];
                 for ($x = 0; $x < count(array_keys($arrayCrime[$kindCrime][$regiao])); $x++) {
                     $time = key($arraytime);
                     $dataTime = new Tempo();
-                    $tempoDAO = new tempoDAO();
+                    $tempoDAO = new TimeDAO();
                     $dataTime = $tempoDAO->consultarPorIntervalo($time);
                     $dataCrime = new Crime();
                     $dataCrime->__setIdkindCrime($dadoskindCrime->__getIdkindCrime());
@@ -200,7 +200,7 @@ class CrimeController {
      * */
     public function _retornarDadosDeSomaFormatoNovo() {
         //return formatted data 
-        $tempoDAO = new tempoDAO();
+        $tempoDAO = new TimeDAO();
         $dataTime = new Tempo();
         $arraydataTime = $tempoDAO->listarTodos();
         for ($i = 0; $i < count($arraydataTime); $i++) {

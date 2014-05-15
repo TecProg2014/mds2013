@@ -13,7 +13,7 @@ class TimeController {
     private $timeDAO;
 
     public function __construct() {
-        $this->timeDAO = new tempoDAO();
+        $this->timeDAO = new TimeDAO();
     }
 
     public function _listarTodos() {

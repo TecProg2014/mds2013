@@ -2,10 +2,10 @@
 
 require_once ('C:/xampp/htdocs/mds2013/util/Parse.php');
 
-class ParseTeste extends PHPUnit_Framework_Testcase {
+class ParseTest extends PHPUnit_Framework_Testcase {
 
     public function testExistenciaInstanciaParseSerieHistorica() {
-        $spreadSheet = "série histórica - 2001 - 2012 2.xls";
+        $spreadSheet = "sï¿½rie histï¿½rica - 2001 - 2012 2.xls";
         $this->assertFileExists('C:/xampp/htdocs/mds2013/files/' . $spreadSheet);
         $parse = new Parse($spreadSheet);
         $this->assertInstanceOf("Parse", $parse);
@@ -26,35 +26,35 @@ class ParseTeste extends PHPUnit_Framework_Testcase {
     }
 
     public function testeSetNatureza() {
-        $spreadSheet = "série histórica - 2001 - 2012 2.xls";
+        $spreadSheet = "sï¿½rie histï¿½rica - 2001 - 2012 2.xls";
         $parse = new Parse($spreadSheet);
         $parse->__setNatureza("Natureza");
         $this->assertEquals("Natureza", $parse->__getNatureza());
     }
 
     public function testeSetCategoria() {
-        $spreadSheet = "série histórica - 2001 - 2012 2.xls";
+        $spreadSheet = "sï¿½rie histï¿½rica - 2001 - 2012 2.xls";
         $parse = new Parse($spreadSheet);
         $parse->__setCategoria("Categoria");
         $this->assertEquals("Categoria", $parse->__getCategoria());
     }
 
     public function testeSetTempo() {
-        $spreadSheet = "série histórica - 2001 - 2012 2.xls";
+        $spreadSheet = "sï¿½rie histï¿½rica - 2001 - 2012 2.xls";
         $parse = new Parse($spreadSheet);
         $parse->__setTempo(2013);
         $this->assertEquals(2013, $parse->__getTempo());
     }
 
     public function testeSetCrime() {
-        $spreadSheet = "série histórica - 2001 - 2012 2.xls";
+        $spreadSheet = "sï¿½rie histï¿½rica - 2001 - 2012 2.xls";
         $parse = new Parse($spreadSheet);
         $parse->__setCrime(200);
         $this->assertEquals(200, $parse->__getCrime());
     }
 
     public function testeSetRegiao() {
-        $spreadSheet = "série histórica - 2001 - 2012 2.xls";
+        $spreadSheet = "sï¿½rie histï¿½rica - 2001 - 2012 2.xls";
         $parse = new Parse($spreadSheet);
         $parse->__setRegiao('N BAND');
         $this->assertEquals('N BAND', $parse->__getRegiao());

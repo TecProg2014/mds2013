@@ -7,7 +7,7 @@
 
 require_once ('C:/xampp/htdocs/mds2013/model/Crime.php');
 
-class CrimeTeste extends PHPUnit_Framework_Testcase {
+class CrimeTest extends PHPUnit_Framework_Testcase {
 
     public function setUp() {
         $this->crime = new Crime();

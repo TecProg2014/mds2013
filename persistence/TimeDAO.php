@@ -8,7 +8,7 @@ include_once('C:/xampp/htdocs/mds2013/model/TimeModel.php');
 include_once('C:/xampp/htdocs/mds2013/persistence/Connection.php');
 include_once('C:/xampp/htdocs/mds2013/persistence/TestConnection.php');
 
-class TempoDAO {
+class TimeDAO {
 
     private $connection;
 

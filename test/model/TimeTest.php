@@ -5,9 +5,9 @@
   File description: tests the class time from the package model using asserts.
  */
 
-require_once ('C:/xampp/htdocs/mds2013/model/time.php');
+require_once ('C:/xampp/htdocs/mds2013/model/TimeModel.php');
 
-class timeTeste extends PHPUnit_Framework_Testcase {
+class TimeTest extends PHPUnit_Framework_Testcase {
 
     public function setUp() {
         $this->time = new time();
