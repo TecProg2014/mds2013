@@ -5,7 +5,7 @@
   File description: time model
  */
 
-include_once('C:/xampp/htdocs/mds2013/exceptions/ETipoErrado.php');
+include_once('C:/xampp/htdocs/mds2013/exceptions/ETypeWrong.php');
 
 class TimeModel {
 
@@ -16,7 +16,7 @@ class TimeModel {
     public function __settimeId($timeId) {
         //Method to modify the instance of the time attribute 	
         if (!is_numeric($timeId)) {
-            throw new ETipoErrado();
+            throw new ETypeWrong();
         }
         $this->timeId = $timeId;
     }
@@ -29,7 +29,7 @@ class TimeModel {
     public function __setinterval($interval) {
         //Method to modify the instance of the interval attribute 	
         if (!is_numeric($interval)) {
-            throw new ETipoErrado();
+            throw new ETypeWrong();
         }
         $this->interval = $interval;
     }

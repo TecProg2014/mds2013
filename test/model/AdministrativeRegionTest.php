@@ -27,7 +27,7 @@ class AdministrativeRegionTest extends PHPUnit_Framework_Testcase {
     }
 
     public function testExceptionSetIdadministrativeRegion() {
-        $this->setExpectedException('ETipoErrado');
+        $this->setExpectedException('ETypeWrong');
         $this->administrativeRegion->__setIdadministrativeRegion("erro");
     }
 
@@ -37,7 +37,7 @@ class AdministrativeRegionTest extends PHPUnit_Framework_Testcase {
     }
 
     public function testExceptionSetNomeadministrativeRegion() {
-        $this->setExpectedException('ETipoErrado');
+        $this->setExpectedException('ETypeWrong');
         $this->administrativeRegion->__setRegionName(0);
     }
 

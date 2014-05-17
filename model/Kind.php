@@ -5,7 +5,7 @@
   File description: kind model
  */
 
-include_once('C:/xampp/htdocs/mds2013/exceptions/ETipoErrado.php');
+include_once('C:/xampp/htdocs/mds2013/exceptions/ETypeWrong.php');
 
 class Kind {
 
@@ -26,7 +26,7 @@ class Kind {
     public function __setIdNature($idKindCrime) {
         
         if (!is_numeric($idKindCrime)) {
-            throw new ETipoErrado();
+            throw new ETypeWrong();
             
         }else {
             //nothing to do - skip to the next step function
@@ -44,7 +44,7 @@ class Kind {
     public function __setIdCategory($idCategory) {
 
         if (!is_numeric($idCategory)) {
-            throw new ETipoErrado();
+            throw new ETypeWrong();
             
         }else {
             //nothing to do - skip to the next step function
@@ -62,7 +62,7 @@ class Kind {
     public function __setNatureName($kindCrimeName) {
         //Method to modify the instance of the natureza attribute 
         if (!is_string($kindCrimeName)) {
-            throw new ETipoErrado();
+            throw new ETypeWrong();
         
         }else {
             //nothing to do - skip to the next step function

@@ -41,7 +41,7 @@ class CategoryControllerTest extends PHPUnit_Framework_Testcase {
         $objectCategoryControl = new CategoryController();
         $categoryInstance->assertObjectHasAttribute('categoriaDAO', $objectCategoryControl);
         $categoryInstance->assertInstanceOf('CategoriaController', $objectCategoryControl);
-        $categoryInstance->setExpectedException('EErroConsulta');
+        $categoryInstance->setExpectedException('EWrongConsult');
         $objectCategoryControl->_consultarPorId('teste');
     }
 
@@ -56,7 +56,7 @@ class CategoryControllerTest extends PHPUnit_Framework_Testcase {
         $objectCategoryControl = new CategoryController();
         $categoryInstance->assertObjectHasAttribute('categoriaDAO', $objectCategoryControl);
         $categoryInstance->assertInstanceOf('CategoriaController', $objectCategoryControl);
-        $categoryInstance->setExpectedException('EErroConsulta');
+        $categoryInstance->setExpectedException('EWrongConsult');
         $objectCategoryControl->_consultarPorNome(1);
     }
 
@@ -83,7 +83,7 @@ class CategoryControllerTest extends PHPUnit_Framework_Testcase {
         $arrayCategory[0] = "teste";
         $categoryInstance->assertObjectHasAttribute('categoriaDAO', $objectCategoryControl);
         $categoryInstance->assertInstanceOf('CategoriaController', $objectCategoryControl);
-        $categoryInstance->setExpectedException('EErroConsulta');
+        $categoryInstance->setExpectedException('EWrongConsult');
         $objectCategoryControl->_inserirCategoriaArrayParseSerie(10);
     }
 

@@ -6,12 +6,12 @@
   File description: realizes parses.
  */
 
-require_once ('C:/xampp/htdocs/mds2013/exceptions/ENomePlanilhaIncompativel.php');
-require_once ('C:/xampp/htdocs/mds2013/exceptions/EPlanilhaSerieIncompativel.php');
-require_once ('C:/xampp/htdocs/mds2013/exceptions/EFalhaLeituraSerieCategoria.php');
-require_once ('C:/xampp/htdocs/mds2013/exceptions/EFalhaLeituraSerieNatureza.php');
-require_once ('C:/xampp/htdocs/mds2013/exceptions/EFalhaLeituraSerieTempo.php');
-require_once ('C:/xampp/htdocs/mds2013/exceptions/EFalhaLeituraSerieCrime.php');
+require_once ('C:/xampp/htdocs/mds2013/exceptions/ENameSheetIncompatible.php');
+require_once ('C:/xampp/htdocs/mds2013/exceptions/ESheetSerieIncompatible.php');
+require_once ('C:/xampp/htdocs/mds2013/exceptions/EFailReadingSerieCategory .php');
+require_once ('C:/xampp/htdocs/mds2013/exceptions/EFailReadingSerieKind.php');
+require_once ('C:/xampp/htdocs/mds2013/exceptions/EFailReadingSerieTime.php');
+require_once ('C:/xampp/htdocs/mds2013/exceptions/EFailReadingSerieCrime.php');
 require_once ('C:/xampp/htdocs/mds2013/libs/excel_reader2.php');
 
 class Parse {
@@ -92,7 +92,7 @@ class Parse {
             }
         }
         if (($this->__getTempo() == null) || (count($this->__getTempo()) != 11)) {
-            throw EFalhaLeituraSerieTempo();
+            throw EFailReadingSerieTime::();
         }
         //loop que pega os dados do crime
         for ($i = 1, $auxLinha = 0; $i < $numeroLinhas; $i++) {

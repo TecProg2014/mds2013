@@ -1,11 +1,11 @@
 <?php
 
 /*
-  File name: EFalhaCrimeController.php
+  File name: EFailCrimeController.php
   File description: exception for crime controller function
  */
 
-class EFalhaCrimeController extends Exception {
+class EFailCrimeController extends Exception {
 
 //customizing exception to throw a message when exception in crime controlles is triggered
 

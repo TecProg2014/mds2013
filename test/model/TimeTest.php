@@ -19,7 +19,7 @@ class TimeTest extends PHPUnit_Framework_Testcase {
     }
 
     public function testExceptionIdtime() {
-        $this->setExpectedException('ETipoErrado');
+        $this->setExpectedException('ETypeWrong');
         $this->time->__setIdtime('erro');
     }
 
@@ -29,7 +29,7 @@ class TimeTest extends PHPUnit_Framework_Testcase {
     }
 
     public function testExceptionIntervalo() {
-        $this->setExpectedException('ETipoErrado');
+        $this->setExpectedException('ETypeWrong');
         $this->time->__setIntervalo("erro");
     }
 

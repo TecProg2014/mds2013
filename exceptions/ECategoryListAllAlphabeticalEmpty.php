@@ -1,11 +1,11 @@
 <?php
 
 /*
-  File name: ECategoriaListarTodasAfabelicamenteVazio.php
+  File name: ECategoryListAllAlphabeticalEmpty.php
   File description: exception for list categories alphabetical
  */
 
-class ECategoriaListarTodasAlfabeticamenteVazio extends Exception {
+class ECategoryListAllAlphabeticalEmpty extends Exception {
 
 //customizing exception to throw a message when exception of 'list all categories is empty' is triggered
 

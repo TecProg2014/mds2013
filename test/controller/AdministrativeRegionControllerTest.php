@@ -41,7 +41,7 @@ class AdministrativeRegionControllerTest extends PHPUnit_Framework_Testcase {
         $objectRegionAdmControl = new AdministrativeRegionController();
         $regionAdmInstance->assertObjectHasAttribute('raDAO', $objectRegionAdmControl);
         $regionAdmInstance->assertInstanceOf('RegiaoAdministrativaController', $objectRegionAdmControl);
-        $regionAdmInstance->setExpectedException('EErroConsulta');
+        $regionAdmInstance->setExpectedException('EWrongConsult');
         $objectRegionAdmControl->_consultAdministrativeRegionById('teste');
     }
 
@@ -56,7 +56,7 @@ class AdministrativeRegionControllerTest extends PHPUnit_Framework_Testcase {
         $objectRegionAdmControl = new AdministrativeRegionController();
         $regionAdmInstance->assertObjectHasAttribute('raDAO', $objectRegionAdmControl);
         $regionAdmInstance->assertInstanceOf('RegiaoAdministrativaController', $objectRegionAdmControl);
-        $regionAdmInstance->setExpectedException('EErroConsulta');
+        $regionAdmInstance->setExpectedException('EWrongConsult');
         $objectRegionAdmControl->_consultAdministrativeRegionByName(1);
     }
 

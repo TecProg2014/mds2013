@@ -1,11 +1,11 @@
 <?php
 
 /*
-  File name: EcrimeListarTodosVazio.php
+  File name: ECrimeListAllEmpty.php
   File description: exception for list crime
  */
 
-class EcrimeListarTodosVazio extends Exception {
+class ECrimeListAllEmpty extends Exception {
 
 //customizing exception to throw a message when exception of empty crimes is triggered
 

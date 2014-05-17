@@ -5,7 +5,7 @@
   File description: category model
  */
 
-include_once('C:/xampp/htdocs/mds2013/exceptions/ETipoErrado.php');
+include_once('C:/xampp/htdocs/mds2013/exceptions/ETypeWrong.php');
 
 class Category {
 
@@ -15,7 +15,7 @@ class Category {
     public function setIdCategory($idCategory) {
 
         if (!is_numeric($idCategory)) {
-            throw new ETipoErrado();
+            throw new ETypeWrong();
         }
         $this->idCategory = $idCategory;
     }
@@ -29,7 +29,7 @@ class Category {
         //Method to modify the instance of categoryName attribute
 
         if (!is_string($categoryName)) {
-            throw new ETipoErrado();
+            throw new ETypeWrong();
         }
         $this->categoryName = $categoryName;
     }

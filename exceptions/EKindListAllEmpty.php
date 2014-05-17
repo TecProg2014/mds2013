@@ -1,11 +1,11 @@
 <?php
 
 /*
-  File name: ENaturezaListarTodosVazio.php
+  File name: EKindListAllEmpty.php
   File description: exception for list kind
  */
 
-class ENaturezaListarTodosVazio extends Exception {
+class EKindListAllEmpty extends Exception {
 
 //customizing exception to throw a message when exception of empty nature is triggered
 

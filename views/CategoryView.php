@@ -5,7 +5,7 @@
   File description: show, consult and sum categories
  */
 include_once('C:/xampp/htdocs/mds2013/controller/CategoryController.php');
-include_once('C:/xampp/htdocs/mds2013/exceptions/EErroConsulta.php');
+include_once('C:/xampp/htdocs/mds2013/exceptions/EWrongConsult.php');
 
 class CategoryView {
 
@@ -18,7 +18,7 @@ class CategoryView {
     public function listAllCategories() {
         $arrayOfCategories = $this->categoryController-> listAllCategories();
         if (!is_array($arrayOfCategories)) {
-            throw new EErroConsulta();
+            throw new EWrongConsult();
         }
         return $arrayOfCategories;
     }
@@ -42,7 +42,7 @@ class CategoryView {
     public function consultCategoryById($id) {
         $category = $this->categoryController-> consultCategoryById($id);
         if (get_class($category) != 'Categoria') {
-            throw new EErroConsulta();
+            throw new EWrongConsult();
         }
         return $category;
     }
@@ -50,7 +50,7 @@ class CategoryView {
     public function consultByName($categoryName) {
         $category = $this->categoryController-> consultByName($categoryName);
         if (get_class($category) != 'Categoria') {
-            throw new EErroConsulta();
+            throw new EWrongConsult();
         }
         return $category;
     }

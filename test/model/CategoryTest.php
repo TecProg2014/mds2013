@@ -40,7 +40,7 @@ class CategoryTest extends PHPUnit_Framework_Testcase {
     public function testExceptionSetNomecategory() {
         $this->assertInstanceOf('category', $this->category);
         $this->assertObjectHasAttribute('idcategory', $this->category);
-        $this->setExpectedException('ETipoErrado');
+        $this->setExpectedException('ETypeWrong');
         $this->category->__setNomecategory(13);
     }
 

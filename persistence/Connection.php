@@ -5,9 +5,9 @@
   File description: connection on database
  */
 require_once('C:/xampp/htdocs/mds2013/libs/adodb/adodb.inc.php');
-require_once('C:/xampp/htdocs/mds2013/exceptions/EConexaoFalha.php');
+require_once('C:/xampp/htdocs/mds2013/exceptions/EConnectionFail.php');
 
-class Conexao {
+class Connection {
 
  	public $database;
 	private $databaseKind;

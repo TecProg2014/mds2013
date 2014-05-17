@@ -41,7 +41,7 @@ class KindControllerTest extends PHPUnit_Framework_Testcase {
         $objectKindCrimeControl = new KindController();
         $kindCrimeInstance->assertObjectHasAttribute('naturezaDAO', $objectKindCrimeControl);
         $kindCrimeInstance->assertInstanceOf('NaturezaController', $objectKindCrimeControl);
-        $kindCrimeInstance->setExpectedException('EErroConsulta');
+        $kindCrimeInstance->setExpectedException('EWrongConsult');
         $objectKindCrimeControl->_consultAdministrativeRegionById('teste');
     }
 
@@ -70,7 +70,7 @@ class KindControllerTest extends PHPUnit_Framework_Testcase {
     public function testExceptionInserirNaturezaArrayParse() {
         $objectKindCrimeControl = new KindController();
         $objectKindCrimeControl->__constructTest();
-        $kindCrimeInstance->setExpectedException('EFalhaNaturezaController');
+        $kindCrimeInstance->setExpectedException('EFailKindController');
         $result = $objectKindCrimeControl->_inserirArrayParse(1);
         $kindCrimeInstance->assertEquals('Criminalidade', $result->__getCategoryName());
         $kindCrimeInstance->assertObjectHasAttribute('naturezaDAO', $objectKindCrimeControl);

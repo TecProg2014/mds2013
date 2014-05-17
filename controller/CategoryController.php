@@ -7,7 +7,7 @@
 
 include_once('C:/xampp/htdocs/mds2013/persistence/CategoryDAO.php');
 include_once('C:/xampp/htdocs/mds2013/model/Category.php');
-include_once('C:/xampp/htdocs/mds2013/exceptions/EErroConsulta.php');
+include_once('C:/xampp/htdocs/mds2013/exceptions/EWrongConsult.php');
 
 class CategoryController {
 
@@ -36,7 +36,7 @@ class CategoryController {
     public function consultCategoryByName($id) {
         //consults category by its id	
         if (!is_numeric($id)) {
-            throw new EErroConsulta();
+            throw new EWrongConsult();
         }
         $category = $this->categoryDAO-> listAllCategories($id);
         return $category;
@@ -45,7 +45,7 @@ class CategoryController {
     public function consultByName($categoryName) {
         //consults category by name	
         if (!is_string($categoryName)) {
-            throw new EErroConsulta();
+            throw new EWrongConsult();
         }
         $category = $this->categoryDAO->consultCategoryByName($categoryName);
         return $category;
@@ -58,7 +58,7 @@ class CategoryController {
 
     public function insertCategoryArrayParseSerie($arraycategory) {
         if (!is_array($arrayCategory)) {
-            throw new EErroConsulta();
+            throw new EWrongConsult();
         }
         $dateCategory = new Category();
         for ($i = 0; $i < count($arrayCategory); $i++) {

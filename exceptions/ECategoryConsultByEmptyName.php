@@ -1,11 +1,11 @@
 <?php
 
 /*
-  File name: ECategoriaConsultaPorNomeVazio.php
+  File name: ECategoryConsultByEmptyName.php
   File description: exception for consult category by name
  */
 
-class ECategoriaConsultarPorNomeVazio extends Exception {
+class ECategoryConsultByEmptyName extends Exception {
 
 //customizing exception to throw a message when exception 'consult category by empty name' is triggered
 

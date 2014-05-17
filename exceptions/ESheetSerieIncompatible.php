@@ -1,11 +1,11 @@
 <?php
 
 /*
-  File name: EPlanilhaSerieIncompativel.php
+  File name: ESheetSerieIncompatible.php
   File description: exception for series
  */
 
-class EPlanilhaSerieIncompativel extends Exception {
+class ESheetSerieIncompatible extends Exception {
 
 //customizing exception to throw a message when exception of incompatible series is triggered
 

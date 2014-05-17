@@ -1,11 +1,11 @@
 <?php
 
 /*
-  File name: ENaturezaListarTodasAlfabeticamenteVazio.php
+  File name: EKindListAllAlphabeticalEmpty.php
   File description: exception for list alphabetical
  */
 
-class ENaturezaListarTodasAlfabeticamenteVazio extends Exception {
+class EKindListAllAlphabeticalEmpty extends Exception {
 
 //customizing exception to throw a message when exception of empty alphabetical nature is triggered
 

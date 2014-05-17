@@ -1,11 +1,11 @@
 <?php
 
 /*
-  File name: EFalhaLeituraSerieCrime.php
+  File name: EFailReadingSerieCrime.php
   File description: exception for read crime
  */
 
-class EFalhaLeituraSerieCrime extends Exception {
+class EFailReadingSerieCrime extends Exception {
 
 //customizing exception to throw a message when exception of fail in reading serie crime is triggered
 

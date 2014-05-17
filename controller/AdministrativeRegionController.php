@@ -6,7 +6,7 @@
  */
 
 include_once('C:/xampp/htdocs/mds2013/persistence/AdministrativeRegionDAO.php');
-include_once('C:/xampp/htdocs/mds2013/exceptions/EErroConsulta.php');
+include_once('C:/xampp/htdocs/mds2013/exceptions/EWrongConsult.php');
 include_once('C:/xampp/htdocs/mds2013/model/AdministrativeRegion.php');
 
 class AdministrativeRegionController {
@@ -44,7 +44,7 @@ class AdministrativeRegionController {
         //consults administrative region by its id
 
         if (!is_numeric($id)) {
-            throw new EErroConsulta();
+            throw new EWrongConsult();
         }
 
         $AdministrativeRegion = $this->administrativeRegionDAO->consultAdministrativeRegionById($id);
@@ -55,7 +55,7 @@ class AdministrativeRegionController {
         //consults administrative regions by their names
 
         if (!is_string($AdministrativeRegionName)) {
-            throw new EErroConsulta();
+            throw new EWrongConsult();
         }
         $AR = $this->administrativeRegionDAO->consultAdministrativeRegionByName($AdministrativeRegionName);
         return $AR;

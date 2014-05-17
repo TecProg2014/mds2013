@@ -5,9 +5,9 @@
   File description: connection test with database
  */
 require_once('C:/xampp/htdocs/mds2013/libs/adodb/adodb.inc.php');
-require_once('C:/xampp/htdocs/mds2013/exceptions/EConexaoFalha.php');
+require_once('C:/xampp/htdocs/mds2013/exceptions/EConnectionFail.php');
 
-class ConexaoTeste {
+class TestConnection {
 
     public $banco;
     private $dataBase_type;

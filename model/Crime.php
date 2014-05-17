@@ -6,7 +6,7 @@
  */
 
 include_once('/../exceptions/EFalhaLeituraSerieCrime.php');
-include_once('C:/xampp/htdocs/mds2013/exceptions/ETipoErrado.php');
+include_once('C:/xampp/htdocs/mds2013/exceptions/ETypeWrong.php');
 
 class Crime {
 
@@ -20,7 +20,7 @@ class Crime {
     public function __setIdCrime($idCrime) {
 
         if (!is_numeric($idCrime)) {
-            throw new ETipoErrado();
+            throw new ETypeWrong();
         }
         $this->idCrime = $idCrime;
     }

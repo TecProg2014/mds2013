@@ -1,11 +1,11 @@
 <?php
 
 /*
-  File name: ENaturezaConsultarPorIdVazio.php
+  File name: EKindConsultByEmptyId.php
   File description: exception for kind id
  */
 
-class ENaturezaConsultarPorIdVazio extends Exception {
+class EKindConsultByEmptyId extends Exception {
 
 //customizing exception to throw a message when exception of consult nature by id is empty is triggered
 

@@ -25,7 +25,7 @@ class KindTeste extends PHPUnit_Framework_Testcase {
         $kind = new kind();
         $this->assertInstanceOf('kind', $kind);
         $this->assertObjectHasAttribute('idkind', $kind);
-        $this->setExpectedException('ETipoErrado');
+        $this->setExpectedException('ETypeWrong');
         $kind->__setIdkind("erro");
     }
 
@@ -41,7 +41,7 @@ class KindTeste extends PHPUnit_Framework_Testcase {
         $kind = new kind();
         $this->assertInstanceOf('kind', $kind);
         $this->assertObjectHasAttribute('idkind', $kind);
-        $this->setExpectedException('ETipoErrado');
+        $this->setExpectedException('ETypeWrong');
         $kind->__setkind(10);
     }
 
@@ -49,7 +49,7 @@ class KindTeste extends PHPUnit_Framework_Testcase {
         $kind = new kind();
         $this->assertInstanceOf('kind', $kind);
         $this->assertObjectHasAttribute('idkind', $kind);
-        $this->setExpectedException('ETipoErrado');
+        $this->setExpectedException('ETypeWrong');
         $kind->__setIdCategory("erro");
     }
 

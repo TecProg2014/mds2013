@@ -23,7 +23,7 @@ class CrimeTest extends PHPUnit_Framework_Testcase {
     public function testExceptionSetIdCrime() {
         $this->assertInstanceOf('Crime', $this->crime);
         $this->assertObjectHasAttribute('idCrime', $this->crime);
-        $this->setExpectedException('ETipoErrado');
+        $this->setExpectedException('ETypeWrong');
         $this->crime->__setIdCrime("erro");
     }
 

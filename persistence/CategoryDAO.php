@@ -7,11 +7,11 @@
 include_once('C:/xampp/htdocs/mds2013/model/Category.php');
 include_once('C:/xampp/htdocs/mds2013/persistence/Connection.php');
 include_once('C:/xampp/htdocs/mds2013/persistence/TestConnection.php');
-include_once('C:/xampp/htdocs/mds2013/exceptions/ECategoriaListarTodasVazio.php');
-include_once('C:/xampp/htdocs/mds2013/exceptions/ECategoriaListarTodasAlfabeticamenteVazio.php');
-include_once('C:/xampp/htdocs/mds2013/exceptions/ECategoriaListarConsultaPorIdVazio.php');
-include_once('C:/xampp/htdocs/mds2013/exceptions/ECategoriaConsultarPorNomeVazio.php');
-include_once('C:/xampp/htdocs/mds2013/exceptions/EConexaoFalha.php');
+include_once('C:/xampp/htdocs/mds2013/exceptions/ECategoryListAllEmpty.php');
+include_once('C:/xampp/htdocs/mds2013/exceptions/ECategoryListAllAlphabeticalEmpty.php');
+include_once('C:/xampp/htdocs/mds2013/exceptions/ECategoryListConsultByEmptyId.php');
+include_once('C:/xampp/htdocs/mds2013/exceptions/ECategoryConsultByEmptyName.php');
+include_once('C:/xampp/htdocs/mds2013/exceptions/EConnectionFail.php');
 
 class CategoryDAO {
 
@@ -40,7 +40,7 @@ class CategoryDAO {
         $sql = "SELECT * FROM categoria ORDER BY nome_categoria ASC";
         $databaseconnectionResult = $this->connection->database->Execute($sql);
         //if($resultado->RecordCount()== 0){
-        //	throw new ECategoriaListarTodasAlfabeticamenteVazio();
+        //	throw new ECategoryListAllAlphabeticalEmpty();
         //}
         while ($register = $databaseconnectionResult->FetchNextObject()) {
             $categoryData = new Category();

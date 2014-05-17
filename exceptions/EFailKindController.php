@@ -1,11 +1,11 @@
 <?php
 
 /*
-  File name: EFalhaNaturezaController.php
+  File name: EFailKindController.php
   File description: exception for kind functions
  */
 
-class EFalhaNaturezaController extends Exception {
+class EFailKindController extends Exception {
 
 //customizing exception to throw a message when exception of fail in controller nature is triggered
 

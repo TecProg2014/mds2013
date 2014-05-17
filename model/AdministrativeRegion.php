@@ -5,7 +5,7 @@
   File description: administrative region model
  */
 
-include_once('C:/xampp/htdocs/mds2013/exceptions/ETipoErrado.php');
+include_once('C:/xampp/htdocs/mds2013/exceptions/ETypeWrong.php');
 
 class AdministrativeRegion{
 
@@ -25,7 +25,7 @@ class AdministrativeRegion{
     public function setIdAdministrativeRegion($idAministrativeRegion) {
         //Method to modify the instance of the regiaoAdministrativa attribute 
         if (!is_numeric($idAministrativeRegion)) {
-            throw new ETipoErrado();
+            throw new ETypeWrong();
         }
         $this->idAdministrativeRegion = $idAministrativeRegion;
     }
@@ -39,7 +39,7 @@ class AdministrativeRegion{
         //Method to modify the instance of the nomeRegiao attribute 
 
         if (!is_string($regionName)) {
-            throw new ETipoErrado();
+            throw new ETypeWrong();
         }
         $this->regionName = $regionName;
     }

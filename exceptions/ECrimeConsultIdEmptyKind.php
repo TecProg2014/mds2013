@@ -1,11 +1,11 @@
 <?php
 
 /*
-  File name: ECrimeConsultarIdNaturezaVazio.php
+  File name: ECrimeConsultIdEmptyKind.php
   File description: exception for consult crime id
  */
 
-class ECrimeConsultarIdNaturezaVazio extends Exception {
+class ECrimeConsultIdEmptyKind extends Exception {
 
 //customizing exception to throw a message when exception 'consulting id and nature is empty' is triggered
 

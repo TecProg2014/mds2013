@@ -9,22 +9,22 @@ include_once('C:/xampp/htdocs/mds2013/model/Category.php');
 include_once('C:/xampp/htdocs/mds2013/persistence/Connection.php');
 include_once('C:/xampp/htdocs/mds2013/persistence/TestConnection.php');
 include_once('C:/xampp/htdocs/mds2013/persistence/CategoryDAO.php');
-include_once('C:/xampp/htdocs/mds2013/exceptions/ENaturezaListarTodosVazio.php');
-include_once('C:/xampp/htdocs/mds2013/exceptions/ENaturezaListarTodasAlfabeticamenteVazio.php');
-include_once('C:/xampp/htdocs/mds2013/exceptions/ENaturezaConsultarPorIdVazio.php');
-include_once('C:/xampp/htdocs/mds2013/exceptions/ENaturezaConsultarPorNomeVazio.php');
-include_once('C:/xampp/htdocs/mds2013/exceptions/EConexaoFalha.php');
+include_once('C:/xampp/htdocs/mds2013/exceptions/EKindListAllEmpty.php');
+include_once('C:/xampp/htdocs/mds2013/exceptions/EKindListAllAlphabeticalEmpty.php');
+include_once('C:/xampp/htdocs/mds2013/exceptions/EKindConsultByEmptyId.php');
+include_once('C:/xampp/htdocs/mds2013/exceptions/EKindConsultByEmptyName.php');
+include_once('C:/xampp/htdocs/mds2013/exceptions/EConnectionFail.php');
 
 class KindDAO {
 
     private $establishesConnectionKindCrime;
 
     public function __construct() {
-        $kindCrimeDAOInstance->establishesConnectionKindCrime = new Conexao();
+        $kindCrimeDAOInstance->establishesConnectionKindCrime = new Connection();
     }
 
     public function __constructTeste() {
-        $kindCrimeDAOInstance->establishesConnectionKindCrime = new ConexaoTeste();
+        $kindCrimeDAOInstance->establishesConnectionKindCrime = new TestConnection();
     }
 
     public function listarTodas() {
@@ -76,7 +76,7 @@ class KindDAO {
         $sqlCommand = "INSERT INTO natureza (categoria_id_categoria,natureza) values ('{$kindCrimeName->__getIdCategory()}','{$kindCrimeName->__getNatureza()}')";
         $kindCrimeDAOInstance->establishesConnectionKindCrime->database->Execute($sqlCommand);
         //if(!$this->banco->Connect($this->servidor,$this->usuario,$this->senha,$this->db)){
-        //	throw new EConexaoFalha();	
+        //	throw new EConnectionFail();	
         //}				
     }
 

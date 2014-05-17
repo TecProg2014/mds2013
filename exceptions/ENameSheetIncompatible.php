@@ -1,11 +1,11 @@
 <?php
 
 /*
-  File name: ENomePlanilhaIncompativel.php
+  File name: ENameSheetIncompatible.php
   File description: exception for parse
  */
 
-class ENomePlanilhaIncompativel extends Exception {
+class ENameSheetIncompatible extends Exception {
 
 //customizing exception to throw a message when exception of incompatible worksheet is triggered
 

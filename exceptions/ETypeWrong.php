@@ -1,11 +1,11 @@
 <?php
 
 /*
-  File name: ETipoErrado.php
+  File name: ETypeWrong.php
   File description: exception for type
  */
 
-class ETipoErrado extends Exception {
+class ETypeWrong extends Exception {
 
 //customizing exception to throw a message when exception of wrong type is triggered
 

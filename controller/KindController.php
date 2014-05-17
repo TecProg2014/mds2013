@@ -10,8 +10,8 @@ include_once('C:/xampp/htdocs/mds2013/persistence/CategoryDAO.php');
 include_once('C:/xampp/htdocs/mds2013/model/Kind.php');
 include_once('C:/xampp/htdocs/mds2013/model/Category.php');
 include_once('C:/xampp/htdocs/mds2013/controller/CrimeController.php');
-include_once('C:/xampp/htdocs/mds2013/exceptions/EErroConsulta.php');
-include_once('C:/xampp/htdocs/mds2013/exceptions/EFalhaNaturezaController.php');
+include_once('C:/xampp/htdocs/mds2013/exceptions/EWrongConsult.php');
+include_once('C:/xampp/htdocs/mds2013/exceptions/EFailKindController.php');
 
 class KindController {
 
@@ -43,7 +43,7 @@ class KindController {
         //consults by id
 
         if (!is_numeric($idKindCrime)) {
-            throw new EErroConsulta();
+            throw new EWrongConsult();
             
         } else {
             //nothing to do - skip to the next step function
@@ -72,7 +72,7 @@ class KindController {
     public function _inserirArrayParse($arrayKindCrime) {
         
         if (!is_array($arrayKindCrime)) {
-            throw new EFalhaNaturezaController();
+            throw new EFailKindController();
         
         }else {
             //nothing to do - skip to the next step function
