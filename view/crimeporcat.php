@@ -1,4 +1,10 @@
 <?php
+
+/*
+  File name: crimeporcat.php
+  File description: view crime in a category.
+ */
+
 include_once('./views/CrimeView.php');
 include_once('./views/TimeView.php');
 include_once('./views/KindView.php');

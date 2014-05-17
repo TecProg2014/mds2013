@@ -1,5 +1,11 @@
 
 <?php
+
+/*
+  File name: totalAdministrativeRegions.php
+  File description: total of administrative regions.
+ */
+
 include_once('./views/CrimeView.php');
 include_once('./views/TimeView.php');
 $crimeView = new CrimeView();

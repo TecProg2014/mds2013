@@ -1,5 +1,11 @@
 <?php
 
+
+/*
+  File name: Parse.php
+  File description: realizes parses.
+ */
+
 require_once ('C:/xampp/htdocs/mds2013/exceptions/ENomePlanilhaIncompativel.php');
 require_once ('C:/xampp/htdocs/mds2013/exceptions/EPlanilhaSerieIncompativel.php');
 require_once ('C:/xampp/htdocs/mds2013/exceptions/EFalhaLeituraSerieCategoria.php');

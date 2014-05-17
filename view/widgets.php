@@ -1,4 +1,10 @@
 <?php
+
+/*
+  File name: widgest.php
+  File description: widgest.
+ */
+
 include 'header.php';
 ?>
 

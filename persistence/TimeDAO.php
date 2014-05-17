@@ -1,7 +1,7 @@
 <?php
 
 /*
-  File name: TempoDAO.php
+  File name: TimeDAO.php
   File description: persistence time on database
  */
 include_once('C:/xampp/htdocs/mds2013/model/TimeModel.php');

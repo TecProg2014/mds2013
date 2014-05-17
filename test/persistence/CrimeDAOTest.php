@@ -1,5 +1,10 @@
 <?php
 
+/*
+  File name: CrimeDAOTest.php
+  File description: tests the class CrimeDAO using asserts.
+ */
+
 require_once('C:/xampp/htdocs/mds2013/persistence/CrimeDAO.php');
 include_once('C:/xampp/htdocs/mds2013/persistence/Connection.php');
 

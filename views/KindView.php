@@ -1,7 +1,7 @@
 <?php
 
 /*
-  File name: NaturezaView.php
+  File name: KindView.php
   File description: show and consult kind
  */
 include_once('./controller/KindController.php');

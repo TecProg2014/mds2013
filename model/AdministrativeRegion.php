@@ -1,7 +1,7 @@
 <?php
 
 /*
-  File name: RegiaoAdministrativa.php
+  File name: AdministrativeRegion.php
   File description: administrative region model
  */
 

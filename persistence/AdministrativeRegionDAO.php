@@ -1,7 +1,7 @@
 <?php
 
 /*
-  File name: RegiaoAdministrativaDAO.php
+  File name: AdministrativeRegionDAO.php
   File description: persistence administrative region on database
  */
 include_once('C:/xampp/htdocs/mds2013/model/AdministrativeRegion.php');

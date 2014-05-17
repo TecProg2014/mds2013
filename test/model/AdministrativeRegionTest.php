@@ -1,7 +1,7 @@
 <?php
 
 /*
-  File name: administrativeRegionTeste.php
+  File name: AdministrativeRegionTest.php
   File description: tests the class administrativeRegion from the package model using asserts.
  */
 

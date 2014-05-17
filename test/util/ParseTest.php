@@ -1,5 +1,10 @@
 <?php
 
+/*
+  File name: ParseTest.php
+  File description: tests the class Parse using asserts.
+ */
+
 require_once ('C:/xampp/htdocs/mds2013/util/Parse.php');
 
 class ParseTest extends PHPUnit_Framework_Testcase {

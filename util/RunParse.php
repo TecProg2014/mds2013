@@ -1,5 +1,10 @@
 <?php
 
+/*
+  File name: RunParse.php
+  File description: executes the parses.
+ */
+
 require_once ('C:/xampp/htdocs/mds2013/util/Parse.php');
 include_once ('C:/xampp/htdocs/mds2013/controller/CategoryController.php');
 include_once ('C:/xampp/htdocs/mds2013/controller/CrimeController.php');

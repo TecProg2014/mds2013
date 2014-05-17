@@ -1,4 +1,10 @@
 <?php
+
+/*
+  File name: table.php
+  File description: table.
+ */
+
 include 'header.php';
 ?>
 

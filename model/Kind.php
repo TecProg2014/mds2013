@@ -1,7 +1,7 @@
 <?php
 
 /*
-  File name: Natureza.php
+  File name: Kind.php
   File description: kind model
  */
 

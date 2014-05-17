@@ -1,5 +1,11 @@
 
 <?php
+
+/*
+  File name: initial.php
+  File description: initial page.
+ */
+
 include_once('C:/xampp/htdocs/mds2013/views/CrimeView.php');
 include_once('C:/xampp/htdocs/mds2013/views/TimeView.php');
 include_once('C:/xampp/htdocs/mds2013/views/KindView.php');

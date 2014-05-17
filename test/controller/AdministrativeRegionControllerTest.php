@@ -1,7 +1,7 @@
 <?php
 
 /*
-  File name: RegiaoAdministrativaControllerTeste.php
+  File name: AdministrativeRegionControllerTest.php
   File description: tests the class RegiaoAdministrativaControllerTeste using asserts.
  */
 

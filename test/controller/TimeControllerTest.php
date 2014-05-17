@@ -1,7 +1,7 @@
 <?php
 
 /*
-  File name: TempoControllerTeste.php
+  File name: TimeControllerTest.php
   File description: tests the class TempoControllerTeste using asserts.
  */
 

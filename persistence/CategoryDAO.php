@@ -1,7 +1,7 @@
 <?php
 
 /*
-  File name: CategoriaDAO.php
+  File name: CategoryDAO.php
   File description: persistence category on database
  */
 include_once('C:/xampp/htdocs/mds2013/model/Category.php');

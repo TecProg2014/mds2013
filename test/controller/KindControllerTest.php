@@ -1,7 +1,7 @@
 <?php
 
 /*
-  File name: NaturezaControllerTeste.php
+  File name: KindControllerTest.php
   File description: tests the class NaturezaControllerTeste using asserts.
  */
 

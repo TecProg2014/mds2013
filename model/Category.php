@@ -1,7 +1,7 @@
 <?php
 
 /*
-  File name: Categoria.php
+  File name: Category.php
   File description: category model
  */
 

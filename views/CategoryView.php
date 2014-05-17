@@ -1,7 +1,7 @@
 <?php
 
 /*
-  File name: CategoriaView.php
+  File name: CategoryView.php
   File description: show, consult and sum categories
  */
 include_once('C:/xampp/htdocs/mds2013/controller/CategoryController.php');

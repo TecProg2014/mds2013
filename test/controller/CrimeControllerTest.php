@@ -1,7 +1,7 @@
 <?php
 
 /*
-  File name: CategoriaControllerTeste.php
+  File name: CategoryControllerTest.php
   File description: tests the class CrimeControllerTeste using asserts.
  */
 

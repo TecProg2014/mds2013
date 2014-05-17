@@ -1,7 +1,7 @@
 <?php
 
 /*
-  File name: NaturezaDAO.php
+  File name: KindDAO.php
   File description: persistence kind on database
  */
 include_once('C:/xampp/htdocs/mds2013/model/Kind.php');

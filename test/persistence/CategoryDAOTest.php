@@ -1,5 +1,10 @@
 <?php
 
+/*
+  File name: CategoryDAOTest.php
+  File description: tests the class CategoryDAO using asserts.
+ */
+
 require_once('C:/xampp/htdocs/mds2013/persistence/CategoryDAO.php');
 include_once('C:/xampp/htdocs/mds2013/persistence/Connection.php');
 

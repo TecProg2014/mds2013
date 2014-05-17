@@ -1,7 +1,7 @@
 <?php
 
 /*
-  File name: TempoView.php
+  File name: TimeView.php
   File description: return time
  */
 include_once('C:/xampp/htdocs/mds2013/controller/TimeController.php');

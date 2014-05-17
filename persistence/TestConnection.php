@@ -1,7 +1,7 @@
 <?php
 
 /*
-  File name: ConexaoTeste.php
+  File name: TestConnection.php
   File description: connection test with database
  */
 require_once('C:/xampp/htdocs/mds2013/libs/adodb/adodb.inc.php');

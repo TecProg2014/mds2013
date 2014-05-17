@@ -1,5 +1,10 @@
 <?php
 
+/*
+  File name: TimeDAOTest.php
+  File description: tests the class TimeDAO using asserts.
+ */
+
 require_once('C:/xampp/htdocs/mds2013/persistence/TimeDAO.php');
 include_once('C:/xampp/htdocs/mds2013/persistence/Connection.php');
 

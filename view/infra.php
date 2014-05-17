@@ -1,4 +1,10 @@
 <?php
+
+/*
+  File name: infra.php
+  File description: infra.
+ */
+
 include 'header.php';
 ?>
 

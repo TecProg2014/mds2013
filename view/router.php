@@ -1,5 +1,10 @@
 <?php
 
+/*
+  File name: router.php
+  File description: router.
+ */
+
 $kind_of_page = isset($_GET['pag']) ? $_GET['pag'] : null;
 switch ($kind_of_page) {
     case 'ano':

@@ -1,7 +1,7 @@
 <?php
 
 /*
-  File name: Timee.php
+  File name: TimeModel.php
   File description: time model
  */
 

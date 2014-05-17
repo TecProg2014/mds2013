@@ -1,7 +1,7 @@
 <?php
 
 /*
-  File name: kindTeste.php
+  File name: KindTest.php
   File description: tests the class kind from the package model using asserts.
  */
 

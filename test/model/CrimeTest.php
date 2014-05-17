@@ -1,7 +1,7 @@
 <?php
 
 /*
-  File name: CrimeTeste.php
+  File name: CrimeTest.php
   File description: tests the class Crime from the package model using asserts.
  */
 

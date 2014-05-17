@@ -1,4 +1,10 @@
 <?php
+
+/*
+  File name: chart.php
+  File description: chart.
+ */
+
 include 'header.php';
 ?>
 

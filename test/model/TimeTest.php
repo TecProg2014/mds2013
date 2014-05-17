@@ -1,7 +1,7 @@
 <?php
 
 /*
-  File name: timeTeste.php
+  File name: TimeTest.php
   File description: tests the class time from the package model using asserts.
  */
 

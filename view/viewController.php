@@ -1,5 +1,10 @@
 <?php
 
+/*
+  File name: viewController.php
+  File description: view controller.
+ */
+
 $kind_of_page = isset($_GET['pag']) ? $_GET['pag'] : null;
 switch ($kind_of_page) {
     case 'ano':

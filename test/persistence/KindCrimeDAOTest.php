@@ -1,5 +1,11 @@
 <?php
 
+
+/*
+  File name: KindCrimeDAOTest.php
+  File description: tests the class KindCrimeDAO using asserts.
+ */
+
 require_once ('C:/xampp/htdocs/mds2013/persistence/KindDAO.php');
 
 class KindCrimeDAOTest extends PHPUnit_Framework_Testcase {

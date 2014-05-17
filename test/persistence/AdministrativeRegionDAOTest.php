@@ -1,5 +1,10 @@
 <?php
 
+/*
+  File name: AdministrativeRegionDAOTest.php
+  File description: tests the class AdministrativeRegionDAO using asserts.
+ */
+
 require_once('C:/xampp/htdocs/mds2013/persistence/AdministrativeRegionDAO.php');
 include_once('C:/xampp/htdocs/mds2013/persistence/Connection.php');
 
