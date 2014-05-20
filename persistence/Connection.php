@@ -15,8 +15,8 @@ class Connection {
 	private $databaseUser;
 	private $databasePassword;
 	private $databaseName;
+        
 	public function __construct(){
-
 		$this->databaseKind    = "mysql";
 		$this->databaseServer      = "localhost";
 		$this->databaseUser       = "root";
@@ -26,5 +26,6 @@ class Connection {
 		$this->database->dialect = 3;
 		$this->database->debug = false;
 		$this->database->Connect($this->databaseServer,$this->databaseUser,$this->databasePassword,$this->databaseName);
-	}
+
+        }
 }

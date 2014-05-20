@@ -16,65 +16,65 @@ class TimeController {
         $this->timeDAO = new TimeDAO();
     }
 
-    public function _listarTodos() {
+    public function _listAll() {
         //lists times
-        return $this->timeDAO->listarTodos();
+        return $this->timeDAO->listAll();
     }
 
-    public function _listarTodasEmOrdem() {
+    public function _listAllInOrder() {
         //lists times in order
-        return $this->timeDAO->listarTodasEmOrdem();
+        return $this->timeDAO->listAllInOrder();
     }
 
-    public function __constructTeste() {
+    public function __constructTest() {
         //tests instance of timeDAO
-        $this->timeDAO->__constructTeste();
+        $this->timeDAO->__constructTest();
     }
 
-    public function _consultarPorId($id) {
+    public function _consultById($id) {
         //consult time by its id
-        return $this->timeDAO->consultarPorId($id);
+        return $this->timeDAO->consultById($id);
     }
 
-    public function _consultarPorinterval($interval) {
+    public function _consultByInterval($interval) {
         //consult by time's interval
-        return $this->timeDAO->consultarPorinterval($interval);
+        return $this->timeDAO->consultByInterval($interval);
     }
 
-    public function _inserirTempo(Tempo $time) {
+    public function _insertTime(TimeModel $time) {
         //insert time
-        return $this->timeDAO->inserirTempo($time);
+        return $this->timeDAO->insertTime($time);
     }
 
-    public function _inserirTempoArrayParse($arrayTime) {
+    public function _insertTimeArrayParse($arrayTime) {
         for ($i = 0; $i < count($arrayTime); $i++) {
-            $dataTime = new Tempo();
-            $dataTime->__setinterval($arrayTime[$i]);
-            $this->timeDAO->inserirTempo($dataTime);
+            $dataTime = new TimeModel();
+            $dataTime->__setInterval($arrayTime[$i]);
+            $this->timeDAO->insertTime($dataTime);
         }
     }
 
-    public function _inserirTempoArrayParseQuadrimestral($arrayTime) {
+    public function _insertTimeArrayParseQuaterly($arrayTime) {
         //insert times quarterly 
         for ($i = 0, $arrayYear = $arrayTime; $i < count($arrayTime); $i++) {
             $year = key($arrayYear);
-            $dataTime = new Tempo();
-            $dataTime->__setinterval($year);
+            $dataTime = new TimeModel();
+            $dataTime->__setInterval($year);
             for ($j = 0; $j < count($arrayTime[$year]); $j++) {
-                $dataTime->__setMes($year[$year][$j]);
-                $this->timeDAO->inserirTempo($dataTime);
+                $dataTime->__setMonth($year[$year][$j]);
+                $this->timeDAO->insertTime($dataTime);
             }
             next($arrayYear);
         }
     }
 
-    public function _retornarDadosFormatados() {
+    public function _returnDataFormated() {
         //returns formatted data
-        $dataTime = new Tempo();
-        $year = $this->_listarTodos();
+        $dataTime = new TimeModel();
+        $year = $this->_listAll();
         for ($i = 0; $i < count($year); $i++) {
             $dataTime = $year[$i];
-            $dados[$i] = $dataTime->__getinterval();
+            $dados[$i] = $dataTime->__getInterval();
         }
         return "labels : [\"$dados[0]\",\"$dados[1]\",\"$dados[2]\",\"$dados[3]\",\"$dados[4]\",\"$dados[5]\",\"$dados[6]\",\"$dados[7]\",\"$dados[8]\",\"$dados[9]\",\"$dados[10]\"]";
     }

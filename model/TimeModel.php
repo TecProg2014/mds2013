@@ -13,7 +13,7 @@ class TimeModel {
     private $interval;
     private $month;
 
-    public function __settimeId($timeId) {
+    public function __setTimeId($timeId) {
         //Method to modify the instance of the time attribute 	
         if (!is_numeric($timeId)) {
             throw new ETypeWrong();
@@ -21,12 +21,12 @@ class TimeModel {
         $this->timeId = $timeId;
     }
 
-    public function __gettimeId() {
+    public function __getTimeId() {
         //Method to access the instance of time attribute
         return $this->timeId;
     }
 
-    public function __setinterval($interval) {
+    public function __setInterval($interval) {
         //Method to modify the instance of the interval attribute 	
         if (!is_numeric($interval)) {
             throw new ETypeWrong();
@@ -34,17 +34,17 @@ class TimeModel {
         $this->interval = $interval;
     }
 
-    public function __getinterval() {
+    public function __getInterval() {
         //Method to access the instance of interval attribute
         return $this->interval;
     }
 
-    public function __setmonth($month) {
+    public function __setMonth($month) {
         //Method to modify the instance of the month attribute 
         $this->month = $month;
     }
 
-    public function __getmonth() {
+    public function __getMonth() {
         //Method to access the instance of month attribute
         return $this->month;
     }

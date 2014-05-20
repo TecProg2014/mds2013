@@ -11,11 +11,11 @@ class TimeView {
     private $timeCO;
 
     public function __construct() {
-        $this->tempoCO = new TempoController();
+        $this->tempoCO = new TimeController();
     }
 
-    public function retornarDadosTempoFormatado() {
-        return $this->tempoCO->_retornarDadosFormatados();
+    public function returnDataTimeFormated() {
+        return $this->tempoCO->_returnDataFormated();
     }
 
     //Metodo duplicado para adaptacao do retorno de dados para a nova interface
@@ -25,8 +25,9 @@ class TimeView {
      * @author Eliseu Egewarth
      * @copyright RadarCriminal 2013
      * */
-    public function retornarDadosTempoFormatoNovo() {
-        return $this->tempoCO->_retornarDadosFormatoNovo();
+    
+    public function returnDataTimeFormatedNew() {
+        return $this->tempoCO->_returnDataFormatNew();
     }
 
 }

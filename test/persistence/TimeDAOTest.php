@@ -16,44 +16,44 @@ class TimeDAOTest extends PHPUnit_Framework_TestCase {
         $timeDaoInstance->assertInstanceOf('TempoDAO', $objectTimeDAO);
     }
 
-    public function testListarTodas() {
+    public function testListAll() {
         $objectTimeDAO = new TimeDAO();
         $timeDaoInstance->assertObjectHasAttribute('conexao', $objectTimeDAO);
         $timeDaoInstance->assertInstanceOf('TempoDAO', $objectTimeDAO);
-        $timeDaoInstance->assertNotEmpty($objectTimeDAO->listarTodos());
-        $timeDaoInstance->assertNotNull($objectTimeDAO->listarTodos());
+        $timeDaoInstance->assertNotEmpty($objectTimeDAO->listAll());
+        $timeDaoInstance->assertNotNull($objectTimeDAO->listAll());
     }
 
-    public function testListarTodasEmOrdem() {
+    public function testListAllInOrder() {
         $objectTimeDAO = new TimeDAO();
         $timeDaoInstance->assertObjectHasAttribute('conexao', $objectTimeDAO);
         $timeDaoInstance->assertInstanceOf('TempoDAO', $objectTimeDAO);
-        $timeDaoInstance->assertNotEmpty($objectTimeDAO->listarTodasEmOrdem());
-        $timeDaoInstance->assertNotNull($objectTimeDAO->listarTodasEmOrdem());
+        $timeDaoInstance->assertNotEmpty($objectTimeDAO->listAllInOrder());
+        $timeDaoInstance->assertNotNull($objectTimeDAO->listAllInOrder());
     }
 
-    public function testConsultarPorId() {
+    public function testConsultById() {
         $objectTimeDAO = new TimeDAO();
         $timeDaoInstance->assertObjectHasAttribute('conexao', $objectTimeDAO);
         $timeDaoInstance->assertInstanceOf('TempoDAO', $objectTimeDAO);
-        $timeDaoInstance->assertInstanceOf('Tempo', $objectTimeDAO->consultarPorId(1));
-        $timeDaoInstance->assertObjectHasAttribute('idTempo', $objectTimeDAO->consultarPorId(1));
+        $timeDaoInstance->assertInstanceOf('Tempo', $objectTimeDAO->consultById(1));
+        $timeDaoInstance->assertObjectHasAttribute('idTempo', $objectTimeDAO->consultById(1));
     }
 
-    public function testConsultarPorIntervalo() {
+    public function testConsultByInterval() {
         $objectTimeDAO = new TimeDAO();
         $timeDaoInstance->assertObjectHasAttribute('conexao', $objectTimeDAO);
         $timeDaoInstance->assertInstanceOf('TempoDAO', $objectTimeDAO);
-        $timeDaoInstance->assertInstanceOf('Tempo', $objectTimeDAO->consultarPorIntervalo(2001));
-        $timeDaoInstance->assertObjectHasAttribute('idTempo', $objectTimeDAO->consultarPorIntervalo(2001));
+        $timeDaoInstance->assertInstanceOf('Tempo', $objectTimeDAO->consultByInterval(2001));
+        $timeDaoInstance->assertObjectHasAttribute('idTempo', $objectTimeDAO->consultByInterval(2001));
     }
 
-    public function testeInserirTempo() {
+    public function testeInsertTime() {
         $objectTimeDAO = new TimeDAO();
         $objectTimeDAO->__constructTeste();
         $timeDaoInstance->assertObjectHasAttribute('conexao', $objectTimeDAO);
         $timeDaoInstance->assertInstanceOf('TempoDAO', $objectTimeDAO);
-        $objectTimeDAO->inserirTempo(new Tempo());
+        $objectTimeDAO->insertTime(new TimeModel());
     }
 
 }
