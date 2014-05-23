@@ -46,6 +46,10 @@ class TimeController {
         return $this->timeDAO->insertTime($time);
     }
 
+    /** Method to insert the time whwn the crimes occurred
+     * @param arrayTime - Array of integers - Years in which the crimes occurred.
+     * @return void.
+    */
     public function _insertTimeArrayParse($arrayTime) {
         for ($i = 0; $i < count($arrayTime); $i++) {
             $dataTime = new TimeModel();
@@ -54,6 +58,9 @@ class TimeController {
         }
     }
 
+    /** Method to return a data formated
+      * @return Array of integers - Years in which the crimes occurred.
+    */
     public function _insertTimeArrayParseQuaterly($arrayTime) {
         //insert times quarterly 
         for ($i = 0, $arrayYear = $arrayTime; $i < count($arrayTime); $i++) {
@@ -68,6 +75,9 @@ class TimeController {
         }
     }
 
+    /** Method to return a data formated
+      * @return Array of integers - Data
+    */
     public function _returnDataFormated() {
         //returns formatted data
         $dataTime = new TimeModel();
