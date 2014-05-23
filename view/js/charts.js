@@ -37,7 +37,7 @@ function charts() {
         randNum = function() {
             //return Math.floor(Math.random()*101);
             return (Math.floor(Math.random() * (1 + 40 - 20))) + 20;
-        }
+        };
 
         var chartColours = ['#2FABE9', '#FA5833', '#b9e672', '#bbdce3', '#9a3b1b', '#5a8022', '#2c7282'];
 
@@ -817,7 +817,7 @@ function charts() {
             $("#y").text(pos.y.toFixed(2));
 
             if (item) {
-                if (previousPoint != item.dataIndex) {
+                if (previousPoint !== item.dataIndex) {
                     previousPoint = item.dataIndex;
 
                     $("#tooltip").remove();
@@ -1055,11 +1055,12 @@ function charts() {
     }
 
     /* ---------- Pie chart ---------- */
-    < ?php
-            include("../../views/CategoriaView.php");
-    $categoriaVW = new CategoriaView();
-            echo utf8_encode($categoriaVW - > _listarTotalDeCategoria());
-            ? >
+    <?php 
+            include("../../views/CategoryView.php");
+            $categoryVW = new CategoryView();
+            echo utf;
+            8_encode($categoryVW - > _listTotalOfCategories());
+             
             if ($("#piechart").length)
     {
         $.plot($("#piechart"), data,
