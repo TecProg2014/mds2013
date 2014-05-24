@@ -12,41 +12,65 @@ class TimeController {
 
     private $timeDAO;
 
+    
+    /** Method to instantiate an objct timeDAO
+     * @return an object timeDAO 
+    */
     public function __construct() {
         $this->timeDAO = new TimeDAO();
     }
 
+    /** Method for calling the method that lists all times
+     * @return timeDAO - the list of all the times
+    */
     public function _listAll() {
         //lists times
         return $this->timeDAO->listAll();
     }
 
+    /** Method for calling the method that lists all times in order
+     * @return timeDAO - the list of all the times in order
+    */
     public function _listAllInOrder() {
         //lists times in order
         return $this->timeDAO->listAllInOrder();
     }
 
+    /** Method for enabling the test of the class TimeDAO
+     * @return an object timeDAO.
+    */
     public function __constructTest() {
         //tests instance of timeDAO
         $this->timeDAO->__constructTest();
     }
-
+    
+    /** Method to consult time when the crimes occurred by id
+     * @param id - id of time which the crimes occurred.
+     * @return an object timeDAO.
+    */
     public function _consultById($id) {
         //consult time by its id
         return $this->timeDAO->consultById($id);
     }
-
+    /** Method to consult time when the crimes occurred by interval
+     * @param interval - interval of time which the crimes occurred.
+     * @return an object timeDAO.
+    */
     public function _consultByInterval($interval) {
         //consult by time's interval
         return $this->timeDAO->consultByInterval($interval);
     }
 
+    /** Method to insert the time when the crimes occurred
+     * @param time - Year in which the crime occurred.
+     * @return an object timeDAO.
+    */
     public function _insertTime(TimeModel $time) {
         //insert time
         return $this->timeDAO->insertTime($time);
     }
 
-    /** Method to insert the time whwn the crimes occurred
+    /** Method to insert the time when the crimes occurred
      * @param arrayTime - Array of integers - Years in which the crimes occurred.
      * @return void.
     */
