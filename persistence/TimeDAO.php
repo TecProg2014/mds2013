@@ -12,14 +12,23 @@ class TimeDAO {
 
     private $connection;
 
+    /** Method to start a new connection
+     * @return connection - coonection to the database
+    */
     public function __construct() {
         $this->connection = new Connection();
     }
 
+    /** Method to enable the test of class Connection
+     * @return connection - connection to the database.
+    */
     public function __constructTest() {
         $this->connection = new TestConnection();
     }
-
+    
+    /** Method that lists all times
+     * @return resultOfTime - the list (array) of all the times
+    */
     public function listAll() {
         $sql = "SELECT * FROM tempo";
         $result = $this->connection->database->Execute($sql);
@@ -30,7 +39,10 @@ class TimeDAO {
         }
         return $resultOfTime;
     }
-
+    
+    /** Method that lists all times in order
+     * @return resultOfTime - the list (array) of all the times
+    */
     public function listAllInOrder() {
         $sql = "SELECT * FROM tempo ORDER BY ano ASC ";
         $result = $this->connection->database->Execute($sql);
