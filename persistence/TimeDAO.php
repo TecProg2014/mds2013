@@ -37,7 +37,7 @@ class TimeDAO {
             $dataTime->__constructOverload($registry->ID_TEMPO, $registry->ANO, $registry->MES);
             $resultOfTime[] = $dataTime;
         }
-        return $resultOfTime;
+        return $resultOfTime; 
     }
     
     /** Method that lists all times in order
@@ -54,6 +54,9 @@ class TimeDAO {
         return $resultOfTime;
     }
 
+    /** Method to consult time by id in the database
+     * @return dataTime - the data corresponding
+    */
     public function consultById($id) {
         $sql = "SELECT * FROM tempo WHERE id_tempo = '" . $id . "'";
         $result = $this->connection->database->Execute($sql);
@@ -63,6 +66,9 @@ class TimeDAO {
         return $dataTime;
     }
 
+    /** Method to consult time by interval in the database
+     * @return dataTime - the data corresponding
+    */
     public function consultByInterval($interval) {
         $sql = "SELECT * FROM tempo WHERE ano = '" . $interval . "'";
         $result = $this->connection->database->Execute($sql);
@@ -72,6 +78,10 @@ class TimeDAO {
         return $dataTime;
     }
 
+    /** Method to insert the time when the crimes occurred
+     * @param time - Year in which the crime occurred.
+     * @return connection - connection to the database. 
+    */
     public function insertTime(TimeModel $time) {
         $sql = "INSERT INTO tempo (ano) VALUES ('{$time->__getInterval()}')";
         $this->connection->database->Execute($sql);
