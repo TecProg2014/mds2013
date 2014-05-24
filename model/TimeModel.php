@@ -13,6 +13,10 @@ class TimeModel {
     private $interval;
     private $month;
 
+    /** Method to modify the instance of the time attribute
+     * @param timeId
+     * @return void
+    */
     public function __setTimeId($timeId) {
         //Method to modify the instance of the time attribute 	
         if (!is_numeric($timeId)) {
