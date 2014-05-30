@@ -10,9 +10,9 @@ include_once('C:/xampp/htdocs/mds2013/views/CrimeView.php');
 include_once('C:/xampp/htdocs/mds2013/views/TimeView.php');
 include_once('C:/xampp/htdocs/mds2013/views/KindView.php');
 $crimeView = new CrimeView();
-$categoryView = new CategoriaView();
-$timeView = new TempoView();
-$kindView = new NaturezaView();
+$categoryView = new CategoryView();
+$timeView = new TimeView();
+$kindView = new KindView();
 ?>
 <!-- start: Content -->
 <div id="content" class="span10">
@@ -41,14 +41,14 @@ $kindView = new NaturezaView();
         <div class="span3 smallstat box mobileHalf noMargin" onTablet="span6"
              onDesktop="span3">
             <i class="icon-search radarLightYellow"></i> <span class="title">Roubo</span> <span
-                class="value"><?php echo number_format($categoryView->_sumOfSteals(), 0, ',', '.') ?>
+                class="value"><?php echo number_format($categoryView->_sumTotalOfSteals(), 0, ',', '.') ?>
             </span>
         </div>
 
         <div class="span3 smallstat mobileHalf box" onTablet="span6"
              onDesktop="span3">
             <i class="icon-certificate radarYellow"></i> <span class="title">Furto</span>
-            <span class="value"><?php echo number_format($categoryView->_sumOfThefts(), 0, ',', '.') ?>
+            <span class="value"><?php echo number_format($categoryView->_sumTotalThefts(), 0, ',', '.') ?>
             </span>
         </div>
 

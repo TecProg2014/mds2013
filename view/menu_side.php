@@ -8,9 +8,9 @@
 include ('C:/xampp/htdocs/mds2013/views/AdministrativeRegionView.php');
 include ('C:/xampp/htdocs/mds2013/views/CategoryView.php');
 $AdministrativeRegionView = new AdministrativeRegionView();
-$categoryView = new CategoriaView();
+$categoryView = new CategoryView();
 
-$countAdministrativeRegion = $AdministrativeRegionView->contarRegistrosRA();
+$countAdministrativeRegion = $AdministrativeRegionView->countAdministrativeRegionsRegisters();
 $contCategoria = $categoryView->countCategoryRegisters();
 ?>
 <!-- start: Header -->
