@@ -20,14 +20,32 @@ class KindDAO {
     private $establishesConnectionKindCrime;
 
     public function __construct() {
+        /**
+        * constructor
+        * 
+        * @param      no parameters
+        * @return     no return   
+        */
         $kindCrimeDAOInstance->establishesConnectionKindCrime = new Connection();
     }
 
     public function __constructTeste() {
+        /**
+        * test constructor 
+        * 
+        * @param      no parameters
+        * @return     no return   
+        */
         $kindCrimeDAOInstance->establishesConnectionKindCrime = new TestConnection();
     }
 
     public function listarTodas() {
+        /**
+        * list all kinds in database
+        * 
+        * @param      no parameters
+        * @return     array of kinds in database   
+        */
         $sqlCommand = "SELECT * FROM natureza";
         $resultList = $kindCrimeDAOInstance->establishesConnectionKindCrime->database->Execute($sqlCommand);
         
@@ -41,6 +59,12 @@ class KindDAO {
     }
 
     public function listarTodasAlfabicamente() {
+        /**
+        * list all kinds in database alphabetically
+        * 
+        * @param      no parameters
+        * @return     array of kinds in database  alphabetically 
+        */
         $sqlCommand = "SELECT * FROM natureza ORDER BY natureza ASC ";
         $resultList = $kindCrimeDAOInstance->establishesConnectionKindCrime->database->Execute($sqlCommand);
         
@@ -54,6 +78,12 @@ class KindDAO {
     }
 
     public function consultarPorId($idKindCrimeDao) {
+        /**
+        * consult kind by identifier in database
+        * 
+        * @param  idKindCrimeDao    identifier of kind
+        * @return                   data of kind consulted  
+        */
         $sqlCommand = "SELECT * FROM natureza WHERE id_natureza = '" . $idKindCrimeDao . "'";
         $resultList = $kindCrimeDAOInstance->establishesConnectionKindCrime->database->Execute($sqlCommand);
         $recordedList = $resultList->FetchNextObject();
@@ -63,7 +93,12 @@ class KindDAO {
     }
 
     public function consultarPorNome($kindCrimeName) {
-
+        /**
+        * consult kind by name in database
+        * 
+        * @param  kindCrimeName     name of kind
+        * @return                   data of kind consulted  
+        */
         $sqlCommand = "SELECT * FROM natureza WHERE natureza = '" . $kindCrimeName . "'";
         $resultList = $kindCrimeDAOInstance->establishesConnectionKindCrime->database->Execute($sqlCommand);
         $recordedList = $resultList->FetchNextObject();
@@ -73,6 +108,12 @@ class KindDAO {
     }
 
     public function inserirNatureza(Kind $kindCrimeName) {
+        /**
+        * insert kind by name in database
+        * 
+        * @param  kindCrimeName     name of kind
+        * @return                   no return 
+        */
         $sqlCommand = "INSERT INTO natureza (categoria_id_categoria,natureza) values ('{$kindCrimeName->__getIdCategory()}','{$kindCrimeName->__getNatureza()}')";
         $kindCrimeDAOInstance->establishesConnectionKindCrime->database->Execute($sqlCommand);
         //if(!$this->banco->Connect($this->servidor,$this->usuario,$this->senha,$this->db)){
@@ -82,6 +123,12 @@ class KindDAO {
 
     
     public function consultarPorIdCategoria($idKindCrimeDao) {
+        /**
+        * consult kind by identifier category in database
+        * 
+        * @param  idKindCrimeDao    identifier of kind
+        * @return                   array that list kinds 
+        */
         $sqlCommand = "SELECT * FROM natureza WHERE categoria_id_categoria= '" . $idKindCrimeDao . "'";
         $resultList = $kindCrimeDAOInstance->establishesConnectionKindCrime->database->Execute($sqlCommand);
         
