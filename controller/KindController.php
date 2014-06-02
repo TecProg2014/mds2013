@@ -18,29 +18,55 @@ class KindController {
     private $kindCrimeConnectionDatabase;
 
     public function __construct() {
+        /**
+        * construct an object 
+        * 
+        * @param no parameters
+        * @return no return        
+        */
         $kindCrimeInstance->kindCrimeConnectionDatabase = new KindDAO();
     }
 
     public function __constructTeste() {
-        //tests instance of naturezaDAO
+        /**
+        * construct an object for test
+        * 
+        * @param no parameters
+        * @return no return        
+        */
         $kindCrimeInstance->kindCrimeConnectionDatabase->__constructTest();
     }
 
     public function _listarTodas() {
-        //lists all
+        /**
+        * list all kinds
+        * 
+        * @param no parameters
+        * @return a list of all kinds       
+        */
         $resultSearchKindCrime = $kindCrimeInstance->kindCrimeConnectionDatabase->listAllAdministrativeRegion();
 
         return $resultSearchKindCrime;
     }
 
     public function _listarTodasAlfabicamente() {
-        //lists all alphabeticaly
+        /**
+        * list all kinds alphabetically
+        * 
+        * @param no parameters
+        * @return a list of all kinds alphabetically     
+        */
         $resultSearchKindCrime = $kindCrimeInstance->kindCrimeConnectionDatabase->listAllCategoriesAlphabetically();
         return $resultSearchKindCrime;
     }
 
     public function _consultarPorId($idKindCrime) {
-        //consults by id
+        /**
+        * search kind by its identifier
+        * 
+        * @param idKindCrime  identifier of kind
+        * @return             the kind name searched      
+        */
 
         if (!is_numeric($idKindCrime)) {
             throw new EWrongConsult();
@@ -54,23 +80,43 @@ class KindController {
     }
 
     public function _consultarPorNome($kindCrimeName) {
-        //consults by name
+        /**
+        * search kind by its name
+        * 
+        * @param kindCrimeName  name of kind
+        * @return               the kind name searched      
+        */
         $kindCrimeName = $kindCrimeInstance->kindCrimeConnectionDatabase->consultAdministrativeRegionByName($kindCrimeName);
         return $kindCrimeName;
     }
 
     public function _consultarPorIdCategoria($idKindCrime) {
-        //consults by id in cathegory
+        /**
+        * search kind by identifier category
+        * 
+        * @param idKindCrime    identifier of kind
+        * @return               the kind name searched      
+        */
         return $kindCrimeInstance->kindCrimeConnectionDatabase->consultarPorIdCategoria($idKindCrime);
     }
 
     public function _inserirNatureza(Kind $kindCrimeName) {
-        //insert nature
+        /**
+        * insert kind 
+        * 
+        * @param kindCrimeName    name of kind
+        * @return                 the kind name inserted      
+        */
         return $kindCrimeInstance->kindCrimeConnectionDatabase->inserirNatureza($kindCrimeName);
     }
 
     public function _inserirArrayParse($arrayKindCrime) {
-        
+        /**
+        * insert kind 
+        * 
+        * @param arrayKindCrime   array of kinds
+        * @return                 data category      
+        */
         if (!is_array($arrayKindCrime)) {
             throw new EFailKindController();
         
@@ -103,7 +149,12 @@ class KindController {
     }
 
     public function _retornarDadosDeNaturezaFormatado($kindCrimeName) {
-        //returns formatted data
+        /**
+        * return data kind formated
+        * 
+        * @param kindCrimeName    name of kind
+        * @return                 data     
+        */
         $timeConnectionDatabase = new TimeDAO();
         $objectCrimeController = new CrimeController();
         $arrayDataTime = $timeConnectionDatabase->listarTodos();
