@@ -14,17 +14,35 @@ class Kind {
     private $idCategory;
 
     public function __construct() {
-        
+        /**
+        * constructor
+        * 
+        * @param    no parameters
+        * @return   no returns   
+        */
     }
 
     public function __constructOverload($idKindCrime, $kindCrimeName, $idCategory) {
+        /**
+        * constructor ovelrload
+        * 
+        * @param kindCrimeName    name of kind
+        * @param idKindCrime      identifier of kind
+        * @param idCategory       identifier category
+        * @return                 no return   
+        */
         $kindCrimeInstance->idKindCrime = $idKindCrime;
         $kindCrimeInstance->kindCrimeName = $kindCrimeName;
         $kindCrimeInstance->idCategory = $idCategory;
     }
 
     public function __setIdNature($idKindCrime) {
-        
+        /**
+        * set identifier of kind 
+        * 
+        * @param idKindCrime      identifier of kind
+        * @return                 no return   
+        */
         if (!is_numeric($idKindCrime)) {
             throw new ETypeWrong();
             
@@ -37,12 +55,22 @@ class Kind {
     }
 
     public function __getIdNature() {
-        //Method to access the instance of idNatureza attribute
+        /**
+        * get identifier of kind 
+        * 
+        * @param      no parameters
+        * @return     identifier of kind 
+        */
         return $kindCrimeInstance->idKindCrime;
     }
 
     public function __setIdCategory($idCategory) {
-
+        /**
+        * set identifier of category
+        * 
+        * @param idCategory       identifier of category
+        * @return                 no return   
+        */
         if (!is_numeric($idCategory)) {
             throw new ETypeWrong();
             
@@ -55,12 +83,22 @@ class Kind {
     }
 
     public function __getIdCategory() {
-        //Method to access the instance of idCategoria attribute
+        /**
+        * get identifier of category
+        * 
+        * @param     no parameters
+        * @return    identifier of category
+        */
         return $kindCrimeInstance->idCategory;
     }
 
     public function __setNatureName($kindCrimeName) {
-        //Method to modify the instance of the natureza attribute 
+        /**
+        * set name of kind 
+        * 
+        * @param kindCrimeName    name of kind
+        * @return                 no return   
+        */
         if (!is_string($kindCrimeName)) {
             throw new ETypeWrong();
         
@@ -73,7 +111,12 @@ class Kind {
     }
 
     public function __getNatureName() {
-        //Method to access the instance of Natureza attribute
+        /**
+        * get name of kind 
+        * 
+        * @param      no parameters
+        * @return     name of kind  
+        */
         return $kindCrimeInstance->kindCrimeName;
     }
 
