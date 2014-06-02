@@ -14,11 +14,23 @@ class KindView {
     private $crimeControlView;
 
     public function __construct() {
+        /**
+        * constructor
+        * 
+        * @param      no parameters
+        * @return     no return 
+        */
         $instanceClass->kindCrimeControlView = new KindController();
         $instanceClass->crimeControlView = new CrimeController();
     }
 
     public function listarTodasAlfabicamente() {
+        /**
+        * list all kinds alphbetically
+        * 
+        * @param      no parameters
+        * @return     array with kinds 
+        */
         $allKindCrime = $instanceClass->kindCrimeControlView->_listarTodasAlfabicamente();
         
         //variable i: runs natures in the array
@@ -34,20 +46,44 @@ class KindView {
     }
 
     public function consultarPorNome($kindCrimeName) {
+         /**
+        * consult kind by name
+        * 
+        * @param  kindCrimeName      name of kind
+        * @return                    name of kind
+        */
         $kindCrimeName = $instanceClass->kindCrimeControlView->_consultAdministrativeRegionByName($kindCrimeName);
         return $kindCrimeName->__getNatureza();
     }
 
     public function consultarPorId($idKindCrime) {
+         /**
+        * consult kind by its identifier
+        * 
+        * @param  idKindCrime        identifier of kind
+        * @return                    name of kind
+        */
         $kindCrimeName = $instanceClass->kindCrimeControlView->_consultAdministrativeRegionById($idKindCrime);
         return $kindCrimeName->__getNatureza();
     }
 
     public function consultarPorIdCategoria($idKindCrime) {
+         /**
+        * consult kind by identifier of category
+        * 
+        * @param  idKindCrime        identifier of kind
+        * @return                    identifier of kind
+        */
         return $instanceClass->kindCrimeControlView->_consultarPorIdCategoria($idKindCrime);
     }
 
     public function _retornarDadosDeNaturezaFormatado($kindCrimeName) {
+         /**
+        * return kind data formated
+        * 
+        * @param  kindCrimeName      name of kind
+        * @return                    return name kind formated
+        */
         $dataKindCrime = $instanceClass->kindCrimeControlView->_retornarDadosDeNaturezaFormatado($kindCrimeName);
         $formatedDataCrime = "";
         $returnFormated = "";
@@ -82,7 +118,12 @@ class KindView {
     }
 
     public function aposBarraLateral($idCategory) {
-
+        /**
+        * return kind data formated
+        * 
+        * @param  idCategory         identifier of kind
+        * @return                    auxiliar slash
+        */
         $categoryView = new CategoriaView();
         $crimeView = new CrimeView();
         $arrayCategories = $categoryView->listAllAlphabeticallyPure();
