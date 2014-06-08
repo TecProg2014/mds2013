@@ -327,40 +327,8 @@ class Parse {
       
         catchCategoryName($numberOfLines);
         catchKindName($numberOfLines);
-        catchTimeValues($numberOfColumns);
-        
-        /**
-         * Loop que pega as informa��es do crime da planilha
-         */
-        for ($i = 0, $auxLinha = 0; $i < $numberOfLines; $i++) {
-            if (($i < 8) || ($i == 11) || ($i == 26) || ($i == 31) || ($i == 32) || ($i == 33) || ($i == 38) || ($i == 41)) {
-                continue;
-            } else {
-                for ($j = 6, $auxColuna = 0, $auxCategoria = 0; $j < $numberOfColumns; $j++) {
-                    if (($j % 2) == 0) {
-                        continue;
-                    }
-                    if ($i > 7 && $i < 11) {
-                        $auxCategoria = 0;
-                    } else if (($i > 11 && $i < 26) || ($i > 26 && $i < 31)) {
-                        $auxCategoria = 1;
-                    } else if ($i == 34) {
-                        $auxCategoria = 2;
-                    } else if ($i == 35) {
-                        $auxCategoria = 3;
-                    } else if ($i == 36) {
-                        $auxCategoria = 4;
-                    } else if ($i == 37) {
-                        $auxCategoria = 5;
-                    } else if ($i > 38 && $i < 41) {
-                        $auxCategoria = 6;
-                    }
-                    $this->crime[$this->__getKind()[$this->__getCategory()[$auxCategoria]][$auxLinha]][$this->__getTime()[2013][$auxColuna]] = $this->dados->raw($i, $j, 2);
-                    $auxColuna++;
-                }
-                $auxLinha++;
-            }
-        }
+        catchTimeValues($numberOfColumns, $numberOfColumns);
+       
     }
     
     public function catchCategoryName($numberOfLines){
@@ -387,7 +355,7 @@ class Parse {
          * @return void
          */
         for ($i = 8, $auxKind = 0; $i < $numberOfLines; $i++) {
-            // The value of the cell that is being stored in the new table val (row, column, sheet)
+            // the value of the cell that is being stored in the new table val (row, column, sheet)
             if ($i > 7 && $i < 11) {
                 $this->kind[$this->__getCategory()[0]][$auxKind] = $this->dados->val($i, 'B', 2);$auxKind++;
             } else if (($i > 11 && $i < 26) || ($i > 26 && $i < 31)) {
@@ -420,6 +388,48 @@ class Parse {
                 $auxTempo++;
             }
         }
+    }
+    
+    
+    public function catchCrimeValues($numberOfLines, $numberOfColumns){
+        /**
+         * Loop that takes the information from the worksheet crime
+         * @param numberOfLines     number of lines in the worksheet
+         * @return void
+         */
+        for ($i = 0, $auxLinha = 0; $i < $numberOfLines; $i++) {
+            if (($i < 8) || ($i == 11) || ($i == 26) || ($i == 31) || ($i == 32) || ($i == 33) || ($i == 38) || ($i == 41)) {
+                continue;
+            } else {
+                catchColumnsValues($numberOfColumns);
+                $auxLinha++;
+            }
+        }
+    }
+    
+   public function catchColumnsValues($numberOfColumns){
+        for ($j = 6, $auxColuna = 0, $auxCategoria = 0; $j < $numberOfColumns; $j++) {
+                    if (($j % 2) == 0) {
+                        continue;
+                    }
+                    if ($i > 7 && $i < 11) {
+                        $auxCategoria = 0;
+                    } else if (($i > 11 && $i < 26) || ($i > 26 && $i < 31)) {
+                        $auxCategoria = 1;
+                    } else if ($i == 34) {
+                        $auxCategoria = 2;
+                    } else if ($i == 35) {
+                        $auxCategoria = 3;
+                    } else if ($i == 36) {
+                        $auxCategoria = 4;
+                    } else if ($i == 37) {
+                        $auxCategoria = 5;
+                    } else if ($i > 38 && $i < 41) {
+                        $auxCategoria = 6;
+                    }
+                    $this->crime[$this->__getKind()[$this->__getCategory()[$auxCategoria]][$auxLinha]][$this->__getTime()[2013][$auxColuna]] = $this->dados->raw($i, $j, 2);
+                    $auxColuna++;
+                }
     }
     
     public function __setKind($natureza) {
