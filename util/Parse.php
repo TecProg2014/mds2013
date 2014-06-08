@@ -28,75 +28,36 @@ class Parse {
 
         $this->dados = new Spreadsheet_Excel_Reader("C:/xampp/htdocs/mds2013/files/" . $planilha, "UTF-8");
         if ($planilha == "s�rie hist�rica - 2001 - 2012 2.xls") {
-            $this->parseDeSerieHistorica();
+            $this->historicalSeriesParse();
         } else if ($planilha == "JAN_SET_2011_12  POR REGIAO ADM_2.xls") {
-            $this->parsePorRegiao();
+            $this->parseByRegion();
         } else if ($planilha == "Quadrimestre_final.2013.xls") {
             $this->fourMonthsParse();
         }
     }
  
-    public function parseDeSerieHistorica() {
+    public function historicalSeriesParse () {
 
         $numberOfLines = 40;
-        $numbeOfColumns = 15;
-        //loop que pega a natureza
-        for ($i = 0, $auxCategory = 0; $i < $numberOfLines; $i++) {
-
-            if ($i == 2) {
-                $this->category[$auxCategory] = $this->dados->val($i, 1, 0);
-                $auxCategory++;
-            }
-            if ($i == 33) {
-                $this->category[$auxCategory] = $this->dados->val($i, 1, 0);
-                $auxCategory++;
-            }
-            if ($i == 38) {
-                $this->category[$auxCategory] = $this->dados->val($i, 1, 0);
-            }
-        }
+        $numberOfColumns = 15;
         
-        //Function witch captures the crime by nature
-        crimeByNature();
+        catchKind($numberOfLines);
+        crimeByKind($numberOfLines);
         
         $criminality = utf8_encode("Criminalidade");
         $policeAction = utf8_encode("A��o Policial");
         $traffic = utf8_encode("Tr�nsito");
-        //loop que pega os anos disponiveis
-        for ($i = 1, $auxTempo = 0; $i < $numbeOfColumns; $i++) {
-            if (($i == 1) || ($i == 2) || ($i == 3)) {
-                continue;
-            } else {
-                $this->time[$auxTempo] = $this->dados->val(1, $i, 0);
-                $auxTempo++;
-            }
-        }
-        if (($this->__getTime() == null) || (count($this->__getTime()) != 11)) {
-            throw EFailReadingSerieTime::();
-        }
-        //loop que pega os dados do crime
-        for ($i = 1, $auxLine = 0; $i < $numberOfLines; $i++) {
-            if (($i == 1) || ($i == 5) || ($i == 21) || ($i == 27) || ($i == 28) || ($i == 31) || ($i == 32) || ($i == 37) || ($i == 40)) {
-                continue;
-            } else {
-                for ($j = 4, $auxColumns = 0, $auxCategory; $j < $numbeOfColumns; $j++) {
-                    if ($i < 32) {
-                        $auxCategory = 0;
-                    } else if ($i > 32 && $i < 37) {
-                        $auxCategory = 1;
-                    } else {
-                        $auxCategory = 2;
-                    }
-                    $this->crime[$this->__getKind()[$this->__getCategory()[$auxCategory]][$auxLine]][$this->__getTime()[$auxColumns]] = $this->dados->raw($i, $j, 0);
-                    $auxColumns++;
-                }
-                $auxLine++;
-            }
-        }
+        
+        catchAvaiableYears($numberOfColumns);
+        catchCrimesValues($numberOfLines);
     }
     
-    
-     public function crimeByNature(){
+     /**
+     * Function to catch the crimes by kind
+     * @param numberOfLines     number of lines in the worksheet
+     * @return void
+     */
+     public function crimeByKind($numberOfLines){
         for ($i = 1, $auxKind = 0; $i < $numberOfLines; $i++) {
             if (($i == 1) || ($i == 5) || ($i == 21) || ($i == 27) || ($i == 28) || ($i == 31) || ($i == 32) || ($i == 37) || ($i == 40)) {
                 continue;
@@ -121,128 +82,78 @@ class Parse {
         }
      }
 
-
-    /**
-     * 	Desenvolvimento do m�todo para efetuar parse da planilha de crimes por Regi�o Administrativa
-     *  Atualizando arrays para cada campo, para depois ir para persist�ncia.
+     /**
+     * Function to catch the avaiable years
+     * @param numberOfColumns     number of columns in the worksheet
+     * @return void
      */
-    public function parsePorRegiao() {
-        /**
-         * Loop para pegar os nomes das categorias na planilha
-         * @author Lucas Carvalho 
-         */
-        for ($i = 0, $auxCategoria = 0; $i < 45; $i++) {
-            if (($i == 8) || ($i == 12) || ($i == 34) || ($i == 38) || ($i == 43)) {
-                $this->category[$auxCategoria] = $this->dados->val($i, 'A', 1);
-                $auxCategoria++;
-            } else {
+     public function catchAvaiableYears($numberOfColumns){
+          for ($i = 1, $auxTempo = 0; $i < $numberOfColumns; $i++) {
+            if (($i == 1) || ($i == 2) || ($i == 3)) {
                 continue;
-            }
-        }
-        //print_r($this->__getCategoria());
-        echo "<br>";
-        /**
-         * Loop para pegar os nomes das naturezas de crimes contidas na planilha de RA
-         * @author Lucas Carvalho 
-         */
-        for ($i = 0, $auxNatureza = 0; $i < 45; $i++) {
-            // Val Ã© o valor da cÃ©lula que esta sendo armazenado na nova tabela val(linha, coluna, sheet)
-            if ($i > 7 && $i < 11) {
-                $this->kind[$this->__getCategory()[0]][$auxNatureza] = $this->dados->val($i, 'B', 1);
-                $auxNatureza++;
-            } else if (($i > 11 && $i < 26) || ($i > 26 && $i < 32)) {
-                $this->kind[$this->__getCategory()[1]][$auxNatureza] = $this->dados->val($i, 'B', 1);
-                $auxNatureza++;
-            } else if ($i > 33 && $i < 36) {
-                $this->kind[$this->__getCategory()[2]][$auxNatureza] = $this->dados->val($i, 'B', 1);
-                $auxNatureza++;
-            } else if ($i > 37 && $i < 42) {
-                $this->kind[$this->__getCategory()[3]][$auxNatureza] = $this->dados->val($i, 'B', 1);
-                $auxNatureza++;
-            } else if ($i > 42 && $i < 45) {
-                $this->kind[$this->__getCategory()[4]][$auxNatureza] = $this->dados->val($i, 'B', 1);
-                $auxNatureza++;
             } else {
+                $this->time[$auxTempo] = $this->dados->val(1, $i, 0);
+                $auxTempo++;
+            }
+        }
+        if (($this->__getTime() == null) || (count($this->__getTime()) != 11)) {
+            throw EFailReadingSerieTime::();
+        }
+    }
+    
+    
+    /**
+     * Function to catch the crimes values
+     * @param numberOfLines     number of lines in the worksheet
+     * @return void
+     */
+    public function catchCrimesValues($numberOfLines){
+    
+        for ($i = 1, $auxLine = 0; $i < $numberOfLines; $i++) {
+            if (($i == 1) || ($i == 5) || ($i == 21) || ($i == 27) || ($i == 28) || ($i == 31) || ($i == 32) || ($i == 37) || ($i == 40)) {
                 continue;
-            }
-        }
-        //print_r($this->__getNatureza());
-        echo "<br>";
-        /**
-         * Loop para pegar os nomes dos tempos contidas na planilha de RA
-         * @author Lucas Carvalho
-         */
-        for ($i = 6, $auxTempo = 0; $i < 8; $i++) {
-            $this->time[$auxTempo] = $this->dados->val(7, $i, 1);
-            $auxTempo++;
-        }
-
-        //print_r($this->__getTempo());
-        echo "<br>";
-        /**
-         * Loop para pegar os nomes das regi�es contidas na planilha RA
-         * @author Lucas Carvalho
-         */
-        for ($i = 0, $auxRegiao = 0; $i < 3; $i++) {
-            if ($i == 0) {
-                $linha = 6;
-                $numeroColunas = 25;
-            }
-            if ($i == 1) {
-                $linha = 55;
-                $numeroColunas = 25;
-            }
-            if ($i == 2) {
-                $linha = 104;
-                $numeroColunas = 29;
-            }
-            for ($j = 0; $j < $numeroColunas; $j++) {
-                if (($j < 6) || ($j % 2 != 0)) {
-                    continue;
-                } else {
-                    $this->regiao[$auxRegiao] = $this->dados->val($linha, $j, 1);
-                    $auxRegiao++;
+            } else {
+                for ($j = 4, $auxColumns = 0, $auxCategory; $j < $numberOfColumns; $j++) {
+                    if ($i < 32) {
+                        $auxCategory = 0;
+                    } else if ($i > 32 && $i < 37) {
+                        $auxCategory = 1;
+                    } else {
+                        $auxCategory = 2;
+                    }
+                    $this->crime[$this->__getKind()[$this->__getCategory()[$auxCategory]][$auxLine]][$this->__getTime()[$auxColumns]] = $this->dados->raw($i, $j, 0);
+                    $auxColumns++;
                 }
+                $auxLine++;
             }
         }
-        //print_r($this->__getRegiao());
+    }
+    
+     /**
+     * Function to accomplish parse by region: updates arrays for each field, then go for persistence.
+     * @param there is no parameter
+     * @return void
+     */
+    public function parseByRegion() {
+        
+        catchCategoryNames();
+        
         echo "<br>";
-        /**
-         * Loop para pegar os dados de crime contidas na planila de RA da primeira parte
-         * @author Lucas Carvalho
-         */
-        for ($i = 8, $auxLinha = 0, $auxRegiao = -1; $i < 45; $i++) {
-            if (($i == 11) || ($i == 26) || ($i == 32) || ($i == 33) || ($i == 36) || ($i == 37) || ($i == 42)) {
-                continue;
-            } else {
-                for ($j = 6, $auxCategoria = 0; $j < 26; $j++) {
-                    if (($j % 2) == 0) {
-                        $auxTempo = 0;
-                        $auxRegiao++;
-                    }
-                    if (($j % 2) != 0) {
-                        $auxTempo = 1;
-                    }
-                    if ($auxRegiao == 10) {
-                        $auxRegiao = 0;
-                    }
-                    if (($i > 7 && $i < 11)) {
-                        $auxCategoria = 0;
-                    } else if (($i > 11 && $i < 26) || ($i > 26 && $i < 32)) {
-                        $auxCategoria = 1;
-                    } else if (($i > 33 && $i < 36)) {
-                        $auxCategoria = 2;
-                    } else if (($i > 37 && $i < 42)) {
-                        $auxCategoria = 3;
-                    } else if (($i > 42 && $i < 45)) {
-                        $auxCategoria = 4;
-                    }
+        
+        catchKindNames();
+        
+        echo "<br>";
+        
+        catchTimeNames();
 
-                    $this->crime[$this->__getKind()[$this->__getCategory()[$auxCategoria]][$auxLinha]][$this->__getRegion()[$auxRegiao]][$this->__getTime()[$auxTempo]] = $this->dados->raw($i, $j, 1);
-                }
-                $auxLinha++;
-            }
-        }
+        echo "<br>";
+        
+        catchRegionNames();
+        
+        echo "<br>";
+        
+        catchCrimeDatas();
+        
         /**
          * Loop para pegar os dados de crime contidas na planila de RA da segunda parte
          * @author Lucas Carvalho
@@ -317,6 +228,131 @@ class Parse {
         //print_r($this->__getCrime());
     }
 
+    
+    public function catchCategoryNames(){
+    /**
+         * Loop para pegar os nomes das categorias na planilha
+         * @author Lucas Carvalho 
+         */
+        for ($i = 0, $auxCategoria = 0; $i < 45; $i++) {
+            if (($i == 8) || ($i == 12) || ($i == 34) || ($i == 38) || ($i == 43)) {
+                $this->category[$auxCategoria] = $this->dados->val($i, 'A', 1);
+                $auxCategoria++;
+            } else {
+                continue;
+            }
+        }
+    }  
+    
+    
+    public function catchKindNames(){
+    /**
+         * Loop para pegar os nomes das naturezas de crimes contidas na planilha de RA
+         * @author Lucas Carvalho 
+         */
+        for ($i = 0, $auxNatureza = 0; $i < 45; $i++) {
+            // Val Ã© o valor da cÃ©lula que esta sendo armazenado na nova tabela val(linha, coluna, sheet)
+            if ($i > 7 && $i < 11) {
+                $this->kind[$this->__getCategory()[0]][$auxNatureza] = $this->dados->val($i, 'B', 1);
+                $auxNatureza++;
+            } else if (($i > 11 && $i < 26) || ($i > 26 && $i < 32)) {
+                $this->kind[$this->__getCategory()[1]][$auxNatureza] = $this->dados->val($i, 'B', 1);
+                $auxNatureza++;
+            } else if ($i > 33 && $i < 36) {
+                $this->kind[$this->__getCategory()[2]][$auxNatureza] = $this->dados->val($i, 'B', 1);
+                $auxNatureza++;
+            } else if ($i > 37 && $i < 42) {
+                $this->kind[$this->__getCategory()[3]][$auxNatureza] = $this->dados->val($i, 'B', 1);
+                $auxNatureza++;
+            } else if ($i > 42 && $i < 45) {
+                $this->kind[$this->__getCategory()[4]][$auxNatureza] = $this->dados->val($i, 'B', 1);
+                $auxNatureza++;
+            } else {
+                continue;
+            }
+        }
+    }
+    
+    public function catchTimeNames() {
+
+        /**
+         * Loop para pegar os nomes dos tempos contidas na planilha de RA
+         * @author Lucas Carvalho
+         */
+        for ($i = 6, $auxTempo = 0; $i < 8; $i++) {
+            $this->time[$auxTempo] = $this->dados->val(7, $i, 1);
+            $auxTempo++;
+        }
+    }
+    
+    public function catchRegionNames(){
+    /**
+         * Loop para pegar os nomes das regi�es contidas na planilha RA
+         * @author Lucas Carvalho
+         */
+        for ($i = 0, $auxRegiao = 0; $i < 3; $i++) {
+            if ($i == 0) {
+                $linha = 6;
+                $numeroColunas = 25;
+            }
+            if ($i == 1) {
+                $linha = 55;
+                $numeroColunas = 25;
+            }
+            if ($i == 2) {
+                $linha = 104;
+                $numeroColunas = 29;
+            }
+            for ($j = 0; $j < $numeroColunas; $j++) {
+                if (($j < 6) || ($j % 2 != 0)) {
+                    continue;
+                } else {
+                    $this->regiao[$auxRegiao] = $this->dados->val($linha, $j, 1);
+                    $auxRegiao++;
+                }
+            }
+        }
+    }
+    
+    public function catchCrimeDatas(){
+    /**
+         * Loop para pegar os dados de crime contidas na planila de RA da primeira parte
+         * @author Lucas Carvalho
+         */
+        for ($i = 8, $auxLinha = 0, $auxRegion = -1; $i < 45; $i++) {
+            if (($i == 11) || ($i == 26) || ($i == 32) || ($i == 33) || ($i == 36) || ($i == 37) || ($i == 42)) {
+                continue;
+            } else {
+                for ($j = 6, $auxCategory = 0; $j < 26; $j++) {
+                    if (($j % 2) == 0) {
+                        $auxTempo = 0;
+                        $auxRegion++;
+                    }
+                    if (($j % 2) != 0) {
+                        $auxTempo = 1;
+                    }
+                    if ($auxRegion == 10) {
+                        $auxRegion = 0;
+                    }
+                    if (($i > 7 && $i < 11)) {
+                        $auxCategory = 0;
+                    } else if (($i > 11 && $i < 26) || ($i > 26 && $i < 32)) {
+                        $auxCategory = 1;
+                    } else if (($i > 33 && $i < 36)) {
+                        $auxCategory = 2;
+                    } else if (($i > 37 && $i < 42)) {
+                        $auxCategory = 3;
+                    } else if (($i > 42 && $i < 45)) {
+                        $auxCategory = 4;
+                    }
+
+                    $this->crime[$this->__getKind()[$this->__getCategory()[$auxCategory]][$auxLinha]][$this->__getRegion()[$auxRegion]][$this->__getTime()[$auxTempo]] = $this->dados->raw($i, $j, 1);
+                }
+                $auxLinha++;
+            }
+        }
+    }    
+        
     /**
      * Method to accomplish parse of four months' worksheet: updates arrays for each field, then go for persistence.
      * @return void
@@ -330,6 +366,25 @@ class Parse {
         catchTimeValues($numberOfColumns, $numberOfColumns);
        
     }
+    
+    public function catchKind($numberOfLines){
+        //loop que pega a natureza
+        for ($i = 0, $auxCategory = 0; $i < $numberOfLines; $i++) {
+
+            if ($i == 2) {
+                $this->category[$auxCategory] = $this->dados->val($i, 1, 0);
+                $auxCategory++;
+            }
+            if ($i == 33) {
+                $this->category[$auxCategory] = $this->dados->val($i, 1, 0);
+                $auxCategory++;
+            }
+            if ($i == 38) {
+                $this->category[$auxCategory] = $this->dados->val($i, 1, 0);
+            }
+        }
+    }
+    
     
     public function catchCategoryName($numberOfLines){
         /**
