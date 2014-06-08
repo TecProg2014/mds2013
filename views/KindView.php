@@ -35,8 +35,8 @@ class KindView {
         
         //variable i: runs natures in the array
         for ($i = 0, $returnTypesKindCrime = ""; $i < count($allKindCrime); $i++) {
-            $dataCrime = $instanceClass->crimeControlView->_somaDeCrimePorNatureza($allKindCrime[$i]->__getNatureza());
-            $returnTypesKindCrime = $returnTypesKindCrime . "<h3>" . $allKindCrime[$i]->__getNatureza() . "</h3>
+            $dataCrime = $instanceClass->crimeControlView->_somaDeCrimePorNatureza($allKindCrime[$i]->__getKind());
+            $returnTypesKindCrime = $returnTypesKindCrime . "<h3>" . $allKindCrime[$i]->__getKind() . "</h3>
 				<div class=\"progress\" title=\"" . number_format($dataCrime, 0, ',', '.') . "\">
 				<div class=\"bar\" style=\"width: " . (100 * $dataCrime / 450000) . "%;\"></div>
 				</div>";
@@ -53,7 +53,7 @@ class KindView {
         * @return                    name of kind
         */
         $kindCrimeName = $instanceClass->kindCrimeControlView->_consultAdministrativeRegionByName($kindCrimeName);
-        return $kindCrimeName->__getNatureza();
+        return $kindCrimeName->__getKind();
     }
 
     public function consultarPorId($idKindCrime) {
@@ -64,7 +64,7 @@ class KindView {
         * @return                    name of kind
         */
         $kindCrimeName = $instanceClass->kindCrimeControlView->_consultAdministrativeRegionById($idKindCrime);
-        return $kindCrimeName->__getNatureza();
+        return $kindCrimeName->__getKind();
     }
 
     public function consultarPorIdCategoria($idKindCrime) {
@@ -138,7 +138,7 @@ class KindView {
 		
 				<div class=\"box span12\">
 							<div class=\"box-header\">
-								<h2><a href=\"#\" class=\"btn-minimize\"><i class=\"icon-tasks\"></i>" . $actualKindCrime->__getNatureza() . "</a></h2>
+								<h2><a href=\"#\" class=\"btn-minimize\"><i class=\"icon-tasks\"></i>" . $actualKindCrime->__getKind() . "</a></h2>
 								<div class=\"box-icon\">
 									<a href=\"#\" class=\"btn-close\"><i class=\"icon-remove\"></i></a>
 								</div>
@@ -147,7 +147,7 @@ class KindView {
 								<h3>Por Ano</h3></br>
 									<div class=\"chart-natureza\">
 									
-									 " . $instanceClass->_retornarDadosDeNaturezaFormatado($actualKindCrime->__getNatureza()) . " </div>
+									 " . $instanceClass->_retornarDadosDeNaturezaFormatado($actualKindCrime->__getKind()) . " </div>
 									
 		
 							</div>

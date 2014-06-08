@@ -35,8 +35,7 @@ class Parse {
             $this->parseDeQuadrimestre();
         }
     }
-
-    //ParsePorSerieHistorica 
+ 
     public function parseDeSerieHistorica() {
 
         $numeroLinhas = 40;
@@ -56,29 +55,10 @@ class Parse {
                 $this->category[$auxCategoria] = $this->dados->val($i, 1, 0);
             }
         }
-        //loop que pega natureza do crime
-        for ($i = 1, $auxNatureza = 0; $i < $numeroLinhas; $i++) {
-            if (($i == 1) || ($i == 5) || ($i == 21) || ($i == 27) || ($i == 28) || ($i == 31) || ($i == 32) || ($i == 37) || ($i == 40)) {
-                continue;
-            } else {
-                if ($i > 32) {
-                    if ($i < 37) {
-                        $this->kind[$this->__getCategoria()[1]][$auxNatureza] = $this->dados->val($i, 'B', 0);
-                    } else {
-                        $this->kind[$this->__getCategoria()[2]][$auxNatureza] = $this->dados->val($i, 'B', 0);
-                    }
-                } else {
-                    if ($i < 32) {
-                        $this->kind[$this->__getCategoria()[0]][$auxNatureza] = $this->dados->val($i, 'C', 0);
-                    } else if ($i > 32 && $i < 37) {
-                        $this->kind[$this->__getCategoria()[1]][$auxNatureza] = $this->dados->val($i, 'C', 0);
-                    } else {
-                        $this->kind[$this->__getCategoria()[2]][$auxNatureza] = $this->dados->val($i, 'C', 0);
-                    }
-                }
-                $auxNatureza++;
-            }
-        }
+        
+        //Function witch captures the crime by nature
+        crimeByNature();
+        
         $criminalidade = utf8_encode("Criminalidade");
         $acao = utf8_encode("A��o Policial");
         $transito = utf8_encode("Tr�nsito");
@@ -91,7 +71,7 @@ class Parse {
                 $auxTempo++;
             }
         }
-        if (($this->__getTempo() == null) || (count($this->__getTempo()) != 11)) {
+        if (($this->__getTime() == null) || (count($this->__getTime()) != 11)) {
             throw EFailReadingSerieTime::();
         }
         //loop que pega os dados do crime
@@ -107,21 +87,44 @@ class Parse {
                     } else {
                         $auxCategoria = 2;
                     }
-                    $this->crime[$this->__getNatureza()[$this->__getCategoria()[$auxCategoria]][$auxLinha]][$this->__getTempo()[$auxColuna]] = $this->dados->raw($i, $j, 0);
+                    $this->crime[$this->__getKind()[$this->__getCategory()[$auxCategoria]][$auxLinha]][$this->__getTime()[$auxColuna]] = $this->dados->raw($i, $j, 0);
                     $auxColuna++;
                 }
                 $auxLinha++;
             }
         }
     }
+    
+    
+     public function crimeByNature(){
+        for ($i = 1, $auxNatureza = 0; $i < $numeroLinhas; $i++) {
+            if (($i == 1) || ($i == 5) || ($i == 21) || ($i == 27) || ($i == 28) || ($i == 31) || ($i == 32) || ($i == 37) || ($i == 40)) {
+                continue;
+            } else {
+                if ($i > 32) {
+                    if ($i < 37) {
+                        $this->kind[$this->__getCategory()[1]][$auxNatureza] = $this->dados->val($i, 'B', 0);
+                    } else {
+                        $this->kind[$this->__getCategory()[2]][$auxNatureza] = $this->dados->val($i, 'B', 0);
+                    }
+                } else {
+                    if ($i < 32) {
+                        $this->kind[$this->__getCategory()[0]][$auxNatureza] = $this->dados->val($i, 'C', 0);
+                    } else if ($i > 32 && $i < 37) {
+                        $this->kind[$this->__getCategory()[1]][$auxNatureza] = $this->dados->val($i, 'C', 0);
+                    } else {
+                        $this->kind[$this->__getCategory()[2]][$auxNatureza] = $this->dados->val($i, 'C', 0);
+                    }
+                }
+                $auxNatureza++;
+            }
+        }
+     }
 
-//fim do metodo parseDeSerieHistorica
 
     /**
      * 	Desenvolvimento do m�todo para efetuar parse da planilha de crimes por Regi�o Administrativa
-     * 	@access public
-     * 	@author Lucas Carvalho
-     * 	@tutorial M�todo realizado durante sprint 4, atualizando arrays para cada campo, para depois ir para persist�ncia.
+     *  Atualizando arrays para cada campo, para depois ir para persist�ncia.
      */
     public function parsePorRegiao() {
         /**
@@ -145,19 +148,19 @@ class Parse {
         for ($i = 0, $auxNatureza = 0; $i < 45; $i++) {
             // Val Ã© o valor da cÃ©lula que esta sendo armazenado na nova tabela val(linha, coluna, sheet)
             if ($i > 7 && $i < 11) {
-                $this->kind[$this->__getCategoria()[0]][$auxNatureza] = $this->dados->val($i, 'B', 1);
+                $this->kind[$this->__getCategory()[0]][$auxNatureza] = $this->dados->val($i, 'B', 1);
                 $auxNatureza++;
             } else if (($i > 11 && $i < 26) || ($i > 26 && $i < 32)) {
-                $this->kind[$this->__getCategoria()[1]][$auxNatureza] = $this->dados->val($i, 'B', 1);
+                $this->kind[$this->__getCategory()[1]][$auxNatureza] = $this->dados->val($i, 'B', 1);
                 $auxNatureza++;
             } else if ($i > 33 && $i < 36) {
-                $this->kind[$this->__getCategoria()[2]][$auxNatureza] = $this->dados->val($i, 'B', 1);
+                $this->kind[$this->__getCategory()[2]][$auxNatureza] = $this->dados->val($i, 'B', 1);
                 $auxNatureza++;
             } else if ($i > 37 && $i < 42) {
-                $this->kind[$this->__getCategoria()[3]][$auxNatureza] = $this->dados->val($i, 'B', 1);
+                $this->kind[$this->__getCategory()[3]][$auxNatureza] = $this->dados->val($i, 'B', 1);
                 $auxNatureza++;
             } else if ($i > 42 && $i < 45) {
-                $this->kind[$this->__getCategoria()[4]][$auxNatureza] = $this->dados->val($i, 'B', 1);
+                $this->kind[$this->__getCategory()[4]][$auxNatureza] = $this->dados->val($i, 'B', 1);
                 $auxNatureza++;
             } else {
                 continue;
@@ -235,7 +238,7 @@ class Parse {
                         $auxCategoria = 4;
                     }
 
-                    $this->crime[$this->__getNatureza()[$this->__getCategoria()[$auxCategoria]][$auxLinha]][$this->__getRegiao()[$auxRegiao]][$this->__getTempo()[$auxTempo]] = $this->dados->raw($i, $j, 1);
+                    $this->crime[$this->__getKind()[$this->__getCategory()[$auxCategoria]][$auxLinha]][$this->__getRegiao()[$auxRegiao]][$this->__getTime()[$auxTempo]] = $this->dados->raw($i, $j, 1);
                 }
                 $auxLinha++;
             }
@@ -270,7 +273,7 @@ class Parse {
                     } else if (($i > 91 && $i < 94)) {
                         $auxCategoria = 4;
                     }
-                    $this->crime[$this->__getNatureza()[$this->__getCategoria()[$auxCategoria]][$auxLinha]][$this->__getRegiao()[$auxRegiao]][$this->__getTempo()[$auxTempo]] = $this->dados->raw($i, $j, 1);
+                    $this->crime[$this->__getKind()[$this->__getCategory()[$auxCategoria]][$auxLinha]][$this->__getRegiao()[$auxRegiao]][$this->__getTime()[$auxTempo]] = $this->dados->raw($i, $j, 1);
                 }
                 $auxLinha++;
             }
@@ -305,7 +308,7 @@ class Parse {
                     } else if (($i > 140 && $i < 143)) {
                         $auxCategoria = 4;
                     }
-                    $this->crime[$this->__getNatureza()[$this->__getCategoria()[$auxCategoria]][$auxLinha]][$this->__getRegiao()[$auxRegiao]][$this->__getTempo()[$auxTempo]] = $this->dados->raw($i, $j, 1);
+                    $this->crime[$this->__getKind()[$this->__getCategory()[$auxCategoria]][$auxLinha]][$this->__getRegiao()[$auxRegiao]][$this->__getTime()[$auxTempo]] = $this->dados->raw($i, $j, 1);
                 }
                 $auxLinha++;
             }
@@ -316,14 +319,6 @@ class Parse {
 
     /**
      * 	Desenvolvimento do m�todo para efetuar parse da planilha de quadrimestre
-     * 	@access public
-     * 	@author Bruno Rodrigues
-     * 	@author Eliseu Egewarth
-     * 	@author Lucas Andrade	
-     * 	@author Lucas Carvalho
-     * 	@author Lucas Santos
-     * 	@author S�rgio Bezerra
-     * 	@author Thiago Honorato
      * 	@tutorial M�todo realizado durante sprint 2, atulizando arrays para cada campo, para depois ir para persist�ncia.
      */
     public function parseDeQuadrimestre() {
@@ -344,32 +339,30 @@ class Parse {
         }
         /**
          * Loop para pegar os nomes das naturezas contidas na planilha
-         * @author Lucas Carvalho
-         * @author S�rgio Bezerra
          * @tutorial Refatora��o para ajustar dimen��es do vetor natureza para diminuir a complexidade de popula��o do vetor
          */
         for ($i = 8, $auxNatureza = 0; $i < $numeroLinhas; $i++) {
             // Val Ã© o valor da cÃ©lula que esta sendo armazenado na nova tabela val(linha, coluna, sheet)
             if ($i > 7 && $i < 11) {
-                $this->kind[$this->__getCategoria()[0]][$auxNatureza] = $this->dados->val($i, 'B', 2);
+                $this->kind[$this->__getCategory()[0]][$auxNatureza] = $this->dados->val($i, 'B', 2);
                 $auxNatureza++;
             } else if (($i > 11 && $i < 26) || ($i > 26 && $i < 31)) {
-                $this->kind[$this->__getCategoria()[1]][$auxNatureza] = $this->dados->val($i, 'B', 2);
+                $this->kind[$this->__getCategory()[1]][$auxNatureza] = $this->dados->val($i, 'B', 2);
                 $auxNatureza++;
             } else if ($i == 34) {
-                $this->kind[$this->__getCategoria()[2]][$auxNatureza] = $this->dados->val($i, 'B', 2);
+                $this->kind[$this->__getCategory()[2]][$auxNatureza] = $this->dados->val($i, 'B', 2);
                 $auxNatureza++;
             } else if ($i == 35) {
-                $this->kind[$this->__getCategoria()[3]][$auxNatureza] = $this->dados->val($i, 'B', 2);
+                $this->kind[$this->__getCategory()[3]][$auxNatureza] = $this->dados->val($i, 'B', 2);
                 $auxNatureza++;
             } else if ($i == 36) {
-                $this->kind[$this->__getCategoria()[4]][$auxNatureza] = $this->dados->val($i, 'B', 2);
+                $this->kind[$this->__getCategory()[4]][$auxNatureza] = $this->dados->val($i, 'B', 2);
                 $auxNatureza++;
             } else if ($i == 37) {
-                $this->kind[$this->__getCategoria()[5]][$auxNatureza] = $this->dados->val($i, 'B', 2);
+                $this->kind[$this->__getCategory()[5]][$auxNatureza] = $this->dados->val($i, 'B', 2);
                 $auxNatureza++;
             } else if ($i > 38 && $i < 41) {
-                $this->kind[$this->__getCategoria()[6]][$auxNatureza] = $this->dados->val($i, 'B', 2);
+                $this->kind[$this->__getCategory()[6]][$auxNatureza] = $this->dados->val($i, 'B', 2);
                 $auxNatureza++;
             } else {
                 continue;
@@ -378,7 +371,6 @@ class Parse {
 
         /** 		 
          * Loop que pega as informa��es sobre tempo da planilha
-         * @author Lucas Carvalho
          */
         for ($i = 6, $auxTempo = 0; $i < $numeroColunas; $i++) {
             if (($i % 2) == 0) {
@@ -388,7 +380,6 @@ class Parse {
         }
         /**
          * Loop que pega as informa��es do crime da planilha
-         * @author Lucas Carvalho 
          */
         for ($i = 0, $auxLinha = 0; $i < $numeroLinhas; $i++) {
             if (($i < 8) || ($i == 11) || ($i == 26) || ($i == 31) || ($i == 32) || ($i == 33) || ($i == 38) || ($i == 41)) {
@@ -413,7 +404,7 @@ class Parse {
                     } else if ($i > 38 && $i < 41) {
                         $auxCategoria = 6;
                     }
-                    $this->crime[$this->__getNatureza()[$this->__getCategoria()[$auxCategoria]][$auxLinha]][$this->__getTempo()[2013][$auxColuna]] = $this->dados->raw($i, $j, 2);
+                    $this->crime[$this->__getKind()[$this->__getCategory()[$auxCategoria]][$auxLinha]][$this->__getTime()[2013][$auxColuna]] = $this->dados->raw($i, $j, 2);
                     $auxColuna++;
                 }
                 $auxLinha++;
@@ -421,19 +412,19 @@ class Parse {
         }
     }
 
-    public function __setNatureza($natureza) {
+    public function __setKind($natureza) {
         $this->kind = $natureza;
     }
 
-    public function __getNatureza() {
+    public function __getKind() {
         return $this->kind;
     }
 
-    public function __setTempo($time) {
-        $this->time = $time
+    public function __setTime($time) {
+        $this->time = $time;
     }
 
-    public function __getTempo() {
+    public function __getTime() {
         return $this->time;
     }
 
@@ -445,20 +436,20 @@ class Parse {
         return $this->crime;
     }
 
-    public function __setCategoria($category) {
+    public function __setCategory($category) {
         $this->ccategory= $category;
     }
 
-    public function __getCategoria() {
+    public function __getCategory() {
         return $this->category;
     }
 
-    public function __setRegiao($regiao) {
-        $this->regiao = $regiao;
+    public function __setRegion($region) {
+        $this->region = $region;
     }
 
     public function __getRegiao() {
-        return $this->regiao;
+        return $this->region;
     }
 
 }

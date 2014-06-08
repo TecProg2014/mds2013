@@ -33,22 +33,22 @@ class ParseTest extends PHPUnit_Framework_Testcase {
     public function testeSetNatureza() {
         $spreadSheet = "s�rie hist�rica - 2001 - 2012 2.xls";
         $parse = new Parse($spreadSheet);
-        $parse->__setNatureza("Natureza");
-        $this->assertEquals("Natureza", $parse->__getNatureza());
+        $parse->__setKind("Natureza");
+        $this->assertEquals("Natureza", $parse->__getKind());
     }
 
     public function testeSetCategoria() {
         $spreadSheet = "s�rie hist�rica - 2001 - 2012 2.xls";
         $parse = new Parse($spreadSheet);
-        $parse->__setCategoria("Categoria");
-        $this->assertEquals("Categoria", $parse->__getCategoria());
+        $parse->__setCategory("Categoria");
+        $this->assertEquals("Categoria", $parse->__getCategory());
     }
 
     public function testeSetTempo() {
         $spreadSheet = "s�rie hist�rica - 2001 - 2012 2.xls";
         $parse = new Parse($spreadSheet);
-        $parse->__setTempo(2013);
-        $this->assertEquals(2013, $parse->__getTempo());
+        $parse->__setTime(2013);
+        $this->assertEquals(2013, $parse->__getTime());
     }
 
     public function testeSetCrime() {
@@ -61,7 +61,7 @@ class ParseTest extends PHPUnit_Framework_Testcase {
     public function testeSetRegiao() {
         $spreadSheet = "s�rie hist�rica - 2001 - 2012 2.xls";
         $parse = new Parse($spreadSheet);
-        $parse->__setRegiao('N BAND');
+        $parse->__setRegion('N BAND');
         $this->assertEquals('N BAND', $parse->__getRegiao());
     }
 
