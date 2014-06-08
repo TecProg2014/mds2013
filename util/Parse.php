@@ -153,79 +153,10 @@ class Parse {
         echo "<br>";
         
         catchCrimeDatas();
+        catchCrimeDatas2 ();
+        catchCrimeDatas3();
         
-        /**
-         * Loop para pegar os dados de crime contidas na planila de RA da segunda parte
-         * @author Lucas Carvalho
-         */
-        for ($i = 57, $auxLinha = 0, $auxRegiao = 9; $i < 94; $i++) {
-            if (($i == 60) || ($i == 75) || ($i == 81) || ($i == 82) || ($i == 85) || ($i == 86) || ($i == 91)) {
-                continue;
-            } else {
-                for ($j = 6, $auxCategoria = 0; $j < 26; $j++) {
-                    if (($j % 2) == 0) {
-                        $auxTempo = 0;
-                        $auxRegiao++;
-                    }
-                    if (($j % 2) != 0) {
-                        $auxTempo = 1;
-                    }
-                    if ($auxRegiao == 20) {
-                        $auxRegiao = 10;
-                    }
-                    if (($i > 56 && $i < 60)) {
-                        $auxCategoria = 0;
-                    } else if (($i > 75 && $i < 81) || ($i > 60 && $i < 75)) {
-                        $auxCategoria = 1;
-                    } else if (($i > 82 && $i < 85)) {
-                        $auxCategoria = 2;
-                    } else if (($i > 86 && $i < 91)) {
-                        $auxCategoria = 3;
-                    } else if (($i > 91 && $i < 94)) {
-                        $auxCategoria = 4;
-                    }
-                    $this->crime[$this->__getKind()[$this->__getCategory()[$auxCategoria]][$auxLinha]][$this->__getRegion()[$auxRegiao]][$this->__getTime()[$auxTempo]] = $this->dados->raw($i, $j, 1);
-                }
-                $auxLinha++;
-            }
-        }
-        /**
-         * Loop para pegar os dados de crime contidas na planila de RA da terceira parte
-         * @author Lucas Carvalho
-         */
-        for ($i = 106, $auxLinha = 0, $auxRegiao = 19; $i < 143; $i++) {
-            if (($i == 109) || ($i == 124) || ($i == 130) || ($i == 124) || ($i == 130) || ($i == 131) || ($i == 134) || ($i == 135) || ($i == 140)) {
-                continue;
-            } else {
-                for ($j = 6, $auxCategoria = 0; $j < 30; $j++) {
-                    if (($j % 2) == 0) {
-                        $auxTempo = 0;
-                        $auxRegiao++;
-                    }
-                    if (($j % 2) != 0) {
-                        $auxTempo = 1;
-                    }
-                    if ($auxRegiao == 32) {
-                        $auxRegiao = 20;
-                    }
-                    if (($i > 105 && $i < 109)) {
-                        $auxCategoria = 0;
-                    } else if (($i > 109 && $i < 124) || ($i > 124 && $i < 130)) {
-                        $auxCategoria = 1;
-                    } else if (($i > 131 && $i < 134)) {
-                        $auxCategoria = 2;
-                    } else if (($i > 135 && $i < 140)) {
-                        $auxCategoria = 3;
-                    } else if (($i > 140 && $i < 143)) {
-                        $auxCategoria = 4;
-                    }
-                    $this->crime[$this->__getKind()[$this->__getCategory()[$auxCategoria]][$auxLinha]][$this->__getRegion()[$auxRegiao]][$this->__getTime()[$auxTempo]] = $this->dados->raw($i, $j, 1);
-                }
-                $auxLinha++;
-            }
-        }
         echo "<br>";
-        //print_r($this->__getCrime());
     }
 
     
@@ -352,7 +283,84 @@ class Parse {
             }
         }
     }    
-        
+    
+    
+    public function catchCrimeDatas2 (){
+        /**
+         * Loop para pegar os dados de crime contidas na planila de RA da segunda parte
+         * @author Lucas Carvalho
+         */
+        for ($i = 57, $auxLinha = 0, $auxRegiao = 9; $i < 94; $i++) {
+            if (($i == 60) || ($i == 75) || ($i == 81) || ($i == 82) || ($i == 85) || ($i == 86) || ($i == 91)) {
+                continue;
+            } else {
+                for ($j = 6, $auxCategoria = 0; $j < 26; $j++) {
+                    if (($j % 2) == 0) {
+                        $auxTempo = 0;
+                        $auxRegiao++;
+                    }
+                    if (($j % 2) != 0) {
+                        $auxTempo = 1;
+                    }
+                    if ($auxRegiao == 20) {
+                        $auxRegiao = 10;
+                    }
+                    if (($i > 56 && $i < 60)) {
+                        $auxCategoria = 0;
+                    } else if (($i > 75 && $i < 81) || ($i > 60 && $i < 75)) {
+                        $auxCategoria = 1;
+                    } else if (($i > 82 && $i < 85)) {
+                        $auxCategoria = 2;
+                    } else if (($i > 86 && $i < 91)) {
+                        $auxCategoria = 3;
+                    } else if (($i > 91 && $i < 94)) {
+                        $auxCategoria = 4;
+                    }
+                    $this->crime[$this->__getKind()[$this->__getCategory()[$auxCategoria]][$auxLinha]][$this->__getRegion()[$auxRegiao]][$this->__getTime()[$auxTempo]] = $this->dados->raw($i, $j, 1);
+                }
+                $auxLinha++;
+            }
+        }
+    }        
+    
+    public function catchCrimeDatas3(){
+            /**
+         * Loop para pegar os dados de crime contidas na planila de RA da terceira parte
+         * @author Lucas Carvalho
+         */
+        for ($i = 106, $auxLinha = 0, $auxRegiao = 19; $i < 143; $i++) {
+            if (($i == 109) || ($i == 124) || ($i == 130) || ($i == 124) || ($i == 130) || ($i == 131) || ($i == 134) || ($i == 135) || ($i == 140)) {
+                continue;
+            } else {
+                for ($j = 6, $auxCategoria = 0; $j < 30; $j++) {
+                    if (($j % 2) == 0) {
+                        $auxTempo = 0;
+                        $auxRegiao++;
+                    }
+                    if (($j % 2) != 0) {
+                        $auxTempo = 1;
+                    }
+                    if ($auxRegiao == 32) {
+                        $auxRegiao = 20;
+                    }
+                    if (($i > 105 && $i < 109)) {
+                        $auxCategoria = 0;
+                    } else if (($i > 109 && $i < 124) || ($i > 124 && $i < 130)) {
+                        $auxCategoria = 1;
+                    } else if (($i > 131 && $i < 134)) {
+                        $auxCategoria = 2;
+                    } else if (($i > 135 && $i < 140)) {
+                        $auxCategoria = 3;
+                    } else if (($i > 140 && $i < 143)) {
+                        $auxCategoria = 4;
+                    }
+                    $this->crime[$this->__getKind()[$this->__getCategory()[$auxCategoria]][$auxLinha]][$this->__getRegion()[$auxRegiao]][$this->__getTime()[$auxTempo]] = $this->dados->raw($i, $j, 1);
+                }
+                $auxLinha++;
+            }
+        }
+    }        
+
     /**
      * Method to accomplish parse of four months' worksheet: updates arrays for each field, then go for persistence.
      * @return void
