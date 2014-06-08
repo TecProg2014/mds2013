@@ -159,12 +159,12 @@ class Parse {
         echo "<br>";
     }
 
-    
-    public function catchCategoryNames(){
     /**
-         * Loop para pegar os nomes das categorias na planilha
-         * @author Lucas Carvalho 
-         */
+     * Method to catch the catgories' names contained in the RA worksheet.
+     * @return void
+     * @param no parameters
+     */
+    public function catchCategoryNames(){
         for ($i = 0, $auxCategoria = 0; $i < 45; $i++) {
             if (($i == 8) || ($i == 12) || ($i == 34) || ($i == 38) || ($i == 43)) {
                 $this->category[$auxCategoria] = $this->dados->val($i, 'A', 1);
@@ -175,12 +175,12 @@ class Parse {
         }
     }  
     
-    
-    public function catchKindNames(){
     /**
-         * Loop para pegar os nomes das naturezas de crimes contidas na planilha de RA
-         * @author Lucas Carvalho 
-         */
+     * Method to catch the kind names contained in the RA worksheet.
+     * @return void
+     * @param no parameters
+     */
+    public function catchKindNames(){
         for ($i = 0, $auxNatureza = 0; $i < 45; $i++) {
             // Val Ã© o valor da cÃ©lula que esta sendo armazenado na nova tabela val(linha, coluna, sheet)
             if ($i > 7 && $i < 11) {
@@ -204,23 +204,24 @@ class Parse {
         }
     }
     
+    /**
+     * Method to catch the times' names contained in the RA worksheet.
+     * @return void
+     * @param no parameters
+     */
     public function catchTimeNames() {
-
-        /**
-         * Loop para pegar os nomes dos tempos contidas na planilha de RA
-         * @author Lucas Carvalho
-         */
         for ($i = 6, $auxTempo = 0; $i < 8; $i++) {
             $this->time[$auxTempo] = $this->dados->val(7, $i, 1);
             $auxTempo++;
         }
     }
     
-    public function catchRegionNames(){
     /**
-         * Loop para pegar os nomes das regi�es contidas na planilha RA
-         * @author Lucas Carvalho
-         */
+     * Method to catch the names of the regions contained in the of RA worksheet.
+     * @return void
+     * @param no parameters
+     */
+    public function catchRegionNames(){
         for ($i = 0, $auxRegiao = 0; $i < 3; $i++) {
             if ($i == 0) {
                 $linha = 6;
@@ -245,11 +246,12 @@ class Parse {
         }
     }
     
-    public function catchCrimeDatas(){
     /**
-         * Loop para pegar os dados de crime contidas na planila de RA da primeira parte
-         * @author Lucas Carvalho
-         */
+     * Method to catch the crime datas contained in the first part of RA worksheet.
+     * @return void
+     * @param no parameters
+     */
+    public function catchCrimeDatas(){
         for ($i = 8, $auxLinha = 0, $auxRegion = -1; $i < 45; $i++) {
             if (($i == 11) || ($i == 26) || ($i == 32) || ($i == 33) || ($i == 36) || ($i == 37) || ($i == 42)) {
                 continue;
@@ -284,12 +286,12 @@ class Parse {
         }
     }    
     
-    
+    /**
+     * Method to catch the crime datas contained in the second part of RA worksheet.
+     * @return void
+     * @param no parameters
+     */
     public function catchCrimeDatas2 (){
-        /**
-         * Loop para pegar os dados de crime contidas na planila de RA da segunda parte
-         * @author Lucas Carvalho
-         */
         for ($i = 57, $auxLinha = 0, $auxRegiao = 9; $i < 94; $i++) {
             if (($i == 60) || ($i == 75) || ($i == 81) || ($i == 82) || ($i == 85) || ($i == 86) || ($i == 91)) {
                 continue;
@@ -323,11 +325,11 @@ class Parse {
         }
     }        
     
+    /**
+     * Method to catch the crime datas contained in the third part of RA worksheet.
+     * @return void
+     */
     public function catchCrimeDatas3(){
-            /**
-         * Loop para pegar os dados de crime contidas na planila de RA da terceira parte
-         * @author Lucas Carvalho
-         */
         for ($i = 106, $auxLinha = 0, $auxRegiao = 19; $i < 143; $i++) {
             if (($i == 109) || ($i == 124) || ($i == 130) || ($i == 124) || ($i == 130) || ($i == 131) || ($i == 134) || ($i == 135) || ($i == 140)) {
                 continue;
