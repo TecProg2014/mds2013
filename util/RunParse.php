@@ -28,7 +28,7 @@ class RunParse {
 
 
         $this->parse = new Parse("JAN_SET_2011_12  POR REGIAO ADM_2.xls");
-        print_r($this->parse->__getRegiao());
+        print_r($this->parse->__getRegion());
     }
 
 }

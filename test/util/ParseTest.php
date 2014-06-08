@@ -62,7 +62,7 @@ class ParseTest extends PHPUnit_Framework_Testcase {
         $spreadSheet = "s�rie hist�rica - 2001 - 2012 2.xls";
         $parse = new Parse($spreadSheet);
         $parse->__setRegion('N BAND');
-        $this->assertEquals('N BAND', $parse->__getRegiao());
+        $this->assertEquals('N BAND', $parse->__getRegion());
     }
 
 }
