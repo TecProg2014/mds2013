@@ -322,14 +322,62 @@ class Parse {
      * 	@tutorial M�todo realizado durante sprint 2, atulizando arrays para cada campo, para depois ir para persist�ncia.
      */
     public function parseDeQuadrimestre() {
-        $numeroLinhas = 41;
-        $numeroColunas = 14;
-        /**
-         * Loop para pegar os nomes das categorias contidas na planilha
-         * @author Lucas Carvalho
-         * @tutorial Refatora��o do metodo antes implementados por outros autores 	 
+        $numberOfLines = 41;
+        $numberOfColumns = 14;
+      
+        catchCategoryName($numberOfLines);
+        
+        catchKindName($numberOfLines);
+        /** 		 
+         * Loop que pega as informa��es sobre tempo da planilha
          */
-        for ($i = 0, $auxCategoria = 0; $i < $numeroLinhas; $i++) {
+        for ($i = 6, $auxTempo = 0; $i < $numberOfColumns; $i++) {
+            if (($i % 2) == 0) {
+                $this->time[2013][$auxTempo] = $this->dados->val(6, $i, 2);
+                $auxTempo++;
+            }
+        }
+        /**
+         * Loop que pega as informa��es do crime da planilha
+         */
+        for ($i = 0, $auxLinha = 0; $i < $numberOfLines; $i++) {
+            if (($i < 8) || ($i == 11) || ($i == 26) || ($i == 31) || ($i == 32) || ($i == 33) || ($i == 38) || ($i == 41)) {
+                continue;
+            } else {
+                for ($j = 6, $auxColuna = 0, $auxCategoria = 0; $j < $numberOfColumns; $j++) {
+                    if (($j % 2) == 0) {
+                        continue;
+                    }
+                    if ($i > 7 && $i < 11) {
+                        $auxCategoria = 0;
+                    } else if (($i > 11 && $i < 26) || ($i > 26 && $i < 31)) {
+                        $auxCategoria = 1;
+                    } else if ($i == 34) {
+                        $auxCategoria = 2;
+                    } else if ($i == 35) {
+                        $auxCategoria = 3;
+                    } else if ($i == 36) {
+                        $auxCategoria = 4;
+                    } else if ($i == 37) {
+                        $auxCategoria = 5;
+                    } else if ($i > 38 && $i < 41) {
+                        $auxCategoria = 6;
+                    }
+                    $this->crime[$this->__getKind()[$this->__getCategory()[$auxCategoria]][$auxLinha]][$this->__getTime()[2013][$auxColuna]] = $this->dados->raw($i, $j, 2);
+                    $auxColuna++;
+                }
+                $auxLinha++;
+            }
+        }
+    }
+    
+    public function catchCategoryName($numberOfLines){
+        /**
+         * Loop to catch the names of the categories contained in the worksheet
+         * @param numberOfLines     number of lines in the worksheet
+         * @return void
+         */
+        for ($i = 0, $auxCategoria = 0; $i < $numberOfLines; $i++) {
             if (($i == 8) || ($i == 12) || ($i == 34) || ($i == 35) || ($i == 36) || ($i == 37) || ($i == 39)) {
                 $this->categoria[$auxCategoria] = $this->dados->val($i, 1, 2);
                 $auxCategoria++;
@@ -337,11 +385,14 @@ class Parse {
                 continue;
             }
         }
+    }
+
+   
+    public function catchKindName($numberOfLines){
         /**
          * Loop para pegar os nomes das naturezas contidas na planilha
-         * @tutorial Refatora��o para ajustar dimen��es do vetor natureza para diminuir a complexidade de popula��o do vetor
          */
-        for ($i = 8, $auxNatureza = 0; $i < $numeroLinhas; $i++) {
+        for ($i = 8, $auxNatureza = 0; $i < $numberOfLines; $i++) {
             // Val Ã© o valor da cÃ©lula que esta sendo armazenado na nova tabela val(linha, coluna, sheet)
             if ($i > 7 && $i < 11) {
                 $this->kind[$this->__getCategory()[0]][$auxNatureza] = $this->dados->val($i, 'B', 2);
@@ -368,50 +419,8 @@ class Parse {
                 continue;
             }
         }
-
-        /** 		 
-         * Loop que pega as informa��es sobre tempo da planilha
-         */
-        for ($i = 6, $auxTempo = 0; $i < $numeroColunas; $i++) {
-            if (($i % 2) == 0) {
-                $this->time[2013][$auxTempo] = $this->dados->val(6, $i, 2);
-                $auxTempo++;
-            }
-        }
-        /**
-         * Loop que pega as informa��es do crime da planilha
-         */
-        for ($i = 0, $auxLinha = 0; $i < $numeroLinhas; $i++) {
-            if (($i < 8) || ($i == 11) || ($i == 26) || ($i == 31) || ($i == 32) || ($i == 33) || ($i == 38) || ($i == 41)) {
-                continue;
-            } else {
-                for ($j = 6, $auxColuna = 0, $auxCategoria = 0; $j < $numeroColunas; $j++) {
-                    if (($j % 2) == 0) {
-                        continue;
-                    }
-                    if ($i > 7 && $i < 11) {
-                        $auxCategoria = 0;
-                    } else if (($i > 11 && $i < 26) || ($i > 26 && $i < 31)) {
-                        $auxCategoria = 1;
-                    } else if ($i == 34) {
-                        $auxCategoria = 2;
-                    } else if ($i == 35) {
-                        $auxCategoria = 3;
-                    } else if ($i == 36) {
-                        $auxCategoria = 4;
-                    } else if ($i == 37) {
-                        $auxCategoria = 5;
-                    } else if ($i > 38 && $i < 41) {
-                        $auxCategoria = 6;
-                    }
-                    $this->crime[$this->__getKind()[$this->__getCategory()[$auxCategoria]][$auxLinha]][$this->__getTime()[2013][$auxColuna]] = $this->dados->raw($i, $j, 2);
-                    $auxColuna++;
-                }
-                $auxLinha++;
-            }
-        }
     }
-
+    
     public function __setKind($natureza) {
         $this->kind = $natureza;
     }
@@ -451,5 +460,4 @@ class Parse {
     public function __getRegiao() {
         return $this->region;
     }
-
 }
