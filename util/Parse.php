@@ -326,17 +326,9 @@ class Parse {
         $numberOfColumns = 14;
       
         catchCategoryName($numberOfLines);
-        
         catchKindName($numberOfLines);
-        /** 		 
-         * Loop que pega as informa��es sobre tempo da planilha
-         */
-        for ($i = 6, $auxTempo = 0; $i < $numberOfColumns; $i++) {
-            if (($i % 2) == 0) {
-                $this->time[2013][$auxTempo] = $this->dados->val(6, $i, 2);
-                $auxTempo++;
-            }
-        }
+        catchTimeValues($numberOfColumns);
+        
         /**
          * Loop que pega as informa��es do crime da planilha
          */
@@ -390,33 +382,42 @@ class Parse {
    
     public function catchKindName($numberOfLines){
         /**
-         * Loop para pegar os nomes das naturezas contidas na planilha
+         * Loop to catch the names of the natures contained in the worksheet.
+         * @param numberOfLines     number of lines in the worksheet
+         * @return void
          */
-        for ($i = 8, $auxNatureza = 0; $i < $numberOfLines; $i++) {
-            // Val Ã© o valor da cÃ©lula que esta sendo armazenado na nova tabela val(linha, coluna, sheet)
+        for ($i = 8, $auxKind = 0; $i < $numberOfLines; $i++) {
+            // The value of the cell that is being stored in the new table val (row, column, sheet)
             if ($i > 7 && $i < 11) {
-                $this->kind[$this->__getCategory()[0]][$auxNatureza] = $this->dados->val($i, 'B', 2);
-                $auxNatureza++;
+                $this->kind[$this->__getCategory()[0]][$auxKind] = $this->dados->val($i, 'B', 2);$auxKind++;
             } else if (($i > 11 && $i < 26) || ($i > 26 && $i < 31)) {
-                $this->kind[$this->__getCategory()[1]][$auxNatureza] = $this->dados->val($i, 'B', 2);
-                $auxNatureza++;
+                $this->kind[$this->__getCategory()[1]][$auxKind] = $this->dados->val($i, 'B', 2);$auxKind++;
             } else if ($i == 34) {
-                $this->kind[$this->__getCategory()[2]][$auxNatureza] = $this->dados->val($i, 'B', 2);
-                $auxNatureza++;
+                $this->kind[$this->__getCategory()[2]][$auxKind] = $this->dados->val($i, 'B', 2);$auxKind++;
             } else if ($i == 35) {
-                $this->kind[$this->__getCategory()[3]][$auxNatureza] = $this->dados->val($i, 'B', 2);
-                $auxNatureza++;
+                $this->kind[$this->__getCategory()[3]][$auxKind] = $this->dados->val($i, 'B', 2);$auxKind++;
             } else if ($i == 36) {
-                $this->kind[$this->__getCategory()[4]][$auxNatureza] = $this->dados->val($i, 'B', 2);
-                $auxNatureza++;
+                $this->kind[$this->__getCategory()[4]][$auxKind] = $this->dados->val($i, 'B', 2);$auxKind++;
             } else if ($i == 37) {
-                $this->kind[$this->__getCategory()[5]][$auxNatureza] = $this->dados->val($i, 'B', 2);
-                $auxNatureza++;
+                $this->kind[$this->__getCategory()[5]][$auxKind] = $this->dados->val($i, 'B', 2);$auxKind++;
             } else if ($i > 38 && $i < 41) {
-                $this->kind[$this->__getCategory()[6]][$auxNatureza] = $this->dados->val($i, 'B', 2);
-                $auxNatureza++;
+                $this->kind[$this->__getCategory()[6]][$auxKind] = $this->dados->val($i, 'B', 2);$auxKind++;
             } else {
                 continue;
+            }
+        }
+    }
+    
+    public function catchTimeValues($numberOfColumns){
+        /** 		 
+         * Loop that takes the time information from the worksheet
+         * @param numberOfColumns     number of columns in the worksheet
+         * @return void
+         */
+        for ($i = 6, $auxTempo = 0; $i < $numberOfColumns; $i++) {
+            if (($i % 2) == 0) {
+                $this->time[2013][$auxTempo] = $this->dados->val(6, $i, 2);
+                $auxTempo++;
             }
         }
     }
