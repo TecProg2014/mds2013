@@ -35,20 +35,40 @@ class CategoryController {
 
     public function consultCategoryByName($id) {
         //consults category by its id	
+        $validatingNumericCarachters = validatesNumericCharacters($id);
+        
+        $category = $this->categoryDAO-> listAllCategories($id);
+        return $category;
+    }
+    
+    public function validatesNumericCharacters($id){
+        
         if (!is_numeric($id)) {
             throw new EWrongConsult();
         }
-        $category = $this->categoryDAO-> listAllCategories($id);
-        return $category;
+        
+        $returnValid = 0;
+        return $returnValid;
+        
     }
 
     public function consultByName($categoryName) {
         //consults category by name	
+        $validatesStringCaracters = validatesStringCharacters($categoryName);
+        
+        $category = $this->categoryDAO->consultCategoryByName($categoryName);
+        return $category;
+    }
+    
+    public function validatesStringCharacters($categoryName){
+        
         if (!is_string($categoryName)) {
             throw new EWrongConsult();
         }
-        $category = $this->categoryDAO->consultCategoryByName($categoryName);
-        return $category;
+        
+        $returnValid = 0;
+        return $returnValid;
+        
     }
 
     public function insertCategory(Category $category) {

@@ -51,6 +51,20 @@ class CategoryControllerTest extends PHPUnit_Framework_Testcase {
         $categoryInstance->assertInstanceOf('CategoriaController', $objectCategoryControl);
         $categoryInstance->assertInstanceOf('Categoria', $objectCategoryControl->_consultarPorNome('Criminalidade'));
     }
+    
+    public function testValidatesNumericCharacters() {
+        $objectCategoryControl = new CategoryController();
+        $categoryInstance->assertObjectHasAttribute('categoriaDAO', $objectCategoryControl);
+        $categoryInstance->assertInstanceOf('CategoriaController', $objectCategoryControl);
+        $categoryInstance->assertInstanceOf('Categoria', $objectCategoryControl->_validatesNumericCharacters(1));
+    }
+    
+    public function testValidatesStringCharacters() {
+        $objectCategoryControl = new CategoryController();
+        $categoryInstance->assertObjectHasAttribute('categoriaDAO', $objectCategoryControl);
+        $categoryInstance->assertInstanceOf('CategoriaController', $objectCategoryControl);
+        $categoryInstance->assertInstanceOf('Categoria', $objectCategoryControl->_validatesStringCharacters('Criminalidade'));
+    }
 
     public function testExceptionConsultarPorNome() {
         $objectCategoryControl = new CategoryController();
