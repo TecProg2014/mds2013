@@ -30,16 +30,21 @@ class AdministrativeRegionController {
 
     public function listAllAdministrativeRegionsAlphabetically() {
         //lists administrative regions alphabetically
-
         $arrayOfAdministrativeRegions = $this->administrativeRegionDAO->listAllAdministrativeRegionsAlphabetically();
-
-        //loop for order administrative regions alphabetically
+        
+        orderArrayAdministrativeRegions($arrayOfAdministrativeRegions);
+    }
+    
+    public function orderArrayAdministrativeRegions($arrayOfAdministrativeRegions){ 
+    //loop for order administrative regions alphabetically
+           
         for ($i = 0; $i < (count($arrayOfAdministrativeRegions)); $i++) {
-            $AdministrativeRegionName[] = $arrayOfAdministrativeRegions[$i]->__getRegionName();
-        }
+                 $AdministrativeRegionName[] = $arrayOfAdministrativeRegions[$i]->__getRegionName();
+             }
+             
         return $AdministrativeRegionName;
     }
-
+     
     public function consultAdministrativeRegionById($id) {
         //consults administrative region by its id
 
@@ -53,14 +58,31 @@ class AdministrativeRegionController {
 
     public function consultAdministrativeRegionByName($AdministrativeRegionName) {
         //consults administrative regions by their names
+        $variableReturn;
+        verifyAdministrativeRegionsNameAreString($AdministrativeRegionName);
+        
+        if(variableReturn == 1){
+            $AR = $this->administrativeRegionDAO->consultAdministrativeRegionByName($AdministrativeRegionName);
+            return $AR;
+        
+        }
+    }
+    
+    public function verifyAdministrativeRegionsNameAreString($AdministrativeRegionName) {
+        //consults administrative regions by their names
 
         if (!is_string($AdministrativeRegionName)) {
             throw new EWrongConsult();
+            
+            $variableReturnCorrectly=0;
+            return variableReturnCorrectly;
         }
-        $AR = $this->administrativeRegionDAO->consultAdministrativeRegionByName($AdministrativeRegionName);
-        return $AR;
+        
+        $variableReturnCorrectly=1;
+        return variableReturnCorrectly;
+        
     }
-
+    
     public function countAdministrativeRegionsRegisters() {
         //counts administrative regions' records
         return $this->administrativeRegionDAO-> countAdministrativeRegionsRegisters();

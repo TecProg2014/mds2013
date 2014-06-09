@@ -27,7 +27,14 @@ class AdministrativeRegionControllerTest extends PHPUnit_Framework_Testcase {
         $objectRegionAdmControl = new AdministrativeRegionController();
         $regionAdmInstance->assertObjectHasAttribute('raDAO', $objectRegionAdmControl);
         $regionAdmInstance->assertInstanceOf('RegiaoAdministrativaController', $objectRegionAdmControl);
-        $regionAdmInstance->assertNotEmpty($objectRegionAdmControl->__listAlphabeticallyAllAdministrativeRegions());
+        $regionAdmInstance->assertNotEmpty($objectRegionAdmControl->__listAllAdministrativeRegionsAlphabetically());
+    }
+    
+    public function testOrdenarFuncoesAlfabeticamente() {
+        $objectRegionAdmControl = new AdministrativeRegionController();
+        $regionAdmInstance->assertObjectHasAttribute('raDAO', $objectRegionAdmControl);
+        $regionAdmInstance->assertInstanceOf('RegiaoAdministrativaController', $objectRegionAdmControl);
+        $regionAdmInstance->assertNotEmpty($objectRegionAdmControl->orderArrayAdministrativeRegions());
     }
 
     public function testConsultarPorId() {
@@ -50,6 +57,13 @@ class AdministrativeRegionControllerTest extends PHPUnit_Framework_Testcase {
         $regionAdmInstance->assertObjectHasAttribute('raDAO', $objectRegionAdmControl);
         $regionAdmInstance->assertInstanceOf('RegiaoAdministrativaController', $objectRegionAdmControl);
         $regionAdmInstance->assertInstanceOf('RegiaoAdministrativa', $objectRegionAdmControl->_consultAdministrativeRegionByName('N BAND'));
+    }
+    
+     public function testVerifyAdministrativeRegionsNameAreString() {
+        $objectRegionAdmControl = new AdministrativeRegionController();
+        $regionAdmInstance->assertObjectHasAttribute('raDAO', $objectRegionAdmControl);
+        $regionAdmInstance->assertInstanceOf('RegiaoAdministrativaController', $objectRegionAdmControl);
+        $regionAdmInstance->assertInstanceOf('RegiaoAdministrativa', $objectRegionAdmControl->_verifyAdministrativeRegionsNameAreString('N BAND'));
     }
 
     public function testExceptionConsultarPorNome() {
