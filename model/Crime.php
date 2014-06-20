@@ -5,7 +5,7 @@
   File description: crime model
  */
 
-include_once('/../exceptions/EFalhaLeituraSerieCrime.php');
+include_once('/../exceptions/EFailReadingSerieCrime.php');
 include_once('C:/xampp/htdocs/mds2013/exceptions/ETypeWrong.php');
 
 class Crime {
